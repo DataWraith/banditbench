@@ -27,11 +27,13 @@ uniformly from the \[0, 1\] interval for now.
 - [Bounded Dirichlet Sampling](https://arxiv.org/abs/2111.09724)
 - [EB-TCI](https://arxiv.org/abs/2206.05979)
 - [ϵ-Exploring Thompson Sampling](https://proceedings.mlr.press/v202/jin23b/jin23b.pdf) (PDF)
+- [Garbage In, Reward Out](http://proceedings.mlr.press/v97/kveton19a/kveton19a.pdf) (PDF)
 - [Gradient Bandit](https://arxiv.org/abs/2402.17235)
 - [KL-UCB](https://arxiv.org/abs/1102.2490)
 - [Kullback-Leibler Maillard Sampling](https://arxiv.org/abs/2304.14989)
 - [Multiplier Bootstrap-based Exploration](https://arxiv.org/abs/2302.01543)
 - [Non-Parametric Thompson Sampling](https://proceedings.mlr.press/v117/riou20a.html)
+- [Perturbed-History Exploration](https://arxiv.org/abs/1902.10089)
 - [Thompson Sampling with Virtual Helping Agents (C3)](https://arxiv.org/abs/2209.08197)
 - Thompson Sampling
 - [TS-UCB](https://arxiv.org/abs/2006.06372)
