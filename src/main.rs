@@ -9,7 +9,7 @@ mod bandits;
 use bandits::{
     bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS,
     gradient_bandit::GradientBandit, greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe,
-    npts::NPTS, random::Random, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
+    npts::NPTS, phe::PHE, random::Random, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
     ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms, Bandit,
 };
 
@@ -58,6 +58,7 @@ fn main() {
         Algorithms::KLUCB,
         Algorithms::MBE,
         Algorithms::NPTS,
+        Algorithms::PHE,
         Algorithms::Random,
         Algorithms::TS,
         Algorithms::TSUCB,
@@ -133,6 +134,11 @@ fn main() {
 
                     Algorithms::NPTS => {
                         let bandit = NPTS::new(NUM_ARMS);
+                        evalute_bandit(bandit, &arms)
+                    }
+
+                    Algorithms::PHE => {
+                        let bandit = PHE::new(NUM_ARMS);
                         evalute_bandit(bandit, &arms)
                     }
 

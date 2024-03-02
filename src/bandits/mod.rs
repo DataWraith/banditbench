@@ -10,6 +10,7 @@ pub mod kl_ucb;
 pub mod klms;
 pub mod mbe;
 pub mod npts;
+pub mod phe;
 pub mod random;
 pub mod ts;
 pub mod ts_vha;
@@ -19,21 +20,22 @@ pub mod ucb1_tuned;
 pub mod wr_sda;
 
 pub enum Algorithms {
-    Random,
-    Greedy,
     BDS,
     BGE,
     EBTCI,
+    EpsTS,
     Gradient,
     GradientBaseline,
+    Greedy,
     KLMS,
     KLUCB,
     MBE,
     NPTS,
+    PHE,
+    Random,
     TS,
-    TSVHA,
     TSUCB,
-    EpsTS,
+    TSVHA,
     UCB1,
     UCB1Tuned,
     WRSDA,
@@ -74,6 +76,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
+            Algorithms::PHE => write!(f, "Perturbed History Exploration"),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB => write!(f, "TS-UCB"),
