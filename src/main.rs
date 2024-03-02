@@ -19,7 +19,10 @@ pub const NUM_ARMS: usize = 10;
 pub const NUM_RUNS: usize = 10001; // Odd, to simplify median computation
 
 fn evalute_bandit(mut b: impl Bandit, arms: &[f64]) -> f64 {
-    let mut reward_rng: StdRng = SeedableRng::seed_from_u64(1);
+    let mut reward_rngs: Vec<StdRng> = (1..=arms.len())
+        .map(|i| SeedableRng::seed_from_u64(i as u64))
+        .collect();
+
     let mut mab_rng: StdRng = SeedableRng::seed_from_u64(2);
     let mut total_regret = 0.0;
 
@@ -27,7 +30,7 @@ fn evalute_bandit(mut b: impl Bandit, arms: &[f64]) -> f64 {
 
     for _ in 0..HORIZON {
         let arm = b.pull(&mut mab_rng);
-        let reward = reward_rng.gen_bool(arms[arm]);
+        let reward = reward_rngs[arm].gen_bool(arms[arm]);
         b.update(arm, reward, &mut mab_rng);
         total_regret += best_arm - arms[arm];
     }
