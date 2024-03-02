@@ -71,7 +71,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
-            Algorithms::GIRO => write!(f, "Garbage In Reward Out"),
+            Algorithms::GIRO => write!(f, "Garbage In, Reward Out"),
             Algorithms::Gradient => write!(f, "Gradient Bandit"),
             Algorithms::GradientBaseline => write!(f, "Gradient Bandit (with baseline)"),
             Algorithms::Greedy => write!(f, "Greedy"),
