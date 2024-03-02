@@ -18,12 +18,19 @@ pub const HORIZON: usize = 500;
 pub const NUM_ARMS: usize = 10;
 pub const NUM_RUNS: usize = 10001; // Odd, to simplify median computation
 
-fn evalute_bandit(mut b: impl Bandit, arms: &[f64]) -> f64 {
+struct BanditEvaluation {
+    total_regret: f64,
+    optimal_plays: usize,
+}
+
+fn evalute_bandit(mut b: impl Bandit, arms: &[f64]) -> BanditEvaluation {
     let mut reward_rngs: Vec<StdRng> = (1..=arms.len())
         .map(|i| SeedableRng::seed_from_u64(i as u64))
         .collect();
 
-    let mut mab_rng: StdRng = SeedableRng::seed_from_u64(2);
+    let mut mab_rng: StdRng = SeedableRng::seed_from_u64(1);
+
+    let mut optimal_plays = 0;
     let mut total_regret = 0.0;
 
     let best_arm = arms.iter().max_by_key(|&x| OrderedFloat(*x)).unwrap();
@@ -32,10 +39,18 @@ fn evalute_bandit(mut b: impl Bandit, arms: &[f64]) -> f64 {
         let arm = b.pull(&mut mab_rng);
         let reward = reward_rngs[arm].gen_bool(arms[arm]);
         b.update(arm, reward, &mut mab_rng);
+
         total_regret += best_arm - arms[arm];
+
+        if arms[arm] == *best_arm {
+            optimal_plays += 1;
+        }
     }
 
-    total_regret
+    BanditEvaluation {
+        total_regret,
+        optimal_plays,
+    }
 }
 
 fn main() {
@@ -74,7 +89,7 @@ fn main() {
 
         let start = Instant::now();
 
-        let mut regrets = (SEED..(SEED + NUM_RUNS as u64))
+        let mut evaluations = (SEED..(SEED + NUM_RUNS as u64))
             .into_par_iter()
             .map(|seed| {
                 pbar.inc(1);
@@ -184,30 +199,48 @@ fn main() {
                     }
                 }
             })
-            .collect::<Vec<f64>>();
+            .collect::<Vec<BanditEvaluation>>();
 
         let elapsed = start.elapsed().as_secs_f64();
 
         pbar.finish();
 
-        let mean_regret = regrets.iter().sum::<f64>() / regrets.len() as f64;
+        let mean_regret = evaluations
+            .iter()
+            .map(|eval| eval.total_regret)
+            .sum::<f64>()
+            / evaluations.len() as f64;
+
+        let percent_optimal = 100.0
+            * evaluations
+                .iter()
+                .map(|eval| eval.optimal_plays)
+                .sum::<usize>() as f64
+            / (evaluations.len() * HORIZON) as f64;
 
         // Quick and dirty Median Absolute Deviation computation
-        regrets.sort_by_key(|&x| OrderedFloat(x));
-        let median = regrets[regrets.len() / 2];
-        let mut median_deviation: Vec<f64> = regrets.iter().map(|&x| (x - median).abs()).collect();
+        evaluations.sort_by_key(|x| OrderedFloat(x.total_regret));
+        let median = evaluations[evaluations.len() / 2].total_regret;
+        let mut median_deviation: Vec<f64> = evaluations
+            .iter()
+            .map(|x| (x.total_regret - median).abs())
+            .collect();
         median_deviation.sort_by_key(|&x| OrderedFloat(x));
         let mad = median_deviation[median_deviation.len() / 2];
 
-        results.push((algorithm, mean_regret, mad, elapsed));
+        results.push((algorithm, percent_optimal, mean_regret, mad, elapsed));
     }
 
-    results.sort_by_key(|&(_, mean_regret, _, _)| OrderedFloat(mean_regret));
+    results.sort_by_key(|&(_, _, mean_regret, _, _)| OrderedFloat(mean_regret));
 
-    println!("| Algorithm | Regret (Mean) | Regret (Median Absolute Deviation) | Time |");
-    println!("|---|---:|---:|:--:|");
+    println!(
+        "| Algorithm | % Optimal | Regret (Mean) | Regret (Median Absolute Deviation) | Time |"
+    );
+    println!("|---|---:|---:|---:|:--:|");
 
-    for (name, mean_regret, mad, elapsed) in results.iter() {
-        println!("| {name} | {mean_regret:0.4} | {mad:0.4} | {elapsed:0.2}s |",);
+    for (name, percent_optimal, mean_regret, mad, elapsed) in results.iter() {
+        println!(
+            "| {name} | {percent_optimal:0.2}% | {mean_regret:0.4} | {mad:0.4} | {elapsed:0.2}s |",
+        );
     }
 }
