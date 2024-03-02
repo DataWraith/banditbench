@@ -79,7 +79,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
-            Algorithms::PHE => write!(f, "Perturbed History Exploration"),
+            Algorithms::PHE => write!(f, "Perturbed-History Exploration"),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB => write!(f, "TS-UCB"),
