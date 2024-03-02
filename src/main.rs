@@ -208,6 +208,6 @@ fn main() {
     println!("|---|---:|---:|:--:|");
 
     for (name, mean_regret, mad, elapsed) in results.iter() {
-        println!("| {name} | {mean_regret:0.4} | {mad:0.4} | {elapsed:0.4}s |",);
+        println!("| {name} | {mean_regret:0.4} | {mad:0.4} | {elapsed:0.2}s |",);
     }
 }
