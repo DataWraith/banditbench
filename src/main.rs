@@ -192,7 +192,7 @@ fn main() {
 
     results.sort_by_key(|&(_, mean_regret, _, _)| OrderedFloat(mean_regret));
 
-    println!("| Algorithm | Mean Regret | Regret Median Absolute Deviation | Time |");
+    println!("| Algorithm | Regret (Mean) | Regret (Median Absolute Deviation) | Time |");
     println!("|---|---:|---:|:--:|");
 
     for (name, mean_regret, mad, elapsed) in results.iter() {
