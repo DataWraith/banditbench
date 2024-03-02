@@ -45,23 +45,24 @@ uniformly from the \[0, 1\] interval for now.
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | Regret (Mean) | Regret (Median Absolute Deviation) |  Time   |
 | ----------------------------------------------------------- | ------------: | ---------------------------------: | :-----: |
-| TS-UCB                                                      |       17.7488 |                             3.5854 | 0.9995s |
-| Greedy                                                      |       19.6956 |                             2.4935 | 0.0195s |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |       20.8493 |                             6.6689 | 3.5360s |
-| WR-SDA                                                      |       23.6906 |                             4.9393 | 0.3481s |
-| Multiplier Bootstrap-based Exploration                      |       25.6195 |                             3.5732 | 1.0230s |
-| Thompson Sampling                                           |       28.5425 |                             7.3473 | 0.1284s |
-| KL-UCB                                                      |       29.6736 |                             7.4188 | 1.4303s |
-| ϵ-Exploring Thompson Sampling                               |       29.6957 |                             9.2274 | 0.0308s |
-| UCB1-Tuned                                                  |       31.6907 |                             3.7342 | 0.0501s |
-| Non-Parametric Thompson Sampling                            |       33.6272 |                             7.0889 | 0.9276s |
-| Bounded Dirichlet Sampling                                  |       34.3370 |                             7.2838 | 0.4493s |
-| Perturbed History Exploration                               |       37.8449 |                             5.8309 | 0.1306s |
-| Kullback-Leibler Maillard Sampling                          |       37.9779 |                             8.4980 | 0.1076s |
-| EB-TCI                                                      |       55.9930 |                            16.8330 | 0.0680s |
-| Boltzmann-Gumbel Exploration                                |       67.6782 |                             6.4929 | 0.0706s |
-| UCB1                                                        |       87.2114 |                            10.3016 | 0.0404s |
-| Gradient Bandit (with baseline)                             |      115.2261 |                            12.8419 | 0.0715s |
-| Gradient Bandit                                             |      116.1128 |                            17.7241 | 0.0702s |
-| Random                                                      |      204.1889 |                            30.4253 | 0.0044s |
+| TS-UCB                                                      |       17.7488 |                             3.5854 | 1.1924s |
+| Greedy                                                      |       19.6956 |                             2.4935 | 0.0198s |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |       20.8493 |                             6.6689 | 3.5114s |
+| WR-SDA                                                      |       23.6906 |                             4.9393 | 0.3501s |
+| Multiplier Bootstrap-based Exploration                      |       25.6195 |                             3.5732 | 1.0192s |
+| Thompson Sampling                                           |       28.5425 |                             7.3473 | 0.1296s |
+| KL-UCB                                                      |       29.6736 |                             7.4188 | 1.3950s |
+| ϵ-Exploring Thompson Sampling                               |       29.6957 |                             9.2274 | 0.0306s |
+| UCB1-Tuned                                                  |       31.6907 |                             3.7342 | 0.0491s |
+| Non-Parametric Thompson Sampling                            |       33.6272 |                             7.0889 | 0.9347s |
+| Bounded Dirichlet Sampling                                  |       34.3370 |                             7.2838 | 0.4395s |
+| Perturbed History Exploration                               |       37.8449 |                             5.8309 | 0.1272s |
+| Kullback-Leibler Maillard Sampling                          |       37.9779 |                             8.4980 | 0.1058s |
+| Garbage In Reward Out                                       |       44.7215 |                             4.8564 | 0.1466s |
+| EB-TCI                                                      |       55.9930 |                            16.8330 | 0.0672s |
+| Boltzmann-Gumbel Exploration                                |       67.6782 |                             6.4929 | 0.0675s |
+| UCB1                                                        |       87.2114 |                            10.3016 | 0.0412s |
+| Gradient Bandit (with baseline)                             |      115.2261 |                            12.8419 | 0.0718s |
+| Gradient Bandit                                             |      116.1128 |                            17.7241 | 0.0730s |
+| Random                                                      |      204.1889 |                            30.4253 | 0.0041s |
 <!-- END mdsh -->
