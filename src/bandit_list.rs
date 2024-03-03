@@ -1,15 +1,17 @@
 pub use crate::bandits::{
-    bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS, giro::GIRO,
-    gradient_bandit::GradientBandit, greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe,
-    npts::NPTS, phe::PHE, random::Random, reboot::ReBoot, reboot::ReBootSlow, ts::TS,
-    ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1, ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms,
+    bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS,
+    forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
+    greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
+    reboot::ReBoot, reboot::ReBootSlow, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
+    ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 28] = [
+pub const ALL_BANDITS: [Algorithms; 29] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
     Algorithms::EpsTS,
+    Algorithms::ForcedExploration,
     Algorithms::GIRO {
         num_pseudo_rewards: 1.0,
     },

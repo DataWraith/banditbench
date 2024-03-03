@@ -4,6 +4,7 @@ pub mod bge;
 pub mod dirichlet_sampling;
 pub mod ebtci;
 pub mod eps_ts;
+pub mod forced_exploration;
 pub mod giro;
 pub mod gradient_bandit;
 pub mod greedy;
@@ -26,6 +27,7 @@ pub enum Algorithms {
     BGE,
     EBTCI,
     EpsTS,
+    ForcedExploration,
     GIRO { num_pseudo_rewards: f64 },
     Gradient,
     GradientBaseline,
@@ -75,6 +77,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
+            Algorithms::ForcedExploration => write!(f, "Forced Exploration"),
             Algorithms::GIRO { num_pseudo_rewards } => {
                 write!(f, "Garbage In, Reward Out (a={:.2})", num_pseudo_rewards)
             }
