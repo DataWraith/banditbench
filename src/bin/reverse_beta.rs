@@ -7,7 +7,7 @@ pub const NUM_RUNS: usize = 10001; // Odd, to simplify median computation
 use banditbench::evaluate::evaluate_all_bandits;
 use rand_distr::Beta;
 
-fn uniform_arms(seed: u64) -> Vec<f64> {
+fn reversed_beta_arms(seed: u64) -> Vec<f64> {
     let mut rng = rand::rngs::StdRng::seed_from_u64(seed);
     let dist = Beta::new(8.0, 1.0).unwrap();
 
@@ -15,5 +15,5 @@ fn uniform_arms(seed: u64) -> Vec<f64> {
 }
 
 fn main() {
-    evaluate_all_bandits(NUM_RUNS, uniform_arms, HORIZON)
+    evaluate_all_bandits(NUM_RUNS, reversed_beta_arms, HORIZON)
 }
