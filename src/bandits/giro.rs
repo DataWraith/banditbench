@@ -5,18 +5,18 @@ use rand_distr::Binomial;
 use super::Arm;
 use super::Bandit;
 
-pub const NUM_PSEUDO_REWARDS: f64 = 1.0 / 10.0;
-
 pub struct GIRO {
     arms: Vec<Arm>,
     t: usize,
+    num_pseudo_rewards: f64,
 }
 
 impl GIRO {
-    pub fn new(num_arms: usize) -> Self {
+    pub fn new(num_arms: usize, num_pseudo_rewards: f64) -> Self {
         GIRO {
             t: 0,
             arms: vec![Arm::default(); num_arms],
+            num_pseudo_rewards,
         }
     }
 }
@@ -29,7 +29,7 @@ impl Bandit for GIRO {
 
         (0..self.arms.len())
             .max_by_key(|i| {
-                let a = NUM_PSEUDO_REWARDS;
+                let a = self.num_pseudo_rewards;
                 let s = self.arms[*i].n() as f64;
 
                 let ceil_prob = (a * s) - (a * s).floor();

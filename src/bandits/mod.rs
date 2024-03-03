@@ -26,7 +26,7 @@ pub enum Algorithms {
     BGE,
     EBTCI,
     EpsTS,
-    GIRO,
+    GIRO { num_pseudo_rewards: f64 },
     Gradient,
     GradientBaseline,
     Greedy,
@@ -35,9 +35,10 @@ pub enum Algorithms {
     MBE,
     NPTS,
     OptimisticReBoot,
-    PHE,
+    PHE { perturbation_scale: f64 },
     Random,
     ReBoot,
+    ReBootSlow,
     TS,
     TSUCB { samples: usize },
     TSVHA,
@@ -74,7 +75,9 @@ impl std::fmt::Display for Algorithms {
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
-            Algorithms::GIRO => write!(f, "Garbage In, Reward Out"),
+            Algorithms::GIRO { num_pseudo_rewards } => {
+                write!(f, "Garbage In, Reward Out (a={:.2})", num_pseudo_rewards)
+            }
             Algorithms::Gradient => write!(f, "Gradient Bandit"),
             Algorithms::GradientBaseline => write!(f, "Gradient Bandit (with baseline)"),
             Algorithms::Greedy => write!(f, "Greedy"),
@@ -82,9 +85,14 @@ impl std::fmt::Display for Algorithms {
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
-            Algorithms::PHE => write!(f, "Perturbed-History Exploration"),
+            Algorithms::PHE { perturbation_scale } => write!(
+                f,
+                "Perturbed-History Exploration (a={})",
+                perturbation_scale
+            ),
             Algorithms::ReBoot => write!(f, "ReBoot"),
             Algorithms::OptimisticReBoot => write!(f, "ReBoot (optimistic init)"),
+            Algorithms::ReBootSlow => write!(f, "ReBoot (naive impl.)"),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB { samples } => write!(f, "TS-UCB ({} samples)", samples),

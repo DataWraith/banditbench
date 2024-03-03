@@ -56,8 +56,8 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
-                    Algorithms::GIRO => {
-                        let bandit = GIRO::new(num_arms);
+                    Algorithms::GIRO { num_pseudo_rewards } => {
+                        let bandit = GIRO::new(num_arms, *num_pseudo_rewards);
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
@@ -106,8 +106,13 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
-                    Algorithms::PHE => {
-                        let bandit = PHE::new(num_arms);
+                    Algorithms::ReBootSlow => {
+                        let bandit = ReBootSlow::new(num_arms);
+                        evaluate_bandit(bandit, &arms, horizon, seed)
+                    }
+
+                    Algorithms::PHE { perturbation_scale } => {
+                        let bandit = PHE::new(num_arms, *perturbation_scale);
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
