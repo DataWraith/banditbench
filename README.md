@@ -249,9 +249,17 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 
 ## Remarks
 
-* Greedy does surprisingly well (on average) over short time horizons, and the algorithms that have greedy components
-  (e.g., EB-TCI, ϵ-Exploring Thompson Sampling) do well on the `hard` instances.
-* ReBoot is very fast, given its performance. It does badly on the `beta` experiment though, not sure why.
-* TS-UCB appears to be best overall; TS-VHA is close, but much slower and somewhat less consistent (higher MAD)
+* Greedy does surprisingly well (on average) over short time horizons, and the
+  algorithms that have greedy components (e.g., EB-TCI, ϵ-Exploring Thompson
+  Sampling) do well on the `hard` instances.
+
+* ReBoot is very attractive due to its low computation time, but it fails
+  the bandit instances with Beta(1, 8)-distributed means. It is likely that I made
+  a mistake in interpreting the formulas in the paper (`r` seems to be missing
+  from my implementation, but I'm not sure where to add it) because it does not
+  appear to explore adequately. As a quick-fix, I added a variant with optimistic
+  initialization (one pseudo-reward of 1.0) that seems to be doing better.
+
 * WR-SDA does better than BDS, which is interesting because it is a predecessor of BDS
+
 * My KL-UCB implementation does relatively poorly, which is a bit strange. Maybe a bug I missed?
