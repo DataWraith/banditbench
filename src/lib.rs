@@ -12,12 +12,17 @@ pub struct BanditEvaluation {
     optimal_plays: usize,
 }
 
-pub fn evalute_bandit(mut b: impl Bandit, arms: &[f64], horizon: usize) -> BanditEvaluation {
+pub fn evaluate_bandit(
+    mut b: impl Bandit,
+    arms: &[f64],
+    horizon: usize,
+    seed: u64,
+) -> BanditEvaluation {
     let mut reward_rngs: Vec<StdRng> = (1..=arms.len())
         .map(|i| SeedableRng::seed_from_u64(i as u64))
         .collect();
 
-    let mut mab_rng: StdRng = SeedableRng::seed_from_u64(1);
+    let mut mab_rng: StdRng = SeedableRng::seed_from_u64(seed);
 
     let mut optimal_plays = 0;
     let mut total_regret = 0.0;

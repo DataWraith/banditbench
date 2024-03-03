@@ -6,7 +6,7 @@ use std::time::Instant;
 use crate::BanditEvaluation;
 
 use super::bandit_list::*;
-use super::evalute_bandit;
+use super::evaluate_bandit;
 
 pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, horizon: usize) {
     let mut results = vec![];
@@ -28,110 +28,112 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
 
         let mut evaluations = instances
             .into_par_iter()
-            .map(|arms| {
+            .enumerate()
+            .map(|(i, arms)| {
                 pbar.inc(1);
 
                 let num_arms = arms.len();
+                let seed = (i + 1) as u64;
 
                 match algorithm {
                     Algorithms::BDS => {
                         let bandit = BDS::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::BGE => {
                         let bandit = BGE::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::EBTCI => {
                         let bandit = EBTCI::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::EpsTS => {
                         let bandit = EpsTS::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::GIRO => {
                         let bandit = GIRO::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::Gradient => {
                         let bandit = GradientBandit::new(num_arms, 0.1, false);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::GradientBaseline => {
                         let bandit = GradientBandit::new(num_arms, 0.1, true);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::Greedy => {
                         let bandit = Greedy::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::KLMS => {
                         let bandit = KLMS::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::KLUCB => {
                         let bandit = KLUCB::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::MBE => {
                         let bandit = Mbe::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::NPTS => {
                         let bandit = NPTS::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::PHE => {
                         let bandit = PHE::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::Random => {
                         let bandit = Random::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::TS => {
                         let bandit = TS::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::TSVHA => {
                         let bandit = TSVHA::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::TSUCB => {
                         let bandit = TSUCB::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::UCB1 => {
                         let bandit = UCB1::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::UCB1Tuned => {
                         let bandit = UCB1Tuned::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
                     Algorithms::WRSDA => {
                         let bandit = WRSDA::new(num_arms);
-                        evalute_bandit(bandit, &arms, horizon)
+                        evaluate_bandit(bandit, &arms, horizon, seed)
                     }
                 }
             })
