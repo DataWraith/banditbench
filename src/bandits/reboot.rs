@@ -4,7 +4,7 @@ use rand_distr::Normal;
 
 use super::Bandit;
 
-#[derive(Clone, Default)]
+#[derive(Default, Clone)]
 struct ReBootArm {
     mean: f64,
     sum_of_squares: f64,
@@ -17,11 +17,21 @@ pub struct ReBoot {
 }
 
 impl ReBoot {
-    pub fn new(num_arms: usize) -> Self {
-        ReBoot {
-            t: 0,
-            arms: vec![ReBootArm::default(); num_arms],
-        }
+    pub fn new(num_arms: usize, optimistic_init: bool) -> Self {
+        let arms = if optimistic_init {
+            vec![
+                ReBootArm {
+                    mean: 1.0,
+                    sum_of_squares: 1.0,
+                    s: 1,
+                };
+                num_arms
+            ]
+        } else {
+            vec![ReBootArm::default(); num_arms]
+        };
+
+        ReBoot { t: 0, arms }
     }
 }
 

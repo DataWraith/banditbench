@@ -5,15 +5,15 @@ use rand_distr::Beta;
 use super::Arm;
 use super::Bandit;
 
-const NUM_SAMPLES: usize = 10;
-
 pub struct TSUCB {
     arms: Vec<Arm>,
+    num_samples: usize,
 }
 
 impl TSUCB {
-    pub fn new(num_arms: usize) -> Self {
+    pub fn new(num_arms: usize, num_samples: usize) -> Self {
         TSUCB {
+            num_samples,
             arms: vec![Arm::default(); num_arms],
         }
     }
@@ -23,7 +23,7 @@ impl Bandit for TSUCB {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let mut fts = 0f32;
 
-        for _ in 0..NUM_SAMPLES {
+        for _ in 0..self.num_samples {
             let mut best_sample = f32::NEG_INFINITY;
 
             for i in 0..self.arms.len() {
@@ -41,7 +41,7 @@ impl Bandit for TSUCB {
             fts += best_sample;
         }
 
-        let ft = fts / NUM_SAMPLES as f32;
+        let ft = fts / self.num_samples as f32;
 
         (0..self.arms.len())
             .rev()

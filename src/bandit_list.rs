@@ -5,7 +5,7 @@ pub use crate::bandits::{
     ucb1::UCB1, ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 21] = [
+pub const ALL_BANDITS: [Algorithms; 24] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -19,10 +19,13 @@ pub const ALL_BANDITS: [Algorithms; 21] = [
     Algorithms::MBE,
     Algorithms::NPTS,
     Algorithms::PHE,
+    Algorithms::OptimisticReBoot,
     Algorithms::ReBoot,
     Algorithms::Random,
     Algorithms::TS,
-    Algorithms::TSUCB,
+    Algorithms::TSUCB { samples: 1 },
+    Algorithms::TSUCB { samples: 10 },
+    Algorithms::TSUCB { samples: 100 },
     Algorithms::TSVHA,
     Algorithms::UCB1,
     Algorithms::UCB1Tuned,
