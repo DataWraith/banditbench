@@ -15,6 +15,7 @@ pub mod npts;
 pub mod phe;
 pub mod random;
 pub mod reboot;
+pub mod sts;
 pub mod ts;
 pub mod ts_vha;
 pub mod tsucb;
@@ -41,6 +42,7 @@ pub enum Algorithms {
     Random,
     ReBoot,
     ReBootSlow,
+    STS { epsilon: f64 },
     TS,
     TSUCB { samples: usize },
     TSVHA,
@@ -97,6 +99,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::OptimisticReBoot => write!(f, "ReBoot (optimistic init)"),
             Algorithms::ReBootSlow => write!(f, "ReBoot (naive impl.)"),
             Algorithms::Random => write!(f, "Random"),
+            Algorithms::STS { epsilon } => write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon),
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB { samples } => write!(f, "TS-UCB ({} samples)", samples),
             Algorithms::WRSDA => write!(f, "WR-SDA"),

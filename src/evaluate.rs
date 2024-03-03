@@ -126,6 +126,11 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
+                    Algorithms::STS { epsilon } => {
+                        let bandit = STS::new(num_arms, *epsilon);
+                        evaluate_bandit(bandit, &arms, horizon, seed)
+                    }
+
                     Algorithms::TS => {
                         let bandit = TS::new(num_arms);
                         evaluate_bandit(bandit, &arms, horizon, seed)

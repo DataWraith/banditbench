@@ -2,11 +2,11 @@ pub use crate::bandits::{
     bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS,
     forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
     greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
-    reboot::ReBoot, reboot::ReBootSlow, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
+    reboot::ReBoot, reboot::ReBootSlow, sts::STS, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
     ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 29] = [
+pub const ALL_BANDITS: [Algorithms; 32] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -38,6 +38,9 @@ pub const ALL_BANDITS: [Algorithms; 29] = [
     Algorithms::ReBoot,
     Algorithms::ReBootSlow,
     Algorithms::Random,
+    Algorithms::STS { epsilon: 0.005 },
+    Algorithms::STS { epsilon: 0.01 },
+    Algorithms::STS { epsilon: 0.05 },
     Algorithms::TS,
     Algorithms::TSUCB { samples: 1 },
     Algorithms::TSUCB { samples: 10 },
