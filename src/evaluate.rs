@@ -172,7 +172,7 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
     results.sort_by_key(|&(_, _, mean_regret, _, _)| OrderedFloat(mean_regret));
 
     println!(
-        "| Algorithm | %-Optimal | Regret (Mean) | Regret (Mdian Absolute Deviation) | Time |"
+        "| Algorithm | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) | Time |"
     );
     println!("|---|---:|---:|---:|:--:|");
 
