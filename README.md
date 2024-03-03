@@ -43,7 +43,7 @@ uniformly from the \[0, 1\] interval for now.
 
 ## Results
 
-<!-- `> cargo run --release` -->
+<!-- `> cargo run --release --bin experiment1` -->
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | % Optimal | Regret (Mean) | Regret (Median Absolute Deviation) | Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :---: |

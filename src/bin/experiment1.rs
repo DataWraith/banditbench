@@ -5,8 +5,7 @@ use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rayon::prelude::*;
 
-mod bandits;
-use bandits::{
+use banditbench::bandits::{
     bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS, giro::GIRO,
     gradient_bandit::GradientBandit, greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe,
     npts::NPTS, phe::PHE, random::Random, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
