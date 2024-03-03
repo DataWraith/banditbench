@@ -36,9 +36,10 @@ impl Bandit for ReBoot {
                 let s = self.arms[*i].s as f64;
                 let y = self.arms[*i].mean;
                 let rss = self.arms[*i].sum_of_squares - s * y * y;
+
                 let d = Normal::new(y, s.powi(-2) * rss).unwrap();
 
-                OrderedFloat(d.sample(&mut rng))
+                (OrderedFloat(d.sample(&mut rng)), rng.gen::<u32>())
             })
             .unwrap()
     }
