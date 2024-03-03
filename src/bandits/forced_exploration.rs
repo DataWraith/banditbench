@@ -17,7 +17,7 @@ impl ForcedExploration {
             arms: vec![Arm::default(); num_arms],
             p: vec![0; num_arms],
             flags: vec![false; num_arms],
-            r: 0,
+            r: 1,
         }
     }
 }
