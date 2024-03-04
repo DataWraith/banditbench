@@ -253,55 +253,40 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| TS-UCB (100 samples)                                        |    58.71% |        7.4481 |                             2.1886 | 12.18s |
-| TS-UCB (10 samples)                                         |    57.79% |        7.8999 |                             1.9148 | 1.25s  |
-| TS-UCB (1 samples)                                          |    57.53% |        8.3487 |                             1.7839 | 0.14s  |
-| ReBoot (optimistic init)                                    |    54.29% |        8.6730 |                             1.5690 | 0.05s  |
-| ReBoot                                                      |    53.82% |        8.7563 |                             1.5834 | 0.05s  |
-| Greedy                                                      |    53.46% |        8.8426 |                             1.5877 | 0.03s  |
-| WR-SDA                                                      |    52.20% |       10.4022 |                             2.8202 | 0.21s  |
-| ϵ-Exploring Thompson Sampling                               |    44.32% |       11.1621 |                             4.2373 | 0.04s  |
-| KL-UCB                                                      |    51.72% |       11.7599 |                             3.6028 | 1.30s  |
-| Thompson Sampling                                           |    48.36% |       12.6305 |                             2.8003 | 0.14s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |    36.88% |       12.6832 |                             4.2582 | 2.47s  |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |    48.28% |       12.7174 |                             2.8361 | 0.20s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |    46.43% |       13.2106 |                             2.8578 | 0.19s  |
-| Non-Parametric Thompson Sampling                            |    47.42% |       13.7743 |                             4.3390 | 0.74s  |
-| Bounded Dirichlet Sampling                                  |    45.50% |       14.7444 |                             4.6974 | 0.40s  |
-| Kullback-Leibler Maillard Sampling                          |    43.49% |       15.3254 |                             5.1663 | 0.12s  |
-| Multiplier Bootstrap-based Exploration                      |    37.02% |       17.2756 |                             2.6160 | 1.08s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |    27.59% |       18.2837 |                             5.3096 | 0.19s  |
-| EB-TCI                                                      |    35.83% |       20.0130 |                             5.2114 | 0.08s  |
-| UCB1-Tuned                                                  |    25.26% |       23.1257 |                             3.4924 | 0.07s  |
-| Perturbed-History Exploration (a=1.1)                       |    24.23% |       25.1162 |                             4.2813 | 0.18s  |
-| Garbage In, Reward Out (a=0.10)                             |    25.73% |       25.2640 |                             4.0182 | 0.16s  |
-| Garbage In, Reward Out (a=0.33)                             |    21.04% |       28.6989 |                             4.8275 | 0.21s  |
-| Forced Exploration                                          |    31.25% |       30.1683 |                             5.7161 | 0.03s  |
-| Perturbed-History Exploration (a=2.1)                       |    18.80% |       30.7373 |                             5.2197 | 0.20s  |
-| Garbage In, Reward Out (a=1.00)                             |    17.31% |       32.8438 |                             5.6154 | 0.22s  |
-| Boltzmann-Gumbel Exploration                                |    17.50% |       33.1221 |                             5.5971 | 0.09s  |
-| UCB1                                                        |    14.58% |       36.5304 |                             6.3337 | 0.05s  |
-| ReBoot (naive impl.)                                        |    14.16% |       38.2208 |                             6.2280 | 0.43s  |
-| Gradient Bandit                                             |    13.75% |       39.9529 |                             8.1144 | 0.09s  |
-| Gradient Bandit (with baseline)                             |    13.20% |       41.3526 |                             7.4311 | 0.08s  |
-| Random                                                      |     9.97% |       49.8281 |                             9.9126 | 0.01s  |
+| TS-UCB (100 samples)                                        |    58.71% |        7.4481 |                             2.1886 | 55.16s |
+| TS-UCB (10 samples)                                         |    57.79% |        7.8999 |                             1.9148 | 5.73s  |
+| TS-UCB (1 samples)                                          |    57.53% |        8.3487 |                             1.7839 | 0.62s  |
+| ReBoot (r=0.50)                                             |    54.48% |        8.7058 |                             1.5673 | 0.20s  |
+| Greedy                                                      |    53.46% |        8.8426 |                             1.5877 | 0.12s  |
+| WR-SDA                                                      |    52.20% |       10.4022 |                             2.8202 | 0.92s  |
+| ReBoot (r=0.90)                                             |    52.83% |       10.6292 |                             1.9695 | 0.22s  |
+| ϵ-Exploring Thompson Sampling                               |    44.32% |       11.1621 |                             4.2373 | 0.21s  |
+| KL-UCB                                                      |    51.72% |       11.7599 |                             3.6028 | 6.32s  |
+| ReBoot (r=1.00)                                             |    50.30% |       12.0744 |                             1.9674 | 0.21s  |
+| Thompson Sampling                                           |    48.36% |       12.6305 |                             2.8003 | 0.62s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |    36.88% |       12.6832 |                             4.2582 | 13.42s |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |    48.28% |       12.7174 |                             2.8361 | 0.88s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |    46.43% |       13.2106 |                             2.8578 | 0.92s  |
+| Non-Parametric Thompson Sampling                            |    47.42% |       13.7743 |                             4.3390 | 4.36s  |
+| Bounded Dirichlet Sampling                                  |    45.50% |       14.7444 |                             4.6974 | 2.34s  |
+| Kullback-Leibler Maillard Sampling                          |    43.49% |       15.3254 |                             5.1663 | 0.53s  |
+| Multiplier Bootstrap-based Exploration                      |    37.02% |       17.2756 |                             2.6160 | 5.80s  |
+| ReBoot (r=1.50)                                             |    39.51% |       17.8701 |                             2.5999 | 0.21s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |    27.59% |       18.2837 |                             5.3096 | 0.92s  |
+| EB-TCI                                                      |    35.83% |       20.0130 |                             5.2114 | 0.43s  |
+| UCB1-Tuned                                                  |    25.26% |       23.1257 |                             3.4924 | 0.28s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |    17.38% |       25.0755 |                             9.0207 | 0.92s  |
+| Perturbed-History Exploration (a=1.1)                       |    24.23% |       25.1162 |                             4.2813 | 0.91s  |
+| Garbage In, Reward Out (a=0.10)                             |    25.73% |       25.2640 |                             4.0182 | 0.92s  |
+| Garbage In, Reward Out (a=0.33)                             |    21.04% |       28.6989 |                             4.8275 | 1.30s  |
+| Forced Exploration                                          |    31.25% |       30.1683 |                             5.7161 | 0.12s  |
+| Perturbed-History Exploration (a=2.1)                       |    18.80% |       30.7373 |                             5.2197 | 1.02s  |
+| Garbage In, Reward Out (a=1.00)                             |    17.31% |       32.8438 |                             5.6154 | 1.52s  |
+| Boltzmann-Gumbel Exploration                                |    17.50% |       33.1221 |                             5.5971 | 0.47s  |
+| UCB1                                                        |    14.58% |       36.5304 |                             6.3337 | 0.16s  |
+| Gradient Bandit                                             |    13.75% |       39.9529 |                             8.1144 | 0.46s  |
+| Gradient Bandit (with baseline)                             |    13.20% |       41.3526 |                             7.4311 | 0.43s  |
+| Random                                                      |     9.97% |       49.8281 |                             9.9126 | 0.04s  |
 <!-- END mdsh -->
 
 </details>
-
-## Remarks
-
-* Greedy does surprisingly well (on average) over short time horizons, and the
-  algorithms that have greedy components (e.g., EB-TCI, ϵ-Exploring Thompson
-  Sampling) do well on the `hard` instances.
-
-* ReBoot is very attractive due to its low computation time, but it fails
-  the bandit instances with Beta(1, 8)-distributed means. It is likely that I made
-  a mistake in interpreting the formulas in the paper (`r` seems to be missing
-  from my implementation, but I'm not sure where to add it) because it does not
-  appear to explore adequately. As a quick-fix, I added a variant with optimistic
-  initialization (one pseudo-reward of 1.0) that seems to be doing better.
-
-* WR-SDA does better than BDS, which is interesting because it is a predecessor of BDS
-
-* My KL-UCB implementation does relatively poorly, which is a bit strange. Maybe a bug I missed?
