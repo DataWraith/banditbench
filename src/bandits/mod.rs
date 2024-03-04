@@ -37,11 +37,9 @@ pub enum Algorithms {
     KLUCB,
     MBE,
     NPTS,
-    OptimisticReBoot,
     PHE { perturbation_scale: f64 },
     Random,
-    ReBoot,
-    ReBootSlow,
+    ReBoot { r: f64 },
     STS { epsilon: f64 },
     TS,
     TSUCB { samples: usize },
@@ -95,11 +93,11 @@ impl std::fmt::Display for Algorithms {
                 "Perturbed-History Exploration (a={})",
                 perturbation_scale
             ),
-            Algorithms::ReBoot => write!(f, "ReBoot"),
-            Algorithms::OptimisticReBoot => write!(f, "ReBoot (optimistic init)"),
-            Algorithms::ReBootSlow => write!(f, "ReBoot (naive impl.)"),
+            Algorithms::ReBoot { r }=> write!(f, "ReBoot (r={:.2})", r),
             Algorithms::Random => write!(f, "Random"),
-            Algorithms::STS { epsilon } => write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon),
+            Algorithms::STS { epsilon } => {
+                write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon)
+            }
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB { samples } => write!(f, "TS-UCB ({} samples)", samples),
             Algorithms::WRSDA => write!(f, "WR-SDA"),

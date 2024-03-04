@@ -101,18 +101,8 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
-                    Algorithms::OptimisticReBoot => {
-                        let bandit = ReBoot::new(num_arms, true);
-                        evaluate_bandit(bandit, &arms, horizon, seed)
-                    }
-
-                    Algorithms::ReBoot => {
-                        let bandit = ReBoot::new(num_arms, false);
-                        evaluate_bandit(bandit, &arms, horizon, seed)
-                    }
-
-                    Algorithms::ReBootSlow => {
-                        let bandit = ReBootSlow::new(num_arms);
+                    Algorithms::ReBoot { r } => {
+                        let bandit = ReBoot::new(num_arms, *r);
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
