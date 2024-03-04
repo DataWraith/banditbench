@@ -39,8 +39,14 @@ impl Bandit for ReBoot {
                 let y = self.arms[*i].mean;
                 let rss = self.arms[*i].sum_of_squares - s * y * y;
 
-                // Variance of a bernoulli distribution is at most 1/4
-                let var = 1.0 / 4f64;
+                let var = if y == 0.0 || y == 1.0 {
+                    // Variance of a bernoulli distribution is at most 1/4
+                    1.0 / 4f64
+                } else {
+                    y * (1.0 - y)
+                    //self.arms[*i].sum_of_squares / s - y.powi(2)
+                };
+
                 let std = var.sqrt();
                 let sigma_a = std * self.r;
                 let prss = 2.0 * (2.0 + s) * sigma_a.powi(2);
