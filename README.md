@@ -62,7 +62,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ReBoot (r=0.90)                                             |    70.89% |       19.0026 |                             2.8707 | 0.21s  |
 | ReBoot (r=1.00)                                             |    70.75% |       19.6511 |                             2.9337 | 0.21s  |
 | Greedy                                                      |    67.48% |       19.7483 |                             2.4973 | 0.11s  |
-| TS-UCB (1 samples)                                          |    72.28% |       19.9767 |                             5.3785 | 0.81s  |
+| TS-UCB (1 sample)                                           |    72.28% |       19.9767 |                             5.3785 | 0.81s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |    63.36% |       21.1298 |                             6.2710 | 25.17s |
 | WR-SDA                                                      |    67.66% |       23.8199 |                             5.0460 | 1.64s  |
 | Multiplier Bootstrap-based Exploration                      |    67.82% |       26.0614 |                             3.6393 | 5.98s  |
@@ -121,7 +121,7 @@ This experiment was taken from the GIRO paper.
 | TS-UCB (10 samples)                                         |    45.12% |       28.1337 |                             6.0061 | 6.77s  |
 | ϵ-Exploring Thompson Sampling                               |    41.08% |       30.8109 |                             9.0357 | 0.17s  |
 | Multiplier Bootstrap-based Exploration                      |    42.47% |       30.9818 |                             6.6402 | 5.97s  |
-| TS-UCB (1 samples)                                          |    42.42% |       31.6765 |                             6.1443 | 0.70s  |
+| TS-UCB (1 sample)                                           |    42.42% |       31.6765 |                             6.1443 | 0.70s  |
 | ReBoot (r=1.50)                                             |    42.27% |       31.7111 |                             6.1746 | 0.26s  |
 | WR-SDA                                                      |    38.17% |       34.3574 |                             7.8687 | 2.57s  |
 | ReBoot (r=1.70)                                             |    39.81% |       35.3730 |                             6.1512 | 0.25s  |
@@ -181,7 +181,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |    11.45% |        4.4273 |                             0.2600 | 4.66s  |
 | WR-SDA                                                      |    11.45% |        4.4275 |                             0.3200 | 1.75s  |
 | ReBoot (r=1.70)                                             |    11.28% |        4.4361 |                             0.3300 | 0.26s  |
-| TS-UCB (1 samples)                                          |    11.21% |        4.4394 |                             0.4300 | 0.78s  |
+| TS-UCB (1 sample)                                           |    11.21% |        4.4394 |                             0.4300 | 0.78s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |    11.17% |        4.4414 |                             0.4200 | 0.97s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |    11.16% |        4.4418 |                             0.4100 | 0.96s  |
 | Non-Parametric Thompson Sampling                            |    11.16% |        4.4418 |                             0.4000 | 4.49s  |
@@ -228,7 +228,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Multiplier Bootstrap-based Exploration                      |    54.92% |       25.7531 |                             5.7460 | 6.70s  |
 | TS-UCB (10 samples)                                         |    54.99% |       26.7554 |                             4.4802 | 7.73s  |
 | ReBoot (r=1.70)                                             |    54.15% |       27.8226 |                             5.3817 | 0.29s  |
-| TS-UCB (1 samples)                                          |    52.72% |       29.8275 |                             5.0292 | 0.92s  |
+| TS-UCB (1 sample)                                           |    52.72% |       29.8275 |                             5.0292 | 0.92s  |
 | ReBoot (r=0.50)                                             |    44.19% |       30.2711 |                            12.3522 | 0.32s  |
 | ϵ-Exploring Thompson Sampling                               |    44.70% |       33.6912 |                            12.4300 | 0.17s  |
 | UCB1-Tuned                                                  |    48.78% |       34.1720 |                             5.7265 | 0.34s  |
@@ -275,7 +275,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
 | TS-UCB (100 samples)                                        |    58.71% |        7.4481 |                             2.1886 | 70.31s |
 | TS-UCB (10 samples)                                         |    57.79% |        7.8999 |                             1.9148 | 7.11s  |
-| TS-UCB (1 samples)                                          |    57.53% |        8.3487 |                             1.7839 | 0.76s  |
+| TS-UCB (1 sample)                                           |    57.53% |        8.3487 |                             1.7839 | 0.76s  |
 | Vanilla Residual Bootstrap (init=1)                         |    54.29% |        8.6730 |                             1.5690 | 0.24s  |
 | ReBoot (r=0.50)                                             |    53.85% |        8.7544 |                             1.5784 | 0.25s  |
 | Vanilla Residual Bootstrap (init=0)                         |    53.82% |        8.7563 |                             1.5834 | 0.23s  |
@@ -313,3 +313,36 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 <!-- END mdsh -->
 
 </details>
+
+## Notes / Conclusions
+
+- Keep in mind that the experiments were on the Bernoulli Bandit with a short
+  horizon only. Many of the algorithms also work on other kinds of bandits and
+  may rank differently there.
+
+- TS-UCB seems to be the best algorithm overall; when extending the time horizon
+  beyond 500 steps (not shown above), it almost always comes out on top, but
+  even on short horizons it does relatively well. It is also very flexible with
+  regard to the number of samples, and thus the amount of time it takes to run it.
+
+- ReBoot seems to work well on longer horizons, though it seems hard to tune
+  for shorter ones; I may have misunderstood how it is supposed to be implemented
+  though.
+
+  The paper doesn't specify what exactly the `sigma_a` parameter is, for
+  example. Do we need to set that as a hyperparameter or, as I have done, do we
+  estimate the standard deviation from rewards received thus far and inflate
+  them with `r`?
+
+- As mentioned in the ReBoot paper, the Vanilla Residual Bootstrap does not work
+  well on longer horizons, though it does seem to do fairly well on the shorter
+  horizons tested here, especially with optimistic initialization.
+
+- Greedy algorithms seem to do well on a short horizon in general, but fall
+  behind after a few hundred steps.
+
+- ϵ-Exploring Thompson Sampling seems to match or exceed Thompson Sampling
+  while being computationally much lighter.
+
+- I have probably made mistakes while translating the formulas from the papers
+  into code – KL-UCB, PHE, GIRO, etc. are doing much worse than I expected.
