@@ -43,13 +43,10 @@ impl Bandit for ReBoot {
                     // Variance of a bernoulli distribution is at most 1/4
                     1.0 / 4f64
                 } else {
-                    y * (1.0 - y)
-                    //self.arms[*i].sum_of_squares / s - y.powi(2)
+                    self.arms[*i].sum_of_squares / s - y.powi(2)
                 };
 
-                let std = var.sqrt();
-                let sigma_a = std * self.r;
-                let prss = 2.0 * (2.0 + s) * sigma_a.powi(2);
+                let prss = 2.0 * self.r * self.r * (2.0 + s) * var;
 
                 let d = Normal::new(y, (1.0 / (s + 2.0).powi(2)) * (rss + prss)).unwrap();
 
