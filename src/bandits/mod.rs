@@ -21,6 +21,7 @@ pub mod ts_vha;
 pub mod tsucb;
 pub mod ucb1;
 pub mod ucb1_tuned;
+pub mod vresboot;
 pub mod wr_sda;
 
 pub enum Algorithms {
@@ -46,6 +47,7 @@ pub enum Algorithms {
     TSVHA,
     UCB1,
     UCB1Tuned,
+    VResBoot { init: usize },
     WRSDA,
 }
 
@@ -93,20 +95,23 @@ impl std::fmt::Display for Algorithms {
                 "Perturbed-History Exploration (a={})",
                 perturbation_scale
             ),
-            Algorithms::ReBoot { r }=> write!(f, "ReBoot (r={:.2})", r),
+            Algorithms::ReBoot { r } => write!(f, "ReBoot (r={:.2})", r),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::STS { epsilon } => {
                 write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon)
             }
             Algorithms::TS => write!(f, "Thompson Sampling"),
             Algorithms::TSUCB { samples } => write!(f, "TS-UCB ({} samples)", samples),
-            Algorithms::WRSDA => write!(f, "WR-SDA"),
             Algorithms::TSVHA => write!(
                 f,
                 "Thompson Sampling with Virtual Helping Agents (Combiner C3)"
             ),
             Algorithms::UCB1 => write!(f, "UCB1"),
             Algorithms::UCB1Tuned => write!(f, "UCB1-Tuned"),
+            Algorithms::VResBoot { init } => {
+                write!(f, "Vanilla Residual Bootstrap (init={})", init)
+            }
+            Algorithms::WRSDA => write!(f, "WR-SDA"),
         }
     }
 }

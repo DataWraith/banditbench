@@ -3,10 +3,10 @@ pub use crate::bandits::{
     forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
     greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
     reboot::ReBoot, sts::STS, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
-    ucb1_tuned::UCB1Tuned, wr_sda::WRSDA, Algorithms,
+    ucb1_tuned::UCB1Tuned, vresboot::VResBoot, wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 35] = [
+pub const ALL_BANDITS: [Algorithms; 42] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -51,5 +51,12 @@ pub const ALL_BANDITS: [Algorithms; 35] = [
     Algorithms::TSVHA,
     Algorithms::UCB1,
     Algorithms::UCB1Tuned,
+    Algorithms::VResBoot { init: 0 },
+    Algorithms::VResBoot { init: 1 },
+    Algorithms::VResBoot { init: 2 },
+    Algorithms::VResBoot { init: 3 },
+    Algorithms::VResBoot { init: 4 },
+    Algorithms::VResBoot { init: 5 },
+    Algorithms::VResBoot { init: 10 },
     Algorithms::WRSDA,
 ];
