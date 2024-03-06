@@ -2,12 +2,12 @@ pub use crate::bandits::{
     bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS,
     forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
     greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
-    reboot::ReBoot, sts::STS, ts::TS, ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
-    ucb1::UCB1, ucb1_tuned::UCB1Tuned, ucb_dt::UCBDT, vresboot::VResBoot, wr_sda::WRSDA,
-    Algorithms,
+    reboot::ReBoot, sts::STS, ts::OptimisticTS, ts::TS, ts_vha::TSVHA, tsallis_inf::TsallisINF,
+    tsucb::TSUCB, ucb1::UCB1, ucb1_tuned::UCB1Tuned, ucb_dt::UCBDT, vresboot::VResBoot,
+    wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 44] = [
+pub const ALL_BANDITS: [Algorithms; 43] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -29,6 +29,7 @@ pub const ALL_BANDITS: [Algorithms; 44] = [
     Algorithms::KLUCB,
     Algorithms::MBE,
     Algorithms::NPTS,
+    Algorithms::OptimisticTS,
     Algorithms::PHE {
         perturbation_scale: 1.1,
     },

@@ -40,6 +40,7 @@ pub enum Algorithms {
     KLUCB,
     MBE,
     NPTS,
+    OptimisticTS,
     PHE { perturbation_scale: f64 },
     Random,
     ReBoot { r: f64 },
@@ -94,6 +95,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
+            Algorithms::OptimisticTS => write!(f, "Optimistic Thompson Sampling"),
             Algorithms::PHE { perturbation_scale } => write!(
                 f,
                 "Perturbed-History Exploration (a={})",
