@@ -2,11 +2,11 @@ pub use crate::bandits::{
     bge::BGE, dirichlet_sampling::BDS, ebtci::EBTCI, eps_ts::EpsTS,
     forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
     greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
-    reboot::ReBoot, sts::STS, ts::TS, ts_vha::TSVHA, tsucb::TSUCB, ucb1::UCB1,
-    ucb1_tuned::UCB1Tuned, vresboot::VResBoot, wr_sda::WRSDA, Algorithms,
+    reboot::ReBoot, sts::STS, ts::TS, ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
+    ucb1::UCB1, ucb1_tuned::UCB1Tuned, vresboot::VResBoot, wr_sda::WRSDA, Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 37] = [
+pub const ALL_BANDITS: [Algorithms; 38] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -49,6 +49,7 @@ pub const ALL_BANDITS: [Algorithms; 37] = [
     Algorithms::TSUCB { samples: 10 },
     Algorithms::TSUCB { samples: 100 },
     Algorithms::TSVHA,
+    Algorithms::TsallisINF,
     Algorithms::UCB1,
     Algorithms::UCB1Tuned,
     Algorithms::VResBoot { init: 0 },

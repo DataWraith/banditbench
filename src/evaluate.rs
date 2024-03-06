@@ -136,6 +136,11 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
+                    Algorithms::TsallisINF => {
+                        let bandit = TsallisINF::new(num_arms);
+                        evaluate_bandit(bandit, &arms, horizon, seed)
+                    }
+
                     Algorithms::UCB1 => {
                         let bandit = UCB1::new(num_arms);
                         evaluate_bandit(bandit, &arms, horizon, seed)

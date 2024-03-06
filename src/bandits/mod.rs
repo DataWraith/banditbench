@@ -18,6 +18,7 @@ pub mod reboot;
 pub mod sts;
 pub mod ts;
 pub mod ts_vha;
+pub mod tsallis_inf;
 pub mod tsucb;
 pub mod ucb1;
 pub mod ucb1_tuned;
@@ -45,6 +46,7 @@ pub enum Algorithms {
     TS,
     TSUCB { samples: usize },
     TSVHA,
+    TsallisINF,
     UCB1,
     UCB1Tuned,
     VResBoot { init: usize },
@@ -106,6 +108,7 @@ impl std::fmt::Display for Algorithms {
                 f,
                 "Thompson Sampling with Virtual Helping Agents (Combiner C3)"
             ),
+            Algorithms::TsallisINF => write!(f, "Tsallis-INF"),
             Algorithms::UCB1 => write!(f, "UCB1"),
             Algorithms::UCB1Tuned => write!(f, "UCB1-Tuned"),
             Algorithms::VResBoot { init } => {
