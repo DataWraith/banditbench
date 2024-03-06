@@ -348,18 +348,30 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 
 ## Notes / Conclusions
 
+- I have probably made mistakes while translating the formulas from the papers
+  into code – KL-UCB, PHE, GIRO, etc. are doing much worse than I expected.
+
 - Keep in mind that the experiments were on the Bernoulli Bandit with a short
   horizon only. Many of the algorithms also work on other kinds of bandits and
   may rank differently there.
 
-- TS-UCB seems to be the best algorithm overall; when extending the time horizon
-  beyond 500 steps (not shown above), it almost always comes out on top, but
-  even on short horizons it does relatively well. It is also very flexible with
-  regard to the number of samples, and thus the amount of time it takes to run it.
+- Greedy algorithms seem to do well on a short horizon in general, but fall
+  behind after a few hundred steps.
 
-- ReBoot seems to work well on longer horizons, though it seems hard to tune
-  for shorter ones; I may have misunderstood how it is supposed to be implemented
-  though.
+- UCB-DT does very well; the tuning parameter can be adjusted for the length
+  of the horizon. More greedy settings (as used above) seem to do well over
+  short time horizons.
+
+- TS-UCB seems to be the best algorithm for me overall; when extending the time
+  horizon beyond 500 steps (not shown above), it almost always comes out on top,
+  but even on short horizons it does relatively well. It is also very flexible
+  with regard to the number of samples, and thus the amount of time it takes to
+  run it. It is also easier to tune than UCB-DT -- you just use as many samples
+  as you can afford.
+
+- ReBoot is very fast and seems to work well on longer horizons, though it seems
+  hard to tune for shorter ones; I may have misunderstood how it is supposed to
+  be implemented though.
 
   The paper doesn't specify what exactly the `sigma_a` parameter is, for
   example. Do we need to set that as a hyperparameter or, as I have done, do we
@@ -370,11 +382,5 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
   well on longer horizons, though it does seem to do fairly well on the shorter
   horizons tested here, especially with optimistic initialization.
 
-- Greedy algorithms seem to do well on a short horizon in general, but fall
-  behind after a few hundred steps.
-
 - ϵ-Exploring Thompson Sampling seems to match or exceed Thompson Sampling
   while being computationally much lighter.
-
-- I have probably made mistakes while translating the formulas from the papers
-  into code – KL-UCB, PHE, GIRO, etc. are doing much worse than I expected.
