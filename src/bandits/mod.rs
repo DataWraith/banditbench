@@ -22,6 +22,7 @@ pub mod tsallis_inf;
 pub mod tsucb;
 pub mod ucb1;
 pub mod ucb1_tuned;
+pub mod ucb_dt;
 pub mod vresboot;
 pub mod wr_sda;
 
@@ -48,6 +49,7 @@ pub enum Algorithms {
     TSVHA,
     TsallisINF,
     UCB1,
+    UCBDT { gamma: f64 },
     UCB1Tuned,
     VResBoot { init: usize },
     WRSDA,
@@ -110,6 +112,7 @@ impl std::fmt::Display for Algorithms {
             ),
             Algorithms::TsallisINF => write!(f, "Tsallis-INF"),
             Algorithms::UCB1 => write!(f, "UCB1"),
+            Algorithms::UCBDT { gamma } => write!(f, "UCB-DT (γ={:.2})", gamma),
             Algorithms::UCB1Tuned => write!(f, "UCB1-Tuned"),
             Algorithms::VResBoot { init } => {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)

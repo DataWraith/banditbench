@@ -146,6 +146,11 @@ pub fn evaluate_all_bandits(num_runs: usize, arms_fn: impl Fn(u64) -> Vec<f64>, 
                         evaluate_bandit(bandit, &arms, horizon, seed)
                     }
 
+                    Algorithms::UCBDT { gamma } => {
+                        let bandit = UCBDT::new(num_arms, *gamma);
+                        evaluate_bandit(bandit, &arms, horizon, seed)
+                    }
+
                     Algorithms::UCB1Tuned => {
                         let bandit = UCB1Tuned::new(num_arms);
                         evaluate_bandit(bandit, &arms, horizon, seed)

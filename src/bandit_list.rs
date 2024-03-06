@@ -3,10 +3,11 @@ pub use crate::bandits::{
     forced_exploration::ForcedExploration, giro::GIRO, gradient_bandit::GradientBandit,
     greedy::Greedy, kl_ucb::KLUCB, klms::KLMS, mbe::Mbe, npts::NPTS, phe::PHE, random::Random,
     reboot::ReBoot, sts::STS, ts::TS, ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
-    ucb1::UCB1, ucb1_tuned::UCB1Tuned, vresboot::VResBoot, wr_sda::WRSDA, Algorithms,
+    ucb1::UCB1, ucb1_tuned::UCB1Tuned, ucb_dt::UCBDT, vresboot::VResBoot, wr_sda::WRSDA,
+    Algorithms,
 };
 
-pub const ALL_BANDITS: [Algorithms; 38] = [
+pub const ALL_BANDITS: [Algorithms; 44] = [
     Algorithms::BDS,
     Algorithms::BGE,
     Algorithms::EBTCI,
@@ -51,6 +52,12 @@ pub const ALL_BANDITS: [Algorithms; 38] = [
     Algorithms::TSVHA,
     Algorithms::TsallisINF,
     Algorithms::UCB1,
+    Algorithms::UCBDT { gamma: 0.005 },
+    Algorithms::UCBDT { gamma: 0.01 },
+    Algorithms::UCBDT { gamma: 0.02 },
+    Algorithms::UCBDT { gamma: 0.04 },
+    Algorithms::UCBDT { gamma: 0.1 },
+    Algorithms::UCBDT { gamma: 0.25 },
     Algorithms::UCB1Tuned,
     Algorithms::VResBoot { init: 0 },
     Algorithms::VResBoot { init: 1 },
