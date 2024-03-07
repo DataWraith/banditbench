@@ -2,6 +2,8 @@
 
 {
   packages = with pkgs; [ 
+    bkt
+    just
     mdsh
   ];
 
