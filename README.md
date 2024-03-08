@@ -91,12 +91,15 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ReBoot (r=2.10)                                             |     63.19 |       42.4910 |                             4.3076 | 0.04s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     44.92 |       44.1840 |                            10.6738 | 0.17s  |
 | Garbage In, Reward Out (a=0.10)                             |     57.08 |       44.4496 |                             4.8697 | 0.14s  |
+| lil' UCB (δ=0.100)                                          |     52.87 |       44.9486 |                             5.5879 | 0.08s  |
 | Tsallis-INF                                                 |     55.26 |       46.5441 |                             5.8549 | 0.21s  |
 | Garbage In, Reward Out (a=0.33)                             |     51.88 |       51.5502 |                             5.3784 | 0.17s  |
 | EB-TCI                                                      |     42.95 |       56.0202 |                            16.1098 | 0.07s  |
 | Perturbed-History Exploration (a=2.1)                       |     48.19 |       56.7164 |                             6.0494 | 0.16s  |
+| lil' UCB (δ=0.010)                                          |     44.60 |       62.4201 |                             6.5913 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     43.64 |       66.8026 |                             7.0771 | 0.19s  |
 | Boltzmann-Gumbel Exploration                                |     44.52 |       69.1820 |                             6.7076 | 0.07s  |
+| lil' UCB (δ=0.001)                                          |     39.59 |       74.2236 |                             8.0274 | 0.09s  |
 | UCB1                                                        |     34.84 |       87.3965 |                            10.1205 | 0.05s  |
 | Gradient Bandit                                             |     30.56 |      111.1047 |                            17.4381 | 0.08s  |
 | Gradient Bandit (with baseline)                             |     31.78 |      114.0673 |                            11.6366 | 0.07s  |
@@ -156,12 +159,15 @@ This experiment was taken from the GIRO paper.
 | Bounded Dirichlet Sampling                                  |     33.37 |       44.9539 |                             7.9732 | 0.43s  |
 | Garbage In, Reward Out (a=0.10)                             |     32.82 |       44.9909 |                             7.5012 | 0.17s  |
 | Tsallis-INF                                                 |     33.02 |       45.9683 |                             8.4113 | 0.22s  |
+| lil' UCB (δ=0.100)                                          |     32.27 |       46.6215 |                             6.6925 | 0.08s  |
 | Kullback-Leibler Maillard Sampling                          |     30.15 |       48.1212 |                             8.2677 | 0.12s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     27.97 |       48.1233 |                            10.0095 | 0.17s  |
 | Garbage In, Reward Out (a=0.33)                             |     30.19 |       49.2192 |                             8.0236 | 0.19s  |
 | Perturbed-History Exploration (a=2.1)                       |     28.34 |       52.5133 |                             8.3130 | 0.17s  |
+| lil' UCB (δ=0.010)                                          |     26.26 |       57.2169 |                             8.1942 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     25.47 |       58.0660 |                             8.8999 | 0.20s  |
 | Boltzmann-Gumbel Exploration                                |     25.93 |       58.3994 |                             8.7698 | 0.08s  |
+| lil' UCB (δ=0.001)                                          |     23.15 |       63.1709 |                             9.1364 | 0.08s  |
 | Forced Exploration                                          |     27.38 |       65.0601 |                             9.4003 | 0.02s  |
 | UCB1                                                        |     20.65 |       68.4993 |                            10.1090 | 0.05s  |
 | Gradient Bandit                                             |     19.16 |       75.6775 |                            12.1688 | 0.08s  |
@@ -222,11 +228,14 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | KL-UCB                                                      |     11.06 |        4.4468 |                             0.3000 | 1.48s  |
 | Perturbed-History Exploration (a=2.1)                       |     10.95 |        4.4524 |                             0.3300 | 0.18s  |
 | Kullback-Leibler Maillard Sampling                          |     10.94 |        4.4530 |                             0.3300 | 0.12s  |
+| lil' UCB (δ=0.100)                                          |     10.92 |        4.4539 |                             0.2800 | 0.08s  |
 | Bounded Dirichlet Sampling                                  |     10.91 |        4.4545 |                             0.2900 | 0.39s  |
 | UCB1-Tuned                                                  |     10.82 |        4.4591 |                             0.4600 | 0.07s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     10.78 |        4.4612 |                             0.3100 | 0.18s  |
+| lil' UCB (δ=0.010)                                          |     10.75 |        4.4625 |                             0.2500 | 0.08s  |
 | Boltzmann-Gumbel Exploration                                |     10.73 |        4.4636 |                             0.2600 | 0.07s  |
 | Garbage In, Reward Out (a=1.00)                             |     10.72 |        4.4642 |                             0.2600 | 0.21s  |
+| lil' UCB (δ=0.001)                                          |     10.59 |        4.4707 |                             0.1700 | 0.08s  |
 | UCB1                                                        |     10.26 |        4.4872 |                             0.1300 | 0.04s  |
 | Gradient Bandit (with baseline)                             |     10.23 |        4.4885 |                             0.1100 | 0.07s  |
 | Gradient Bandit                                             |     10.18 |        4.4912 |                             0.1300 | 0.08s  |
@@ -284,12 +293,15 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Perturbed-History Exploration (a=1.1)                       |     41.26 |       43.0633 |                             7.6161 | 0.16s  |
 | Garbage In, Reward Out (a=0.33)                             |     38.72 |       46.2679 |                             7.9517 | 0.18s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     33.92 |       48.8980 |                             9.5939 | 0.19s  |
+| lil' UCB (δ=0.100)                                          |     36.67 |       49.0887 |                             7.5057 | 0.09s  |
 | Perturbed-History Exploration (a=2.1)                       |     33.06 |       54.2431 |                             9.6641 | 0.19s  |
 | Tsallis-INF                                                 |     32.65 |       55.1568 |                            11.1605 | 0.24s  |
 | Forced Exploration                                          |     33.93 |       58.8258 |                            16.0080 | 0.03s  |
 | EB-TCI                                                      |     24.85 |       58.9761 |                            22.9968 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     29.74 |       58.9955 |                            11.3563 | 0.22s  |
 | Boltzmann-Gumbel Exploration                                |     30.21 |       59.0762 |                            11.4529 | 0.08s  |
+| lil' UCB (δ=0.010)                                          |     29.49 |       59.3792 |                            11.2005 | 0.09s  |
+| lil' UCB (δ=0.001)                                          |     25.59 |       65.3146 |                            14.4606 | 0.09s  |
 | UCB1                                                        |     22.44 |       70.4627 |                            16.8609 | 0.05s  |
 | Gradient Bandit                                             |     20.43 |       75.0125 |                            17.3070 | 0.08s  |
 | Gradient Bandit (with baseline)                             |     20.06 |       75.7085 |                            17.5892 | 0.08s  |
@@ -349,10 +361,13 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Perturbed-History Exploration (a=1.1)                       |     24.23 |       25.1162 |                             4.2813 | 0.17s  |
 | Garbage In, Reward Out (a=0.10)                             |     25.73 |       25.2640 |                             4.0182 | 0.15s  |
 | Garbage In, Reward Out (a=0.33)                             |     21.04 |       28.6989 |                             4.8275 | 0.20s  |
+| lil' UCB (δ=0.100)                                          |     19.28 |       28.8759 |                             4.7214 | 0.08s  |
 | Forced Exploration                                          |     31.25 |       30.1683 |                             5.7161 | 0.03s  |
 | Perturbed-History Exploration (a=2.1)                       |     18.80 |       30.7373 |                             5.2197 | 0.19s  |
+| lil' UCB (δ=0.010)                                          |     16.77 |       32.6000 |                             5.5344 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     17.31 |       32.8438 |                             5.6154 | 0.22s  |
 | Boltzmann-Gumbel Exploration                                |     17.50 |       33.1221 |                             5.5971 | 0.08s  |
+| lil' UCB (δ=0.001)                                          |     15.55 |       34.6643 |                             5.9113 | 0.08s  |
 | UCB1                                                        |     14.58 |       36.5304 |                             6.3337 | 0.05s  |
 | Gradient Bandit                                             |     13.75 |       39.9529 |                             8.1144 | 0.08s  |
 | Gradient Bandit (with baseline)                             |     13.20 |       41.3526 |                             7.4311 | 0.08s  |

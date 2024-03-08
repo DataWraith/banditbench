@@ -49,6 +49,11 @@ fn main() {
         "greedy" => vec![Algorithms::Greedy],
         "klms" => vec![Algorithms::KLMS],
         "klucb" => vec![Algorithms::KLUCB],
+        "lilucb" => vec![
+            Algorithms::LilUCB { delta: 0.001 },
+            Algorithms::LilUCB { delta: 0.01 },
+            Algorithms::LilUCB { delta: 0.10 },
+        ],
         "mbe" => vec![Algorithms::MBE],
         "npts" => vec![Algorithms::NPTS],
         "ots" => vec![Algorithms::OptimisticTS],

@@ -10,6 +10,7 @@ pub mod gradient_bandit;
 pub mod greedy;
 pub mod kl_ucb;
 pub mod klms;
+pub mod lilucb;
 pub mod mbe;
 pub mod npts;
 pub mod phe;
@@ -38,6 +39,7 @@ pub enum Algorithms {
     Greedy,
     KLMS,
     KLUCB,
+    LilUCB { delta: f64 },
     MBE,
     NPTS,
     OptimisticTS,
@@ -93,6 +95,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::Greedy => write!(f, "Greedy"),
             Algorithms::KLMS => write!(f, "Kullback-Leibler Maillard Sampling"),
             Algorithms::KLUCB => write!(f, "KL-UCB"),
+            Algorithms::LilUCB { delta } => write!(f, "lil' UCB (δ={:.3})", delta),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
             Algorithms::OptimisticTS => write!(f, "Optimistic Thompson Sampling"),
