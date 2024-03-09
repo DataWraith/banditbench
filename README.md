@@ -56,7 +56,7 @@ Algorithms are only included in the benchmark if
 
 - [Boltzmann-Gumbel Exploration](https://arxiv.org/abs/1705.10257)
 - [EB-TCI](https://arxiv.org/abs/2206.05979)
-- [Forced Exploration (Linear)](https://arxiv.org/abs/2312.07285)
+- [Forced Exploration](https://arxiv.org/abs/2312.07285)
 - [Gradient Bandit](https://arxiv.org/abs/2402.17235)
 - [Kullback-Leibler Maillard Sampling](https://arxiv.org/abs/2304.14989)
 - [Tsallis-INF](https://arxiv.org/abs/1807.07623)
