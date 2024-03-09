@@ -19,6 +19,7 @@ Algorithms are only included in the benchmark if
 
 - Random Baseline (chooses arms randomly)
 - Greedy Baseline (chooses the arm with the maximum average reward)
+- Explore Then Commit
 
 ### Bootstrap-based
 
@@ -95,10 +96,13 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Greedy                                                      |     67.48 |       19.7483 |                             2.4973 | 0.07s  |
 | TS-UCB (1 samples)                                          |     72.28 |       19.9767 |                             5.3785 | 0.72s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     63.36 |       21.1298 |                             6.2710 | 25.80s |
+| ETC (m=2)                                                   |     67.37 |       21.4042 |                             2.4254 | 0.04s  |
+| ETC (m=3)                                                   |     67.83 |       23.0491 |                             2.6583 | 0.08s  |
 | WR-SDA                                                      |     67.66 |       23.8199 |                             5.0460 | 1.80s  |
 | Optimistic Thompson Sampling                                |     69.69 |       25.4924 |                             7.1978 | 0.88s  |
 | Multiplier Bootstrap-based Exploration                      |     67.82 |       26.0614 |                             3.6393 | 6.14s  |
 | ReBoot (r=1.50)                                             |     70.37 |       26.4939 |                             3.5531 | 0.25s  |
+| ETC (m=5)                                                   |     69.09 |       27.4454 |                             3.4486 | 0.11s  |
 | ϵ-Exploring Thompson Sampling                               |     64.31 |       27.5471 |                             8.9868 | 0.14s  |
 | Thompson Sampling                                           |     67.00 |       28.9445 |                             7.1632 | 0.70s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     66.88 |       29.0225 |                             7.0900 | 0.85s  |
@@ -116,6 +120,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ReBoot (r=2.10)                                             |     63.19 |       42.4910 |                             4.3076 | 0.25s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     44.92 |       44.1840 |                            10.6738 | 1.00s  |
 | Garbage In, Reward Out (a=0.10)                             |     57.08 |       44.4496 |                             4.8697 | 0.89s  |
+| ETC (m=10)                                                  |     65.57 |       44.8172 |                             6.1355 | 0.11s  |
 | lil' UCB (δ=0.100)                                          |     52.87 |       44.9486 |                             5.5879 | 0.31s  |
 | Tsallis-INF                                                 |     55.26 |       46.5441 |                             5.8549 | 1.15s  |
 | Garbage In, Reward Out (a=0.33)                             |     51.88 |       51.5502 |                             5.3784 | 1.15s  |
@@ -155,7 +160,9 @@ This experiment was taken from the GIRO paper.
 | UCB-DT (γ=0.90)                                             |     44.11 |       25.7379 |                             7.1522 | 2.75s  |
 | UCB-DT (γ=0.95)                                             |     44.07 |       25.7444 |                             7.1627 | 2.78s  |
 | UCB-DT (γ=0.75)                                             |     44.20 |       25.7518 |                             7.1508 | 2.68s  |
+| ETC (m=5)                                                   |     44.22 |       25.9861 |                             6.0215 | 0.12s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.83 |       26.7704 |                             8.7872 | 12.20s |
+| ETC (m=3)                                                   |     42.10 |       26.9119 |                             7.3339 | 0.12s  |
 | TS-UCB (100 samples)                                        |     44.83 |       27.4483 |                             6.6267 | 68.43s |
 | Bootstrapped Thompson Sampling (J=100)                      |     44.19 |       27.5108 |                            13.3325 | 1.10s  |
 | Vanilla Residual Bootstrap (init=0)                         |     39.98 |       27.7827 |                             9.2352 | 0.17s  |
@@ -166,12 +173,14 @@ This experiment was taken from the GIRO paper.
 | UCB-DT (γ=1.00)                                             |     39.38 |       28.0689 |                             9.7290 | 2.67s  |
 | ReBoot (r=0.50)                                             |     39.52 |       28.0805 |                             9.6491 | 0.30s  |
 | TS-UCB (10 samples)                                         |     45.12 |       28.1337 |                             6.0061 | 7.11s  |
+| ETC (m=2)                                                   |     39.38 |       28.1505 |                             9.5303 | 0.08s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     41.24 |       28.6171 |                            14.3000 | 0.35s  |
 | Vanilla Residual Bootstrap (init=5)                         |     43.54 |       30.2281 |                             6.9636 | 0.24s  |
 | ϵ-Exploring Thompson Sampling                               |     41.08 |       30.8109 |                             9.0357 | 0.14s  |
 | Multiplier Bootstrap-based Exploration                      |     42.47 |       30.9818 |                             6.6402 | 6.16s  |
 | TS-UCB (1 samples)                                          |     42.42 |       31.6765 |                             6.1443 | 0.72s  |
 | ReBoot (r=1.50)                                             |     42.27 |       31.7111 |                             6.1746 | 0.26s  |
+| ETC (m=10)                                                  |     43.19 |       31.7349 |                             5.5587 | 0.11s  |
 | WR-SDA                                                      |     38.17 |       34.3574 |                             7.8687 | 2.72s  |
 | ReBoot (r=1.70)                                             |     39.81 |       35.3730 |                             6.1512 | 0.27s  |
 | UCB1-Tuned                                                  |     39.23 |       36.0362 |                             5.7070 | 0.27s  |
@@ -220,7 +229,11 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
+| ETC (m=3)                                                   |     16.60 |        4.1698 |                             0.0000 | 0.11s  |
+| ETC (m=2)                                                   |     16.60 |        4.1700 |                             0.0000 | 0.07s  |
 | Greedy                                                      |     16.60 |        4.1700 |                             0.0100 | 0.07s  |
+| ETC (m=5)                                                   |     16.55 |        4.1725 |                             0.0100 | 0.11s  |
+| ETC (m=10)                                                  |     16.12 |        4.1940 |                             0.0000 | 0.11s  |
 | ReBoot (r=0.25)                                             |     14.23 |        4.2883 |                             0.0200 | 0.18s  |
 | Vanilla Residual Bootstrap (init=0)                         |     13.97 |        4.3017 |                             0.0600 | 0.17s  |
 | ϵ-Exploring Thompson Sampling                               |     13.52 |        4.3242 |                             0.1100 | 0.14s  |
@@ -302,9 +315,13 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ReBoot (r=1.50)                                             |     55.33 |       25.5983 |                             4.8770 | 0.27s  |
 | Multiplier Bootstrap-based Exploration                      |     54.92 |       25.7531 |                             5.7460 | 5.97s  |
 | TS-UCB (10 samples)                                         |     54.99 |       26.7554 |                             4.4802 | 5.95s  |
+| ETC (m=5)                                                   |     49.33 |       27.6619 |                             7.2725 | 0.12s  |
 | ReBoot (r=1.70)                                             |     54.15 |       27.8226 |                             5.3817 | 0.28s  |
+| ETC (m=10)                                                  |     51.27 |       29.6489 |                             8.2708 | 0.12s  |
 | TS-UCB (1 samples)                                          |     52.72 |       29.8275 |                             5.0292 | 0.64s  |
+| ETC (m=3)                                                   |     45.71 |       30.0356 |                             8.1501 | 0.12s  |
 | ReBoot (r=0.50)                                             |     44.19 |       30.2711 |                            12.3522 | 0.26s  |
+| ETC (m=2)                                                   |     45.37 |       30.2861 |                             8.1393 | 0.08s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     50.33 |       31.3906 |                             6.7436 | 0.37s  |
 | ReBoot (r=2.10)                                             |     51.74 |       32.4011 |                             6.6040 | 0.29s  |
 | ϵ-Exploring Thompson Sampling                               |     44.70 |       33.6912 |                            12.4300 | 0.14s  |
@@ -374,11 +391,15 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ReBoot (r=0.90)                                             |     54.52 |        8.8017 |                             1.5919 | 0.22s  |
 | Greedy                                                      |     53.46 |        8.8426 |                             1.5877 | 0.08s  |
 | UCB-DT (γ=0.75)                                             |     55.50 |        8.8734 |                             1.5938 | 2.44s  |
+| ETC (m=2)                                                   |     53.32 |        8.9559 |                             1.5806 | 0.07s  |
 | ReBoot (r=1.00)                                             |     54.58 |        8.9873 |                             1.6223 | 0.23s  |
+| ETC (m=3)                                                   |     53.18 |        9.1361 |                             1.5916 | 0.11s  |
 | Optimistic Thompson Sampling                                |     55.57 |        9.3600 |                             3.3451 | 0.79s  |
+| ETC (m=5)                                                   |     52.63 |        9.7543 |                             1.6533 | 0.11s  |
 | WR-SDA                                                      |     52.20 |       10.4022 |                             2.8202 | 0.89s  |
 | ϵ-Exploring Thompson Sampling                               |     44.32 |       11.1621 |                             4.2373 | 0.13s  |
 | KL-UCB                                                      |     51.72 |       11.7599 |                             3.6028 | 6.19s  |
+| ETC (m=10)                                                  |     50.72 |       12.5349 |                             2.2955 | 0.12s  |
 | Thompson Sampling                                           |     48.36 |       12.6305 |                             2.8003 | 0.61s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     36.88 |       12.6832 |                             4.2582 | 13.46s |
 | ReBoot (r=1.50)                                             |     50.83 |       12.6931 |                             2.2936 | 0.23s  |

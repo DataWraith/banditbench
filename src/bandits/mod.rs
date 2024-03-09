@@ -15,13 +15,14 @@ pub mod tsallis_inf;
 pub mod tsucb;
 
 pub use {
-    baselines::greedy::Greedy, baselines::random::Random, bge::BGE, bootstrap::bts::BTS,
-    bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
-    bootstrap::vresboot::VResBoot, dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA,
-    ebtci::EBTCI, forced_exploration::ForcedExploration, gradient_bandit::GradientBandit,
-    klms::KLMS, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
-    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
-    ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
+    baselines::etc::ETC, baselines::greedy::Greedy, baselines::random::Random, bge::BGE,
+    bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
+    bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, dueling::dirichlet_sampling::BDS,
+    dueling::wr_sda::WRSDA, ebtci::EBTCI, forced_exploration::ForcedExploration,
+    gradient_bandit::GradientBandit, klms::KLMS, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS,
+    ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
+    ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
+    ucb::ucb_dt::UCBDT,
 };
 
 pub enum Algorithms {
@@ -30,6 +31,7 @@ pub enum Algorithms {
     BTS { replicates: usize },
     EBTCI,
     EpsTS,
+    ETC { m: usize },
     ForcedExploration,
     GIRO { num_pseudo_rewards: f64 },
     Gradient,
@@ -82,9 +84,12 @@ impl std::fmt::Display for Algorithms {
         match self {
             Algorithms::BDS => write!(f, "Bounded Dirichlet Sampling"),
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
-            Algorithms::BTS { replicates } => write!(f, "Bootstrapped Thompson Sampling (J={})", replicates),
+            Algorithms::BTS { replicates } => {
+                write!(f, "Bootstrapped Thompson Sampling (J={})", replicates)
+            }
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
+            Algorithms::ETC { m } => write!(f, "ETC (m={})", m),
             Algorithms::ForcedExploration => write!(f, "Forced Exploration"),
             Algorithms::GIRO { num_pseudo_rewards } => {
                 write!(f, "Garbage In, Reward Out (a={:.2})", num_pseudo_rewards)

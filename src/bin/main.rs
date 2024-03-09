@@ -39,6 +39,12 @@ fn main() {
         ],
         "ebtci" => vec![Algorithms::EBTCI],
         "epsts" => vec![Algorithms::EpsTS],
+        "etc" => vec![
+            Algorithms::ETC { m: 2 },
+            Algorithms::ETC { m: 3 },
+            Algorithms::ETC { m: 5 },
+            Algorithms::ETC { m: 10 },
+        ],
         "fe" => vec![Algorithms::ForcedExploration],
         "giro" => vec![
             Algorithms::GIRO {

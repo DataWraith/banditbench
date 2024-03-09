@@ -65,6 +65,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::ETC { m } => {
+                    let bandit = ETC::new(num_arms, *m);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ForcedExploration => {
                     let bandit = ForcedExploration::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
