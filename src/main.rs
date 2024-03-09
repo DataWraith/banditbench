@@ -49,6 +49,14 @@ fn main() {
             Algorithms::EpsilonGreedy { epsilon: 0.05 },
             Algorithms::EpsilonGreedy { epsilon: 0.1 },
         ],
+        "epsdecreasing" => vec![
+            Algorithms::EpsilonDecreasing { epsilon: 0.1 },
+            Algorithms::EpsilonDecreasing { epsilon: 0.2 },
+            Algorithms::EpsilonDecreasing { epsilon: 0.5 },
+            Algorithms::EpsilonDecreasing { epsilon: 0.7 },
+            Algorithms::EpsilonDecreasing { epsilon: 0.9 },
+            Algorithms::EpsilonDecreasing { epsilon: 0.99 },
+        ],
         "epsts" => vec![Algorithms::EpsTS],
         "etc" => vec![
             Algorithms::ETC { m: 2 },
