@@ -35,7 +35,7 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} random >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} sts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ts >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} tsucb >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/tsucb.rs -- cargo run --release -- {{EXPERIMENT}} tsucb >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} tsvha >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} tsallisinf >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucb1 >> {{EXPERIMENT}}.csv
