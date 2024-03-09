@@ -22,7 +22,7 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} gradient >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} greedy >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} klms >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} klucb >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/ucb/kl_ucb.rs -- cargo run --release -- {{EXPERIMENT}} klucb >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/lilucb.rs -- cargo run --release -- {{EXPERIMENT}} lilucb >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/mbe.rs -- cargo run --release -- {{EXPERIMENT}} mbe >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} npts >> {{EXPERIMENT}}.csv

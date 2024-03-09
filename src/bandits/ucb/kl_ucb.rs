@@ -28,7 +28,7 @@ pub struct KLUCB {
 impl KLUCB {
     pub fn new(num_arms: usize) -> Self {
         Self {
-            t: 1,
+            t: 0,
             arms: vec![Arm::default(); num_arms],
         }
     }

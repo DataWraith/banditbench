@@ -98,7 +98,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Thompson Sampling                                           |     67.00 |       28.9445 |                             7.1632 | 0.68s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     66.88 |       29.0225 |                             7.0900 | 0.83s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     66.49 |       29.3398 |                             6.9895 | 0.95s  |
-| KL-UCB                                                      |     67.56 |       29.6893 |                             7.4957 | 7.83s  |
+| KL-UCB                                                      |     67.57 |       29.6845 |                             7.4867 | 7.49s  |
 | ReBoot (r=0.25)                                             |     61.92 |       30.3897 |                             5.2935 | 0.19s  |
 | UCB1-Tuned                                                  |     62.81 |       31.7769 |                             3.6345 | 0.23s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     51.85 |       32.8060 |                            13.5494 | 1.04s  |
@@ -110,7 +110,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Multiplier Bootstrap-based Exploration                      |     61.60 |       36.1880 |                             4.1319 | 5.63s  |
 | Kullback-Leibler Maillard Sampling                          |     60.53 |       37.5467 |                             8.4138 | 0.51s  |
 | Perturbed-History Exploration (a=1.1)                       |     57.78 |       37.8970 |                             5.6488 | 0.73s  |
-| Garbage In, Reward Out (a=0.10)                             |     58.49 |       38.7874 |                             5.2714 | 0.91s  |
+| Garbage In, Reward Out (a=0.10)                             |     58.49 |       38.7874 |                             5.2714 | 0.86s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     45.02 |       39.1305 |                            19.4246 | 0.38s  |
 | Vanilla Residual Bootstrap (init=1)                         |     60.28 |       40.6878 |                             4.7500 | 0.20s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     44.92 |       44.1840 |                            10.6738 | 0.98s  |
@@ -118,13 +118,13 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | lil' UCB (δ=0.100)                                          |     52.87 |       44.9486 |                             5.5879 | 0.29s  |
 | Tsallis-INF                                                 |     55.26 |       46.5441 |                             5.8549 | 0.99s  |
 | ReBoot (r=0.90)                                             |     52.97 |       47.4265 |                             6.6595 | 0.28s  |
-| Garbage In, Reward Out (a=0.33)                             |     52.54 |       49.4032 |                             5.5249 | 1.11s  |
+| Garbage In, Reward Out (a=0.33)                             |     52.54 |       49.4032 |                             5.5249 | 1.07s  |
 | Vanilla Residual Bootstrap (init=5)                         |     56.46 |       50.8622 |                             6.0489 | 0.22s  |
 | ReBoot (r=1.00)                                             |     50.62 |       52.0364 |                             6.7317 | 0.26s  |
 | EB-TCI                                                      |     42.95 |       56.0202 |                            16.1098 | 0.30s  |
 | Perturbed-History Exploration (a=2.1)                       |     48.19 |       56.7164 |                             6.0494 | 0.89s  |
 | lil' UCB (δ=0.010)                                          |     44.60 |       62.4201 |                             6.5913 | 0.30s  |
-| Garbage In, Reward Out (a=1.00)                             |     43.69 |       66.7268 |                             7.0150 | 1.06s  |
+| Garbage In, Reward Out (a=1.00)                             |     43.69 |       66.7268 |                             7.0150 | 1.09s  |
 | Boltzmann-Gumbel Exploration                                |     44.52 |       69.1820 |                             6.7076 | 0.42s  |
 | ReBoot (r=1.50)                                             |     41.00 |       72.4983 |                             8.1316 | 0.25s  |
 | lil' UCB (δ=0.001)                                          |     39.59 |       74.2236 |                             8.0274 | 0.26s  |
@@ -182,9 +182,9 @@ This experiment was taken from the GIRO paper.
 | Thompson Sampling                                           |     35.68 |       40.6934 |                             7.4756 | 0.65s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     35.61 |       40.7462 |                             7.4738 | 0.79s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     35.54 |       40.8342 |                             7.6058 | 0.82s  |
-| Garbage In, Reward Out (a=0.10)                             |     34.26 |       42.3026 |                             7.5669 | 1.13s  |
+| Garbage In, Reward Out (a=0.10)                             |     34.26 |       42.3026 |                             7.5669 | 1.12s  |
 | Perturbed-History Exploration (a=1.1)                       |     34.15 |       42.4480 |                             7.6337 | 0.80s  |
-| KL-UCB                                                      |     35.22 |       42.8549 |                             6.2878 | 8.40s  |
+| KL-UCB                                                      |     35.23 |       42.8489 |                             6.2867 | 8.07s  |
 | EB-TCI                                                      |     30.68 |       43.1680 |                             8.8295 | 0.36s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     33.15 |       43.2663 |                             8.0491 | 0.92s  |
 | Non-Parametric Thompson Sampling                            |     33.66 |       43.8953 |                             7.4578 | 4.34s  |
@@ -194,13 +194,13 @@ This experiment was taken from the GIRO paper.
 | lil' UCB (δ=0.100)                                          |     32.27 |       46.6215 |                             6.6925 | 0.30s  |
 | Kullback-Leibler Maillard Sampling                          |     30.15 |       48.1212 |                             8.2677 | 0.57s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     27.97 |       48.1233 |                            10.0095 | 1.10s  |
-| Garbage In, Reward Out (a=0.33)                             |     30.57 |       48.3822 |                             7.9763 | 1.20s  |
+| Garbage In, Reward Out (a=0.33)                             |     30.57 |       48.3822 |                             7.9763 | 1.34s  |
 | ReBoot (r=0.90)                                             |     29.75 |       48.7258 |                             8.4139 | 0.29s  |
 | ReBoot (r=1.00)                                             |     28.27 |       51.2697 |                             8.5685 | 0.26s  |
 | Perturbed-History Exploration (a=2.1)                       |     28.34 |       52.5133 |                             8.3130 | 1.18s  |
 | Vanilla Residual Bootstrap (init=5)                         |     28.72 |       53.5870 |                             8.3547 | 0.24s  |
 | lil' UCB (δ=0.010)                                          |     26.26 |       57.2169 |                             8.1942 | 0.29s  |
-| Garbage In, Reward Out (a=1.00)                             |     25.46 |       58.0798 |                             8.9055 | 1.21s  |
+| Garbage In, Reward Out (a=1.00)                             |     25.46 |       58.0798 |                             8.9055 | 1.18s  |
 | Boltzmann-Gumbel Exploration                                |     25.93 |       58.3994 |                             8.7698 | 0.31s  |
 | ReBoot (r=1.50)                                             |     23.11 |       61.4855 |                             9.5988 | 0.25s  |
 | lil' UCB (δ=0.001)                                          |     23.15 |       63.1709 |                             9.1364 | 0.26s  |
@@ -264,8 +264,8 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Multiplier Bootstrap-based Exploration                      |     11.19 |        4.4406 |                             0.4400 | 5.70s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     11.15 |        4.4426 |                             0.4100 | 0.91s  |
 | Garbage In, Reward Out (a=0.10)                             |     11.12 |        4.4441 |                             0.3400 | 1.11s  |
-| Garbage In, Reward Out (a=0.33)                             |     11.09 |        4.4455 |                             0.3800 | 1.20s  |
-| KL-UCB                                                      |     11.06 |        4.4468 |                             0.3000 | 7.80s  |
+| Garbage In, Reward Out (a=0.33)                             |     11.09 |        4.4455 |                             0.3800 | 1.23s  |
+| KL-UCB                                                      |     11.06 |        4.4468 |                             0.3000 | 7.91s  |
 | ReBoot (r=0.90)                                             |     11.03 |        4.4485 |                             0.3700 | 0.24s  |
 | Perturbed-History Exploration (a=2.1)                       |     10.95 |        4.4524 |                             0.3300 | 0.97s  |
 | Kullback-Leibler Maillard Sampling                          |     10.94 |        4.4530 |                             0.3300 | 0.56s  |
@@ -277,7 +277,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     10.78 |        4.4612 |                             0.3100 | 0.94s  |
 | lil' UCB (δ=0.010)                                          |     10.75 |        4.4625 |                             0.2500 | 0.28s  |
 | Boltzmann-Gumbel Exploration                                |     10.73 |        4.4636 |                             0.2600 | 0.34s  |
-| Garbage In, Reward Out (a=1.00)                             |     10.71 |        4.4646 |                             0.2600 | 1.14s  |
+| Garbage In, Reward Out (a=1.00)                             |     10.71 |        4.4646 |                             0.2600 | 1.15s  |
 | lil' UCB (δ=0.001)                                          |     10.59 |        4.4707 |                             0.1700 | 0.26s  |
 | ReBoot (r=1.50)                                             |     10.56 |        4.4722 |                             0.2000 | 0.25s  |
 | ReBoot (r=1.70)                                             |     10.46 |        4.4771 |                             0.1700 | 0.24s  |
@@ -322,7 +322,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ϵ-Exploring Thompson Sampling                               |     44.70 |       33.6912 |                            12.4300 | 0.15s  |
 | UCB1-Tuned                                                  |     48.78 |       34.1720 |                             5.7265 | 0.26s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     47.62 |       34.9846 |                             6.5196 | 1.04s  |
-| Garbage In, Reward Out (a=0.10)                             |     47.11 |       35.3159 |                             6.5716 | 0.88s  |
+| Garbage In, Reward Out (a=0.10)                             |     47.11 |       35.3159 |                             6.5716 | 0.89s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     47.24 |       35.4846 |                             6.5623 | 4.26s  |
 | Bootstrapped Thompson Sampling (J=1000)                     |     47.25 |       35.5259 |                             6.5145 | 8.23s  |
 | Vanilla Residual Bootstrap (init=1)                         |     47.27 |       35.6021 |                             6.3890 | 0.21s  |
@@ -331,7 +331,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     45.53 |       38.0235 |                             6.6411 | 0.89s  |
 | Thompson Sampling                                           |     45.50 |       38.0338 |                             6.6413 | 0.72s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     45.41 |       38.1336 |                             6.6271 | 0.98s  |
-| KL-UCB                                                      |     45.13 |       38.3085 |                             5.9510 | 7.54s  |
+| KL-UCB                                                      |     45.14 |       38.3011 |                             5.9485 | 7.59s  |
 | Non-Parametric Thompson Sampling                            |     44.28 |       39.6896 |                             6.8661 | 4.32s  |
 | Greedy                                                      |     37.36 |       39.9645 |                            20.3130 | 0.08s  |
 | Bounded Dirichlet Sampling                                  |     44.03 |       40.2371 |                             6.7909 | 2.47s  |
@@ -341,7 +341,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Kullback-Leibler Maillard Sampling                          |     41.32 |       41.7427 |                             7.4157 | 0.51s  |
 | Perturbed-History Exploration (a=1.1)                       |     41.26 |       43.0633 |                             7.6161 | 0.86s  |
 | ReBoot (r=1.00)                                             |     41.01 |       43.7015 |                             7.7312 | 0.24s  |
-| Garbage In, Reward Out (a=0.33)                             |     39.20 |       45.5334 |                             7.9039 | 1.11s  |
+| Garbage In, Reward Out (a=0.33)                             |     39.20 |       45.5334 |                             7.9039 | 1.10s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     33.92 |       48.8980 |                             9.5939 | 1.00s  |
 | lil' UCB (δ=0.100)                                          |     36.67 |       49.0887 |                             7.5057 | 0.28s  |
 | ReBoot (r=1.50)                                             |     33.52 |       54.1198 |                            10.7651 | 0.26s  |
@@ -351,7 +351,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ReBoot (r=1.70)                                             |     31.29 |       57.3346 |                            11.9602 | 0.26s  |
 | Forced Exploration                                          |     33.93 |       58.8258 |                            16.0080 | 0.07s  |
 | EB-TCI                                                      |     24.85 |       58.9761 |                            22.9968 | 0.29s  |
-| Garbage In, Reward Out (a=1.00)                             |     29.72 |       58.9769 |                            11.3139 | 1.17s  |
+| Garbage In, Reward Out (a=1.00)                             |     29.72 |       58.9769 |                            11.3139 | 1.20s  |
 | Boltzmann-Gumbel Exploration                                |     30.21 |       59.0762 |                            11.4529 | 0.33s  |
 | lil' UCB (δ=0.010)                                          |     29.49 |       59.3792 |                            11.2005 | 0.29s  |
 | ReBoot (r=2.10)                                             |     27.81 |       62.5734 |                            14.2399 | 0.26s  |
@@ -391,7 +391,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ETC (m=5)                                                   |     52.63 |        9.7543 |                             1.6533 | 0.11s  |
 | WR-SDA                                                      |     52.20 |       10.4022 |                             2.8202 | 0.93s  |
 | ϵ-Exploring Thompson Sampling                               |     44.32 |       11.1621 |                             4.2373 | 0.14s  |
-| KL-UCB                                                      |     51.72 |       11.7599 |                             3.6028 | 6.20s  |
+| KL-UCB                                                      |     51.72 |       11.7591 |                             3.6041 | 6.34s  |
 | ETC (m=10)                                                  |     50.72 |       12.5349 |                             2.2955 | 0.12s  |
 | Thompson Sampling                                           |     48.36 |       12.6305 |                             2.8003 | 0.61s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     36.88 |       12.6832 |                             4.2582 | 13.58s |
@@ -410,12 +410,12 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Vanilla Residual Bootstrap (init=1)                         |     31.25 |       23.4112 |                             3.3759 | 0.20s  |
 | Tsallis-INF                                                 |     26.49 |       23.5590 |                             4.3226 | 0.95s  |
 | Vanilla Residual Bootstrap (init=5)                         |     30.55 |       24.1464 |                             3.5251 | 0.21s  |
-| Garbage In, Reward Out (a=0.10)                             |     26.92 |       24.2118 |                             3.9104 | 0.88s  |
+| Garbage In, Reward Out (a=0.10)                             |     26.92 |       24.2118 |                             3.9104 | 0.87s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     17.38 |       25.0755 |                             9.0207 | 0.92s  |
 | Perturbed-History Exploration (a=1.1)                       |     24.23 |       25.1162 |                             4.2813 | 0.90s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     17.66 |       28.2224 |                            16.7306 | 1.02s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     17.69 |       28.2561 |                            16.8472 | 4.21s  |
-| Garbage In, Reward Out (a=0.33)                             |     21.30 |       28.3366 |                             4.7374 | 1.14s  |
+| Garbage In, Reward Out (a=0.33)                             |     21.30 |       28.3366 |                             4.7374 | 1.16s  |
 | ReBoot (r=0.90)                                             |     24.03 |       28.5844 |                             5.1178 | 0.29s  |
 | lil' UCB (δ=0.100)                                          |     19.28 |       28.8759 |                             4.7214 | 0.27s  |
 | Bootstrapped Thompson Sampling (J=1000)                     |     17.36 |       28.9676 |                            17.3819 | 8.38s  |
@@ -424,7 +424,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Forced Exploration                                          |     31.25 |       30.1683 |                             5.7161 | 0.06s  |
 | Perturbed-History Exploration (a=2.1)                       |     18.80 |       30.7373 |                             5.2197 | 1.02s  |
 | lil' UCB (δ=0.010)                                          |     16.77 |       32.6000 |                             5.5344 | 0.29s  |
-| Garbage In, Reward Out (a=1.00)                             |     17.33 |       32.8421 |                             5.6612 | 1.15s  |
+| Garbage In, Reward Out (a=1.00)                             |     17.33 |       32.8421 |                             5.6612 | 1.18s  |
 | Boltzmann-Gumbel Exploration                                |     17.50 |       33.1221 |                             5.5971 | 0.32s  |
 | lil' UCB (δ=0.001)                                          |     15.55 |       34.6643 |                             5.9113 | 0.25s  |
 | ReBoot (r=1.50)                                             |     18.16 |       35.6912 |                             6.5617 | 0.28s  |
