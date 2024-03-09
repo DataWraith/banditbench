@@ -90,7 +90,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | UCB-DT (γ=0.90)                                             |     73.02 |       18.3178 |                             2.4600 | 2.58s  |
 | UCB-DT (γ=0.95)                                             |     72.98 |       18.3323 |                             2.4505 | 2.50s  |
 | UCB-DT (γ=0.75)                                             |     72.98 |       18.3605 |                             2.4852 | 2.45s  |
-| CODE (δ=0.990)                                              |     68.91 |       18.9329 |                             2.9569 | 1.34s  |
+| CODE (δ=0.990)                                              |     68.91 |       18.9329 |                             2.9569 | 0.34s  |
 | Greedy                                                      |     67.48 |       19.7483 |                             2.4973 | 0.07s  |
 | TS-UCB (1 samples)                                          |     72.33 |       19.9778 |                             5.3765 | 0.92s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     66.35 |       20.7765 |                             2.7735 | 0.14s  |
@@ -109,7 +109,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     66.49 |       29.3398 |                             6.9895 | 0.95s  |
 | KL-UCB                                                      |     67.57 |       29.6845 |                             7.4867 | 7.49s  |
 | ReBoot (r=0.25)                                             |     61.92 |       30.3897 |                             5.2935 | 0.19s  |
-| CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 1.57s  |
+| CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 0.34s  |
 | ϵ-Decreasing (ϵ=0.500)                                      |     65.55 |       31.3306 |                             4.6232 | 0.16s  |
 | UCB1-Tuned                                                  |     62.81 |       31.7769 |                             3.6345 | 0.23s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     51.85 |       32.8060 |                            13.5494 | 1.04s  |
@@ -153,7 +153,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Gradient Bandit                                             |     30.56 |      111.1047 |                            17.4381 | 0.37s  |
 | Gradient Bandit (with baseline)                             |     31.78 |      114.0673 |                            11.6366 | 0.42s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.08s  |
-| CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 2.82s  |
+| CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.35s  |
 | Random                                                      |      9.99 |      205.0580 |                            30.3100 | 0.02s  |
 <!-- END mdsh -->
 
@@ -182,7 +182,7 @@ This experiment was taken from the GIRO paper.
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.83 |       26.7704 |                             8.7872 | 12.11s |
 | TS-UCB (100 samples)                                        |     44.82 |       27.4503 |                             6.6286 | 73.97s |
 | Bootstrapped Thompson Sampling (J=100)                      |     44.19 |       27.5108 |                            13.3325 | 1.02s  |
-| CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 1.53s  |
+| CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 0.39s  |
 | Greedy                                                      |     39.00 |       28.0151 |                             9.7636 | 0.08s  |
 | UCB-DT (γ=1.00)                                             |     39.38 |       28.0689 |                             9.7290 | 2.60s  |
 | TS-UCB (10 samples)                                         |     45.12 |       28.1356 |                             5.9972 | 7.49s  |
@@ -200,7 +200,7 @@ This experiment was taken from the GIRO paper.
 | UCBT                                                        |     41.92 |       32.0754 |                             5.3843 | 0.10s  |
 | Forced Exploration                                          |     42.52 |       33.2202 |                             5.6321 | 0.08s  |
 | WR-SDA                                                      |     38.17 |       34.3574 |                             7.8687 | 2.60s  |
-| CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 1.90s  |
+| CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 0.46s  |
 | UCB1-Tuned                                                  |     39.23 |       36.0362 |                             5.7070 | 0.25s  |
 | ReBoot (r=0.25)                                             |     36.27 |       36.8780 |                             8.0532 | 0.19s  |
 | Vanilla Residual Bootstrap (init=0)                         |     35.53 |       38.0238 |                             7.8845 | 0.18s  |
@@ -245,7 +245,7 @@ This experiment was taken from the GIRO paper.
 | Gradient Bandit                                             |     19.16 |       75.6775 |                            12.1688 | 0.42s  |
 | Gradient Bandit (with baseline)                             |     18.70 |       77.4743 |                            10.5750 | 0.48s  |
 | ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.11s  |
-| CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 2.97s  |
+| CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.43s  |
 | Random                                                      |      9.99 |      102.5290 |                            15.1550 | 0.02s  |
 <!-- END mdsh -->
 
@@ -292,7 +292,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | EB-TCI                                                      |     11.50 |        4.4250 |                             0.4400 | 0.32s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     11.48 |        4.4258 |                             0.4000 | 4.55s  |
 | WR-SDA                                                      |     11.44 |        4.4278 |                             0.3200 | 1.74s  |
-| CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 2.37s  |
+| CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 0.43s  |
 | Vanilla Residual Bootstrap (init=0)                         |     11.36 |        4.4320 |                             0.3500 | 0.17s  |
 | ReBoot (r=0.25)                                             |     11.32 |        4.4341 |                             0.3500 | 0.19s  |
 | ReBoot (r=0.50)                                             |     11.27 |        4.4363 |                             0.3800 | 0.24s  |
@@ -301,7 +301,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Tsallis-INF                                                 |     11.25 |        4.4377 |                             0.2900 | 1.00s  |
 | Non-Parametric Thompson Sampling                            |     11.22 |        4.4391 |                             0.4100 | 4.27s  |
 | Vanilla Residual Bootstrap (init=1)                         |     11.21 |        4.4393 |                             0.4200 | 0.21s  |
-| CODE (δ=0.990)                                              |     11.21 |        4.4397 |                             0.1200 | 1.62s  |
+| CODE (δ=0.990)                                              |     11.21 |        4.4397 |                             0.1200 | 0.41s  |
 | Thompson Sampling                                           |     11.21 |        4.4397 |                             0.4300 | 0.60s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     11.20 |        4.4398 |                             0.4400 | 0.79s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     11.20 |        4.4401 |                             0.4400 | 0.85s  |
@@ -335,7 +335,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ETC (m=20)                                                  |     10.11 |        4.4946 |                             0.0000 | 0.15s  |
 | ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.10s  |
 | ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.15s  |
-| CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 2.96s  |
+| CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.49s  |
 | Random                                                      |      9.98 |        4.5008 |                             0.0400 | 0.02s  |
 | ETC (m=10)                                                  |      9.94 |        4.5030 |                             0.0000 | 0.15s  |
 <!-- END mdsh -->
@@ -360,7 +360,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | UCB-DT (γ=0.90)                                             |     54.53 |       22.8662 |                             6.0630 | 2.32s  |
 | UCB-DT (γ=1.00)                                             |     53.44 |       22.9767 |                             7.3694 | 2.27s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     56.91 |       23.2902 |                             7.1493 | 17.38s |
-| CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 1.98s  |
+| CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 0.42s  |
 | ReBoot (r=0.25)                                             |     52.94 |       24.7856 |                             8.6439 | 0.19s  |
 | TS-UCB (100 samples)                                        |     56.22 |       25.1803 |                             4.4686 | 75.59s |
 | TS-UCB (10 samples)                                         |     54.99 |       26.7638 |                             4.4845 | 7.49s  |
@@ -395,7 +395,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ETC (m=10)                                                  |     40.33 |       38.9869 |                            13.6763 | 0.17s  |
 | Non-Parametric Thompson Sampling                            |     44.28 |       39.6896 |                             6.8661 | 4.32s  |
 | Greedy                                                      |     37.36 |       39.9645 |                            20.3130 | 0.08s  |
-| CODE (δ=0.900)                                              |     40.61 |       40.2050 |                            13.2482 | 2.31s  |
+| CODE (δ=0.900)                                              |     40.61 |       40.2050 |                            13.2482 | 0.42s  |
 | Bounded Dirichlet Sampling                                  |     44.03 |       40.2371 |                             6.7909 | 2.47s  |
 | WR-SDA                                                      |     37.82 |       40.8505 |                            18.3470 | 2.81s  |
 | ReBoot (r=0.90)                                             |     42.91 |       41.1146 |                             7.3175 | 0.23s  |
@@ -426,7 +426,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | UCB1                                                        |     22.44 |       70.4627 |                            16.8609 | 0.16s  |
 | Gradient Bandit                                             |     20.43 |       75.0125 |                            17.3070 | 0.40s  |
 | Gradient Bandit (with baseline)                             |     20.06 |       75.7085 |                            17.5892 | 0.46s  |
-| CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 2.96s  |
+| CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.45s  |
 | Random                                                      |      9.99 |       94.2791 |                            25.9206 | 0.02s  |
 <!-- END mdsh -->
 
@@ -458,7 +458,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ϵ-Greedy (ϵ=0.010)                                          |     53.34 |        9.0561 |                             1.5947 | 0.08s  |
 | Optimistic Thompson Sampling                                |     55.57 |        9.3600 |                             3.3451 | 0.81s  |
 | ϵ-Greedy (ϵ=0.020)                                          |     52.84 |        9.4814 |                             1.6900 | 0.12s  |
-| CODE (δ=0.990)                                              |     48.81 |        9.4822 |                             1.7486 | 1.46s  |
+| CODE (δ=0.990)                                              |     48.81 |        9.4822 |                             1.7486 | 0.43s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     52.78 |        9.6599 |                             1.7204 | 0.14s  |
 | WR-SDA                                                      |     52.20 |       10.4022 |                             2.8202 | 0.93s  |
 | ϵ-Greedy (ϵ=0.050)                                          |     51.57 |       10.7107 |                             1.9386 | 0.11s  |
@@ -492,7 +492,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     17.38 |       25.0755 |                             9.0207 | 0.92s  |
 | Perturbed-History Exploration (a=1.1)                       |     24.23 |       25.1162 |                             4.2813 | 0.90s  |
 | ETC (m=25)                                                  |     28.64 |       27.0247 |                             5.2417 | 0.14s  |
-| CODE (δ=0.900)                                              |     16.26 |       27.7259 |                             4.4425 | 2.19s  |
+| CODE (δ=0.900)                                              |     16.26 |       27.7259 |                             4.4425 | 0.44s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     17.66 |       28.2224 |                            16.7306 | 1.02s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     17.69 |       28.2561 |                            16.8472 | 4.21s  |
 | Garbage In, Reward Out (a=0.33)                             |     21.30 |       28.3366 |                             4.7374 | 1.16s  |
@@ -516,7 +516,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ETC (m=5)                                                   |     12.36 |       41.7571 |                             9.1900 | 0.15s  |
 | ETC (m=3)                                                   |     12.03 |       43.5920 |                             9.6906 | 0.15s  |
 | ETC (m=2)                                                   |     11.03 |       45.2564 |                             9.3287 | 0.11s  |
-| CODE (δ=0.050)                                              |     10.00 |       49.2639 |                             9.8811 | 2.76s  |
+| CODE (δ=0.050)                                              |     10.00 |       49.2639 |                             9.8811 | 0.43s  |
 | Random                                                      |      9.97 |       49.8281 |                             9.9126 | 0.02s  |
 <!-- END mdsh -->
 

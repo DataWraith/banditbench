@@ -1,3 +1,4 @@
+use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
 use crate::bandits::Arm;
@@ -42,25 +43,27 @@ impl Bandit for CODE {
         let mut best_arm = None;
         let mut best_t = (usize::MAX, 0);
 
-        'outer: for arm in 0..self.arms.len() {
-            for j in 0..self.arms.len() {
-                if arm == j {
-                    continue;
-                }
+        let best_lcb = self
+            .arms
+            .iter()
+            .enumerate()
+            .map(|(i, arm)| arm.mean() - self.confidence_bound(i))
+            .max_by_key(|x| OrderedFloat(*x))
+            .unwrap();
 
-                let lcb = self.arms[j].mean() - self.confidence_bound(j);
-                let ucb = self.arms[arm].mean() + self.confidence_bound(arm);
+        for arm in 0..self.arms.len() {
+            let ucb = self.arms[arm].mean() + self.confidence_bound(arm);
 
-                if ucb < lcb {
-                    continue 'outer;
-                }
+            if ucb < best_lcb {
+                continue;
             }
 
             let tie_breaker = rng.gen::<u32>();
+            let n = self.arms[arm].n();
 
-            if best_arm.is_none() || (self.arms[arm].n(), tie_breaker) < best_t {
+            if best_arm.is_none() || (n, tie_breaker) < best_t {
                 best_arm = Some(arm);
-                best_t = (self.arms[arm].n(), tie_breaker);
+                best_t = (n, tie_breaker);
             }
         }
 
