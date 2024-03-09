@@ -50,6 +50,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::BTS { replicates } => {
+                    let bandit = BTS::new(num_arms, *replicates);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::EBTCI => {
                     let bandit = EBTCI::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

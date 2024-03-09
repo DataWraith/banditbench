@@ -13,6 +13,7 @@ run EXPERIMENT:
 
 	bkt -- cargo run --release -- {{EXPERIMENT}} bds >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} bge >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/bts.rs -- cargo run --release -- {{EXPERIMENT}} bts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ebtci >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} epsts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} fe >> {{EXPERIMENT}}.csv

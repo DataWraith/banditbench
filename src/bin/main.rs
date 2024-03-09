@@ -31,6 +31,12 @@ fn main() {
     let algorithms = match cli.algorithm.to_ascii_lowercase().as_str() {
         "bds" => vec![Algorithms::BDS],
         "bge" => vec![Algorithms::BGE],
+        "bts" => vec![
+            Algorithms::BTS { replicates: 10 },
+            Algorithms::BTS { replicates: 100 },
+            Algorithms::BTS { replicates: 500 },
+            Algorithms::BTS { replicates: 1000 },
+        ],
         "ebtci" => vec![Algorithms::EBTCI],
         "epsts" => vec![Algorithms::EpsTS],
         "fe" => vec![Algorithms::ForcedExploration],

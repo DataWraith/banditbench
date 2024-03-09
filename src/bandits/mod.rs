@@ -15,8 +15,8 @@ pub mod tsallis_inf;
 pub mod tsucb;
 
 pub use {
-    baselines::greedy::Greedy, baselines::random::Random, bge::BGE, bootstrap::giro::GIRO,
-    bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
+    baselines::greedy::Greedy, baselines::random::Random, bge::BGE, bootstrap::bts::BTS,
+    bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
     bootstrap::vresboot::VResBoot, dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA,
     ebtci::EBTCI, forced_exploration::ForcedExploration, gradient_bandit::GradientBandit,
     klms::KLMS, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
@@ -27,6 +27,7 @@ pub use {
 pub enum Algorithms {
     BDS,
     BGE,
+    BTS { replicates: usize },
     EBTCI,
     EpsTS,
     ForcedExploration,
@@ -81,6 +82,7 @@ impl std::fmt::Display for Algorithms {
         match self {
             Algorithms::BDS => write!(f, "Bounded Dirichlet Sampling"),
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
+            Algorithms::BTS { replicates } => write!(f, "Bootstrapped Thompson Sampling (J={})", replicates),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
             Algorithms::ForcedExploration => write!(f, "Forced Exploration"),
