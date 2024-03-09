@@ -26,6 +26,7 @@ Algorithms are only included in the benchmark if
 - [Gradient Bandit](https://arxiv.org/abs/2402.17235)
 - [KL-UCB](https://arxiv.org/abs/1102.2490)
 - [Kullback-Leibler Maillard Sampling](https://arxiv.org/abs/2304.14989)
+- [lil' UCB](https://arxiv.org/abs/1312.7308)
 - [Multiplier Bootstrap-based Exploration](https://arxiv.org/abs/2302.01543)
 - [Non-Parametric Thompson Sampling](https://proceedings.mlr.press/v117/riou20a.html)
 - [Perturbed-History Exploration](https://arxiv.org/abs/1902.10089)
