@@ -109,13 +109,14 @@ fn main() {
         "tsvha" => vec![Algorithms::TSVHA],
         "tsallisinf" => vec![Algorithms::TsallisINF],
         "ucb1" => vec![Algorithms::UCB1],
+        "ucb1tuned" => vec![Algorithms::UCB1Tuned],
         "ucbdt" => vec![
             Algorithms::UCBDT { gamma: 0.75 },
             Algorithms::UCBDT { gamma: 0.9 },
             Algorithms::UCBDT { gamma: 0.95 },
             Algorithms::UCBDT { gamma: 1.0 },
         ],
-        "ucb1tuned" => vec![Algorithms::UCB1Tuned],
+        "ucbt" => vec![Algorithms::UCBT],
         "vresboot" => vec![
             Algorithms::VResBoot { init: 0 },
             Algorithms::VResBoot { init: 1 },

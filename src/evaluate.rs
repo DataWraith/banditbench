@@ -176,13 +176,18 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::UCB1Tuned => {
+                    let bandit = UCB1Tuned::new(num_arms);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::UCBDT { gamma } => {
                     let bandit = UCBDT::new(num_arms, *gamma);
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
-                Algorithms::UCB1Tuned => {
-                    let bandit = UCB1Tuned::new(num_arms);
+                Algorithms::UCBT => {
+                    let bandit = UCBT::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 

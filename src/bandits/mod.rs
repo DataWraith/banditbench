@@ -24,6 +24,7 @@ pub use {
     ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
     ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
     ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
+    ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
@@ -54,8 +55,9 @@ pub enum Algorithms {
     TSVHA,
     TsallisINF,
     UCB1,
-    UCBDT { gamma: f64 },
     UCB1Tuned,
+    UCBDT { gamma: f64 },
+    UCBT,
     VResBoot { init: usize },
     WRSDA,
 }
@@ -124,8 +126,9 @@ impl std::fmt::Display for Algorithms {
             ),
             Algorithms::TsallisINF => write!(f, "Tsallis-INF"),
             Algorithms::UCB1 => write!(f, "UCB1"),
-            Algorithms::UCBDT { gamma } => write!(f, "UCB-DT (γ={:.2})", gamma),
             Algorithms::UCB1Tuned => write!(f, "UCB1-Tuned"),
+            Algorithms::UCBDT { gamma } => write!(f, "UCB-DT (γ={:.2})", gamma),
+            Algorithms::UCBT => write!(f, "UCBT"),
             Algorithms::VResBoot { init } => {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)
             }

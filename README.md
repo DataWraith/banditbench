@@ -51,6 +51,7 @@ Algorithms are only included in the benchmark if
 - [UCB1](https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf) (PDF)
 - [UCB1-Tuned](https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf) (PDF)
 - [UCB-DT](https://arxiv.org/abs/2110.02690)
+- [UCBT](https://arxiv.org/abs/2102.05263)
 
 ### Other
 
@@ -92,6 +93,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | WR-SDA                                                      |     66.87 |       23.8280 |                             5.0922 | 0.39s  |
 | Optimistic Thompson Sampling                                |     68.80 |       25.6235 |                             7.1784 | 0.19s  |
 | ϵ-Exploring Thompson Sampling                               |     62.82 |       27.9018 |                             9.2377 | 0.04s  |
+| UCBT                                                        |     65.40 |       28.7984 |                             4.0759 | 0.03s  |
 | Thompson Sampling                                           |     66.16 |       28.8956 |                             7.1444 | 0.13s  |
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     65.94 |       29.0318 |                             7.1008 | 0.18s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     65.61 |       29.3229 |                             7.0179 | 0.18s  |
@@ -175,6 +177,7 @@ This experiment was taken from the GIRO paper.
 | Bootstrapped Thompson Sampling (J=100)                      |     38.23 |       30.9704 |                            13.6387 | 0.17s  |
 | Bootstrapped Thompson Sampling (J=1000)                     |     37.93 |       31.2238 |                            13.7505 | 1.30s  |
 | TS-UCB (1 samples)                                          |     41.40 |       31.6947 |                             6.2187 | 0.14s  |
+| UCBT                                                        |     41.92 |       32.0754 |                             5.3843 | 0.04s  |
 | Forced Exploration                                          |     41.72 |       33.1699 |                             5.7046 | 0.03s  |
 | WR-SDA                                                      |     37.74 |       34.3702 |                             7.8470 | 0.55s  |
 | CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 0.39s  |
@@ -247,6 +250,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | UCB-DT (γ=0.95)                                             |     13.27 |        4.3365 |                             0.1000 | 0.56s  |
 | UCB-DT (γ=1.00)                                             |     13.19 |        4.3406 |                             0.1200 | 0.55s  |
 | UCB-DT (γ=0.75)                                             |     13.05 |        4.3474 |                             0.1000 | 0.54s  |
+| UCBT                                                        |     12.17 |        4.3916 |                             0.4200 | 0.03s  |
 | TS-UCB (100 samples)                                        |     12.16 |        4.3921 |                             0.2500 | 12.05s |
 | Bootstrapped Thompson Sampling (J=10)                       |     11.83 |        4.4083 |                             0.1600 | 0.07s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     11.80 |        4.4101 |                             0.3400 | 0.68s  |
@@ -328,6 +332,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ReBoot (r=0.25)                                             |     52.26 |       24.7586 |                             8.6759 | 0.06s  |
 | TS-UCB (100 samples)                                        |     56.01 |       24.8830 |                             4.3046 | 12.62s |
 | TS-UCB (10 samples)                                         |     54.84 |       26.4412 |                             4.2702 | 1.30s  |
+| UCBT                                                        |     47.49 |       28.8558 |                             8.0049 | 0.04s  |
 | ReBoot (r=0.50)                                             |     51.44 |       28.9633 |                             6.3791 | 0.06s  |
 | TS-UCB (1 samples)                                          |     52.56 |       29.4772 |                             4.9198 | 0.15s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     49.88 |       31.1623 |                             6.5576 | 0.07s  |
@@ -419,6 +424,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Forced Exploration                                          |     48.30 |       13.9900 |                             2.5181 | 0.03s  |
 | Bounded Dirichlet Sampling                                  |     45.58 |       14.5418 |                             4.6561 | 0.37s  |
 | Kullback-Leibler Maillard Sampling                          |     43.53 |       15.1294 |                             5.1731 | 0.11s  |
+| UCBT                                                        |     32.33 |       18.1863 |                             6.0728 | 0.04s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     23.97 |       18.9613 |                             5.2597 | 0.18s  |
 | EB-TCI                                                      |     35.93 |       19.7395 |                             5.2415 | 0.08s  |
 | ReBoot (r=0.25)                                             |     34.89 |       19.9697 |                             3.1894 | 0.06s  |

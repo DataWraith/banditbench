@@ -37,8 +37,9 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} tsvha >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} tsallisinf >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucb1 >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} ucbdt >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucb1tuned >> {{EXPERIMENT}}.csv
+	bkt -- cargo run --release -- {{EXPERIMENT}} ucbdt >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/ucb/ucbt.rs -- cargo run --release -- {{EXPERIMENT}} ucbt >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/vresboot.rs -- cargo run --release -- {{EXPERIMENT}} vresboot >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} wrsda >> {{EXPERIMENT}}.csv
 
