@@ -7,6 +7,7 @@ pub mod ts;
 pub mod ucb;
 
 pub mod bge;
+pub mod code;
 pub mod ebtci;
 pub mod forced_exploration;
 pub mod gradient_bandit;
@@ -17,18 +18,19 @@ pub mod tsucb;
 pub use {
     baselines::etc::ETC, baselines::greedy::Greedy, baselines::random::Random, bge::BGE,
     bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
-    bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, dueling::dirichlet_sampling::BDS,
-    dueling::wr_sda::WRSDA, ebtci::EBTCI, forced_exploration::ForcedExploration,
-    gradient_bandit::GradientBandit, klms::KLMS, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS,
-    ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
-    ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
-    ucb::ucb_dt::UCBDT,
+    bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
+    dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI,
+    forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
+    ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
+    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
+    ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
 };
 
 pub enum Algorithms {
     BDS,
     BGE,
     BTS { replicates: usize },
+    CODE { delta: f64 },
     EBTCI,
     EpsTS,
     ETC { m: usize },
@@ -87,6 +89,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::BTS { replicates } => {
                 write!(f, "Bootstrapped Thompson Sampling (J={})", replicates)
             }
+            Algorithms::CODE { delta } => write!(f, "CODE (δ={:.3})", delta),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
             Algorithms::ETC { m } => write!(f, "ETC (m={})", m),

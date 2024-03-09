@@ -56,6 +56,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::CODE { delta } => {
+                    let bandit = CODE::new(num_arms, *delta);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::EBTCI => {
                     let bandit = EBTCI::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

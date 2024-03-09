@@ -37,6 +37,11 @@ fn main() {
             Algorithms::BTS { replicates: 500 },
             Algorithms::BTS { replicates: 1000 },
         ],
+        "code" => vec![
+            Algorithms::CODE { delta: 0.05 },
+            Algorithms::CODE { delta: 0.9 },
+            Algorithms::CODE { delta: 0.99 },
+        ],
         "ebtci" => vec![Algorithms::EBTCI],
         "epsts" => vec![Algorithms::EpsTS],
         "etc" => vec![
