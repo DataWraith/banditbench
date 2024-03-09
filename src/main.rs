@@ -44,6 +44,8 @@ fn main() {
             Algorithms::ETC { m: 3 },
             Algorithms::ETC { m: 5 },
             Algorithms::ETC { m: 10 },
+            Algorithms::ETC { m: 20 },
+            Algorithms::ETC { m: 25 },
         ],
         "fe" => vec![Algorithms::ForcedExploration],
         "giro" => vec![

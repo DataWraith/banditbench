@@ -7,6 +7,7 @@ use crate::Bandit;
 pub struct ETC {
     arms: Vec<Arm>,
     m: usize,
+    t: usize,
 }
 
 impl ETC {
@@ -14,6 +15,7 @@ impl ETC {
         ETC {
             arms: vec![Arm::default(); num_arms],
             m,
+            t: 0,
         }
     }
 }
@@ -24,10 +26,7 @@ impl Bandit for ETC {
             .max_by_key(|i| {
                 (
                     (self.arms[*i].successes + self.arms[*i].failures < self.m),
-                    OrderedFloat(
-                        self.arms[*i].successes as f64
-                            / (self.arms[*i].successes + self.arms[*i].failures) as f64,
-                    ),
+                    OrderedFloat(self.arms[*i].mean()),
                     rng.gen::<u32>(),
                 )
             })
@@ -35,10 +34,14 @@ impl Bandit for ETC {
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
-        if reward {
-            self.arms[arm].successes += 1;
-        } else {
-            self.arms[arm].failures += 1;
+        if self.t < self.arms.len() * self.m {
+            if reward {
+                self.arms[arm].successes += 1;
+            } else {
+                self.arms[arm].failures += 1;
+            }
         }
+
+        self.t += 1;
     }
 }

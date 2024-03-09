@@ -16,7 +16,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/bootstrap/bts.rs -- cargo run --release -- {{EXPERIMENT}} bts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ebtci >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} epsts >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} etc >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/baselines/etc.rs -- cargo run --release -- {{EXPERIMENT}} etc >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/forced_exploration.rs -- cargo run --release -- {{EXPERIMENT}} fe >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/giro.rs -- cargo run --release -- {{EXPERIMENT}} giro >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} gradient >> {{EXPERIMENT}}.csv
