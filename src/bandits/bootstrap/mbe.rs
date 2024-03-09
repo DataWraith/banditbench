@@ -9,7 +9,7 @@ const EXPLORATION_LAMBDA: f64 = 0.5;
 const BOOTSTRAP_SIGMA: f64 = 0.5;
 
 fn bootstrap_weights(mut rng: impl Rng) -> [f64; 3] {
-    let d = Normal::new(1.0, BOOTSTRAP_SIGMA).unwrap();
+    let d = Normal::new(1.0, BOOTSTRAP_SIGMA.sqrt()).unwrap();
 
     [d.sample(&mut rng), d.sample(&mut rng), d.sample(&mut rng)]
 }

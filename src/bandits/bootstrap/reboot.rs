@@ -48,7 +48,7 @@ impl Bandit for ReBoot {
 
                 let prss = 2.0 * self.r * self.r * (2.0 + s) * var;
 
-                let d = Normal::new(y, (1.0 / (s + 2.0).powi(2)) * (rss + prss)).unwrap();
+                let d = Normal::new(y, ((1.0 / (s + 2.0).powi(2)) * (rss + prss)).sqrt()).unwrap();
 
                 (OrderedFloat(d.sample(&mut rng)), rng.gen::<u32>())
             })

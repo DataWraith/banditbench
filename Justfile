@@ -16,6 +16,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/bootstrap/bts.rs -- cargo run --release -- {{EXPERIMENT}} bts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ebtci >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} epsts >> {{EXPERIMENT}}.csv
+	bkt -- cargo run --release -- {{EXPERIMENT}} etc >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} fe >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} giro >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} gradient >> {{EXPERIMENT}}.csv
@@ -23,11 +24,11 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} klms >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} klucb >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/lilucb.rs -- cargo run --release -- {{EXPERIMENT}} lilucb >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} mbe >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/mbe.rs -- cargo run --release -- {{EXPERIMENT}} mbe >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} npts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ots >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} phe >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} reboot >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/reboot.rs -- cargo run --release -- {{EXPERIMENT}} reboot >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} random >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} sts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ts >> {{EXPERIMENT}}.csv
@@ -37,7 +38,7 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucb1 >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucbdt >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ucb1tuned >> {{EXPERIMENT}}.csv
-	bkt -- cargo run --release -- {{EXPERIMENT}} vresboot >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/vresboot.rs -- cargo run --release -- {{EXPERIMENT}} vresboot >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} wrsda >> {{EXPERIMENT}}.csv
 
 	sort -n -t ';' -k 3,3 {{EXPERIMENT}}.csv -o {{EXPERIMENT}}.csv
