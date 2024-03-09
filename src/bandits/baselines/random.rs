@@ -1,6 +1,6 @@
 use rand::prelude::*;
 
-use super::Bandit;
+use crate::Bandit;
 
 pub struct Random {
     num_arms: usize,

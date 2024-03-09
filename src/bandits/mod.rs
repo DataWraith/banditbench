@@ -1,31 +1,28 @@
 use rand::prelude::*;
 
-pub mod bge;
-pub mod dirichlet_sampling;
-pub mod ebtci;
-pub mod eps_ts;
-pub mod forced_exploration;
-pub mod giro;
-pub mod gradient_bandit;
-pub mod greedy;
-pub mod kl_ucb;
-pub mod klms;
-pub mod lilucb;
-pub mod mbe;
-pub mod npts;
-pub mod phe;
-pub mod random;
-pub mod reboot;
-pub mod sts;
+pub mod baselines;
+pub mod bootstrap;
+pub mod dueling;
 pub mod ts;
-pub mod ts_vha;
+pub mod ucb;
+
+pub mod bge;
+pub mod ebtci;
+pub mod forced_exploration;
+pub mod gradient_bandit;
+pub mod klms;
 pub mod tsallis_inf;
 pub mod tsucb;
-pub mod ucb1;
-pub mod ucb1_tuned;
-pub mod ucb_dt;
-pub mod vresboot;
-pub mod wr_sda;
+
+pub use {
+    baselines::greedy::Greedy, baselines::random::Random, bge::BGE, bootstrap::giro::GIRO,
+    bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
+    bootstrap::vresboot::VResBoot, dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA,
+    ebtci::EBTCI, forced_exploration::ForcedExploration, gradient_bandit::GradientBandit,
+    klms::KLMS, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
+    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
+    ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
+};
 
 pub enum Algorithms {
     BDS,

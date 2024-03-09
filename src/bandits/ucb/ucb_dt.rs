@@ -1,8 +1,8 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
-use super::Arm;
-use super::Bandit;
+use crate::bandits::Arm;
+use crate::Bandit;
 
 pub struct UCBDT {
     arms: Vec<Arm>,

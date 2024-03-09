@@ -1,7 +1,7 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
-use super::Bandit;
+use crate::Bandit;
 
 #[derive(Clone)]
 pub struct ArmStats {

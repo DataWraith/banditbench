@@ -2,32 +2,40 @@ use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Normal;
 
-use super::Bandit;
+// Vanilla Residual Bootstrap (from the ReBoot paper), but with optimistic
+// initialization to encourage exploration (similar to BDS and NPTS).
+
+use crate::Bandit;
 
 #[derive(Default, Clone)]
-struct ReBootArm {
+struct VResBootArm {
     mean: f64,
     sum_of_squares: f64,
     s: usize,
 }
 
-pub struct ReBoot {
-    arms: Vec<ReBootArm>,
+pub struct VResBoot {
+    arms: Vec<VResBootArm>,
     t: usize,
-    r: f64,
 }
 
-impl ReBoot {
-    pub fn new(num_arms: usize, r: f64) -> Self {
-        ReBoot {
+impl VResBoot {
+    pub fn new(num_arms: usize, init: usize) -> Self {
+        VResBoot {
             t: 0,
-            arms: vec![ReBootArm::default(); num_arms],
-            r,
+            arms: vec![
+                VResBootArm {
+                    mean: 1.0 as f64,
+                    sum_of_squares: init as f64,
+                    s: init
+                };
+                num_arms
+            ],
         }
     }
 }
 
-impl Bandit for ReBoot {
+impl Bandit for VResBoot {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
@@ -39,16 +47,7 @@ impl Bandit for ReBoot {
                 let y = self.arms[*i].mean;
                 let rss = self.arms[*i].sum_of_squares - s * y * y;
 
-                let var = if y == 0.0 || y == 1.0 {
-                    // Variance of a bernoulli distribution is at most 1/4
-                    1.0 / 4f64
-                } else {
-                    self.arms[*i].sum_of_squares / s - y.powi(2)
-                };
-
-                let prss = 2.0 * self.r * self.r * (2.0 + s) * var;
-
-                let d = Normal::new(y, (1.0 / (s + 2.0).powi(2)) * (rss + prss)).unwrap();
+                let d = Normal::new(y, s.powi(-2) * rss).unwrap();
 
                 (OrderedFloat(d.sample(&mut rng)), rng.gen::<u32>())
             })
@@ -60,7 +59,7 @@ impl Bandit for ReBoot {
 
         self.arms[arm].mean =
             (self.arms[arm].mean * self.arms[arm].s as f64 + r) / (self.arms[arm].s + 1) as f64;
-        self.arms[arm].sum_of_squares += r;
+        self.arms[arm].sum_of_squares += r * r;
         self.arms[arm].s += 1;
 
         self.t += 1;

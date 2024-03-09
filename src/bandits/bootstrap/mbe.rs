@@ -2,7 +2,7 @@ use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Normal;
 
-use super::Bandit;
+use crate::Bandit;
 
 const BOOTSTRAP_REPLICATES: usize = 150;
 const EXPLORATION_LAMBDA: f64 = 0.5;

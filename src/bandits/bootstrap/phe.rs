@@ -2,8 +2,8 @@ use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Binomial;
 
-use super::Arm;
-use super::Bandit;
+use crate::bandits::Arm;
+use crate::Bandit;
 
 pub struct PHE {
     arms: Vec<Arm>,

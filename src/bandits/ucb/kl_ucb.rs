@@ -1,8 +1,8 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
-use super::Arm;
-use super::Bandit;
+use crate::bandits::Arm;
+use crate::Bandit;
 
 fn rel_entropy(x: f64, y: f64) -> f64 {
     if x == 0.0 {

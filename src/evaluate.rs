@@ -5,7 +5,7 @@ use std::time::Instant;
 
 use crate::BanditEvaluation;
 
-use super::bandit_list::*;
+use super::bandits::*;
 use super::evaluate_bandit;
 
 pub fn evaluate_bandits(

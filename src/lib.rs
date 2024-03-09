@@ -1,7 +1,6 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
-pub mod bandit_list;
 pub mod bandits;
 pub mod evaluate;
 
