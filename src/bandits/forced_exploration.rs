@@ -25,7 +25,7 @@ impl ForcedExploration {
 impl Bandit for ForcedExploration {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         // Greedy choice?
-        if (0..self.arms.len()).all(|i| self.p[i] < self.r) {
+        if (0..self.arms.len()).all(|i| self.p[i] < self.r * self.r) {
             return (0..self.arms.len())
                 .max_by_key(|i| {
                     (
