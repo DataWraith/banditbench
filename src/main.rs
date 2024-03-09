@@ -43,6 +43,12 @@ fn main() {
             Algorithms::CODE { delta: 0.99 },
         ],
         "ebtci" => vec![Algorithms::EBTCI],
+        "epsgreedy" => vec![
+            Algorithms::EpsilonGreedy { epsilon: 0.01 },
+            Algorithms::EpsilonGreedy { epsilon: 0.02 },
+            Algorithms::EpsilonGreedy { epsilon: 0.05 },
+            Algorithms::EpsilonGreedy { epsilon: 0.1 },
+        ],
         "epsts" => vec![Algorithms::EpsTS],
         "etc" => vec![
             Algorithms::ETC { m: 2 },

@@ -66,6 +66,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::EpsilonGreedy { epsilon } => {
+                    let bandit = EpsilonGreedy::new(num_arms, *epsilon);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::EpsTS => {
                     let bandit = EpsTS::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
