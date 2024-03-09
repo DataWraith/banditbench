@@ -48,7 +48,7 @@ impl Bandit for GIRO {
                 };
 
                 if successes == 0 {
-                    return OrderedFloat(0.0);
+                    return (OrderedFloat(0.0), rng.gen::<u32>());
                 }
 
                 let d = Binomial::new(
@@ -57,9 +57,9 @@ impl Bandit for GIRO {
                 )
                 .unwrap();
 
-                let mu = d.sample(&mut rng) as f64 / s as f64;
+                let mu = d.sample(&mut rng) as f64 / (successes + failures) as f64;
 
-                OrderedFloat(mu)
+                (OrderedFloat(mu), rng.gen::<u32>())
             })
             .unwrap()
     }
