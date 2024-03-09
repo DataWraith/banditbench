@@ -12,6 +12,7 @@ pub fn evaluate_bandits(
     algorithm: &Algorithms,
     num_runs: usize,
     arms_fn: impl Fn(u64) -> Vec<f64>,
+    seed: u64,
     horizon: usize,
 ) {
     let mut results = vec![];
@@ -26,7 +27,7 @@ pub fn evaluate_bandits(
         .with_message(format!("{}", algorithm));
 
     let start = Instant::now();
-    let instances = (1..=(num_runs as u64))
+    let instances = (seed..(seed + num_runs as u64))
         .map(|seed| arms_fn(seed))
         .collect::<Vec<Vec<f64>>>();
 

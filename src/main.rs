@@ -130,7 +130,7 @@ fn main() {
     };
 
     for algorithm in algorithms.iter() {
-        evaluate_bandits(algorithm, cli.num_runs | 1, arm_fn, cli.horizon);
+        evaluate_bandits(algorithm, cli.num_runs | 1, arm_fn, cli.seed, cli.horizon);
     }
 }
 
