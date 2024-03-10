@@ -50,9 +50,7 @@ impl Bandit for TSUCB {
 
         (0..self.arms.len())
             .min_by_key(|i| {
-                OrderedFloat(
-                    f64::sqrt(self.arms[*i].n() as f64) * (ft - self.arms[*i].mean()) as f64,
-                )
+                OrderedFloat(f64::sqrt(self.arms[*i].n() as f64) * (ft - self.arms[*i].mean()))
             })
             .unwrap()
     }
