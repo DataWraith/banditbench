@@ -49,7 +49,6 @@ impl Bandit for TSUCB {
         let ft = fts / self.num_samples as f64;
 
         (0..self.arms.len())
-            .rev()
             .min_by_key(|i| {
                 OrderedFloat(
                     f64::sqrt(self.arms[*i].n() as f64) * (ft - self.arms[*i].mean()) as f64,
