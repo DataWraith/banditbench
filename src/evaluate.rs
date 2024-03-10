@@ -146,8 +146,8 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
-                Algorithms::ReBoot { r } => {
-                    let bandit = ReBoot::new(num_arms, *r);
+                Algorithms::POKER { assumed_horizon } => {
+                    let bandit = POKER::new(num_arms, *assumed_horizon);
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
@@ -158,6 +158,11 @@ pub fn evaluate_bandits(
 
                 Algorithms::Random => {
                     let bandit = Random::new(num_arms);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
+                Algorithms::ReBoot { r } => {
+                    let bandit = ReBoot::new(num_arms, *r);
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 

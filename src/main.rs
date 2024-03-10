@@ -103,6 +103,25 @@ fn main() {
                 perturbation_scale: 2.1,
             },
         ],
+        "poker" => vec![
+            Algorithms::POKER { assumed_horizon: 1 },
+            Algorithms::POKER { assumed_horizon: 5 },
+            Algorithms::POKER {
+                assumed_horizon: 10,
+            },
+            Algorithms::POKER {
+                assumed_horizon: 25,
+            },
+            Algorithms::POKER {
+                assumed_horizon: 50,
+            },
+            Algorithms::POKER {
+                assumed_horizon: 100,
+            },
+            Algorithms::POKER {
+                assumed_horizon: 250,
+            },
+        ],
         "reboot" => vec![
             Algorithms::ReBoot { r: 0.25 },
             Algorithms::ReBoot { r: 0.5 },

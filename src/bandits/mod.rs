@@ -12,6 +12,7 @@ pub mod ebtci;
 pub mod forced_exploration;
 pub mod gradient_bandit;
 pub mod klms;
+pub mod poker;
 pub mod tsallis_inf;
 pub mod tsucb;
 
@@ -22,8 +23,8 @@ pub use {
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI,
     forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
-    ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
-    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
+    poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS,
+    ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
     ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
     ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
@@ -51,6 +52,7 @@ pub enum Algorithms {
     NPTS,
     OptimisticTS,
     PHE { perturbation_scale: f64 },
+    POKER { assumed_horizon: usize },
     Random,
     ReBoot { r: f64 },
     STS { epsilon: f64 },
@@ -122,6 +124,7 @@ impl std::fmt::Display for Algorithms {
                 "Perturbed-History Exploration (a={})",
                 perturbation_scale
             ),
+            Algorithms::POKER { assumed_horizon } => write!(f, "POKER (H={})", assumed_horizon),
             Algorithms::ReBoot { r } => write!(f, "ReBoot (r={:.2})", r),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::STS { epsilon } => {
