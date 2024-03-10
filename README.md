@@ -82,79 +82,79 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| Bootstrapped Thompson Sampling (J=500)                      |     81.55 |       12.3112 |                             1.6871 | 4.25s  |
-| Bootstrapped Thompson Sampling (J=1000)                     |     81.44 |       12.6758 |                             1.7121 | 8.28s  |
-| TS-UCB (100 samples)                                        |     72.43 |       17.3936 |                             3.2966 | 72.11s |
-| TS-UCB (10 samples)                                         |     72.82 |       17.8945 |                             3.6052 | 7.82s  |
-| UCB-DT (γ=1.00)                                             |     70.73 |       18.2706 |                             2.5295 | 2.40s  |
-| UCB-DT (γ=0.90)                                             |     73.02 |       18.3178 |                             2.4600 | 2.58s  |
-| UCB-DT (γ=0.95)                                             |     72.98 |       18.3323 |                             2.4505 | 2.50s  |
-| UCB-DT (γ=0.75)                                             |     72.98 |       18.3605 |                             2.4852 | 2.45s  |
-| CODE (δ=0.990)                                              |     68.91 |       18.9329 |                             2.9569 | 0.34s  |
-| Greedy                                                      |     67.48 |       19.7483 |                             2.4973 | 0.07s  |
-| TS-UCB (1 samples)                                          |     72.33 |       19.9778 |                             5.3765 | 0.92s  |
+| TS-UCB (100 samples)                                        |     71.47 |       17.4640 |                             3.3679 | 68.56s |
+| TS-UCB (10 samples)                                         |     71.86 |       17.8842 |                             3.6917 | 7.15s  |
+| UCB-DT (γ=1.00)                                             |     69.93 |       18.1466 |                             2.5287 | 2.42s  |
+| UCB-DT (γ=0.95)                                             |     72.44 |       18.1946 |                             2.4725 | 2.42s  |
+| UCB-DT (γ=0.75)                                             |     72.50 |       18.1962 |                             2.5172 | 2.41s  |
+| UCB-DT (γ=0.90)                                             |     72.42 |       18.2016 |                             2.4807 | 2.45s  |
+| CODE (δ=0.990)                                              |     68.91 |       18.9329 |                             2.9569 | 0.35s  |
+| Greedy                                                      |     66.26 |       19.7129 |                             2.5470 | 0.08s  |
+| TS-UCB (1 samples)                                          |     71.45 |       19.9763 |                             5.3961 | 0.88s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     66.35 |       20.7765 |                             2.7735 | 0.14s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     63.36 |       21.1298 |                             6.2710 | 24.55s |
-| ϵ-Greedy (ϵ=0.010)                                          |     66.18 |       21.1769 |                             2.8588 | 0.09s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     63.16 |       21.1041 |                             6.1932 | 23.75s |
+| ϵ-Greedy (ϵ=0.010)                                          |     66.18 |       21.1769 |                             2.8588 | 0.08s  |
 | ϵ-Decreasing (ϵ=0.900)                                      |     66.48 |       21.2824 |                             2.8492 | 0.15s  |
 | ϵ-Greedy (ϵ=0.020)                                          |     65.99 |       22.7752 |                             3.1672 | 0.11s  |
-| ϵ-Decreasing (ϵ=0.700)                                      |     66.55 |       23.6847 |                             3.3687 | 0.16s  |
-| WR-SDA                                                      |     67.66 |       23.8199 |                             5.0460 | 1.56s  |
-| Optimistic Thompson Sampling                                |     69.69 |       25.4924 |                             7.1978 | 0.89s  |
-| ϵ-Greedy (ϵ=0.050)                                          |     65.45 |       27.3929 |                             4.0210 | 0.12s  |
-| ϵ-Exploring Thompson Sampling                               |     64.31 |       27.5471 |                             8.9868 | 0.13s  |
-| UCBT                                                        |     65.40 |       28.7984 |                             4.0759 | 0.10s  |
-| Thompson Sampling                                           |     67.00 |       28.9445 |                             7.1632 | 0.68s  |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |     66.88 |       29.0225 |                             7.0900 | 0.83s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |     66.49 |       29.3398 |                             6.9895 | 0.95s  |
-| KL-UCB                                                      |     67.57 |       29.6845 |                             7.4867 | 7.49s  |
-| ReBoot (r=0.25)                                             |     61.92 |       30.3897 |                             5.2935 | 0.19s  |
-| CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 0.34s  |
-| ϵ-Decreasing (ϵ=0.500)                                      |     65.55 |       31.3306 |                             4.6232 | 0.16s  |
-| UCB1-Tuned                                                  |     62.81 |       31.7769 |                             3.6345 | 0.23s  |
-| Bootstrapped Thompson Sampling (J=100)                      |     51.85 |       32.8060 |                            13.5494 | 1.04s  |
-| Vanilla Residual Bootstrap (init=0)                         |     60.73 |       33.1690 |                             5.4193 | 0.16s  |
-| Non-Parametric Thompson Sampling                            |     64.59 |       33.8504 |                             7.0679 | 4.33s  |
-| ReBoot (r=0.50)                                             |     59.20 |       34.1884 |                             5.8990 | 0.26s  |
-| Bounded Dirichlet Sampling                                  |     64.70 |       34.2376 |                             7.1518 | 2.32s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |     58.20 |       34.9791 |                             6.9401 | 0.99s  |
-| ϵ-Greedy (ϵ=0.100)                                          |     63.98 |       35.8380 |                             5.3322 | 0.12s  |
-| Multiplier Bootstrap-based Exploration                      |     61.60 |       36.1880 |                             4.1319 | 5.63s  |
-| Kullback-Leibler Maillard Sampling                          |     60.53 |       37.5467 |                             8.4138 | 0.51s  |
-| Perturbed-History Exploration (a=1.1)                       |     57.78 |       37.8970 |                             5.6488 | 0.73s  |
-| Garbage In, Reward Out (a=0.10)                             |     58.49 |       38.7874 |                             5.2714 | 0.86s  |
-| Bootstrapped Thompson Sampling (J=10)                       |     45.02 |       39.1305 |                            19.4246 | 0.38s  |
-| Vanilla Residual Bootstrap (init=1)                         |     60.28 |       40.6878 |                             4.7500 | 0.20s  |
-| Satisficing Thompson Sampling (ϵ=0.100)                     |     44.92 |       44.1840 |                            10.6738 | 0.98s  |
-| lil' UCB (δ=0.100)                                          |     52.87 |       44.9486 |                             5.5879 | 0.29s  |
-| Tsallis-INF                                                 |     55.26 |       46.5441 |                             5.8549 | 0.99s  |
-| Forced Exploration                                          |     63.74 |       46.7869 |                             6.0952 | 0.06s  |
-| ReBoot (r=0.90)                                             |     52.97 |       47.4265 |                             6.6595 | 0.28s  |
-| Garbage In, Reward Out (a=0.33)                             |     52.54 |       49.4032 |                             5.5249 | 1.07s  |
-| Vanilla Residual Bootstrap (init=5)                         |     56.46 |       50.8622 |                             6.0489 | 0.22s  |
-| ReBoot (r=1.00)                                             |     50.62 |       52.0364 |                             6.7317 | 0.26s  |
-| EB-TCI                                                      |     42.95 |       56.0202 |                            16.1098 | 0.30s  |
+| ϵ-Decreasing (ϵ=0.700)                                      |     66.55 |       23.6847 |                             3.3687 | 0.13s  |
+| WR-SDA                                                      |     66.87 |       23.8280 |                             5.0922 | 1.60s  |
+| Optimistic Thompson Sampling                                |     68.80 |       25.6235 |                             7.1784 | 0.89s  |
+| ϵ-Greedy (ϵ=0.050)                                          |     65.45 |       27.3929 |                             4.0210 | 0.11s  |
+| ϵ-Exploring Thompson Sampling                               |     62.82 |       27.9018 |                             9.2377 | 0.13s  |
+| UCBT                                                        |     65.40 |       28.7984 |                             4.0759 | 0.09s  |
+| Thompson Sampling                                           |     66.16 |       28.8956 |                             7.1444 | 0.59s  |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |     65.94 |       29.0318 |                             7.1008 | 0.85s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |     65.61 |       29.3229 |                             7.0179 | 0.94s  |
+| KL-UCB                                                      |     66.78 |       29.6304 |                             7.3837 | 7.41s  |
+| ReBoot (r=0.25)                                             |     61.18 |       30.3599 |                             5.2731 | 0.22s  |
+| CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 0.35s  |
+| ϵ-Decreasing (ϵ=0.500)                                      |     65.55 |       31.3306 |                             4.6232 | 0.13s  |
+| UCB1-Tuned                                                  |     62.03 |       31.6747 |                             3.6906 | 0.24s  |
+| Vanilla Residual Bootstrap (init=0)                         |     59.99 |       33.1442 |                             5.4073 | 0.16s  |
+| Non-Parametric Thompson Sampling                            |     63.70 |       33.7962 |                             7.1820 | 4.21s  |
+| ReBoot (r=0.50)                                             |     58.58 |       34.0829 |                             5.9224 | 0.28s  |
+| Bounded Dirichlet Sampling                                  |     63.86 |       34.1647 |                             7.1345 | 2.31s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |     57.19 |       35.0506 |                             6.7983 | 0.91s  |
+| ϵ-Greedy (ϵ=0.100)                                          |     63.98 |       35.8380 |                             5.3322 | 0.11s  |
+| Multiplier Bootstrap-based Exploration                      |     60.70 |       36.1612 |                             4.2418 | 5.72s  |
+| Kullback-Leibler Maillard Sampling                          |     59.67 |       37.5162 |                             8.3979 | 0.49s  |
+| Perturbed-History Exploration (a=1.1)                       |     56.96 |       37.8929 |                             5.6711 | 0.78s  |
+| Garbage In, Reward Out (a=0.10)                             |     57.65 |       38.7302 |                             5.2772 | 0.90s  |
+| Vanilla Residual Bootstrap (init=1)                         |     59.43 |       40.6304 |                             4.7837 | 0.21s  |
+| Bootstrapped Thompson Sampling (J=500)                      |     40.59 |       41.9370 |                            21.7066 | 4.28s  |
+| Bootstrapped Thompson Sampling (J=1000)                     |     40.88 |       41.9668 |                            21.1936 | 8.30s  |
+| Bootstrapped Thompson Sampling (J=100)                      |     40.77 |       42.3584 |                            21.7453 | 1.05s  |
+| Bootstrapped Thompson Sampling (J=10)                       |     39.55 |       42.8224 |                            21.8677 | 0.38s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |     44.13 |       44.2992 |                            10.4673 | 0.96s  |
+| lil' UCB (δ=0.100)                                          |     52.19 |       44.8365 |                             5.5606 | 0.27s  |
+| Tsallis-INF                                                 |     54.25 |       46.4787 |                             5.9697 | 1.00s  |
+| Forced Exploration                                          |     62.89 |       46.6666 |                             6.2607 | 0.08s  |
+| ReBoot (r=0.90)                                             |     52.24 |       47.2795 |                             6.7367 | 0.27s  |
+| Garbage In, Reward Out (a=0.33)                             |     51.74 |       49.2706 |                             5.5459 | 1.16s  |
+| Vanilla Residual Bootstrap (init=5)                         |     55.69 |       50.7442 |                             6.1208 | 0.21s  |
+| ReBoot (r=1.00)                                             |     49.90 |       51.8800 |                             6.7533 | 0.26s  |
+| EB-TCI                                                      |     42.82 |       55.0174 |                            15.7714 | 0.31s  |
+| Perturbed-History Exploration (a=2.1)                       |     47.44 |       56.5448 |                             6.0521 | 0.91s  |
 | ETC (m=10)                                                  |     47.32 |       56.6956 |                            11.0554 | 0.14s  |
-| Perturbed-History Exploration (a=2.1)                       |     48.19 |       56.7164 |                             6.0494 | 0.89s  |
-| lil' UCB (δ=0.010)                                          |     44.60 |       62.4201 |                             6.5913 | 0.30s  |
-| Garbage In, Reward Out (a=1.00)                             |     43.69 |       66.7268 |                             7.0150 | 1.09s  |
-| Boltzmann-Gumbel Exploration                                |     44.52 |       69.1820 |                             6.7076 | 0.42s  |
-| ReBoot (r=1.50)                                             |     41.00 |       72.4983 |                             8.1316 | 0.25s  |
-| lil' UCB (δ=0.001)                                          |     39.59 |       74.2236 |                             8.0274 | 0.26s  |
+| lil' UCB (δ=0.010)                                          |     44.08 |       62.1486 |                             6.5312 | 0.28s  |
+| Garbage In, Reward Out (a=1.00)                             |     43.03 |       66.4802 |                             6.9482 | 1.15s  |
+| Boltzmann-Gumbel Exploration                                |     43.87 |       68.9250 |                             6.5817 | 0.42s  |
+| ReBoot (r=1.50)                                             |     40.44 |       72.1794 |                             8.1305 | 0.26s  |
+| lil' UCB (δ=0.001)                                          |     39.18 |       73.8291 |                             8.0325 | 0.25s  |
 | ETC (m=5)                                                   |     27.93 |       78.7963 |                            24.1796 | 0.14s  |
-| ReBoot (r=1.70)                                             |     37.90 |       79.8938 |                             9.0403 | 0.23s  |
-| ϵ-Decreasing (ϵ=0.200)                                      |     50.82 |       81.7548 |                            11.1762 | 0.12s  |
-| ETC (m=20)                                                  |     49.52 |       85.1694 |                            11.9964 | 0.15s  |
-| UCB1                                                        |     34.84 |       87.3965 |                            10.1205 | 0.15s  |
-| ReBoot (r=2.10)                                             |     32.69 |       93.3431 |                            10.7795 | 0.25s  |
-| ETC (m=3)                                                   |     22.30 |       98.5252 |                            27.0722 | 0.14s  |
-| ETC (m=25)                                                  |     41.95 |      105.2629 |                            14.8396 | 0.15s  |
-| ETC (m=2)                                                   |     20.21 |      110.5641 |                            26.8868 | 0.12s  |
-| Gradient Bandit                                             |     30.56 |      111.1047 |                            17.4381 | 0.37s  |
-| Gradient Bandit (with baseline)                             |     31.78 |      114.0673 |                            11.6366 | 0.42s  |
-| ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.08s  |
-| CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.35s  |
-| Random                                                      |      9.99 |      205.0580 |                            30.3100 | 0.02s  |
+| ReBoot (r=1.70)                                             |     37.41 |       79.4522 |                             8.9230 | 0.25s  |
+| ϵ-Decreasing (ϵ=0.200)                                      |     50.82 |       81.7548 |                            11.1762 | 0.11s  |
+| ETC (m=20)                                                  |     49.52 |       85.1694 |                            11.9964 | 0.14s  |
+| UCB1                                                        |     34.52 |       86.8474 |                            10.2054 | 0.15s  |
+| ReBoot (r=2.10)                                             |     32.31 |       92.8131 |                            10.7156 | 0.26s  |
+| ETC (m=3)                                                   |     22.30 |       98.5252 |                            27.0722 | 0.13s  |
+| ETC (m=25)                                                  |     41.95 |      105.2629 |                            14.8396 | 0.14s  |
+| ETC (m=2)                                                   |     20.21 |      110.5641 |                            26.8868 | 0.10s  |
+| Gradient Bandit                                             |     30.32 |      110.7043 |                            17.1641 | 0.37s  |
+| Gradient Bandit (with baseline)                             |     31.34 |      113.5984 |                            11.7063 | 0.42s  |
+| ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.07s  |
+| CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.36s  |
+| Random                                                      |     10.01 |      204.0160 |                            30.3495 | 0.01s  |
 <!-- END mdsh -->
 
 </details>
@@ -174,79 +174,79 @@ This experiment was taken from the GIRO paper.
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| Bootstrapped Thompson Sampling (J=500)                      |     60.67 |       20.0135 |                            10.8059 | 4.46s  |
-| Bootstrapped Thompson Sampling (J=1000)                     |     60.81 |       20.0744 |                            10.7234 | 8.74s  |
-| UCB-DT (γ=0.90)                                             |     44.11 |       25.7379 |                             7.1522 | 2.55s  |
-| UCB-DT (γ=0.95)                                             |     44.07 |       25.7444 |                             7.1627 | 2.56s  |
-| UCB-DT (γ=0.75)                                             |     44.20 |       25.7518 |                             7.1508 | 2.53s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.83 |       26.7704 |                             8.7872 | 12.11s |
-| TS-UCB (100 samples)                                        |     44.82 |       27.4503 |                             6.6286 | 73.97s |
-| Bootstrapped Thompson Sampling (J=100)                      |     44.19 |       27.5108 |                            13.3325 | 1.02s  |
-| CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 0.39s  |
-| Greedy                                                      |     39.00 |       28.0151 |                             9.7636 | 0.08s  |
-| UCB-DT (γ=1.00)                                             |     39.38 |       28.0689 |                             9.7290 | 2.60s  |
-| TS-UCB (10 samples)                                         |     45.12 |       28.1356 |                             5.9972 | 7.49s  |
-| ϵ-Decreasing (ϵ=0.990)                                      |     38.24 |       28.1487 |                             9.6145 | 0.15s  |
-| ϵ-Decreasing (ϵ=0.900)                                      |     38.32 |       28.3069 |                             9.4761 | 0.15s  |
+| UCB-DT (γ=0.90)                                             |     43.02 |       25.6120 |                             7.2004 | 2.48s  |
+| UCB-DT (γ=0.95)                                             |     43.00 |       25.6319 |                             7.1816 | 2.51s  |
+| UCB-DT (γ=0.75)                                             |     43.05 |       25.6700 |                             7.2075 | 2.46s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.11 |       26.7250 |                             8.7506 | 11.42s |
+| TS-UCB (100 samples)                                        |     44.12 |       27.5176 |                             6.6972 | 68.00s |
+| CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 0.34s  |
+| UCB-DT (γ=1.00)                                             |     38.52 |       28.0522 |                             9.8213 | 2.44s  |
+| ϵ-Decreasing (ϵ=0.990)                                      |     38.24 |       28.1487 |                             9.6145 | 0.14s  |
+| TS-UCB (10 samples)                                         |     44.24 |       28.1670 |                             6.0343 | 7.13s  |
+| Greedy                                                      |     37.83 |       28.2076 |                             9.9996 | 0.08s  |
+| ϵ-Decreasing (ϵ=0.900)                                      |     38.32 |       28.3069 |                             9.4761 | 0.13s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     39.35 |       28.3077 |                             8.7988 | 0.14s  |
-| ϵ-Greedy (ϵ=0.010)                                          |     38.03 |       28.4793 |                             9.7905 | 0.09s  |
-| Bootstrapped Thompson Sampling (J=10)                       |     41.24 |       28.6171 |                            14.3000 | 0.35s  |
-| ϵ-Greedy (ϵ=0.020)                                          |     38.36 |       28.6900 |                             9.4808 | 0.13s  |
-| ϵ-Greedy (ϵ=0.050)                                          |     39.46 |       29.3486 |                             8.7084 | 0.13s  |
-| ϵ-Decreasing (ϵ=0.500)                                      |     40.91 |       29.4333 |                             7.5048 | 0.14s  |
-| ϵ-Exploring Thompson Sampling                               |     41.08 |       30.8109 |                             9.0357 | 0.14s  |
-| ϵ-Greedy (ϵ=0.100)                                          |     40.16 |       31.5381 |                             7.6639 | 0.12s  |
-| TS-UCB (1 samples)                                          |     42.37 |       31.7007 |                             6.1702 | 0.89s  |
+| ϵ-Greedy (ϵ=0.010)                                          |     38.03 |       28.4793 |                             9.7905 | 0.08s  |
+| ϵ-Greedy (ϵ=0.020)                                          |     38.36 |       28.6900 |                             9.4808 | 0.11s  |
+| ϵ-Greedy (ϵ=0.050)                                          |     39.46 |       29.3486 |                             8.7084 | 0.11s  |
+| Bootstrapped Thompson Sampling (J=10)                       |     38.57 |       29.4073 |                            13.9756 | 0.36s  |
+| ϵ-Decreasing (ϵ=0.500)                                      |     40.91 |       29.4333 |                             7.5048 | 0.13s  |
+| ϵ-Exploring Thompson Sampling                               |     40.14 |       30.7659 |                             8.9988 | 0.14s  |
+| Bootstrapped Thompson Sampling (J=500)                      |     38.36 |       30.8943 |                            13.6813 | 4.24s  |
+| Bootstrapped Thompson Sampling (J=100)                      |     38.23 |       30.9704 |                            13.6387 | 1.05s  |
+| Bootstrapped Thompson Sampling (J=1000)                     |     37.93 |       31.2238 |                            13.7505 | 8.29s  |
+| ϵ-Greedy (ϵ=0.100)                                          |     40.16 |       31.5381 |                             7.6639 | 0.11s  |
+| TS-UCB (1 samples)                                          |     41.42 |       31.6918 |                             6.1659 | 0.90s  |
 | UCBT                                                        |     41.92 |       32.0754 |                             5.3843 | 0.10s  |
-| Forced Exploration                                          |     42.52 |       33.2202 |                             5.6321 | 0.08s  |
-| WR-SDA                                                      |     38.17 |       34.3574 |                             7.8687 | 2.60s  |
-| CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 0.46s  |
-| UCB1-Tuned                                                  |     39.23 |       36.0362 |                             5.7070 | 0.25s  |
-| ReBoot (r=0.25)                                             |     36.27 |       36.8780 |                             8.0532 | 0.19s  |
-| Vanilla Residual Bootstrap (init=0)                         |     35.53 |       38.0238 |                             7.8845 | 0.18s  |
-| Optimistic Thompson Sampling                                |     37.57 |       38.4989 |                             7.1213 | 0.89s  |
-| Multiplier Bootstrap-based Exploration                      |     36.71 |       38.8681 |                             6.9205 | 5.77s  |
-| ReBoot (r=0.50)                                             |     34.58 |       39.6438 |                             8.1733 | 0.26s  |
-| ETC (m=10)                                                  |     33.45 |       40.0881 |                            11.7950 | 0.14s  |
-| Thompson Sampling                                           |     35.68 |       40.6934 |                             7.4756 | 0.65s  |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |     35.61 |       40.7462 |                             7.4738 | 0.79s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |     35.54 |       40.8342 |                             7.6058 | 0.82s  |
-| Garbage In, Reward Out (a=0.10)                             |     34.26 |       42.3026 |                             7.5669 | 1.12s  |
-| Perturbed-History Exploration (a=1.1)                       |     34.15 |       42.4480 |                             7.6337 | 0.80s  |
-| KL-UCB                                                      |     35.23 |       42.8489 |                             6.2867 | 8.07s  |
-| EB-TCI                                                      |     30.68 |       43.1680 |                             8.8295 | 0.36s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |     33.15 |       43.2663 |                             8.0491 | 0.92s  |
-| Non-Parametric Thompson Sampling                            |     33.66 |       43.8953 |                             7.4578 | 4.34s  |
-| Vanilla Residual Bootstrap (init=1)                         |     33.49 |       43.9511 |                             7.4165 | 0.23s  |
-| Bounded Dirichlet Sampling                                  |     33.37 |       44.9539 |                             7.9732 | 2.59s  |
-| Tsallis-INF                                                 |     33.02 |       45.9683 |                             8.4113 | 1.02s  |
-| lil' UCB (δ=0.100)                                          |     32.27 |       46.6215 |                             6.6925 | 0.30s  |
-| Kullback-Leibler Maillard Sampling                          |     30.15 |       48.1212 |                             8.2677 | 0.57s  |
-| Satisficing Thompson Sampling (ϵ=0.100)                     |     27.97 |       48.1233 |                            10.0095 | 1.10s  |
-| Garbage In, Reward Out (a=0.33)                             |     30.57 |       48.3822 |                             7.9763 | 1.34s  |
-| ReBoot (r=0.90)                                             |     29.75 |       48.7258 |                             8.4139 | 0.29s  |
+| Forced Exploration                                          |     41.72 |       33.1699 |                             5.7046 | 0.08s  |
+| WR-SDA                                                      |     37.74 |       34.3702 |                             7.8470 | 2.47s  |
+| CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 0.36s  |
+| UCB1-Tuned                                                  |     38.36 |       36.0304 |                             5.8517 | 0.25s  |
+| ReBoot (r=0.25)                                             |     35.81 |       36.8892 |                             8.1828 | 0.19s  |
+| Vanilla Residual Bootstrap (init=0)                         |     35.10 |       38.0391 |                             7.9288 | 0.17s  |
+| Optimistic Thompson Sampling                                |     36.78 |       38.4207 |                             7.1289 | 0.85s  |
+| Multiplier Bootstrap-based Exploration                      |     36.05 |       38.7066 |                             7.0003 | 5.70s  |
+| ReBoot (r=0.50)                                             |     34.21 |       39.5480 |                             8.2009 | 0.23s  |
+| ETC (m=10)                                                  |     33.45 |       40.0881 |                            11.7950 | 0.13s  |
+| Thompson Sampling                                           |     35.01 |       40.5420 |                             7.5125 | 0.60s  |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |     34.96 |       40.5786 |                             7.5540 | 0.85s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |     34.87 |       40.6461 |                             7.5447 | 0.90s  |
+| Garbage In, Reward Out (a=0.10)                             |     33.73 |       42.0945 |                             7.6013 | 1.09s  |
+| Perturbed-History Exploration (a=1.1)                       |     33.49 |       42.3004 |                             7.7267 | 0.81s  |
+| KL-UCB                                                      |     34.54 |       42.7149 |                             6.2245 | 7.75s  |
+| EB-TCI                                                      |     30.56 |       42.8317 |                             9.3319 | 0.35s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |     32.52 |       43.1108 |                             8.0902 | 0.92s  |
+| Non-Parametric Thompson Sampling                            |     33.09 |       43.6865 |                             7.5605 | 4.27s  |
+| Vanilla Residual Bootstrap (init=1)                         |     32.88 |       43.7710 |                             7.4509 | 0.21s  |
+| Bounded Dirichlet Sampling                                  |     32.79 |       44.7466 |                             7.9659 | 2.58s  |
+| Tsallis-INF                                                 |     32.35 |       45.6862 |                             8.4068 | 1.06s  |
+| lil' UCB (δ=0.100)                                          |     31.70 |       46.4287 |                             6.7023 | 0.28s  |
+| Kullback-Leibler Maillard Sampling                          |     29.69 |       47.8324 |                             8.4744 | 0.50s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |     27.45 |       48.1450 |                            10.2207 | 0.96s  |
+| Garbage In, Reward Out (a=0.33)                             |     30.11 |       48.1458 |                             8.0648 | 1.24s  |
+| ReBoot (r=0.90)                                             |     29.34 |       48.4181 |                             8.4845 | 0.25s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     33.79 |       49.1413 |                             7.5396 | 0.12s  |
-| ETC (m=5)                                                   |     21.32 |       50.0278 |                            17.6885 | 0.14s  |
-| ETC (m=20)                                                  |     31.24 |       51.1732 |                             8.6350 | 0.14s  |
-| ReBoot (r=1.00)                                             |     28.27 |       51.2697 |                             8.5685 | 0.26s  |
-| Perturbed-History Exploration (a=2.1)                       |     28.34 |       52.5133 |                             8.3130 | 1.18s  |
-| Vanilla Residual Bootstrap (init=5)                         |     28.72 |       53.5870 |                             8.3547 | 0.24s  |
+| ETC (m=5)                                                   |     21.32 |       50.0278 |                            17.6885 | 0.13s  |
+| ReBoot (r=1.00)                                             |     27.89 |       50.9352 |                             8.6898 | 0.25s  |
+| ETC (m=20)                                                  |     31.24 |       51.1732 |                             8.6350 | 0.13s  |
+| Perturbed-History Exploration (a=2.1)                       |     27.91 |       52.2188 |                             8.4423 | 0.96s  |
+| Vanilla Residual Bootstrap (init=5)                         |     28.26 |       53.2834 |                             8.4062 | 0.21s  |
 | ETC (m=25)                                                  |     32.18 |       56.3820 |                             8.2546 | 0.14s  |
-| lil' UCB (δ=0.010)                                          |     26.26 |       57.2169 |                             8.1942 | 0.29s  |
-| Garbage In, Reward Out (a=1.00)                             |     25.46 |       58.0798 |                             8.9055 | 1.18s  |
-| Boltzmann-Gumbel Exploration                                |     25.93 |       58.3994 |                             8.7698 | 0.31s  |
-| ReBoot (r=1.50)                                             |     23.11 |       61.4855 |                             9.5988 | 0.25s  |
-| lil' UCB (δ=0.001)                                          |     23.15 |       63.1709 |                             9.1364 | 0.26s  |
-| ReBoot (r=1.70)                                             |     21.59 |       64.8451 |                            10.1444 | 0.24s  |
-| UCB1                                                        |     20.65 |       68.4993 |                            10.1090 | 0.16s  |
-| ϵ-Decreasing (ϵ=0.100)                                      |     24.60 |       68.8686 |                             9.8576 | 0.09s  |
-| ETC (m=3)                                                   |     15.41 |       69.9994 |                            18.3348 | 0.14s  |
-| ReBoot (r=2.10)                                             |     19.33 |       70.1924 |                            10.6578 | 0.24s  |
-| Gradient Bandit                                             |     19.16 |       75.6775 |                            12.1688 | 0.42s  |
-| Gradient Bandit (with baseline)                             |     18.70 |       77.4743 |                            10.5750 | 0.48s  |
-| ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.11s  |
-| CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.43s  |
-| Random                                                      |      9.99 |      102.5290 |                            15.1550 | 0.02s  |
+| lil' UCB (δ=0.010)                                          |     25.83 |       56.9410 |                             8.2814 | 0.28s  |
+| Garbage In, Reward Out (a=1.00)                             |     25.12 |       57.7304 |                             9.1152 | 1.17s  |
+| Boltzmann-Gumbel Exploration                                |     25.61 |       58.0539 |                             8.8928 | 0.31s  |
+| ReBoot (r=1.50)                                             |     22.85 |       61.0890 |                             9.6647 | 0.24s  |
+| lil' UCB (δ=0.001)                                          |     22.85 |       62.7995 |                             9.1698 | 0.25s  |
+| ReBoot (r=1.70)                                             |     21.38 |       64.4112 |                            10.0761 | 0.24s  |
+| UCB1                                                        |     20.42 |       68.0927 |                            10.1489 | 0.16s  |
+| ϵ-Decreasing (ϵ=0.100)                                      |     24.60 |       68.8686 |                             9.8576 | 0.07s  |
+| ReBoot (r=2.10)                                             |     19.16 |       69.7726 |                            10.8419 | 0.24s  |
+| ETC (m=3)                                                   |     15.41 |       69.9994 |                            18.3348 | 0.13s  |
+| Gradient Bandit                                             |     19.00 |       75.4704 |                            12.4808 | 0.37s  |
+| Gradient Bandit (with baseline)                             |     18.51 |       77.0723 |                            10.7145 | 0.43s  |
+| ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.10s  |
+| Random                                                      |     10.01 |      102.0080 |                            15.1748 | 0.02s  |
+| CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.36s  |
 <!-- END mdsh -->
 
 </details>
@@ -265,79 +265,79 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| ϵ-Decreasing (ϵ=0.990)                                      |     16.90 |        4.1552 |                             0.1000 | 0.16s  |
-| ϵ-Decreasing (ϵ=0.900)                                      |     16.80 |        4.1598 |                             0.1000 | 0.16s  |
-| ϵ-Greedy (ϵ=0.010)                                          |     16.64 |        4.1682 |                             0.1000 | 0.12s  |
-| Greedy                                                      |     16.60 |        4.1700 |                             0.0100 | 0.07s  |
-| ϵ-Decreasing (ϵ=0.700)                                      |     16.29 |        4.1854 |                             0.1000 | 0.16s  |
-| ϵ-Greedy (ϵ=0.020)                                          |     16.25 |        4.1873 |                             0.1000 | 0.14s  |
-| ϵ-Greedy (ϵ=0.050)                                          |     15.11 |        4.2447 |                             0.0900 | 0.15s  |
-| ϵ-Decreasing (ϵ=0.500)                                      |     14.77 |        4.2614 |                             0.0800 | 0.16s  |
-| ϵ-Decreasing (ϵ=0.200)                                      |     14.05 |        4.2973 |                             0.1600 | 0.14s  |
-| ϵ-Greedy (ϵ=0.100)                                          |     13.97 |        4.3014 |                             0.0800 | 0.15s  |
-| ϵ-Exploring Thompson Sampling                               |     13.52 |        4.3242 |                             0.1100 | 0.14s  |
-| Forced Exploration                                          |     13.38 |        4.3312 |                             0.1000 | 0.07s  |
-| UCB-DT (γ=0.90)                                             |     13.15 |        4.3424 |                             0.0100 | 2.50s  |
-| UCB-DT (γ=0.95)                                             |     13.15 |        4.3424 |                             0.0100 | 2.46s  |
-| UCB-DT (γ=1.00)                                             |     13.07 |        4.3464 |                             0.0200 | 2.47s  |
-| UCB-DT (γ=0.75)                                             |     12.93 |        4.3535 |                             0.0100 | 2.47s  |
-| UCBT                                                        |     12.17 |        4.3916 |                             0.4200 | 0.10s  |
-| TS-UCB (100 samples)                                        |     12.06 |        4.3970 |                             0.2500 | 71.79s |
-| ϵ-Decreasing (ϵ=0.100)                                      |     11.91 |        4.4043 |                             0.1500 | 0.09s  |
-| Bootstrapped Thompson Sampling (J=10)                       |     11.79 |        4.4106 |                             0.1600 | 0.38s  |
-| Bootstrapped Thompson Sampling (J=1000)                     |     11.63 |        4.4187 |                             0.3200 | 8.26s  |
-| Bootstrapped Thompson Sampling (J=100)                      |     11.61 |        4.4196 |                             0.2900 | 1.04s  |
-| Bootstrapped Thompson Sampling (J=500)                      |     11.61 |        4.4196 |                             0.3100 | 4.29s  |
-| TS-UCB (10 samples)                                         |     11.59 |        4.4206 |                             0.4200 | 7.80s  |
-| EB-TCI                                                      |     11.50 |        4.4250 |                             0.4400 | 0.32s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     11.48 |        4.4258 |                             0.4000 | 4.55s  |
-| WR-SDA                                                      |     11.44 |        4.4278 |                             0.3200 | 1.74s  |
-| CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 0.43s  |
-| Vanilla Residual Bootstrap (init=0)                         |     11.36 |        4.4320 |                             0.3500 | 0.17s  |
-| ReBoot (r=0.25)                                             |     11.32 |        4.4341 |                             0.3500 | 0.19s  |
-| ReBoot (r=0.50)                                             |     11.27 |        4.4363 |                             0.3800 | 0.24s  |
-| TS-UCB (1 samples)                                          |     11.27 |        4.4367 |                             0.4600 | 0.99s  |
-| Optimistic Thompson Sampling                                |     11.26 |        4.4371 |                             0.4400 | 0.86s  |
-| Tsallis-INF                                                 |     11.25 |        4.4377 |                             0.2900 | 1.00s  |
-| Non-Parametric Thompson Sampling                            |     11.22 |        4.4391 |                             0.4100 | 4.27s  |
-| Vanilla Residual Bootstrap (init=1)                         |     11.21 |        4.4393 |                             0.4200 | 0.21s  |
-| CODE (δ=0.990)                                              |     11.21 |        4.4397 |                             0.1200 | 0.41s  |
-| Thompson Sampling                                           |     11.21 |        4.4397 |                             0.4300 | 0.60s  |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |     11.20 |        4.4398 |                             0.4400 | 0.79s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |     11.20 |        4.4401 |                             0.4400 | 0.85s  |
-| Perturbed-History Exploration (a=1.1)                       |     11.20 |        4.4402 |                             0.4300 | 0.85s  |
-| Multiplier Bootstrap-based Exploration                      |     11.19 |        4.4406 |                             0.4400 | 5.70s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |     11.15 |        4.4426 |                             0.4100 | 0.91s  |
-| Garbage In, Reward Out (a=0.10)                             |     11.12 |        4.4441 |                             0.3400 | 1.11s  |
-| Garbage In, Reward Out (a=0.33)                             |     11.09 |        4.4455 |                             0.3800 | 1.23s  |
-| KL-UCB                                                      |     11.06 |        4.4468 |                             0.3000 | 7.91s  |
-| ReBoot (r=0.90)                                             |     11.03 |        4.4485 |                             0.3700 | 0.24s  |
-| Perturbed-History Exploration (a=2.1)                       |     10.95 |        4.4524 |                             0.3300 | 0.97s  |
-| Kullback-Leibler Maillard Sampling                          |     10.94 |        4.4530 |                             0.3300 | 0.56s  |
-| ReBoot (r=1.00)                                             |     10.93 |        4.4537 |                             0.3300 | 0.24s  |
-| lil' UCB (δ=0.100)                                          |     10.92 |        4.4539 |                             0.2800 | 0.28s  |
-| Vanilla Residual Bootstrap (init=5)                         |     10.92 |        4.4540 |                             0.2800 | 0.22s  |
-| Bounded Dirichlet Sampling                                  |     10.91 |        4.4545 |                             0.2900 | 2.45s  |
-| UCB1-Tuned                                                  |     10.82 |        4.4591 |                             0.4600 | 0.25s  |
-| Satisficing Thompson Sampling (ϵ=0.100)                     |     10.78 |        4.4612 |                             0.3100 | 0.94s  |
-| lil' UCB (δ=0.010)                                          |     10.75 |        4.4625 |                             0.2500 | 0.28s  |
-| Boltzmann-Gumbel Exploration                                |     10.73 |        4.4636 |                             0.2600 | 0.34s  |
-| Garbage In, Reward Out (a=1.00)                             |     10.71 |        4.4646 |                             0.2600 | 1.15s  |
-| lil' UCB (δ=0.001)                                          |     10.59 |        4.4707 |                             0.1700 | 0.26s  |
-| ReBoot (r=1.50)                                             |     10.56 |        4.4722 |                             0.2000 | 0.25s  |
-| ReBoot (r=1.70)                                             |     10.46 |        4.4771 |                             0.1700 | 0.24s  |
-| ReBoot (r=2.10)                                             |     10.34 |        4.4829 |                             0.1400 | 0.25s  |
-| ETC (m=25)                                                  |     10.27 |        4.4863 |                             0.0000 | 0.17s  |
-| UCB1                                                        |     10.26 |        4.4872 |                             0.1300 | 0.14s  |
-| Gradient Bandit (with baseline)                             |     10.23 |        4.4885 |                             0.1100 | 0.40s  |
-| Gradient Bandit                                             |     10.18 |        4.4912 |                             0.1300 | 0.39s  |
-| ETC (m=5)                                                   |     10.11 |        4.4943 |                             0.0000 | 0.14s  |
-| ETC (m=20)                                                  |     10.11 |        4.4946 |                             0.0000 | 0.15s  |
-| ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.10s  |
-| ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.15s  |
-| CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.49s  |
-| Random                                                      |      9.98 |        4.5008 |                             0.0400 | 0.02s  |
-| ETC (m=10)                                                  |      9.94 |        4.5030 |                             0.0000 | 0.15s  |
+| Greedy                                                      |     17.00 |        4.1498 |                             0.1100 | 0.08s  |
+| ϵ-Decreasing (ϵ=0.990)                                      |     16.90 |        4.1552 |                             0.1000 | 0.15s  |
+| ϵ-Decreasing (ϵ=0.900)                                      |     16.80 |        4.1598 |                             0.1000 | 0.14s  |
+| ϵ-Greedy (ϵ=0.010)                                          |     16.64 |        4.1682 |                             0.1000 | 0.08s  |
+| ϵ-Decreasing (ϵ=0.700)                                      |     16.29 |        4.1854 |                             0.1000 | 0.14s  |
+| ϵ-Greedy (ϵ=0.020)                                          |     16.25 |        4.1873 |                             0.1000 | 0.12s  |
+| ϵ-Greedy (ϵ=0.050)                                          |     15.11 |        4.2447 |                             0.0900 | 0.12s  |
+| ϵ-Decreasing (ϵ=0.500)                                      |     14.77 |        4.2614 |                             0.0800 | 0.14s  |
+| ϵ-Decreasing (ϵ=0.200)                                      |     14.05 |        4.2973 |                             0.1600 | 0.12s  |
+| ϵ-Greedy (ϵ=0.100)                                          |     13.97 |        4.3014 |                             0.0800 | 0.11s  |
+| ϵ-Exploring Thompson Sampling                               |     13.74 |        4.3130 |                             0.1100 | 0.14s  |
+| Forced Exploration                                          |     13.53 |        4.3235 |                             0.1000 | 0.08s  |
+| UCB-DT (γ=0.90)                                             |     13.27 |        4.3365 |                             0.1000 | 2.49s  |
+| UCB-DT (γ=0.95)                                             |     13.27 |        4.3365 |                             0.1000 | 2.45s  |
+| UCB-DT (γ=1.00)                                             |     13.19 |        4.3406 |                             0.1200 | 2.46s  |
+| UCB-DT (γ=0.75)                                             |     13.05 |        4.3474 |                             0.1000 | 2.44s  |
+| UCBT                                                        |     12.17 |        4.3916 |                             0.4200 | 0.09s  |
+| TS-UCB (100 samples)                                        |     12.16 |        4.3922 |                             0.2500 | 68.99s |
+| ϵ-Decreasing (ϵ=0.100)                                      |     11.91 |        4.4043 |                             0.1500 | 0.07s  |
+| Bootstrapped Thompson Sampling (J=10)                       |     11.83 |        4.4083 |                             0.1600 | 0.36s  |
+| Bootstrapped Thompson Sampling (J=500)                      |     11.80 |        4.4101 |                             0.3400 | 4.32s  |
+| Bootstrapped Thompson Sampling (J=1000)                     |     11.78 |        4.4109 |                             0.3400 | 8.32s  |
+| Bootstrapped Thompson Sampling (J=100)                      |     11.76 |        4.4118 |                             0.3100 | 1.06s  |
+| EB-TCI                                                      |     11.56 |        4.4218 |                             0.4400 | 0.32s  |
+| TS-UCB (10 samples)                                         |     11.54 |        4.4228 |                             0.2400 | 7.28s  |
+| WR-SDA                                                      |     11.52 |        4.4238 |                             0.3200 | 1.74s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     11.45 |        4.4276 |                             0.2600 | 4.59s  |
+| Vanilla Residual Bootstrap (init=0)                         |     11.42 |        4.4292 |                             0.3500 | 0.17s  |
+| CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 0.36s  |
+| ReBoot (r=0.25)                                             |     11.38 |        4.4311 |                             0.3500 | 0.19s  |
+| ReBoot (r=0.50)                                             |     11.34 |        4.4329 |                             0.3800 | 0.24s  |
+| TS-UCB (1 samples)                                          |     11.21 |        4.4395 |                             0.2400 | 0.90s  |
+| CODE (δ=0.990)                                              |     11.21 |        4.4397 |                             0.1200 | 0.35s  |
+| Optimistic Thompson Sampling                                |     11.20 |        4.4399 |                             0.3000 | 0.88s  |
+| Garbage In, Reward Out (a=0.10)                             |     11.16 |        4.4418 |                             0.3400 | 1.13s  |
+| Non-Parametric Thompson Sampling                            |     11.16 |        4.4422 |                             0.3400 | 4.28s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |     11.15 |        4.4425 |                             0.3400 | 0.92s  |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |     11.15 |        4.4426 |                             0.3300 | 0.82s  |
+| Thompson Sampling                                           |     11.14 |        4.4429 |                             0.3300 | 0.60s  |
+| Perturbed-History Exploration (a=1.1)                       |     11.13 |        4.4433 |                             0.3600 | 0.86s  |
+| Multiplier Bootstrap-based Exploration                      |     11.12 |        4.4439 |                             0.3100 | 5.89s  |
+| Vanilla Residual Bootstrap (init=1)                         |     11.11 |        4.4443 |                             0.3500 | 0.21s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |     11.09 |        4.4454 |                             0.4000 | 0.93s  |
+| Garbage In, Reward Out (a=0.33)                             |     11.04 |        4.4480 |                             0.3800 | 1.23s  |
+| Tsallis-INF                                                 |     11.01 |        4.4497 |                             0.2700 | 0.99s  |
+| KL-UCB                                                      |     10.99 |        4.4505 |                             0.2800 | 7.82s  |
+| ReBoot (r=0.90)                                             |     10.94 |        4.4528 |                             0.3800 | 0.25s  |
+| Kullback-Leibler Maillard Sampling                          |     10.91 |        4.4544 |                             0.3500 | 0.50s  |
+| Perturbed-History Exploration (a=2.1)                       |     10.89 |        4.4557 |                             0.3400 | 0.97s  |
+| Vanilla Residual Bootstrap (init=5)                         |     10.85 |        4.4574 |                             0.2700 | 0.20s  |
+| lil' UCB (δ=0.100)                                          |     10.85 |        4.4575 |                             0.2600 | 0.29s  |
+| ReBoot (r=1.00)                                             |     10.84 |        4.4578 |                             0.3500 | 0.24s  |
+| Bounded Dirichlet Sampling                                  |     10.83 |        4.4586 |                             0.3100 | 2.33s  |
+| UCB1-Tuned                                                  |     10.74 |        4.4632 |                             0.2400 | 0.24s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |     10.72 |        4.4641 |                             0.3100 | 0.95s  |
+| lil' UCB (δ=0.010)                                          |     10.70 |        4.4651 |                             0.2200 | 0.30s  |
+| Boltzmann-Gumbel Exploration                                |     10.67 |        4.4663 |                             0.2700 | 0.31s  |
+| Garbage In, Reward Out (a=1.00)                             |     10.66 |        4.4669 |                             0.2600 | 1.15s  |
+| lil' UCB (δ=0.001)                                          |     10.54 |        4.4730 |                             0.2000 | 0.27s  |
+| ReBoot (r=1.50)                                             |     10.49 |        4.4756 |                             0.2100 | 0.26s  |
+| ReBoot (r=1.70)                                             |     10.40 |        4.4798 |                             0.1800 | 0.27s  |
+| ReBoot (r=2.10)                                             |     10.29 |        4.4854 |                             0.1400 | 0.28s  |
+| ETC (m=25)                                                  |     10.27 |        4.4863 |                             0.0000 | 0.13s  |
+| Gradient Bandit                                             |     10.27 |        4.4866 |                             0.1300 | 0.37s  |
+| UCB1                                                        |     10.23 |        4.4883 |                             0.1600 | 0.13s  |
+| Gradient Bandit (with baseline)                             |     10.23 |        4.4887 |                             0.1100 | 0.41s  |
+| ETC (m=5)                                                   |     10.11 |        4.4943 |                             0.0000 | 0.13s  |
+| ETC (m=20)                                                  |     10.11 |        4.4946 |                             0.0000 | 0.13s  |
+| ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.09s  |
+| ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.13s  |
+| Random                                                      |     10.02 |        4.4992 |                             0.0500 | 0.01s  |
+| CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.36s  |
+| ETC (m=10)                                                  |      9.94 |        4.5030 |                             0.0000 | 0.13s  |
 <!-- END mdsh -->
 
 </details>
@@ -355,79 +355,79 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| UCB-DT (γ=0.75)                                             |     55.00 |       22.7051 |                             6.0302 | 2.30s  |
-| UCB-DT (γ=0.95)                                             |     54.67 |       22.8374 |                             6.0357 | 2.33s  |
-| UCB-DT (γ=0.90)                                             |     54.53 |       22.8662 |                             6.0630 | 2.32s  |
-| UCB-DT (γ=1.00)                                             |     53.44 |       22.9767 |                             7.3694 | 2.27s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     56.91 |       23.2902 |                             7.1493 | 17.38s |
-| CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 0.42s  |
-| ReBoot (r=0.25)                                             |     52.94 |       24.7856 |                             8.6439 | 0.19s  |
-| TS-UCB (100 samples)                                        |     56.22 |       25.1803 |                             4.4686 | 75.59s |
-| TS-UCB (10 samples)                                         |     54.99 |       26.7638 |                             4.4845 | 7.49s  |
-| UCBT                                                        |     47.49 |       28.8558 |                             8.0049 | 0.08s  |
-| ReBoot (r=0.50)                                             |     51.72 |       29.2332 |                             6.5279 | 0.24s  |
-| TS-UCB (1 samples)                                          |     52.72 |       29.8278 |                             5.0504 | 0.95s  |
-| ϵ-Decreasing (ϵ=0.500)                                      |     45.66 |       30.9426 |                            10.3885 | 0.19s  |
-| Bootstrapped Thompson Sampling (J=10)                       |     50.33 |       31.3906 |                             6.7436 | 0.36s  |
-| Forced Exploration                                          |     49.27 |       31.6725 |                             8.8808 | 0.08s  |
-| Multiplier Bootstrap-based Exploration                      |     49.58 |       32.6088 |                             6.2663 | 5.84s  |
-| ϵ-Decreasing (ϵ=0.700)                                      |     42.88 |       32.7340 |                            12.0469 | 0.19s  |
-| ϵ-Greedy (ϵ=0.100)                                          |     44.10 |       33.2831 |                            11.8153 | 0.12s  |
-| ϵ-Exploring Thompson Sampling                               |     44.70 |       33.6912 |                            12.4300 | 0.15s  |
-| ϵ-Greedy (ϵ=0.050)                                          |     42.23 |       33.7998 |                            13.3609 | 0.13s  |
-| UCB1-Tuned                                                  |     48.78 |       34.1720 |                             5.7265 | 0.26s  |
-| Bootstrapped Thompson Sampling (J=100)                      |     47.62 |       34.9846 |                             6.5196 | 1.04s  |
-| Garbage In, Reward Out (a=0.10)                             |     47.11 |       35.3159 |                             6.5716 | 0.89s  |
-| ϵ-Decreasing (ϵ=0.900)                                      |     40.31 |       35.3717 |                            14.8777 | 0.18s  |
-| Bootstrapped Thompson Sampling (J=500)                      |     47.24 |       35.4846 |                             6.5623 | 4.26s  |
-| Bootstrapped Thompson Sampling (J=1000)                     |     47.25 |       35.5259 |                             6.5145 | 8.23s  |
-| Vanilla Residual Bootstrap (init=1)                         |     47.27 |       35.6021 |                             6.3890 | 0.21s  |
-| ϵ-Greedy (ϵ=0.020)                                          |     39.94 |       35.9324 |                            16.4079 | 0.13s  |
-| Optimistic Thompson Sampling                                |     47.54 |       36.0169 |                             6.2395 | 0.96s  |
-| ϵ-Decreasing (ϵ=0.990)                                      |     39.46 |       36.2891 |                            16.3213 | 0.17s  |
-| Vanilla Residual Bootstrap (init=0)                         |     39.97 |       36.7298 |                            15.5781 | 0.17s  |
-| ETC (m=5)                                                   |     39.97 |       37.5465 |                            17.0296 | 0.17s  |
-| ϵ-Greedy (ϵ=0.010)                                          |     38.41 |       37.7394 |                            18.4671 | 0.10s  |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |     45.53 |       38.0235 |                             6.6411 | 0.89s  |
-| Thompson Sampling                                           |     45.50 |       38.0338 |                             6.6413 | 0.72s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |     45.41 |       38.1336 |                             6.6271 | 0.98s  |
-| KL-UCB                                                      |     45.14 |       38.3011 |                             5.9485 | 7.59s  |
-| ETC (m=10)                                                  |     40.33 |       38.9869 |                            13.6763 | 0.17s  |
-| Non-Parametric Thompson Sampling                            |     44.28 |       39.6896 |                             6.8661 | 4.32s  |
-| Greedy                                                      |     37.36 |       39.9645 |                            20.3130 | 0.08s  |
-| CODE (δ=0.900)                                              |     40.61 |       40.2050 |                            13.2482 | 0.42s  |
-| Bounded Dirichlet Sampling                                  |     44.03 |       40.2371 |                             6.7909 | 2.47s  |
-| WR-SDA                                                      |     37.82 |       40.8505 |                            18.3470 | 2.81s  |
-| ReBoot (r=0.90)                                             |     42.91 |       41.1146 |                             7.3175 | 0.23s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |     41.92 |       41.3247 |                             7.3104 | 1.03s  |
-| Kullback-Leibler Maillard Sampling                          |     41.32 |       41.7427 |                             7.4157 | 0.51s  |
-| Perturbed-History Exploration (a=1.1)                       |     41.26 |       43.0633 |                             7.6161 | 0.86s  |
-| ReBoot (r=1.00)                                             |     41.01 |       43.7015 |                             7.7312 | 0.24s  |
-| ϵ-Decreasing (ϵ=0.200)                                      |     41.58 |       44.0842 |                            11.9547 | 0.16s  |
-| Garbage In, Reward Out (a=0.33)                             |     39.20 |       45.5334 |                             7.9039 | 1.10s  |
-| ETC (m=3)                                                   |     33.51 |       45.7840 |                            28.1017 | 0.17s  |
-| ETC (m=20)                                                  |     37.94 |       47.1134 |                            13.4466 | 0.18s  |
-| Satisficing Thompson Sampling (ϵ=0.100)                     |     33.92 |       48.8980 |                             9.5939 | 1.00s  |
-| lil' UCB (δ=0.100)                                          |     36.67 |       49.0887 |                             7.5057 | 0.28s  |
-| ETC (m=25)                                                  |     37.82 |       51.7141 |                            13.9357 | 0.16s  |
-| ETC (m=2)                                                   |     29.53 |       53.1694 |                            28.6333 | 0.16s  |
-| ReBoot (r=1.50)                                             |     33.52 |       54.1198 |                            10.7651 | 0.26s  |
-| Perturbed-History Exploration (a=2.1)                       |     33.06 |       54.2431 |                             9.6641 | 1.02s  |
-| Tsallis-INF                                                 |     32.65 |       55.1568 |                            11.1605 | 1.06s  |
-| Vanilla Residual Bootstrap (init=5)                         |     31.59 |       56.9543 |                            10.2200 | 0.21s  |
-| ReBoot (r=1.70)                                             |     31.29 |       57.3346 |                            11.9602 | 0.26s  |
-| EB-TCI                                                      |     24.85 |       58.9761 |                            22.9968 | 0.29s  |
-| Garbage In, Reward Out (a=1.00)                             |     29.72 |       58.9769 |                            11.3139 | 1.20s  |
-| Boltzmann-Gumbel Exploration                                |     30.21 |       59.0762 |                            11.4529 | 0.33s  |
-| lil' UCB (δ=0.010)                                          |     29.49 |       59.3792 |                            11.2005 | 0.29s  |
-| ϵ-Decreasing (ϵ=0.100)                                      |     30.85 |       61.5675 |                            16.7498 | 0.10s  |
-| ReBoot (r=2.10)                                             |     27.81 |       62.5734 |                            14.2399 | 0.26s  |
-| lil' UCB (δ=0.001)                                          |     25.59 |       65.3146 |                            14.4606 | 0.26s  |
-| UCB1                                                        |     22.44 |       70.4627 |                            16.8609 | 0.16s  |
-| Gradient Bandit                                             |     20.43 |       75.0125 |                            17.3070 | 0.40s  |
-| Gradient Bandit (with baseline)                             |     20.06 |       75.7085 |                            17.5892 | 0.46s  |
-| CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.45s  |
-| Random                                                      |      9.99 |       94.2791 |                            25.9206 | 0.02s  |
+| UCB-DT (γ=0.75)                                             |     54.64 |       22.4071 |                             6.1492 | 2.28s  |
+| UCB-DT (γ=0.90)                                             |     54.45 |       22.4627 |                             6.1571 | 2.35s  |
+| UCB-DT (γ=0.95)                                             |     54.39 |       22.4968 |                             6.1852 | 2.32s  |
+| UCB-DT (γ=1.00)                                             |     53.32 |       22.6778 |                             7.3649 | 2.24s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     56.94 |       22.9408 |                             7.1147 | 17.00s |
+| CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 0.34s  |
+| ReBoot (r=0.25)                                             |     52.26 |       24.7586 |                             8.6759 | 0.20s  |
+| TS-UCB (100 samples)                                        |     56.00 |       24.8877 |                             4.2937 | 71.28s |
+| TS-UCB (10 samples)                                         |     54.84 |       26.4327 |                             4.2837 | 7.44s  |
+| UCBT                                                        |     47.49 |       28.8558 |                             8.0049 | 0.09s  |
+| ReBoot (r=0.50)                                             |     51.44 |       28.9633 |                             6.3791 | 0.24s  |
+| TS-UCB (1 samples)                                          |     52.59 |       29.4654 |                             4.9010 | 0.93s  |
+| ϵ-Decreasing (ϵ=0.500)                                      |     45.66 |       30.9426 |                            10.3885 | 0.14s  |
+| Bootstrapped Thompson Sampling (J=10)                       |     49.88 |       31.1623 |                             6.5576 | 0.37s  |
+| Forced Exploration                                          |     48.86 |       31.4112 |                             9.0715 | 0.08s  |
+| Multiplier Bootstrap-based Exploration                      |     49.17 |       32.4139 |                             6.0942 | 5.69s  |
+| ϵ-Decreasing (ϵ=0.700)                                      |     42.88 |       32.7340 |                            12.0469 | 0.14s  |
+| ϵ-Exploring Thompson Sampling                               |     44.38 |       33.2239 |                            12.5400 | 0.14s  |
+| ϵ-Greedy (ϵ=0.100)                                          |     44.10 |       33.2831 |                            11.8153 | 0.11s  |
+| ϵ-Greedy (ϵ=0.050)                                          |     42.23 |       33.7998 |                            13.3609 | 0.12s  |
+| UCB1-Tuned                                                  |     48.22 |       34.0173 |                             5.5690 | 0.24s  |
+| Bootstrapped Thompson Sampling (J=100)                      |     47.17 |       34.7044 |                             6.3147 | 1.05s  |
+| Garbage In, Reward Out (a=0.10)                             |     46.53 |       35.1309 |                             6.4203 | 0.88s  |
+| Bootstrapped Thompson Sampling (J=500)                      |     46.87 |       35.1931 |                             6.3344 | 4.26s  |
+| Bootstrapped Thompson Sampling (J=1000)                     |     46.77 |       35.2492 |                             6.3528 | 8.32s  |
+| Vanilla Residual Bootstrap (init=1)                         |     46.87 |       35.3194 |                             6.1483 | 0.21s  |
+| ϵ-Decreasing (ϵ=0.900)                                      |     40.31 |       35.3717 |                            14.8777 | 0.14s  |
+| Optimistic Thompson Sampling                                |     47.14 |       35.7522 |                             6.0706 | 0.92s  |
+| ϵ-Greedy (ϵ=0.020)                                          |     39.94 |       35.9324 |                            16.4079 | 0.12s  |
+| ϵ-Decreasing (ϵ=0.990)                                      |     39.46 |       36.2891 |                            16.3213 | 0.14s  |
+| Vanilla Residual Bootstrap (init=0)                         |     39.16 |       36.6560 |                            16.2068 | 0.17s  |
+| ETC (m=5)                                                   |     39.97 |       37.5465 |                            17.0296 | 0.13s  |
+| Thompson Sampling                                           |     45.10 |       37.7381 |                             6.5241 | 0.63s  |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |     45.09 |       37.7390 |                             6.4866 | 0.91s  |
+| ϵ-Greedy (ϵ=0.010)                                          |     38.41 |       37.7394 |                            18.4671 | 0.09s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |     44.99 |       37.8316 |                             6.5136 | 0.93s  |
+| KL-UCB                                                      |     44.75 |       37.9754 |                             5.7666 | 7.52s  |
+| ETC (m=10)                                                  |     40.33 |       38.9869 |                            13.6763 | 0.14s  |
+| Non-Parametric Thompson Sampling                            |     43.90 |       39.3507 |                             6.7160 | 4.21s  |
+| Greedy                                                      |     36.66 |       39.9099 |                            21.7087 | 0.09s  |
+| Bounded Dirichlet Sampling                                  |     43.54 |       39.9645 |                             6.6454 | 2.45s  |
+| CODE (δ=0.900)                                              |     40.61 |       40.2050 |                            13.2482 | 0.37s  |
+| ReBoot (r=0.90)                                             |     42.54 |       40.7881 |                             7.1968 | 0.24s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |     41.59 |       40.8984 |                             7.1496 | 0.97s  |
+| WR-SDA                                                      |     36.73 |       41.0443 |                            19.6162 | 2.76s  |
+| Kullback-Leibler Maillard Sampling                          |     40.83 |       41.4463 |                             7.5405 | 0.49s  |
+| Perturbed-History Exploration (a=1.1)                       |     40.79 |       42.7866 |                             7.3646 | 0.83s  |
+| ReBoot (r=1.00)                                             |     40.65 |       43.3432 |                             7.6618 | 0.25s  |
+| ϵ-Decreasing (ϵ=0.200)                                      |     41.58 |       44.0842 |                            11.9547 | 0.12s  |
+| Garbage In, Reward Out (a=0.33)                             |     38.75 |       45.1922 |                             7.8091 | 1.04s  |
+| ETC (m=3)                                                   |     33.51 |       45.7840 |                            28.1017 | 0.13s  |
+| ETC (m=20)                                                  |     37.94 |       47.1134 |                            13.4466 | 0.14s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |     33.63 |       48.2505 |                             9.6052 | 0.99s  |
+| lil' UCB (δ=0.100)                                          |     36.34 |       48.6046 |                             7.3285 | 0.28s  |
+| ETC (m=25)                                                  |     37.82 |       51.7141 |                            13.9357 | 0.14s  |
+| ETC (m=2)                                                   |     29.53 |       53.1694 |                            28.6333 | 0.10s  |
+| ReBoot (r=1.50)                                             |     33.20 |       53.6329 |                            10.8113 | 0.23s  |
+| Perturbed-History Exploration (a=2.1)                       |     32.69 |       53.7141 |                             9.5801 | 1.02s  |
+| Tsallis-INF                                                 |     32.39 |       54.7917 |                            11.3371 | 1.05s  |
+| Vanilla Residual Bootstrap (init=5)                         |     31.29 |       56.3702 |                            10.3022 | 0.21s  |
+| ReBoot (r=1.70)                                             |     30.99 |       56.8129 |                            12.0371 | 0.24s  |
+| Garbage In, Reward Out (a=1.00)                             |     29.48 |       58.3347 |                            11.5697 | 1.22s  |
+| Boltzmann-Gumbel Exploration                                |     29.89 |       58.4917 |                            11.5794 | 0.32s  |
+| lil' UCB (δ=0.010)                                          |     29.25 |       58.7242 |                            11.2953 | 0.28s  |
+| EB-TCI                                                      |     24.42 |       59.0388 |                            22.7179 | 0.30s  |
+| ϵ-Decreasing (ϵ=0.100)                                      |     30.85 |       61.5675 |                            16.7498 | 0.08s  |
+| ReBoot (r=2.10)                                             |     27.57 |       61.9376 |                            14.1671 | 0.24s  |
+| lil' UCB (δ=0.001)                                          |     25.41 |       64.5631 |                            14.7753 | 0.25s  |
+| UCB1                                                        |     22.31 |       69.6096 |                            17.0817 | 0.16s  |
+| Gradient Bandit                                             |     20.28 |       74.1103 |                            17.5927 | 0.38s  |
+| Gradient Bandit (with baseline)                             |     19.93 |       74.7782 |                            17.8747 | 0.42s  |
+| Random                                                      |      9.99 |       93.1436 |                            26.0904 | 0.02s  |
+| CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.36s  |
 <!-- END mdsh -->
 
 </details>
@@ -445,79 +445,79 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
-| TS-UCB (100 samples)                                        |     58.75 |        7.4409 |                             2.1934 | 70.68s |
-| TS-UCB (10 samples)                                         |     57.60 |        7.9104 |                             1.8940 | 7.50s  |
-| TS-UCB (1 samples)                                          |     57.57 |        8.3392 |                             1.7766 | 0.88s  |
-| UCB-DT (γ=1.00)                                             |     55.22 |        8.6731 |                             1.5458 | 2.48s  |
-| UCB-DT (γ=0.90)                                             |     55.32 |        8.7670 |                             1.5465 | 2.46s  |
-| UCB-DT (γ=0.95)                                             |     55.25 |        8.7822 |                             1.5484 | 2.47s  |
-| Greedy                                                      |     53.46 |        8.8426 |                             1.5877 | 0.08s  |
-| UCB-DT (γ=0.75)                                             |     55.50 |        8.8734 |                             1.5938 | 2.43s  |
+| TS-UCB (100 samples)                                        |     59.32 |        7.2414 |                             2.1251 | 67.26s |
+| TS-UCB (10 samples)                                         |     58.25 |        7.6923 |                             1.8798 | 6.99s  |
+| TS-UCB (1 samples)                                          |     57.85 |        8.1863 |                             1.7591 | 0.87s  |
+| UCB-DT (γ=1.00)                                             |     55.66 |        8.4709 |                             1.4837 | 2.47s  |
+| UCB-DT (γ=0.90)                                             |     55.84 |        8.5612 |                             1.5143 | 2.45s  |
+| UCB-DT (γ=0.95)                                             |     55.76 |        8.5784 |                             1.5121 | 2.45s  |
+| Greedy                                                      |     53.82 |        8.6471 |                             1.5273 | 0.08s  |
+| UCB-DT (γ=0.75)                                             |     55.91 |        8.6739 |                             1.5558 | 2.42s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     53.57 |        8.8897 |                             1.5610 | 0.14s  |
 | ϵ-Decreasing (ϵ=0.900)                                      |     53.45 |        9.0268 |                             1.5815 | 0.14s  |
-| ϵ-Greedy (ϵ=0.010)                                          |     53.34 |        9.0561 |                             1.5947 | 0.08s  |
-| Optimistic Thompson Sampling                                |     55.57 |        9.3600 |                             3.3451 | 0.81s  |
-| ϵ-Greedy (ϵ=0.020)                                          |     52.84 |        9.4814 |                             1.6900 | 0.12s  |
-| CODE (δ=0.990)                                              |     48.81 |        9.4822 |                             1.7486 | 0.43s  |
+| ϵ-Greedy (ϵ=0.010)                                          |     53.34 |        9.0561 |                             1.5947 | 0.09s  |
+| Optimistic Thompson Sampling                                |     54.95 |        9.3835 |                             3.1222 | 0.77s  |
+| ϵ-Greedy (ϵ=0.020)                                          |     52.84 |        9.4814 |                             1.6900 | 0.11s  |
+| CODE (δ=0.990)                                              |     48.81 |        9.4822 |                             1.7486 | 0.36s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     52.78 |        9.6599 |                             1.7204 | 0.14s  |
-| WR-SDA                                                      |     52.20 |       10.4022 |                             2.8202 | 0.93s  |
-| ϵ-Greedy (ϵ=0.050)                                          |     51.57 |       10.7107 |                             1.9386 | 0.11s  |
-| ϵ-Exploring Thompson Sampling                               |     44.32 |       11.1621 |                             4.2373 | 0.14s  |
+| WR-SDA                                                      |     52.23 |       10.2123 |                             2.7845 | 0.88s  |
+| ϵ-Greedy (ϵ=0.050)                                          |     51.57 |       10.7107 |                             1.9386 | 0.12s  |
+| ϵ-Exploring Thompson Sampling                               |     45.15 |       10.8883 |                             4.0500 | 0.14s  |
 | ϵ-Decreasing (ϵ=0.500)                                      |     50.84 |       11.5088 |                             2.0720 | 0.14s  |
-| KL-UCB                                                      |     51.72 |       11.7591 |                             3.6041 | 6.34s  |
-| Thompson Sampling                                           |     48.36 |       12.6305 |                             2.8003 | 0.61s  |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     36.88 |       12.6832 |                             4.2582 | 13.58s |
-| Satisficing Thompson Sampling (ϵ=0.005)                     |     48.28 |       12.7174 |                             2.8361 | 0.83s  |
+| KL-UCB                                                      |     51.49 |       11.6751 |                             3.5785 | 6.26s  |
+| Thompson Sampling                                           |     48.51 |       12.4396 |                             2.7769 | 0.60s  |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) |     37.00 |       12.6026 |                             4.1618 | 13.29s |
+| Satisficing Thompson Sampling (ϵ=0.005)                     |     47.58 |       12.6638 |                             2.7907 | 0.76s  |
 | ϵ-Greedy (ϵ=0.100)                                          |     49.34 |       12.7974 |                             2.3308 | 0.11s  |
-| Satisficing Thompson Sampling (ϵ=0.010)                     |     46.43 |       13.2106 |                             2.8578 | 0.90s  |
-| Non-Parametric Thompson Sampling                            |     47.42 |       13.7743 |                             4.3390 | 4.33s  |
-| Forced Exploration                                          |     48.03 |       14.2409 |                             2.5482 | 0.08s  |
-| Bounded Dirichlet Sampling                                  |     45.50 |       14.7444 |                             4.6974 | 2.18s  |
-| Kullback-Leibler Maillard Sampling                          |     43.49 |       15.3254 |                             5.1663 | 0.46s  |
-| UCBT                                                        |     32.33 |       18.1863 |                             6.0728 | 0.07s  |
-| Satisficing Thompson Sampling (ϵ=0.050)                     |     27.59 |       18.2837 |                             5.3096 | 0.92s  |
-| EB-TCI                                                      |     35.83 |       20.0130 |                             5.2114 | 0.28s  |
-| ReBoot (r=0.25)                                             |     34.86 |       20.2055 |                             3.2261 | 0.27s  |
-| Vanilla Residual Bootstrap (init=0)                         |     33.47 |       21.7507 |                             3.2564 | 0.17s  |
+| Satisficing Thompson Sampling (ϵ=0.010)                     |     45.49 |       13.1710 |                             2.8249 | 0.81s  |
+| Non-Parametric Thompson Sampling                            |     47.46 |       13.6038 |                             4.3455 | 4.11s  |
+| Forced Exploration                                          |     48.30 |       13.9900 |                             2.5181 | 0.08s  |
+| Bounded Dirichlet Sampling                                  |     45.58 |       14.5418 |                             4.6561 | 2.19s  |
+| Kullback-Leibler Maillard Sampling                          |     43.53 |       15.1294 |                             5.1731 | 0.46s  |
+| UCBT                                                        |     32.33 |       18.1863 |                             6.0728 | 0.09s  |
+| Satisficing Thompson Sampling (ϵ=0.050)                     |     23.97 |       18.9613 |                             5.2597 | 0.88s  |
+| EB-TCI                                                      |     35.93 |       19.7395 |                             5.2415 | 0.29s  |
+| ReBoot (r=0.25)                                             |     34.89 |       19.9697 |                             3.1894 | 0.19s  |
+| Vanilla Residual Bootstrap (init=0)                         |     33.47 |       21.5207 |                             3.2212 | 0.17s  |
+| Multiplier Bootstrap-based Exploration                      |     28.45 |       22.2710 |                             3.5416 | 5.68s  |
 | ETC (m=20)                                                  |     33.55 |       22.3233 |                             4.2529 | 0.14s  |
 | ETC (m=10)                                                  |     27.09 |       22.3539 |                             6.4168 | 0.14s  |
-| Multiplier Bootstrap-based Exploration                      |     28.54 |       22.5267 |                             3.5576 | 6.09s  |
+| ReBoot (r=0.50)                                             |     30.87 |       22.5161 |                             3.8147 | 0.23s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     38.74 |       22.6530 |                             4.3599 | 0.12s  |
-| ReBoot (r=0.50)                                             |     30.85 |       22.7688 |                             3.8323 | 0.31s  |
-| UCB1-Tuned                                                  |     25.26 |       23.1257 |                             3.4924 | 0.26s  |
-| Vanilla Residual Bootstrap (init=1)                         |     31.25 |       23.4112 |                             3.3759 | 0.20s  |
-| Tsallis-INF                                                 |     26.49 |       23.5590 |                             4.3226 | 0.95s  |
-| Vanilla Residual Bootstrap (init=5)                         |     30.55 |       24.1464 |                             3.5251 | 0.21s  |
-| Garbage In, Reward Out (a=0.10)                             |     26.92 |       24.2118 |                             3.9104 | 0.87s  |
-| Satisficing Thompson Sampling (ϵ=0.100)                     |     17.38 |       25.0755 |                             9.0207 | 0.92s  |
-| Perturbed-History Exploration (a=1.1)                       |     24.23 |       25.1162 |                             4.2813 | 0.90s  |
+| UCB1-Tuned                                                  |     25.07 |       22.9077 |                             3.4824 | 0.25s  |
+| Vanilla Residual Bootstrap (init=1)                         |     31.19 |       23.1578 |                             3.3412 | 0.21s  |
+| Tsallis-INF                                                 |     26.30 |       23.2635 |                             4.3108 | 0.98s  |
+| Vanilla Residual Bootstrap (init=5)                         |     30.48 |       23.8825 |                             3.5154 | 0.21s  |
+| Garbage In, Reward Out (a=0.10)                             |     26.82 |       23.9510 |                             3.8778 | 0.84s  |
+| Perturbed-History Exploration (a=1.1)                       |     24.17 |       24.8624 |                             4.3134 | 0.89s  |
+| Satisficing Thompson Sampling (ϵ=0.100)                     |     12.50 |       26.5896 |                             8.8139 | 0.87s  |
 | ETC (m=25)                                                  |     28.64 |       27.0247 |                             5.2417 | 0.14s  |
-| CODE (δ=0.900)                                              |     16.26 |       27.7259 |                             4.4425 | 0.44s  |
-| Bootstrapped Thompson Sampling (J=100)                      |     17.66 |       28.2224 |                            16.7306 | 1.02s  |
-| Bootstrapped Thompson Sampling (J=500)                      |     17.69 |       28.2561 |                            16.8472 | 4.21s  |
-| Garbage In, Reward Out (a=0.33)                             |     21.30 |       28.3366 |                             4.7374 | 1.16s  |
-| ReBoot (r=0.90)                                             |     24.03 |       28.5844 |                             5.1178 | 0.29s  |
-| lil' UCB (δ=0.100)                                          |     19.28 |       28.8759 |                             4.7214 | 0.27s  |
-| Bootstrapped Thompson Sampling (J=1000)                     |     17.36 |       28.9676 |                            17.3819 | 8.38s  |
-| Bootstrapped Thompson Sampling (J=10)                       |     16.96 |       30.0178 |                            18.1195 | 0.35s  |
-| ReBoot (r=1.00)                                             |     22.47 |       30.1561 |                             5.4255 | 0.26s  |
-| Perturbed-History Exploration (a=2.1)                       |     18.80 |       30.7373 |                             5.2197 | 1.02s  |
-| lil' UCB (δ=0.010)                                          |     16.77 |       32.6000 |                             5.5344 | 0.29s  |
-| ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.07s  |
-| Garbage In, Reward Out (a=1.00)                             |     17.33 |       32.8421 |                             5.6612 | 1.18s  |
-| Boltzmann-Gumbel Exploration                                |     17.50 |       33.1221 |                             5.5971 | 0.32s  |
-| lil' UCB (δ=0.001)                                          |     15.55 |       34.6643 |                             5.9113 | 0.25s  |
-| ReBoot (r=1.50)                                             |     18.16 |       35.6912 |                             6.5617 | 0.28s  |
-| UCB1                                                        |     14.58 |       36.5304 |                             6.3337 | 0.16s  |
-| ReBoot (r=1.70)                                             |     17.19 |       37.2245 |                             6.9281 | 0.25s  |
-| ReBoot (r=2.10)                                             |     15.84 |       39.6794 |                             7.4686 | 0.24s  |
-| Gradient Bandit                                             |     13.75 |       39.9529 |                             8.1144 | 0.37s  |
-| Gradient Bandit (with baseline)                             |     13.20 |       41.3526 |                             7.4311 | 0.42s  |
-| ETC (m=5)                                                   |     12.36 |       41.7571 |                             9.1900 | 0.15s  |
-| ETC (m=3)                                                   |     12.03 |       43.5920 |                             9.6906 | 0.15s  |
+| CODE (δ=0.900)                                              |     16.26 |       27.7259 |                             4.4425 | 0.40s  |
+| Garbage In, Reward Out (a=0.33)                             |     21.22 |       28.0093 |                             4.7583 | 1.14s  |
+| Bootstrapped Thompson Sampling (J=500)                      |     17.05 |       28.0954 |                            16.5475 | 4.22s  |
+| Bootstrapped Thompson Sampling (J=1000)                     |     16.11 |       28.1867 |                            16.6249 | 8.27s  |
+| ReBoot (r=0.90)                                             |     24.08 |       28.2376 |                             5.0547 | 0.24s  |
+| lil' UCB (δ=0.100)                                          |     19.19 |       28.5694 |                             4.7509 | 0.27s  |
+| Bootstrapped Thompson Sampling (J=100)                      |     15.82 |       29.0489 |                            16.7117 | 1.04s  |
+| ReBoot (r=1.00)                                             |     22.53 |       29.7884 |                             5.3791 | 0.24s  |
+| Bootstrapped Thompson Sampling (J=10)                       |     15.12 |       30.0861 |                            17.7177 | 0.35s  |
+| Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 1.04s  |
+| lil' UCB (δ=0.010)                                          |     16.72 |       32.2288 |                             5.5208 | 0.28s  |
+| Garbage In, Reward Out (a=1.00)                             |     17.26 |       32.4632 |                             5.6672 | 1.17s  |
+| ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.08s  |
+| Boltzmann-Gumbel Exploration                                |     17.44 |       32.7460 |                             5.6438 | 0.32s  |
+| lil' UCB (δ=0.001)                                          |     15.51 |       34.2797 |                             5.8524 | 0.26s  |
+| ReBoot (r=1.50)                                             |     18.20 |       35.2644 |                             6.5573 | 0.24s  |
+| UCB1                                                        |     14.55 |       36.1248 |                             6.3580 | 0.16s  |
+| ReBoot (r=1.70)                                             |     17.25 |       36.7828 |                             6.9301 | 0.24s  |
+| ReBoot (r=2.10)                                             |     15.90 |       39.2124 |                             7.5247 | 0.24s  |
+| Gradient Bandit                                             |     13.72 |       39.5229 |                             8.1141 | 0.38s  |
+| Gradient Bandit (with baseline)                             |     13.15 |       40.8926 |                             7.4944 | 0.42s  |
+| ETC (m=5)                                                   |     12.36 |       41.7571 |                             9.1900 | 0.14s  |
+| ETC (m=3)                                                   |     12.03 |       43.5920 |                             9.6906 | 0.14s  |
 | ETC (m=2)                                                   |     11.03 |       45.2564 |                             9.3287 | 0.11s  |
-| CODE (δ=0.050)                                              |     10.00 |       49.2639 |                             9.8811 | 0.43s  |
-| Random                                                      |      9.97 |       49.8281 |                             9.9126 | 0.02s  |
+| CODE (δ=0.050)                                              |     10.00 |       49.2639 |                             9.8811 | 0.37s  |
+| Random                                                      |      9.99 |       49.2870 |                            10.0029 | 0.02s  |
 <!-- END mdsh -->
 
 </details>
