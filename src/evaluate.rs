@@ -131,6 +131,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::MOSSAnytime { alpha } => {
+                    let bandit = MOSSAnytime::new(num_arms, *alpha);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::NPTS => {
                     let bandit = NPTS::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

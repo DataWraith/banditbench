@@ -88,6 +88,11 @@ fn main() {
             Algorithms::LilUCB { delta: 0.10 },
         ],
         "mbe" => vec![Algorithms::MBE],
+        "mossanytime" => vec![
+            Algorithms::MOSSAnytime { alpha: -0.85 },
+            Algorithms::MOSSAnytime { alpha: -0.5 },
+            Algorithms::MOSSAnytime { alpha: -0.33 },
+        ],
         "npts" => vec![Algorithms::NPTS],
         "ots" => vec![Algorithms::OptimisticTS],
         "phe" => vec![

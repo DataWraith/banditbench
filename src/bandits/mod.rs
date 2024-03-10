@@ -24,8 +24,8 @@ pub use {
     forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
     ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
     ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
-    ucb::lilucb::LilUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
-    ucb::ucbt::UCBT,
+    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
+    ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
@@ -47,6 +47,7 @@ pub enum Algorithms {
     KLUCB,
     LilUCB { delta: f64 },
     MBE,
+    MOSSAnytime { alpha: f64 },
     NPTS,
     OptimisticTS,
     PHE { perturbation_scale: f64 },
@@ -113,6 +114,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::LilUCB { delta } => write!(f, "lil' UCB (δ={:.3})", delta),
             Algorithms::MBE => write!(f, "Multiplier Bootstrap-based Exploration"),
+            Algorithms::MOSSAnytime { alpha } => write!(f, "MOSS-Anytime (α={:.2})", alpha),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
             Algorithms::OptimisticTS => write!(f, "Optimistic Thompson Sampling"),
             Algorithms::PHE { perturbation_scale } => write!(
