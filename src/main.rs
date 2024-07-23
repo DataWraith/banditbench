@@ -66,6 +66,7 @@ fn main() {
             Algorithms::ETC { m: 20 },
             Algorithms::ETC { m: 25 },
         ],
+        "exp_ix" => vec![Algorithms::EXPIX],
         "fe" => vec![Algorithms::ForcedExploration],
         "giro" => vec![
             Algorithms::GIRO {

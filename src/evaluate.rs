@@ -86,6 +86,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::EXPIX => {
+                    let bandit = EXPIX::new(num_arms);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ForcedExploration => {
                     let bandit = ForcedExploration::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
