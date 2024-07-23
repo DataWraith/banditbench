@@ -1,3 +1,4 @@
+pub mod hellinger_ucb;
 pub mod kl_ucb;
 pub mod lilucb;
 pub mod moss_anytime;

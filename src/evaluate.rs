@@ -116,6 +116,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::HellingerUCB => {
+                    let bandit = HellingerUCB::new(num_arms);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::KLMS => {
                     let bandit = KLMS::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

@@ -81,6 +81,7 @@ fn main() {
         ],
         "gradient" => vec![Algorithms::Gradient, Algorithms::GradientBaseline],
         "greedy" => vec![Algorithms::Greedy],
+        "hellinger" => vec![Algorithms::HellingerUCB],
         "klms" => vec![Algorithms::KLMS],
         "klucb" => vec![Algorithms::KLUCB],
         "lilucb" => vec![

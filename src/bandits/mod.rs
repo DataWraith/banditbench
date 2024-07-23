@@ -25,9 +25,10 @@ pub use {
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, exp_ix::EXPIX,
     forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS,
-    ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::kl_ucb::KLUCB,
-    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
-    ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
+    ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
+    ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
+    ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
+    ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
@@ -46,6 +47,7 @@ pub enum Algorithms {
     Gradient,
     GradientBaseline,
     Greedy,
+    HellingerUCB,
     KLMS,
     KLUCB,
     LilUCB { delta: f64 },
@@ -115,6 +117,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::Gradient => write!(f, "Gradient Bandit"),
             Algorithms::GradientBaseline => write!(f, "Gradient Bandit (with baseline)"),
             Algorithms::Greedy => write!(f, "Greedy"),
+            Algorithms::HellingerUCB => write!(f, "Hellinger-UCB"),
             Algorithms::KLMS => write!(f, "Kullback-Leibler Maillard Sampling"),
             Algorithms::KLUCB => write!(f, "KL-UCB"),
             Algorithms::LilUCB { delta } => write!(f, "lil' UCB (δ={:.3})", delta),
