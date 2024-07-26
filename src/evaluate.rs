@@ -81,6 +81,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::EpsTSUCB { samples } => {
+                    let bandit = EpsTSUCB::new(num_arms, *samples);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ETC { m } => {
                     let bandit = ETC::new(num_arms, *m);
                     evaluate_bandit(bandit, &arms, horizon, seed)

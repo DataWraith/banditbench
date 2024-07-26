@@ -58,6 +58,11 @@ fn main() {
             Algorithms::EpsilonDecreasing { epsilon: 0.99 },
         ],
         "epsts" => vec![Algorithms::EpsTS],
+        "epstsucb" => vec![
+            Algorithms::EpsTSUCB { samples: 1 },
+            Algorithms::EpsTSUCB { samples: 10 },
+            Algorithms::EpsTSUCB { samples: 100 },
+        ],
         "etc" => vec![
             Algorithms::ETC { m: 2 },
             Algorithms::ETC { m: 3 },

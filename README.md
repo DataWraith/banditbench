@@ -90,6 +90,9 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
 | TS-UCB (100 samples)                                        |     72.02 |       16.8866 |                             3.3722 | 72.55s |
 | TS-UCB (10 samples)                                         |     72.48 |       17.2679 |                             3.7317 | 7.92s  |
+| ϵ-Exploring TS-UCB (100 samples)                            |     69.94 |       17.8335 |                             2.8808 | 7.19s  |
+| ϵ-Exploring TS-UCB (10 samples)                             |     70.16 |       17.9184 |                             2.9572 | 0.89s  |
+| ϵ-Exploring TS-UCB (1 samples)                              |     70.36 |       18.0420 |                             3.0933 | 0.14s  |
 | UCB-DT (γ=1.00)                                             |     69.93 |       18.1466 |                             2.5287 | 2.87s  |
 | UCB-DT (γ=0.95)                                             |     72.44 |       18.1946 |                             2.4725 | 2.64s  |
 | UCB-DT (γ=0.75)                                             |     72.50 |       18.1962 |                             2.5172 | 2.60s  |
@@ -163,7 +166,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ϵ-Decreasing (ϵ=0.200)                                      |     50.82 |       81.7548 |                            11.1762 | 0.11s  |
 | ETC (m=20)                                                  |     49.52 |       85.1694 |                            11.9964 | 0.15s  |
 | UCB1                                                        |     34.52 |       86.8474 |                            10.2054 | 0.17s  |
-| PFLA (n=100)                                                |     29.61 |       91.1676 |                            38.5302 | 84.96s |
+| PFLA (n=100)                                                |     29.61 |       91.1676 |                            38.5302 | 82.67s |
 | ReBoot (r=2.10)                                             |     32.31 |       92.8131 |                            10.7156 | 0.29s  |
 | EXP-IX                                                      |     31.87 |       95.7830 |                            13.0250 | 0.49s  |
 | ETC (m=3)                                                   |     22.30 |       98.5252 |                            27.0722 | 0.14s  |
@@ -171,10 +174,10 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=2)                                                   |     20.21 |      110.5641 |                            26.8868 | 0.10s  |
 | Gradient Bandit                                             |     30.32 |      110.7043 |                            17.1641 | 0.40s  |
 | Gradient Bandit (with baseline)                             |     31.34 |      113.5984 |                            11.7063 | 0.45s  |
-| PFLA (n=10)                                                 |     23.62 |      121.0144 |                            55.8349 | 8.72s  |
+| PFLA (n=10)                                                 |     23.62 |      121.0144 |                            55.8349 | 9.19s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.07s  |
 | CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.36s  |
-| PFLA (n=1)                                                  |     10.56 |      200.9131 |                            29.7225 | 1.11s  |
+| PFLA (n=1)                                                  |     10.56 |      200.9131 |                            29.7225 | 1.07s  |
 | Random                                                      |     10.01 |      204.0160 |                            30.3495 | 0.02s  |
 <!-- END mdsh -->
 
@@ -201,8 +204,11 @@ This experiment was taken from the GIRO paper.
 | UCB-DT (γ=0.75)                                             |     43.05 |       25.6700 |                             7.2075 | 2.53s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.11 |       26.7250 |                             8.7506 | 11.77s |
 | TS-UCB (100 samples)                                        |     45.02 |       26.9097 |                             6.2137 | 75.26s |
+| ϵ-Exploring TS-UCB (1 samples)                              |     42.08 |       27.2128 |                             8.1379 | 0.16s  |
 | MOSS-Anytime (α=-0.85)                                      |     40.04 |       27.3181 |                             8.7262 | 0.19s  |
 | MOSS-Anytime (α=-0.50)                                      |     44.05 |       27.4891 |                             5.4358 | 0.22s  |
+| ϵ-Exploring TS-UCB (10 samples)                             |     41.55 |       27.5450 |                             8.1473 | 0.87s  |
+| ϵ-Exploring TS-UCB (100 samples)                            |     41.08 |       27.6722 |                             8.2739 | 7.01s  |
 | CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 0.41s  |
 | TS-UCB (10 samples)                                         |     44.55 |       27.9363 |                             5.9386 | 7.76s  |
 | UCB-DT (γ=1.00)                                             |     38.52 |       28.0522 |                             9.8213 | 2.71s  |
@@ -257,7 +263,7 @@ This experiment was taken from the GIRO paper.
 | Kullback-Leibler Maillard Sampling                          |     29.69 |       47.8324 |                             8.4744 | 0.51s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     27.45 |       48.1450 |                            10.2207 | 1.02s  |
 | Garbage In, Reward Out (a=0.33)                             |     30.11 |       48.1458 |                             8.0648 | 1.43s  |
-| PFLA (n=100)                                                |     25.52 |       48.2747 |                            11.5641 | 83.75s |
+| PFLA (n=100)                                                |     25.52 |       48.2747 |                            11.5641 | 83.20s |
 | ReBoot (r=0.90)                                             |     29.34 |       48.4181 |                             8.4845 | 0.25s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     33.79 |       49.1413 |                             7.5396 | 0.16s  |
 | ETC (m=5)                                                   |     21.32 |       50.0278 |                            17.6885 | 0.20s  |
@@ -269,7 +275,7 @@ This experiment was taken from the GIRO paper.
 | lil' UCB (δ=0.010)                                          |     25.83 |       56.9410 |                             8.2814 | 0.29s  |
 | Garbage In, Reward Out (a=1.00)                             |     25.12 |       57.7304 |                             9.1152 | 1.56s  |
 | Boltzmann-Gumbel Exploration                                |     25.61 |       58.0539 |                             8.8928 | 0.33s  |
-| PFLA (n=10)                                                 |     21.31 |       59.7488 |                            12.9092 | 8.85s  |
+| PFLA (n=10)                                                 |     21.31 |       59.7488 |                            12.9092 | 8.82s  |
 | ReBoot (r=1.50)                                             |     22.85 |       61.0890 |                             9.6647 | 0.25s  |
 | lil' UCB (δ=0.001)                                          |     22.85 |       62.7995 |                             9.1698 | 0.26s  |
 | ReBoot (r=1.70)                                             |     21.38 |       64.4112 |                            10.0761 | 0.26s  |
@@ -281,7 +287,7 @@ This experiment was taken from the GIRO paper.
 | Gradient Bandit                                             |     19.00 |       75.4704 |                            12.4808 | 0.47s  |
 | Gradient Bandit (with baseline)                             |     18.51 |       77.0723 |                            10.7145 | 0.45s  |
 | ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.13s  |
-| PFLA (n=1)                                                  |     10.42 |      100.4073 |                            14.7685 | 1.12s  |
+| PFLA (n=1)                                                  |     10.42 |      100.4073 |                            14.7685 | 1.08s  |
 | Random                                                      |     10.01 |      102.0080 |                            15.1748 | 0.01s  |
 | CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.49s  |
 <!-- END mdsh -->
@@ -315,8 +321,11 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ϵ-Greedy (ϵ=0.010)                                          |     16.64 |        4.1682 |                             0.1000 | 0.10s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     16.29 |        4.1854 |                             0.1000 | 0.14s  |
 | ϵ-Greedy (ϵ=0.020)                                          |     16.25 |        4.1873 |                             0.1000 | 0.12s  |
+| ϵ-Exploring TS-UCB (1 samples)                              |     15.26 |        4.2371 |                             0.1700 | 0.17s  |
 | ϵ-Greedy (ϵ=0.050)                                          |     15.11 |        4.2447 |                             0.0900 | 0.12s  |
 | ϵ-Decreasing (ϵ=0.500)                                      |     14.77 |        4.2614 |                             0.0800 | 0.14s  |
+| ϵ-Exploring TS-UCB (10 samples)                             |     14.23 |        4.2887 |                             0.1700 | 0.85s  |
+| ϵ-Exploring TS-UCB (100 samples)                            |     14.10 |        4.2951 |                             0.1700 | 7.09s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     14.05 |        4.2973 |                             0.1600 | 0.12s  |
 | ϵ-Greedy (ϵ=0.100)                                          |     13.97 |        4.3014 |                             0.0800 | 0.13s  |
 | ϵ-Exploring Thompson Sampling                               |     13.74 |        4.3130 |                             0.1100 | 0.15s  |
@@ -373,9 +382,9 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Boltzmann-Gumbel Exploration                                |     10.67 |        4.4663 |                             0.2700 | 0.34s  |
 | Garbage In, Reward Out (a=1.00)                             |     10.66 |        4.4669 |                             0.2600 | 1.23s  |
 | lil' UCB (δ=0.001)                                          |     10.54 |        4.4730 |                             0.2000 | 0.28s  |
-| PFLA (n=10)                                                 |     10.52 |        4.4740 |                             0.3800 | 8.85s  |
+| PFLA (n=10)                                                 |     10.52 |        4.4740 |                             0.3800 | 8.17s  |
 | ReBoot (r=1.50)                                             |     10.49 |        4.4756 |                             0.2100 | 0.30s  |
-| PFLA (n=100)                                                |     10.48 |        4.4759 |                             0.2400 | 81.25s |
+| PFLA (n=100)                                                |     10.48 |        4.4759 |                             0.2400 | 84.28s |
 | ReBoot (r=1.70)                                             |     10.40 |        4.4798 |                             0.1800 | 0.25s  |
 | EXP-IX                                                      |     10.36 |        4.4822 |                             0.1600 | 0.47s  |
 | ReBoot (r=2.10)                                             |     10.29 |        4.4854 |                             0.1400 | 0.25s  |
@@ -388,7 +397,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.11s  |
 | ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.13s  |
 | Random                                                      |     10.02 |        4.4992 |                             0.0500 | 0.01s  |
-| PFLA (n=1)                                                  |     10.01 |        4.4993 |                             0.0100 | 1.04s  |
+| PFLA (n=1)                                                  |     10.01 |        4.4993 |                             0.0100 | 1.03s  |
 | CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.42s  |
 | ETC (m=10)                                                  |      9.94 |        4.5030 |                             0.0000 | 0.15s  |
 <!-- END mdsh -->
@@ -424,6 +433,9 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | UCBT                                                        |     47.49 |       28.8558 |                             8.0049 | 0.10s  |
 | ReBoot (r=0.50)                                             |     51.44 |       28.9633 |                             6.3791 | 0.29s  |
 | TS-UCB (1 samples)                                          |     52.69 |       29.2908 |                             4.9082 | 1.13s  |
+| ϵ-Exploring TS-UCB (1 samples)                              |     47.60 |       29.4661 |                             9.1640 | 0.18s  |
+| ϵ-Exploring TS-UCB (10 samples)                             |     47.35 |       29.8509 |                             9.2614 | 0.84s  |
+| ϵ-Exploring TS-UCB (100 samples)                            |     47.30 |       29.8928 |                             9.1374 | 7.76s  |
 | Hellinger-UCB                                               |     50.41 |       30.1850 |                             5.4750 | 2.50s  |
 | ϵ-Decreasing (ϵ=0.500)                                      |     45.66 |       30.9426 |                            10.3885 | 0.15s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     49.88 |       31.1623 |                             6.5576 | 0.38s  |
@@ -487,14 +499,14 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | EB-TCI                                                      |     24.42 |       59.0388 |                            22.7179 | 0.31s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     30.85 |       61.5675 |                            16.7498 | 0.07s  |
 | ReBoot (r=2.10)                                             |     27.57 |       61.9376 |                            14.1671 | 0.26s  |
-| PFLA (n=100)                                                |     22.78 |       64.3650 |                            18.6443 | 82.41s |
+| PFLA (n=100)                                                |     22.78 |       64.3650 |                            18.6443 | 82.44s |
 | lil' UCB (δ=0.001)                                          |     25.41 |       64.5631 |                            14.7753 | 0.26s  |
 | UCB1                                                        |     22.31 |       69.6096 |                            17.0817 | 0.16s  |
-| PFLA (n=10)                                                 |     18.26 |       73.4227 |                            21.0101 | 8.23s  |
+| PFLA (n=10)                                                 |     18.26 |       73.4227 |                            21.0101 | 8.25s  |
 | Gradient Bandit                                             |     20.28 |       74.1103 |                            17.5927 | 0.40s  |
 | Gradient Bandit (with baseline)                             |     19.93 |       74.7782 |                            17.8747 | 0.45s  |
 | EXP-IX                                                      |     17.71 |       77.5879 |                            20.1208 | 0.48s  |
-| PFLA (n=1)                                                  |     10.45 |       92.1317 |                            25.7794 | 1.00s  |
+| PFLA (n=1)                                                  |     10.45 |       92.1317 |                            25.7794 | 1.04s  |
 | Random                                                      |      9.99 |       93.1436 |                            26.0904 | 0.02s  |
 | CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.36s  |
 <!-- END mdsh -->
@@ -522,7 +534,10 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | POKER (H=1)                                                 |     56.13 |        8.0894 |                             1.7428 | 0.34s  |
 | POKER (H=10)                                                |     48.12 |        8.3258 |                             2.2912 | 0.32s  |
 | UCB-DT (γ=1.00)                                             |     55.66 |        8.4709 |                             1.4837 | 2.70s  |
+| ϵ-Exploring TS-UCB (100 samples)                            |     54.56 |        8.4801 |                             1.5113 | 7.19s  |
+| ϵ-Exploring TS-UCB (10 samples)                             |     54.54 |        8.5219 |                             1.5144 | 0.87s  |
 | UCB-DT (γ=0.90)                                             |     55.84 |        8.5612 |                             1.5143 | 2.73s  |
+| ϵ-Exploring TS-UCB (1 samples)                              |     54.46 |        8.5696 |                             1.5205 | 0.16s  |
 | UCB-DT (γ=0.95)                                             |     55.76 |        8.5784 |                             1.5121 | 2.80s  |
 | Greedy                                                      |     53.82 |        8.6471 |                             1.5273 | 0.09s  |
 | UCB-DT (γ=0.75)                                             |     55.91 |        8.6739 |                             1.5558 | 2.65s  |
@@ -632,3 +647,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 
 - ϵ-Exploring Thompson Sampling seems to match or exceed Thompson Sampling
   while being computationally much lighter.
+
+- Augmenting TS-UCB with the ϵ-Exploring policy speeds up TS-UCB by a lot, but
+  trades off a bit of performance. For reasons I'm not entirely sure of, fewer
+  samples seem to perform just as well or better as the variant with more samples.

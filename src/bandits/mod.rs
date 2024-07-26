@@ -10,6 +10,7 @@ pub mod ucb;
 pub mod bge;
 pub mod code;
 pub mod ebtci;
+pub mod eps_tsucb;
 pub mod exp_ix;
 pub mod forced_exploration;
 pub mod gradient_bandit;
@@ -24,10 +25,11 @@ pub use {
     baselines::random::Random, bge::BGE, bootstrap::bts::BTS, bootstrap::giro::GIRO,
     bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
     bootstrap::vresboot::VResBoot, code::CODE, dueling::dirichlet_sampling::BDS,
-    dueling::wr_sda::WRSDA, ebtci::EBTCI, exp_ix::EXPIX, forced_exploration::ForcedExploration,
-    gradient_bandit::GradientBandit, klms::KLMS, poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS,
-    ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF,
-    tsucb::TSUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
+    dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB, exp_ix::EXPIX,
+    forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
+    poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS,
+    ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
+    ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
     ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
     ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
@@ -41,6 +43,7 @@ pub enum Algorithms {
     EpsilonDecreasing { epsilon: f64 },
     EpsilonGreedy { epsilon: f64 },
     EpsTS,
+    EpsTSUCB { samples: usize },
     ETC { m: usize },
     EXPIX,
     ForcedExploration,
@@ -110,6 +113,9 @@ impl std::fmt::Display for Algorithms {
             }
             Algorithms::EpsilonGreedy { epsilon } => write!(f, "ϵ-Greedy (ϵ={:.3})", epsilon),
             Algorithms::EpsTS => write!(f, "ϵ-Exploring Thompson Sampling"),
+            Algorithms::EpsTSUCB { samples } => {
+                write!(f, "ϵ-Exploring TS-UCB ({} samples)", samples)
+            }
             Algorithms::ETC { m } => write!(f, "ETC (m={})", m),
             Algorithms::EXPIX => write!(f, "EXP-IX"),
             Algorithms::ForcedExploration => write!(f, "Forced Exploration"),
