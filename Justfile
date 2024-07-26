@@ -6,6 +6,7 @@ run_all:
 	@just run hard
 	@just run beta
 	@just run reverse_beta
+	@just aggregate
 	mdsh
 
 run EXPERIMENT:
@@ -57,3 +58,11 @@ run EXPERIMENT:
 	echo "|---|---:|---:|---:|:--:|" >> {{EXPERIMENT}}.md
 
 	cat {{EXPERIMENT}}.csv | sed 's/.*/|&|/' | sed 's/\;/\|/g' >> {{EXPERIMENT}}.md
+
+aggregate:
+	python3 aggregate_ranks.py
+
+	echo "| Algorithm | Average Rank | Average Time (seconds) |" > aggregated_ranks.md
+	echo "|---|---|---|" >> aggregated_ranks.md
+	cat aggregated_ranks.csv | sed 's/.*/|&|/' | sed 's/\;/\|/g' >> aggregated_ranks.md
+	
