@@ -1,5 +1,6 @@
 use rand::prelude::*;
 
+pub mod automata;
 pub mod baselines;
 pub mod bootstrap;
 pub mod dueling;
@@ -18,15 +19,15 @@ pub mod tsallis_inf;
 pub mod tsucb;
 
 pub use {
-    baselines::eps_decreasing::EpsilonDecreasing, baselines::eps_greedy::EpsilonGreedy,
-    baselines::etc::ETC, baselines::greedy::Greedy, baselines::random::Random, bge::BGE,
-    bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
-    bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
-    dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, exp_ix::EXPIX,
-    forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
-    poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS,
-    ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
-    ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
+    automata::pfla::PFLA, baselines::eps_decreasing::EpsilonDecreasing,
+    baselines::eps_greedy::EpsilonGreedy, baselines::etc::ETC, baselines::greedy::Greedy,
+    baselines::random::Random, bge::BGE, bootstrap::bts::BTS, bootstrap::giro::GIRO,
+    bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
+    bootstrap::vresboot::VResBoot, code::CODE, dueling::dirichlet_sampling::BDS,
+    dueling::wr_sda::WRSDA, ebtci::EBTCI, exp_ix::EXPIX, forced_exploration::ForcedExploration,
+    gradient_bandit::GradientBandit, klms::KLMS, poker::POKER, ts::eps_ts::EpsTS, ts::npts::NPTS,
+    ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF,
+    tsucb::TSUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
     ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
     ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
@@ -55,6 +56,7 @@ pub enum Algorithms {
     MOSSAnytime { alpha: f64 },
     NPTS,
     OptimisticTS,
+    PFLA { n: usize },
     PHE { perturbation_scale: f64 },
     POKER { assumed_horizon: usize },
     Random,
@@ -125,6 +127,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::MOSSAnytime { alpha } => write!(f, "MOSS-Anytime (α={:.2})", alpha),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
             Algorithms::OptimisticTS => write!(f, "Optimistic Thompson Sampling"),
+            Algorithms::PFLA { n } => write!(f, "PFLA (n={})", n),
             Algorithms::PHE { perturbation_scale } => write!(
                 f,
                 "Perturbed-History Exploration (a={})",

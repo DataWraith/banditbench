@@ -33,6 +33,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/ucb/moss_anytime.rs -- cargo run --release -- {{EXPERIMENT}} mossanytime >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} npts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ots >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/automata/pfla.rs -- cargo run --release -- {{EXPERIMENT}} pfla >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} phe >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/poker.rs -- cargo run --release -- {{EXPERIMENT}} poker >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/reboot.rs -- cargo run --release -- {{EXPERIMENT}} reboot >> {{EXPERIMENT}}.csv

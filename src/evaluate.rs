@@ -161,6 +161,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::PFLA { n } => {
+                    let bandit = PFLA::new(num_arms, *n);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::PHE { perturbation_scale } => {
                     let bandit = PHE::new(num_arms, *perturbation_scale);
                     evaluate_bandit(bandit, &arms, horizon, seed)
