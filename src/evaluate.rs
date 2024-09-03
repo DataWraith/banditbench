@@ -126,6 +126,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::IRSFH { assumed_horizon } => {
+                    let bandit = IRSFH::new(num_arms, *assumed_horizon);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::KLMS => {
                     let bandit = KLMS::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

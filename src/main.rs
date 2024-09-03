@@ -87,6 +87,19 @@ fn main() {
         "gradient" => vec![Algorithms::Gradient, Algorithms::GradientBaseline],
         "greedy" => vec![Algorithms::Greedy],
         "hellinger" => vec![Algorithms::HellingerUCB],
+        "irsfh" => vec![
+            Algorithms::IRSFH { assumed_horizon: 1 },
+            Algorithms::IRSFH { assumed_horizon: 2 },
+            Algorithms::IRSFH { assumed_horizon: 3 },
+            Algorithms::IRSFH { assumed_horizon: 4 },
+            Algorithms::IRSFH { assumed_horizon: 5 },
+            Algorithms::IRSFH {
+                assumed_horizon: 10,
+            },
+            Algorithms::IRSFH {
+                assumed_horizon: 25,
+            },
+        ],
         "klms" => vec![Algorithms::KLMS],
         "klucb" => vec![Algorithms::KLUCB],
         "lilucb" => vec![

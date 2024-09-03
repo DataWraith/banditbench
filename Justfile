@@ -28,6 +28,7 @@ run EXPERIMENT:
 	bkt -- cargo run --release -- {{EXPERIMENT}} gradient >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} greedy >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/hellinger_ucb.rs -- cargo run --release -- {{EXPERIMENT}} hellinger >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/ts/irs_fh.rs -- cargo run --release -- {{EXPERIMENT}} irsfh >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} klms >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/kl_ucb.rs -- cargo run --release -- {{EXPERIMENT}} klucb >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/lilucb.rs -- cargo run --release -- {{EXPERIMENT}} lilucb >> {{EXPERIMENT}}.csv
