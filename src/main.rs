@@ -29,6 +29,14 @@ fn main() {
     let cli = Cli::parse();
 
     let algorithms = match cli.algorithm.to_ascii_lowercase().as_str() {
+        "bayesucb" => vec![
+            Algorithms::BayesUCB { delta: 0.1 },
+            Algorithms::BayesUCB { delta: 0.2 },
+            Algorithms::BayesUCB { delta: 0.3 },
+            Algorithms::BayesUCB { delta: 0.4 },
+            Algorithms::BayesUCB { delta: 0.5 },
+            Algorithms::BayesUCB { delta: 0.9 },
+        ],
         "bds" => vec![Algorithms::BDS],
         "bge" => vec![Algorithms::BGE],
         "bts" => vec![

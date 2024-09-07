@@ -29,12 +29,13 @@ pub use {
     forced_exploration::ForcedExploration, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
     ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
-    ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
-    ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
-    ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
+    ucb::bayes_ucb::BayesUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB,
+    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
+    ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
+    BayesUCB { delta: f64 },
     BDS,
     BGE,
     BTS { replicates: usize },
@@ -102,6 +103,7 @@ impl Arm {
 impl std::fmt::Display for Algorithms {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
+            Algorithms::BayesUCB { delta } => write!(f, "BayesUCB (δ={:.3})", delta),
             Algorithms::BDS => write!(f, "Bounded Dirichlet Sampling"),
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
             Algorithms::BTS { replicates } => {

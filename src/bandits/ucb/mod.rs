@@ -1,3 +1,4 @@
+pub mod bayes_ucb;
 pub mod hellinger_ucb;
 pub mod kl_ucb;
 pub mod lilucb;

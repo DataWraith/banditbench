@@ -12,6 +12,7 @@ run_all:
 run EXPERIMENT:
 	rm -f {{EXPERIMENT}}.csv
 
+	bkt --modtime=./src/bandits/ucb/bayes_ucb.rs -- cargo run --release -- {{EXPERIMENT}} bayesucb >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} bds >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} bge >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/bts.rs -- cargo run --release -- {{EXPERIMENT}} bts >> {{EXPERIMENT}}.csv
