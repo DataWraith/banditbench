@@ -194,6 +194,12 @@ fn main() {
             Algorithms::VResBoot { init: 1 },
             Algorithms::VResBoot { init: 5 },
         ],
+        "wa" => vec![
+            Algorithms::WhittleApprox { beta: 0.5 },
+            Algorithms::WhittleApprox { beta: 0.7 },
+            Algorithms::WhittleApprox { beta: 0.9 },
+            Algorithms::WhittleApprox { beta: 0.99 },
+        ],
         "wrsda" => vec![Algorithms::WRSDA],
         _ => panic!("No such algorithm: {}", cli.algorithm),
     };

@@ -4,6 +4,7 @@ pub mod automata;
 pub mod baselines;
 pub mod bootstrap;
 pub mod dueling;
+pub mod gittins;
 pub mod ts;
 pub mod ucb;
 
@@ -26,8 +27,9 @@ pub use {
     bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
-    exp_ix::EXPIX, forced_exploration::ForcedExploration, gradient_bandit::GradientBandit,
-    klms::KLMS, poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
+    exp_ix::EXPIX, forced_exploration::ForcedExploration,
+    gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
+    poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
     ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
     ucb::bayes_ucb::BayesUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB,
     ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
@@ -77,6 +79,7 @@ pub enum Algorithms {
     UCBDT { gamma: f64 },
     UCBT,
     VResBoot { init: usize },
+    WhittleApprox { beta: f64 },
     WRSDA,
 }
 
@@ -164,6 +167,9 @@ impl std::fmt::Display for Algorithms {
             Algorithms::UCBT => write!(f, "UCBT"),
             Algorithms::VResBoot { init } => {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)
+            }
+            Algorithms::WhittleApprox { beta } => {
+                write!(f, "Gittins Index -- Whittle's Approximation (β={:.2})", beta)
             }
             Algorithms::WRSDA => write!(f, "WR-SDA"),
         }

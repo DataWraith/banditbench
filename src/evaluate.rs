@@ -251,6 +251,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::WhittleApprox { beta } => {
+                    let bandit = WhittleApprox::new(num_arms, *beta);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::WRSDA => {
                     let bandit = WRSDA::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
