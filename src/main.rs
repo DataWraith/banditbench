@@ -110,6 +110,7 @@ fn main() {
         ],
         "klms" => vec![Algorithms::KLMS],
         "klucb" => vec![Algorithms::KLUCB],
+        "lf" => vec![Algorithms::LeastFailures],
         "lilucb" => vec![
             Algorithms::LilUCB { delta: 0.001 },
             Algorithms::LilUCB { delta: 0.01 },
