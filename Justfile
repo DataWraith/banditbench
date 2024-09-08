@@ -15,6 +15,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/ucb/bayes_ucb.rs -- cargo run --release -- {{EXPERIMENT}} bayesucb >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} bds >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} bge >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/gittins/brezzi_and_lai_approximation.rs -- cargo run --release -- {{EXPERIMENT}} brezzilai >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/bts.rs -- cargo run --release -- {{EXPERIMENT}} bts >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/code.rs -- cargo run --release -- {{EXPERIMENT}} code >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ebtci >> {{EXPERIMENT}}.csv

@@ -28,6 +28,7 @@ pub use {
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
     exp_ix::EXPIX, forced_exploration::ForcedExploration,
+    gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
     ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
@@ -40,6 +41,7 @@ pub enum Algorithms {
     BayesUCB { delta: f64 },
     BDS,
     BGE,
+    BrezziLaiApprox { beta: f64 },
     BTS { replicates: usize },
     CODE { delta: f64 },
     EBTCI,
@@ -110,6 +112,11 @@ impl std::fmt::Display for Algorithms {
             Algorithms::BayesUCB { delta } => write!(f, "BayesUCB (δ={:.3})", delta),
             Algorithms::BDS => write!(f, "Bounded Dirichlet Sampling"),
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
+            Algorithms::BrezziLaiApprox { beta } => write!(
+                f,
+                "Gittins Index -- Brezzi and Lai's Approximation (β={})",
+                beta
+            ),
             Algorithms::BTS { replicates } => {
                 write!(f, "Bootstrapped Thompson Sampling (J={})", replicates)
             }
@@ -169,7 +176,11 @@ impl std::fmt::Display for Algorithms {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)
             }
             Algorithms::WhittleApprox { beta } => {
-                write!(f, "Gittins Index -- Whittle's Approximation (β={:.2})", beta)
+                write!(
+                    f,
+                    "Gittins Index -- Whittle's Approximation (β={:.2})",
+                    beta
+                )
             }
             Algorithms::WRSDA => write!(f, "WR-SDA"),
         }

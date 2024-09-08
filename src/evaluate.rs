@@ -56,6 +56,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::BrezziLaiApprox { beta } => {
+                    let bandit = BrezziLaiApprox::new(num_arms, *beta);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::BTS { replicates } => {
                     let bandit = BTS::new(num_arms, *replicates);
                     evaluate_bandit(bandit, &arms, horizon, seed)

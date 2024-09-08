@@ -39,6 +39,12 @@ fn main() {
         ],
         "bds" => vec![Algorithms::BDS],
         "bge" => vec![Algorithms::BGE],
+        "brezzilai" => vec![
+            Algorithms::BrezziLaiApprox { beta: 0.8 },
+            Algorithms::BrezziLaiApprox { beta: 0.9 },
+            Algorithms::BrezziLaiApprox { beta: 0.95 },
+            Algorithms::BrezziLaiApprox { beta: 0.99 },
+        ],
         "bts" => vec![
             Algorithms::BTS { replicates: 10 },
             Algorithms::BTS { replicates: 100 },

@@ -41,6 +41,7 @@ Algorithms are only included in the benchmark if
 ### Approximations of the Gittins Index
 
 - Whittle's approximation (works best for large simulation horizon)
+- Brezzi and Lai's approximation
 
 ### Thompson Sampling-based
 
@@ -88,115 +89,119 @@ considering the five experiments further down in this file.
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | Average Rank | Average Time (seconds) |
 | ----------------------------------------------------------- | ------------ | ---------------------- |
-| IRS.FH (H=2)                                                | 11.4         | 0.22                   |
-| IRS.FH (H=3)                                                | 13.4         | 0.22                   |
-| IRS.FH (H=1)                                                | 13.6         | 0.21                   |
-| UCB-DT (γ=0.90)                                             | 13.8         | 0.54                   |
-| TS-UCB (100 samples)                                        | 14.0         | 11.52                  |
-| UCB-DT (γ=0.95)                                             | 14.4         | 0.54                   |
-| UCB-DT (γ=0.75)                                             | 15.4         | 0.53                   |
-| UCB-DT (γ=1.00)                                             | 17.0         | 0.54                   |
-| ϵ-Exploring TS-UCB (1 samples)                              | 17.4         | 0.04                   |
-| ϵ-Exploring TS-UCB (10 samples)                             | 17.8         | 0.14                   |
-| IRS.FH (H=4)                                                | 18.0         | 0.23                   |
-| ϵ-Exploring TS-UCB (100 samples)                            | 18.0         | 1.14                   |
-| TS-UCB (10 samples)                                         | 21.0         | 1.21                   |
-| MOSS-Anytime (α=-0.85)                                      | 22.6         | 0.05                   |
-| BayesUCB (δ=0.300)                                          | 24.6         | 0.05                   |
-| Gittins Index -- Whittle Approximation (β=0.50)             | 24.8         | 0.06                   |
-| BayesUCB (δ=0.200)                                          | 25.8         | 0.05                   |
-| BayesUCB (δ=0.400)                                          | 26.0         | 0.05                   |
-| IRS.FH (H=5)                                                | 26.0         | 0.23                   |
-| Gittins Index -- Whittle Approximation (β=0.70)             | 26.4         | 0.06                   |
-| Gittins Index -- Whittle Approximation (β=0.90)             | 26.6         | 0.06                   |
-| Gittins Index -- Whittle Approximation (β=0.99)             | 27.2         | 0.06                   |
-| ϵ-Decreasing (ϵ=0.990)                                      | 28.0         | 0.03                   |
-| POKER (H=10)                                                | 28.4         | 0.09                   |
-| POKER (H=5)                                                 | 28.6         | 0.09                   |
-| POKER (H=1)                                                 | 29.0         | 0.09                   |
-| Greedy                                                      | 29.0         | 0.03                   |
-| ϵ-Decreasing (ϵ=0.900)                                      | 29.4         | 0.03                   |
-| CODE (δ=0.990)                                              | 29.6         | 0.08                   |
-| ϵ-Decreasing (ϵ=0.700)                                      | 29.8         | 0.03                   |
-| Thompson Sampling with Virtual Helping Agents (Combiner C3) | 30.0         | 2.4                    |
-| MOSS-Anytime (α=-0.50)                                      | 30.8         | 0.06                   |
-| ϵ-Greedy (ϵ=0.010)                                          | 32.2         | 0.03                   |
-| BayesUCB (δ=0.500)                                          | 32.4         | 0.05                   |
-| TS-UCB (1 samples)                                          | 33.0         | 0.18                   |
-| ϵ-Greedy (ϵ=0.020)                                          | 33.0         | 0.03                   |
-| ϵ-Greedy (ϵ=0.050)                                          | 35.2         | 0.02                   |
-| IRS.FH (H=10)                                               | 36.8         | 0.24                   |
-| ϵ-Decreasing (ϵ=0.500)                                      | 37.0         | 0.03                   |
-| POKER (H=25)                                                | 37.4         | 0.09                   |
-| MOSS-Anytime (α=-0.33)                                      | 37.6         | 0.06                   |
-| ϵ-Exploring Thompson Sampling                               | 37.8         | 0.04                   |
-| POKER (H=50)                                                | 40.4         | 0.09                   |
-| POKER (H=100)                                               | 40.8         | 0.09                   |
-| ϵ-Greedy (ϵ=0.100)                                          | 43.4         | 0.02                   |
-| UCBT                                                        | 44.6         | 0.03                   |
-| BayesUCB (δ=0.100)                                          | 46.4         | 0.05                   |
-| IRS.FH (H=25)                                               | 46.6         | 0.29                   |
-| BayesUCB (δ=0.900)                                          | 46.6         | 0.05                   |
-| Forced Exploration                                          | 47.4         | 0.03                   |
-| Optimistic Thompson Sampling                                | 48.6         | 0.19                   |
-| ReBoot (r=0.25)                                             | 49.4         | 0.06                   |
-| WR-SDA                                                      | 49.6         | 0.28                   |
-| POKER (H=250)                                               | 53.6         | 0.09                   |
-| ReBoot (r=0.50)                                             | 55.2         | 0.05                   |
-| Thompson Sampling                                           | 55.8         | 0.13                   |
-| Bootstrapped Thompson Sampling (J=10)                       | 55.8         | 0.07                   |
-| Satisficing Thompson Sampling (ϵ=0.005)                     | 56.6         | 0.18                   |
-| Satisficing Thompson Sampling (ϵ=0.010)                     | 57.6         | 0.18                   |
-| Hellinger-UCB                                               | 57.8         | 0.52                   |
-| Vanilla Residual Bootstrap (init=0)                         | 58.0         | 0.05                   |
-| Bootstrapped Thompson Sampling (J=500)                      | 58.0         | 0.7                    |
-| Bootstrapped Thompson Sampling (J=1000)                     | 59.2         | 1.35                   |
-| Bootstrapped Thompson Sampling (J=100)                      | 59.4         | 0.18                   |
-| KL-UCB                                                      | 59.6         | 1.45                   |
-| Multiplier Bootstrap-based Exploration                      | 59.8         | 0.98                   |
-| Non-Parametric Thompson Sampling                            | 62.0         | 0.72                   |
-| CODE (δ=0.900)                                              | 62.6         | 0.08                   |
-| UCB1-Tuned                                                  | 62.6         | 0.07                   |
-| Garbage In, Reward Out (a=0.10)                             | 63.8         | 0.16                   |
-| Vanilla Residual Bootstrap (init=1)                         | 67.2         | 0.05                   |
-| Satisficing Thompson Sampling (ϵ=0.050)                     | 67.4         | 0.18                   |
-| Bounded Dirichlet Sampling                                  | 67.8         | 0.4                    |
-| ϵ-Decreasing (ϵ=0.200)                                      | 69.2         | 0.02                   |
-| Kullback-Leibler Maillard Sampling                          | 70.4         | 0.12                   |
-| Perturbed-History Exploration (a=1.1)                       | 72.2         | 0.15                   |
-| EB-TCI                                                      | 72.4         | 0.07                   |
-| ETC (m=10)                                                  | 77.0         | 0.03                   |
-| ReBoot (r=0.90)                                             | 78.2         | 0.05                   |
-| Tsallis-INF                                                 | 78.6         | 0.22                   |
-| Garbage In, Reward Out (a=0.33)                             | 79.6         | 0.19                   |
-| Satisficing Thompson Sampling (ϵ=0.100)                     | 80.8         | 0.18                   |
-| lil' UCB (δ=0.100)                                          | 81.4         | 0.08                   |
-| Vanilla Residual Bootstrap (init=5)                         | 83.2         | 0.05                   |
-| ReBoot (r=1.00)                                             | 83.6         | 0.05                   |
-| PFLA (n=100)                                                | 84.4         | 15.36                  |
-| Perturbed-History Exploration (a=2.1)                       | 86.0         | 0.18                   |
-| ETC (m=5)                                                   | 86.4         | 0.03                   |
-| ETC (m=20)                                                  | 86.6         | 0.03                   |
-| ϵ-Decreasing (ϵ=0.100)                                      | 87.4         | 0.02                   |
-| lil' UCB (δ=0.010)                                          | 89.8         | 0.08                   |
-| Garbage In, Reward Out (a=1.00)                             | 90.4         | 0.22                   |
-| ETC (m=25)                                                  | 90.4         | 0.03                   |
-| PFLA (n=10)                                                 | 90.8         | 1.58                   |
-| ReBoot (r=1.50)                                             | 91.4         | 0.06                   |
-| Least Failures                                              | 92.4         | 0.02                   |
-| lil' UCB (δ=0.001)                                          | 93.2         | 0.08                   |
-| ReBoot (r=1.70)                                             | 94.0         | 0.06                   |
-| UCB1                                                        | 97.4         | 0.05                   |
-| ReBoot (r=2.10)                                             | 97.8         | 0.06                   |
-| ETC (m=3)                                                   | 98.2         | 0.03                   |
-| EXP-IX                                                      | 98.6         | 0.1                    |
-| ETC (m=2)                                                   | 100.8        | 0.03                   |
-| Boltzmann-Gumbel Exploration                                | 101.2        | 0.08                   |
-| Gradient Bandit                                             | 101.2        | 0.08                   |
-| Gradient Bandit (with baseline)                             | 102.8        | 0.08                   |
-| PFLA (n=1)                                                  | 107.2        | 0.2                    |
-| Random                                                      | 108.0        | 0.01                   |
-| CODE (δ=0.050)                                              | 108.2        | 0.09                   |
+| IRS.FH (H=2)                                                | 12.4         | 0.22                   |
+| IRS.FH (H=3)                                                | 14.6         | 0.22                   |
+| UCB-DT (γ=0.90)                                             | 14.8         | 0.54                   |
+| UCB-DT (γ=0.95)                                             | 15.4         | 0.54                   |
+| IRS.FH (H=1)                                                | 16.0         | 0.21                   |
+| UCB-DT (γ=0.75)                                             | 16.6         | 0.53                   |
+| TS-UCB (100 samples)                                        | 17.8         | 11.52                  |
+| UCB-DT (γ=1.00)                                             | 18.8         | 0.54                   |
+| ϵ-Exploring TS-UCB (1 samples)                              | 19.8         | 0.04                   |
+| ϵ-Exploring TS-UCB (10 samples)                             | 20.4         | 0.14                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    | 20.6         | 0.1                    |
+| ϵ-Exploring TS-UCB (100 samples)                            | 20.6         | 1.14                   |
+| IRS.FH (H=4)                                                | 21.4         | 0.23                   |
+| Gittins Index -- Whittle's Approximation (β=0.99)           | 22.4         | 0.06                   |
+| TS-UCB (10 samples)                                         | 24.4         | 1.21                   |
+| MOSS-Anytime (α=-0.85)                                      | 24.6         | 0.05                   |
+| Gittins Index -- Whittle's Approximation (β=0.90)           | 25.8         | 0.06                   |
+| BayesUCB (δ=0.300)                                          | 28.0         | 0.05                   |
+| IRS.FH (H=5)                                                | 28.0         | 0.23                   |
+| BayesUCB (δ=0.200)                                          | 29.0         | 0.05                   |
+| BayesUCB (δ=0.400)                                          | 29.2         | 0.05                   |
+| ϵ-Decreasing (ϵ=0.990)                                      | 29.4         | 0.03                   |
+| Greedy                                                      | 29.6         | 0.03                   |
+| POKER (H=10)                                                | 29.8         | 0.09                   |
+| POKER (H=5)                                                 | 30.0         | 0.09                   |
+| POKER (H=1)                                                 | 30.4         | 0.09                   |
+| ϵ-Decreasing (ϵ=0.900)                                      | 30.8         | 0.03                   |
+| ϵ-Decreasing (ϵ=0.700)                                      | 31.4         | 0.03                   |
+| CODE (δ=0.990)                                              | 32.0         | 0.08                   |
+| Thompson Sampling with Virtual Helping Agents (Combiner C3) | 32.6         | 2.4                    |
+| MOSS-Anytime (α=-0.50)                                      | 33.0         | 0.06                   |
+| ϵ-Greedy (ϵ=0.010)                                          | 33.8         | 0.03                   |
+| ϵ-Greedy (ϵ=0.020)                                          | 34.6         | 0.03                   |
+| BayesUCB (δ=0.500)                                          | 35.0         | 0.05                   |
+| Gittins Index -- Whittle's Approximation (β=0.70)           | 35.4         | 0.06                   |
+| Gittins Index -- Whittle's Approximation (β=0.50)           | 35.6         | 0.06                   |
+| TS-UCB (1 samples)                                          | 36.0         | 0.18                   |
+| ϵ-Greedy (ϵ=0.050)                                          | 37.0         | 0.02                   |
+| POKER (H=25)                                                | 38.2         | 0.09                   |
+| IRS.FH (H=10)                                               | 38.6         | 0.24                   |
+| ϵ-Decreasing (ϵ=0.500)                                      | 39.0         | 0.03                   |
+| MOSS-Anytime (α=-0.33)                                      | 39.4         | 0.06                   |
+| ϵ-Exploring Thompson Sampling                               | 39.6         | 0.04                   |
+| POKER (H=50)                                                | 41.4         | 0.09                   |
+| POKER (H=100)                                               | 42.0         | 0.09                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 43.2         | 0.09                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 45.2         | 0.1                    |
+| ϵ-Greedy (ϵ=0.100)                                          | 45.6         | 0.02                   |
+| UCBT                                                        | 47.0         | 0.03                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 47.4         | 0.1                    |
+| BayesUCB (δ=0.100)                                          | 48.8         | 0.05                   |
+| IRS.FH (H=25)                                               | 49.0         | 0.29                   |
+| BayesUCB (δ=0.900)                                          | 49.8         | 0.05                   |
+| Forced Exploration                                          | 50.0         | 0.03                   |
+| WR-SDA                                                      | 50.8         | 0.28                   |
+| Optimistic Thompson Sampling                                | 51.2         | 0.19                   |
+| ReBoot (r=0.25)                                             | 51.8         | 0.06                   |
+| POKER (H=250)                                               | 55.2         | 0.09                   |
+| ReBoot (r=0.50)                                             | 58.2         | 0.05                   |
+| Thompson Sampling                                           | 58.4         | 0.13                   |
+| Satisficing Thompson Sampling (ϵ=0.005)                     | 59.2         | 0.18                   |
+| Bootstrapped Thompson Sampling (J=10)                       | 59.2         | 0.07                   |
+| Satisficing Thompson Sampling (ϵ=0.010)                     | 60.2         | 0.18                   |
+| Hellinger-UCB                                               | 60.6         | 0.52                   |
+| Vanilla Residual Bootstrap (init=0)                         | 60.8         | 0.05                   |
+| Bootstrapped Thompson Sampling (J=500)                      | 61.4         | 0.7                    |
+| KL-UCB                                                      | 62.2         | 1.45                   |
+| Bootstrapped Thompson Sampling (J=1000)                     | 62.6         | 1.35                   |
+| Bootstrapped Thompson Sampling (J=100)                      | 62.8         | 0.18                   |
+| Multiplier Bootstrap-based Exploration                      | 63.2         | 0.98                   |
+| Non-Parametric Thompson Sampling                            | 64.0         | 0.72                   |
+| CODE (δ=0.900)                                              | 64.6         | 0.08                   |
+| UCB1-Tuned                                                  | 65.8         | 0.07                   |
+| Garbage In, Reward Out (a=0.10)                             | 67.4         | 0.16                   |
+| Satisficing Thompson Sampling (ϵ=0.050)                     | 69.6         | 0.18                   |
+| Bounded Dirichlet Sampling                                  | 69.8         | 0.4                    |
+| Vanilla Residual Bootstrap (init=1)                         | 71.0         | 0.05                   |
+| ϵ-Decreasing (ϵ=0.200)                                      | 71.4         | 0.02                   |
+| Kullback-Leibler Maillard Sampling                          | 72.6         | 0.12                   |
+| Perturbed-History Exploration (a=1.1)                       | 74.8         | 0.15                   |
+| EB-TCI                                                      | 74.8         | 0.07                   |
+| ETC (m=10)                                                  | 80.8         | 0.03                   |
+| ReBoot (r=0.90)                                             | 81.2         | 0.05                   |
+| Tsallis-INF                                                 | 81.6         | 0.22                   |
+| Garbage In, Reward Out (a=0.33)                             | 82.6         | 0.19                   |
+| Satisficing Thompson Sampling (ϵ=0.100)                     | 83.8         | 0.18                   |
+| lil' UCB (δ=0.100)                                          | 84.4         | 0.08                   |
+| Vanilla Residual Bootstrap (init=5)                         | 86.2         | 0.05                   |
+| ReBoot (r=1.00)                                             | 86.6         | 0.05                   |
+| PFLA (n=100)                                                | 87.0         | 15.36                  |
+| Perturbed-History Exploration (a=2.1)                       | 89.2         | 0.18                   |
+| ETC (m=20)                                                  | 89.6         | 0.03                   |
+| ϵ-Decreasing (ϵ=0.100)                                      | 90.2         | 0.02                   |
+| ETC (m=5)                                                   | 91.2         | 0.03                   |
+| lil' UCB (δ=0.010)                                          | 93.0         | 0.08                   |
+| ETC (m=25)                                                  | 93.4         | 0.03                   |
+| Garbage In, Reward Out (a=1.00)                             | 93.6         | 0.22                   |
+| PFLA (n=10)                                                 | 93.8         | 1.58                   |
+| ReBoot (r=1.50)                                             | 94.8         | 0.06                   |
+| Least Failures                                              | 95.0         | 0.02                   |
+| lil' UCB (δ=0.001)                                          | 96.6         | 0.08                   |
+| ReBoot (r=1.70)                                             | 97.4         | 0.06                   |
+| UCB1                                                        | 100.8        | 0.05                   |
+| ReBoot (r=2.10)                                             | 101.8        | 0.06                   |
+| EXP-IX                                                      | 102.0        | 0.1                    |
+| ETC (m=3)                                                   | 102.2        | 0.03                   |
+| ETC (m=2)                                                   | 104.8        | 0.03                   |
+| Boltzmann-Gumbel Exploration                                | 105.2        | 0.08                   |
+| Gradient Bandit                                             | 105.2        | 0.08                   |
+| Gradient Bandit (with baseline)                             | 106.8        | 0.08                   |
+| PFLA (n=1)                                                  | 111.2        | 0.2                    |
+| Random                                                      | 112.0        | 0.01                   |
+| CODE (δ=0.050)                                              | 112.2        | 0.09                   |
 <!-- END mdsh -->
 
 ## Data
@@ -216,27 +221,26 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
+| Gittins Index -- Whittle's Approximation (β=0.99)           |     65.59 |       16.1524 |                             6.1313 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    |     68.73 |       16.2172 |                             3.6835 | 0.10s  |
 | BayesUCB (δ=0.300)                                          |     68.64 |       16.4619 |                             5.4296 | 0.05s  |
 | TS-UCB (100 samples)                                        |     72.02 |       16.8866 |                             3.3722 | 11.19s |
 | IRS.FH (H=2)                                                |     71.14 |       16.9375 |                             2.7279 | 0.21s  |
 | IRS.FH (H=3)                                                |     72.29 |       16.9395 |                             3.0432 | 0.22s  |
 | BayesUCB (δ=0.400)                                          |     64.26 |       17.1313 |                             6.9164 | 0.05s  |
 | TS-UCB (10 samples)                                         |     72.48 |       17.2679 |                             3.7317 | 1.17s  |
+| Gittins Index -- Whittle's Approximation (β=0.90)           |     61.89 |       17.4329 |                             6.6927 | 0.06s  |
 | BayesUCB (δ=0.200)                                          |     71.21 |       17.5846 |                             4.0029 | 0.05s  |
 | IRS.FH (H=4)                                                |     72.57 |       17.6097 |                             3.5134 | 0.22s  |
 | ϵ-Exploring TS-UCB (100 samples)                            |     69.94 |       17.8335 |                             2.8808 | 1.11s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     70.16 |       17.9184 |                             2.9572 | 0.14s  |
-| Gittins Index -- Whittle Approximation (β=0.70)             |     70.09 |       17.9456 |                             2.5032 | 0.06s  |
 | ϵ-Exploring TS-UCB (1 samples)                              |     70.36 |       18.0420 |                             3.0933 | 0.04s  |
 | IRS.FH (H=1)                                                |     68.89 |       18.0936 |                             2.5509 | 0.20s  |
-| Gittins Index -- Whittle Approximation (β=0.50)             |     69.40 |       18.1246 |                             2.4936 | 0.06s  |
 | UCB-DT (γ=1.00)                                             |     69.93 |       18.1466 |                             2.5287 | 0.53s  |
-| Gittins Index -- Whittle Approximation (β=0.90)             |     70.42 |       18.1754 |                             2.6211 | 0.06s  |
 | UCB-DT (γ=0.95)                                             |     72.44 |       18.1946 |                             2.4725 | 0.53s  |
 | UCB-DT (γ=0.75)                                             |     72.50 |       18.1962 |                             2.5172 | 0.53s  |
 | UCB-DT (γ=0.90)                                             |     72.42 |       18.2016 |                             2.4807 | 0.54s  |
 | IRS.FH (H=5)                                                |     72.59 |       18.3624 |                             4.0320 | 0.22s  |
-| Gittins Index -- Whittle Approximation (β=0.99)             |     70.73 |       18.4812 |                             2.8500 | 0.06s  |
 | MOSS-Anytime (α=-0.85)                                      |     69.71 |       18.8113 |                             2.5659 | 0.05s  |
 | CODE (δ=0.990)                                              |     68.91 |       18.9329 |                             2.9569 | 0.08s  |
 | POKER (H=10)                                                |     65.48 |       19.3526 |                             3.2000 | 0.09s  |
@@ -258,6 +262,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | WR-SDA                                                      |     66.87 |       23.8280 |                             5.0922 | 0.23s  |
 | IRS.FH (H=25)                                               |     70.09 |       24.4452 |                             6.0015 | 0.28s  |
 | MOSS-Anytime (α=-0.33)                                      |     69.75 |       24.4536 |                             2.6909 | 0.05s  |
+| Gittins Index -- Whittle's Approximation (β=0.70)           |     51.65 |       24.9930 |                            11.3705 | 0.06s  |
 | Optimistic Thompson Sampling                                |     68.80 |       25.6235 |                             7.1784 | 0.18s  |
 | POKER (H=50)                                                |     56.21 |       25.6788 |                             9.6913 | 0.09s  |
 | ϵ-Greedy (ϵ=0.050)                                          |     65.45 |       27.3929 |                             4.0210 | 0.02s  |
@@ -268,6 +273,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     65.61 |       29.3229 |                             7.0179 | 0.17s  |
 | KL-UCB                                                      |     66.78 |       29.6304 |                             7.3837 | 1.43s  |
 | ReBoot (r=0.25)                                             |     61.18 |       30.3599 |                             5.2731 | 0.05s  |
+| Gittins Index -- Whittle's Approximation (β=0.50)           |     46.19 |       30.4565 |                            14.2565 | 0.06s  |
 | CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 0.08s  |
 | POKER (H=100)                                               |     51.57 |       30.8991 |                            12.6895 | 0.08s  |
 | Hellinger-UCB                                               |     63.89 |       31.0005 |                             7.0702 | 0.52s  |
@@ -278,12 +284,15 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ReBoot (r=0.50)                                             |     58.58 |       34.0829 |                             5.9224 | 0.05s  |
 | Bounded Dirichlet Sampling                                  |     63.86 |       34.1647 |                             7.1345 | 0.36s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     57.19 |       35.0506 |                             6.7983 | 0.17s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     42.16 |       35.0542 |                            18.6679 | 0.10s  |
 | ϵ-Greedy (ϵ=0.100)                                          |     63.98 |       35.8380 |                             5.3322 | 0.02s  |
 | Multiplier Bootstrap-based Exploration                      |     60.70 |       36.1612 |                             4.2418 | 0.96s  |
 | Kullback-Leibler Maillard Sampling                          |     59.67 |       37.5162 |                             8.3979 | 0.11s  |
 | Perturbed-History Exploration (a=1.1)                       |     56.96 |       37.8929 |                             5.6711 | 0.13s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     40.26 |       38.2054 |                            20.8866 | 0.09s  |
 | POKER (H=250)                                               |     46.27 |       38.6838 |                            15.5508 | 0.08s  |
 | Garbage In, Reward Out (a=0.10)                             |     57.65 |       38.7302 |                             5.2772 | 0.14s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     39.50 |       39.7859 |                            22.1131 | 0.09s  |
 | BayesUCB (δ=0.900)                                          |     39.28 |       40.0985 |                            22.3598 | 0.05s  |
 | Vanilla Residual Bootstrap (init=1)                         |     59.43 |       40.6304 |                             4.7837 | 0.05s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     40.59 |       41.9370 |                            21.7066 | 0.68s  |
@@ -347,29 +356,33 @@ This experiment was taken from the GIRO paper.
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
 | IRS.FH (H=2)                                                |     43.85 |       24.7422 |                             7.8222 | 0.21s  |
 | IRS.FH (H=3)                                                |     45.28 |       25.0047 |                             6.6326 | 0.22s  |
+| Gittins Index -- Whittle's Approximation (β=0.99)           |     44.09 |       25.0082 |                             7.8533 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     40.05 |       25.2717 |                            12.2698 | 0.09s  |
 | UCB-DT (γ=0.90)                                             |     43.02 |       25.6120 |                             7.2004 | 0.54s  |
 | UCB-DT (γ=0.95)                                             |     43.00 |       25.6319 |                             7.1816 | 0.55s  |
 | UCB-DT (γ=0.75)                                             |     43.05 |       25.6700 |                             7.2075 | 0.54s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    |     41.68 |       25.7326 |                             9.2085 | 0.10s  |
+| Gittins Index -- Whittle's Approximation (β=0.90)           |     41.53 |       25.7390 |                             9.3584 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     40.51 |       25.7582 |                            11.6365 | 0.10s  |
+| Gittins Index -- Whittle's Approximation (β=0.50)           |     40.01 |       25.7986 |                            11.1271 | 0.06s  |
 | BayesUCB (δ=0.900)                                          |     39.16 |       25.8336 |                            13.1050 | 0.05s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     38.83 |       26.1183 |                            12.9800 | 0.09s  |
 | BayesUCB (δ=0.500)                                          |     42.67 |       26.1689 |                             8.4137 | 0.05s  |
+| Gittins Index -- Whittle's Approximation (β=0.70)           |     40.02 |       26.4219 |                            10.1272 | 0.06s  |
 | BayesUCB (δ=0.400)                                          |     43.04 |       26.4233 |                             8.1311 | 0.05s  |
 | BayesUCB (δ=0.300)                                          |     44.61 |       26.4883 |                             7.0859 | 0.05s  |
 | IRS.FH (H=4)                                                |     44.59 |       26.4971 |                             6.7171 | 0.22s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     44.11 |       26.7250 |                             8.7506 | 1.90s  |
-| Gittins Index -- Whittle Approximation (β=0.99)             |     42.05 |       26.7274 |                             7.7914 | 0.06s  |
 | TS-UCB (100 samples)                                        |     45.02 |       26.9097 |                             6.2137 | 11.32s |
 | IRS.FH (H=1)                                                |     39.73 |       26.9134 |                             9.8115 | 0.21s  |
-| Gittins Index -- Whittle Approximation (β=0.90)             |     40.08 |       27.0767 |                             8.7835 | 0.06s  |
 | BayesUCB (δ=0.200)                                          |     45.32 |       27.2126 |                             6.1882 | 0.05s  |
 | ϵ-Exploring TS-UCB (1 samples)                              |     42.08 |       27.2128 |                             8.1379 | 0.04s  |
 | MOSS-Anytime (α=-0.85)                                      |     40.04 |       27.3181 |                             8.7262 | 0.05s  |
 | MOSS-Anytime (α=-0.50)                                      |     44.05 |       27.4891 |                             5.4358 | 0.06s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     41.55 |       27.5450 |                             8.1473 | 0.14s  |
 | ϵ-Exploring TS-UCB (100 samples)                            |     41.08 |       27.6722 |                             8.2739 | 1.12s  |
-| Gittins Index -- Whittle Approximation (β=0.70)             |     39.16 |       27.7013 |                             9.5255 | 0.06s  |
 | CODE (δ=0.990)                                              |     39.41 |       27.7728 |                            10.1499 | 0.08s  |
 | TS-UCB (10 samples)                                         |     44.55 |       27.9363 |                             5.9386 | 1.20s  |
-| Gittins Index -- Whittle Approximation (β=0.50)             |     38.65 |       27.9562 |                             9.8733 | 0.06s  |
 | UCB-DT (γ=1.00)                                             |     38.52 |       28.0522 |                             9.8213 | 0.55s  |
 | IRS.FH (H=5)                                                |     43.60 |       28.0814 |                             6.8634 | 0.23s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     38.24 |       28.1487 |                             9.6145 | 0.03s  |
@@ -486,7 +499,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ϵ-Decreasing (ϵ=0.700)                                      |     16.29 |        4.1854 |                             0.1000 | 0.03s  |
 | ϵ-Greedy (ϵ=0.020)                                          |     16.25 |        4.1873 |                             0.1000 | 0.02s  |
 | ϵ-Exploring TS-UCB (1 samples)                              |     15.26 |        4.2371 |                             0.1700 | 0.04s  |
-| Gittins Index -- Whittle Approximation (β=0.50)             |     15.11 |        4.2446 |                             0.1200 | 0.06s  |
+| Gittins Index -- Whittle's Approximation (β=0.50)           |     15.19 |        4.2406 |                             0.1200 | 0.06s  |
 | ϵ-Greedy (ϵ=0.050)                                          |     15.11 |        4.2447 |                             0.0900 | 0.02s  |
 | ϵ-Decreasing (ϵ=0.500)                                      |     14.77 |        4.2614 |                             0.0800 | 0.03s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     14.23 |        4.2887 |                             0.1700 | 0.14s  |
@@ -498,19 +511,21 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | IRS.FH (H=1)                                                |     13.36 |        4.3318 |                             0.1200 | 0.21s  |
 | UCB-DT (γ=0.90)                                             |     13.27 |        4.3365 |                             0.1000 | 0.55s  |
 | UCB-DT (γ=0.95)                                             |     13.27 |        4.3365 |                             0.1000 | 0.55s  |
+| Gittins Index -- Whittle's Approximation (β=0.70)           |     13.25 |        4.3374 |                             0.1200 | 0.06s  |
 | UCB-DT (γ=1.00)                                             |     13.19 |        4.3406 |                             0.1200 | 0.55s  |
 | UCB-DT (γ=0.75)                                             |     13.05 |        4.3474 |                             0.1000 | 0.55s  |
 | MOSS-Anytime (α=-0.33)                                      |     13.00 |        4.3502 |                             0.2000 | 0.05s  |
 | MOSS-Anytime (α=-0.85)                                      |     12.95 |        4.3526 |                             0.1800 | 0.05s  |
 | MOSS-Anytime (α=-0.50)                                      |     12.94 |        4.3532 |                             0.1700 | 0.05s  |
-| Gittins Index -- Whittle Approximation (β=0.70)             |     12.88 |        4.3561 |                             0.1200 | 0.06s  |
 | IRS.FH (H=2)                                                |     12.84 |        4.3582 |                             0.1700 | 0.22s  |
-| Gittins Index -- Whittle Approximation (β=0.99)             |     12.66 |        4.3670 |                             0.2100 | 0.06s  |
+| Gittins Index -- Whittle's Approximation (β=0.99)           |     12.66 |        4.3672 |                             0.2000 | 0.06s  |
 | IRS.FH (H=3)                                                |     12.63 |        4.3687 |                             0.1900 | 0.23s  |
-| Gittins Index -- Whittle Approximation (β=0.90)             |     12.45 |        4.3775 |                             0.1800 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     12.47 |        4.3767 |                             0.1200 | 0.09s  |
 | BayesUCB (δ=0.500)                                          |     12.44 |        4.3782 |                             0.2000 | 0.05s  |
 | POKER (H=250)                                               |     12.40 |        4.3802 |                             0.2500 | 0.09s  |
 | BayesUCB (δ=0.400)                                          |     12.37 |        4.3813 |                             0.2000 | 0.05s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     12.37 |        4.3816 |                             0.1200 | 0.09s  |
+| Gittins Index -- Whittle's Approximation (β=0.90)           |     12.37 |        4.3816 |                             0.1700 | 0.06s  |
 | IRS.FH (H=4)                                                |     12.29 |        4.3857 |                             0.1900 | 0.23s  |
 | TS-UCB (100 samples)                                        |     12.17 |        4.3915 |                             0.2500 | 11.41s |
 | UCBT                                                        |     12.17 |        4.3916 |                             0.4200 | 0.03s  |
@@ -531,7 +546,9 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 0.08s  |
 | ReBoot (r=0.25)                                             |     11.38 |        4.4311 |                             0.3500 | 0.06s  |
 | BayesUCB (δ=0.900)                                          |     11.37 |        4.4314 |                             0.1200 | 0.05s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     11.35 |        4.4324 |                             0.1200 | 0.10s  |
 | ReBoot (r=0.50)                                             |     11.34 |        4.4329 |                             0.3800 | 0.05s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    |     11.29 |        4.4355 |                             0.0900 | 0.10s  |
 | TS-UCB (1 samples)                                          |     11.21 |        4.4395 |                             0.2400 | 0.17s  |
 | CODE (δ=0.990)                                              |     11.21 |        4.4397 |                             0.1200 | 0.08s  |
 | Optimistic Thompson Sampling                                |     11.20 |        4.4399 |                             0.3000 | 0.18s  |
@@ -601,6 +618,13 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
 | ----------------------------------------------------------- | --------: | ------------: | ---------------------------------: | :----: |
 | BayesUCB (δ=0.900)                                          |     57.80 |       20.8173 |                             5.4766 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     57.01 |       21.0752 |                             5.5688 | 0.10s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     56.78 |       21.0892 |                             5.6266 | 0.10s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     56.64 |       21.1021 |                             5.7940 | 0.11s  |
+| Gittins Index -- Whittle's Approximation (β=0.70)           |     57.25 |       21.1454 |                             5.2421 | 0.06s  |
+| Gittins Index -- Whittle's Approximation (β=0.50)           |     56.58 |       21.2012 |                             5.5556 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    |     57.41 |       21.2745 |                             4.9635 | 0.11s  |
+| Gittins Index -- Whittle's Approximation (β=0.90)           |     57.73 |       21.7090 |                             4.9167 | 0.06s  |
 | IRS.FH (H=1)                                                |     55.74 |       21.8777 |                             5.8971 | 0.22s  |
 | MOSS-Anytime (α=-0.85)                                      |     54.95 |       22.2898 |                             5.6517 | 0.06s  |
 | UCB-DT (γ=0.75)                                             |     54.64 |       22.4071 |                             6.1492 | 0.51s  |
@@ -610,6 +634,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     56.94 |       22.9408 |                             7.1147 | 2.83s  |
 | IRS.FH (H=2)                                                |     56.33 |       23.0910 |                             5.0660 | 0.22s  |
 | CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 0.09s  |
+| Gittins Index -- Whittle's Approximation (β=0.99)           |     56.84 |       23.7789 |                             5.0319 | 0.07s  |
 | MOSS-Anytime (α=-0.50)                                      |     56.24 |       24.1465 |                             4.0881 | 0.06s  |
 | BayesUCB (δ=0.500)                                          |     56.42 |       24.2684 |                             5.5883 | 0.06s  |
 | IRS.FH (H=3)                                                |     55.61 |       24.5294 |                             4.7675 | 0.23s  |
@@ -658,10 +683,6 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     44.99 |       37.8316 |                             6.5136 | 0.18s  |
 | KL-UCB                                                      |     44.75 |       37.9754 |                             5.7666 | 1.49s  |
 | ETC (m=10)                                                  |     40.33 |       38.9869 |                            13.6763 | 0.03s  |
-| Gittins Index -- Whittle Approximation (β=0.90)             |     37.73 |       39.1105 |                            19.4205 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.99)             |     37.80 |       39.1197 |                            18.8855 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.70)             |     37.57 |       39.1514 |                            19.9275 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.50)             |     37.39 |       39.2398 |                            20.1622 | 0.07s  |
 | Non-Parametric Thompson Sampling                            |     43.90 |       39.3507 |                             6.7160 | 0.73s  |
 | Greedy                                                      |     36.66 |       39.9099 |                            21.7087 | 0.03s  |
 | Bounded Dirichlet Sampling                                  |     43.54 |       39.9645 |                             6.6454 | 0.42s  |
@@ -733,10 +754,6 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | TS-UCB (1 samples)                                          |     57.78 |        7.8597 |                             1.9439 | 0.18s  |
 | POKER (H=1)                                                 |     56.13 |        8.0894 |                             1.7428 | 0.09s  |
 | POKER (H=10)                                                |     48.12 |        8.3258 |                             2.2912 | 0.09s  |
-| Gittins Index -- Whittle Approximation (β=0.70)             |     55.22 |        8.3822 |                             1.4948 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.90)             |     55.59 |        8.4025 |                             1.4876 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.50)             |     54.92 |        8.4187 |                             1.4993 | 0.07s  |
-| Gittins Index -- Whittle Approximation (β=0.99)             |     56.26 |        8.4188 |                             1.4985 | 0.07s  |
 | UCB-DT (γ=1.00)                                             |     55.66 |        8.4709 |                             1.4837 | 0.55s  |
 | IRS.FH (H=2)                                                |     54.85 |        8.4788 |                             1.5053 | 0.22s  |
 | ϵ-Exploring TS-UCB (100 samples)                            |     54.56 |        8.4801 |                             1.5113 | 1.15s  |
@@ -753,6 +770,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ϵ-Decreasing (ϵ=0.990)                                      |     53.57 |        8.8897 |                             1.5610 | 0.03s  |
 | IRS.FH (H=10)                                               |     55.40 |        8.9571 |                             1.7240 | 0.24s  |
 | ϵ-Decreasing (ϵ=0.900)                                      |     53.45 |        9.0268 |                             1.5815 | 0.03s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    |     39.47 |        9.0345 |                             4.6410 | 0.11s  |
 | BayesUCB (δ=0.200)                                          |     43.36 |        9.0488 |                             4.8228 | 0.05s  |
 | ϵ-Greedy (ϵ=0.010)                                          |     53.34 |        9.0561 |                             1.5947 | 0.03s  |
 | Optimistic Thompson Sampling                                |     54.95 |        9.3835 |                             3.1222 | 0.18s  |
@@ -786,11 +804,13 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | MOSS-Anytime (α=-0.50)                                      |     44.06 |       15.3933 |                             2.1697 | 0.06s  |
 | Hellinger-UCB                                               |     43.81 |       15.5306 |                             5.4955 | 0.38s  |
 | MOSS-Anytime (α=-0.33)                                      |     40.99 |       17.0540 |                             2.2724 | 0.06s  |
+| Gittins Index -- Whittle's Approximation (β=0.99)           |     21.93 |       17.3442 |                            10.7921 | 0.06s  |
 | UCBT                                                        |     32.33 |       18.1863 |                             6.0728 | 0.04s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     23.97 |       18.9613 |                             5.2597 | 0.19s  |
 | BayesUCB (δ=0.400)                                          |     19.76 |       19.4237 |                            12.4626 | 0.06s  |
 | EB-TCI                                                      |     35.93 |       19.7395 |                             5.2415 | 0.07s  |
 | ReBoot (r=0.25)                                             |     34.89 |       19.9697 |                             3.1894 | 0.06s  |
+| Gittins Index -- Whittle's Approximation (β=0.90)           |     19.03 |       20.6196 |                            13.1752 | 0.06s  |
 | PFLA (n=10)                                                 |     26.61 |       21.4150 |                             6.9893 | 1.58s  |
 | Vanilla Residual Bootstrap (init=0)                         |     33.47 |       21.5207 |                             3.2212 | 0.05s  |
 | Multiplier Bootstrap-based Exploration                      |     28.45 |       22.2710 |                             3.5416 | 1.00s  |
@@ -816,15 +836,20 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Bootstrapped Thompson Sampling (J=100)                      |     15.82 |       29.0489 |                            16.7117 | 0.18s  |
 | ReBoot (r=1.00)                                             |     22.53 |       29.7884 |                             5.3791 | 0.06s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     15.12 |       30.0861 |                            17.7177 | 0.07s  |
+| Gittins Index -- Whittle's Approximation (β=0.70)           |     14.69 |       30.0926 |                            19.2525 | 0.06s  |
 | Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 0.19s  |
 | lil' UCB (δ=0.010)                                          |     16.72 |       32.2288 |                             5.5208 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     17.26 |       32.4632 |                             5.6672 | 0.23s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.03s  |
+| Gittins Index -- Whittle's Approximation (β=0.50)           |     13.79 |       34.0919 |                            21.5379 | 0.06s  |
 | lil' UCB (δ=0.001)                                          |     15.51 |       34.2797 |                             5.8524 | 0.08s  |
 | EXP-IX                                                      |     15.62 |       34.8327 |                             6.2311 | 0.10s  |
 | ReBoot (r=1.50)                                             |     18.20 |       35.2644 |                             6.5573 | 0.06s  |
 | UCB1                                                        |     14.55 |       36.1248 |                             6.3580 | 0.05s  |
 | ReBoot (r=1.70)                                             |     17.25 |       36.7828 |                             6.9301 | 0.06s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     12.48 |       37.2813 |                            23.4074 | 0.10s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     12.42 |       38.3118 |                            23.9070 | 0.10s  |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     12.38 |       38.6260 |                            24.0049 | 0.10s  |
 | BayesUCB (δ=0.900)                                          |     12.29 |       38.7864 |                            24.1887 | 0.05s  |
 | Boltzmann-Gumbel Exploration                                |     13.53 |       39.1836 |                             7.1355 | 0.08s  |
 | ReBoot (r=2.10)                                             |     15.90 |       39.2124 |                             7.5247 | 0.06s  |
