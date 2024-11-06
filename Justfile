@@ -55,6 +55,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/ucb/ucbt.rs -- cargo run --release -- {{EXPERIMENT}} ucbt >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/vresboot.rs -- cargo run --release -- {{EXPERIMENT}} vresboot >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/gittins/whittle_approximation.rs -- cargo run --release -- {{EXPERIMENT}} wa >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/weighted_bootstrap.rs -- cargo run --release -- {{EXPERIMENT}} wb >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} wrsda >> {{EXPERIMENT}}.csv
 
 	sort -n -t ';' -k 3,3 {{EXPERIMENT}}.csv -o {{EXPERIMENT}}.csv

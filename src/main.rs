@@ -206,6 +206,7 @@ fn main() {
             Algorithms::WhittleApprox { beta: 0.9 },
             Algorithms::WhittleApprox { beta: 0.99 },
         ],
+        "wb" => vec![Algorithms::WB],
         "wrsda" => vec![Algorithms::WRSDA],
         _ => panic!("No such algorithm: {}", cli.algorithm),
     };

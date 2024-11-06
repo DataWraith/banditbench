@@ -27,7 +27,7 @@ pub use {
     bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, code::CODE,
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
-    exp_ix::EXPIX, forced_exploration::ForcedExploration,
+    exp_ix::EXPIX, forced_exploration::ForcedExploration, bootstrap::weighted_bootstrap::WB,
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
@@ -81,6 +81,7 @@ pub enum Algorithms {
     UCBDT { gamma: f64 },
     UCBT,
     VResBoot { init: usize },
+    WB,
     WhittleApprox { beta: f64 },
     WRSDA,
 }
@@ -175,6 +176,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::VResBoot { init } => {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)
             }
+            Algorithms::WB => write!(f, "Weighted Bootstrap"),
             Algorithms::WhittleApprox { beta } => {
                 write!(
                     f,
