@@ -6,8 +6,10 @@ use crate::bandits::Arm;
 use crate::Bandit;
 
 pub struct GIRO {
-    arms: Vec<Arm>,
     t: usize,
+    arms: Vec<Arm>,
+    arms_ceil: Vec<Arm>,
+    arms_floor: Vec<Arm>,
     num_pseudo_rewards: f64,
 }
 
@@ -16,6 +18,8 @@ impl GIRO {
         GIRO {
             t: 0,
             arms: vec![Arm::default(); num_arms],
+            arms_ceil: vec![Arm::default(); num_arms],
+            arms_floor: vec![Arm::default(); num_arms],
             num_pseudo_rewards,
         }
     }
@@ -23,28 +27,28 @@ impl GIRO {
 
 impl Bandit for GIRO {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
-        if self.t < self.arms.len() {
+        if self.t < self.arms_ceil.len() {
             return self.t;
         }
 
-        (0..self.arms.len())
+        (0..self.arms_ceil.len())
             .max_by_key(|i| {
-                let a = self.num_pseudo_rewards;
                 let s = self.arms[*i].n() as f64;
-
-                let ceil_prob = (a * s) - (a * s).floor();
-                let use_ceil = rng.gen_bool(ceil_prob);
+                let a = self.num_pseudo_rewards;
+                let sa = a * s;
+                let p_ceil = sa - sa.floor();
+                let use_ceil = rng.gen_bool(p_ceil);
 
                 let successes = if use_ceil {
-                    self.arms[*i].successes + (s * a).ceil() as usize
+                    self.arms[*i].successes + self.arms_ceil[*i].successes
                 } else {
-                    self.arms[*i].successes + (s * a).floor() as usize
+                    self.arms[*i].successes + self.arms_floor[*i].successes
                 };
 
                 let failures = if use_ceil {
-                    self.arms[*i].failures + (s * a).ceil() as usize
+                    self.arms[*i].failures + self.arms_ceil[*i].failures
                 } else {
-                    self.arms[*i].failures + (s * a).floor() as usize
+                    self.arms[*i].failures + self.arms_floor[*i].failures
                 };
 
                 if successes == 0 {
@@ -69,6 +73,19 @@ impl Bandit for GIRO {
             self.arms[arm].successes += 1;
         } else {
             self.arms[arm].failures += 1;
+        }
+
+        let s = self.arms[arm].n() as f64;
+        let a = self.num_pseudo_rewards;
+
+        while self.arms_floor[arm].n() < 2 * (s * a).floor() as usize {
+            self.arms_floor[arm].successes += 1;
+            self.arms_floor[arm].failures += 1;
+        }
+
+        while self.arms_ceil[arm].n() < 2 * (s * a).ceil() as usize {
+            self.arms_ceil[arm].successes += 1;
+            self.arms_ceil[arm].failures += 1;
         }
 
         self.t += 1;
