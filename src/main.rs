@@ -142,6 +142,9 @@ fn main() {
             Algorithms::PHE {
                 perturbation_scale: 2.1,
             },
+            Algorithms::PHE {
+                perturbation_scale: 5.1,
+            },
         ],
         "poker" => vec![
             Algorithms::POKER { assumed_horizon: 1 },

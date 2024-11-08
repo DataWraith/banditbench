@@ -135,15 +135,15 @@ considering the five experiments further down in this file.
 | ϵ-Exploring Thompson Sampling                               | 39.6         | 0.16                   |
 | POKER (H=50)                                                | 41.6         | 0.34                   |
 | POKER (H=100)                                               | 42.4         | 0.35                   |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 43.8         | 0.42                   |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 45.8         | 0.39                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 44.0         | 0.42                   |
 | ϵ-Greedy (ϵ=0.100)                                          | 46.0         | 0.11                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 46.0         | 0.39                   |
 | UCBT                                                        | 47.2         | 0.1                    |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 48.0         | 0.43                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 48.2         | 0.43                   |
 | BayesUCB (δ=0.100)                                          | 49.0         | 0.19                   |
 | IRS.FH (H=25)                                               | 49.0         | 1.74                   |
-| BayesUCB (δ=0.900)                                          | 50.4         | 0.25                   |
 | Forced Exploration                                          | 50.4         | 0.08                   |
+| BayesUCB (δ=0.900)                                          | 50.6         | 0.25                   |
 | WR-SDA                                                      | 51.0         | 1.44                   |
 | Optimistic Thompson Sampling                                | 51.2         | 0.94                   |
 | ReBoot (r=0.25)                                             | 52.2         | 0.24                   |
@@ -170,9 +170,9 @@ considering the five experiments further down in this file.
 | Vanilla Residual Bootstrap (init=1)                         | 71.8         | 0.26                   |
 | ϵ-Decreasing (ϵ=0.200)                                      | 72.4         | 0.12                   |
 | Kullback-Leibler Maillard Sampling                          | 73.6         | 0.57                   |
-| Perturbed-History Exploration (a=1.1)                       | 75.6         | 0.82                   |
+| Perturbed-History Exploration (a=1.1)                       | 75.6         | 0.87                   |
 | EB-TCI                                                      | 75.8         | 0.37                   |
-| ETC (m=10)                                                  | 81.6         | 0.15                   |
+| ETC (m=10)                                                  | 81.8         | 0.15                   |
 | ReBoot (r=0.90)                                             | 82.2         | 0.28                   |
 | Tsallis-INF                                                 | 82.6         | 1.24                   |
 | Garbage In, Reward Out (a=0.33)                             | 83.6         | 1.14                   |
@@ -180,30 +180,31 @@ considering the five experiments further down in this file.
 | lil' UCB (δ=0.100)                                          | 85.4         | 0.3                    |
 | Vanilla Residual Bootstrap (init=5)                         | 87.2         | 0.26                   |
 | ReBoot (r=1.00)                                             | 87.6         | 0.28                   |
-| PFLA (n=100)                                                | 88.6         | 85.64                  |
-| Perturbed-History Exploration (a=2.1)                       | 90.2         | 0.99                   |
-| ETC (m=20)                                                  | 90.8         | 0.15                   |
-| ϵ-Decreasing (ϵ=0.100)                                      | 91.4         | 0.07                   |
-| ETC (m=5)                                                   | 92.2         | 0.15                   |
+| PFLA (n=100)                                                | 88.8         | 85.64                  |
+| Perturbed-History Exploration (a=2.1)                       | 90.2         | 1.08                   |
+| ETC (m=20)                                                  | 91.2         | 0.15                   |
+| ϵ-Decreasing (ϵ=0.100)                                      | 91.8         | 0.07                   |
+| ETC (m=5)                                                   | 92.6         | 0.15                   |
 | lil' UCB (δ=0.010)                                          | 94.2         | 0.31                   |
 | Garbage In, Reward Out (a=1.00)                             | 94.8         | 1.13                   |
-| ETC (m=25)                                                  | 94.8         | 0.15                   |
-| PFLA (n=10)                                                 | 95.4         | 8.63                   |
+| ETC (m=25)                                                  | 95.2         | 0.15                   |
 | Boltzmann-Gumbel Exploration                                | 95.6         | 0.34                   |
-| Least Failures                                              | 96.2         | 0.08                   |
+| PFLA (n=10)                                                 | 95.8         | 8.63                   |
 | ReBoot (r=1.50)                                             | 96.6         | 0.29                   |
+| Least Failures                                              | 97.0         | 0.08                   |
 | lil' UCB (δ=0.001)                                          | 98.6         | 0.27                   |
-| ReBoot (r=1.70)                                             | 99.2         | 0.28                   |
-| UCB1                                                        | 102.6        | 0.17                   |
-| ReBoot (r=2.10)                                             | 103.6        | 0.28                   |
-| ETC (m=3)                                                   | 103.6        | 0.14                   |
-| EXP-IX                                                      | 103.8        | 0.5                    |
-| ETC (m=2)                                                   | 105.8        | 0.11                   |
-| Gradient Bandit                                             | 106.8        | 0.41                   |
-| Gradient Bandit (with baseline)                             | 108.0        | 0.47                   |
-| PFLA (n=1)                                                  | 112.2        | 1.15                   |
-| Random                                                      | 113.0        | 0.02                   |
-| CODE (δ=0.050)                                              | 113.2        | 0.4                    |
+| ReBoot (r=1.70)                                             | 99.6         | 0.28                   |
+| Perturbed-History Exploration (a=5.1)                       | 101.4        | 1.09                   |
+| UCB1                                                        | 103.6        | 0.17                   |
+| ReBoot (r=2.10)                                             | 104.4        | 0.28                   |
+| ETC (m=3)                                                   | 104.4        | 0.14                   |
+| EXP-IX                                                      | 104.6        | 0.5                    |
+| ETC (m=2)                                                   | 106.6        | 0.11                   |
+| Gradient Bandit                                             | 107.8        | 0.41                   |
+| Gradient Bandit (with baseline)                             | 109.0        | 0.47                   |
+| PFLA (n=1)                                                  | 113.2        | 1.15                   |
+| Random                                                      | 114.0        | 0.02                   |
+| CODE (δ=0.050)                                              | 114.2        | 0.4                    |
 <!-- END mdsh -->
 
 ## Data
@@ -291,7 +292,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ϵ-Greedy (ϵ=0.100)                                          |     63.98 |       35.8380 |                             5.3322 | 0.11s  |
 | Multiplier Bootstrap-based Exploration                      |     60.70 |       36.1612 |                             4.2418 | 5.77s  |
 | Kullback-Leibler Maillard Sampling                          |     59.67 |       37.5162 |                             8.3979 | 0.62s  |
-| Perturbed-History Exploration (a=1.1)                       |     56.96 |       37.8929 |                             5.6711 | 0.68s  |
+| Perturbed-History Exploration (a=1.1)                       |     56.96 |       37.8929 |                             5.6711 | 0.69s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     40.26 |       38.2054 |                            20.8866 | 0.42s  |
 | POKER (H=250)                                               |     46.27 |       38.6838 |                            15.5508 | 0.33s  |
 | Garbage In, Reward Out (a=0.10)                             |     57.65 |       38.7302 |                             5.2772 | 0.80s  |
@@ -311,7 +312,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Vanilla Residual Bootstrap (init=5)                         |     55.69 |       50.7442 |                             6.1208 | 0.26s  |
 | ReBoot (r=1.00)                                             |     49.90 |       51.8800 |                             6.7533 | 0.27s  |
 | EB-TCI                                                      |     42.82 |       55.0174 |                            15.7714 | 0.34s  |
-| Perturbed-History Exploration (a=2.1)                       |     47.44 |       56.5448 |                             6.0521 | 0.91s  |
+| Perturbed-History Exploration (a=2.1)                       |     47.44 |       56.5448 |                             6.0521 | 1.08s  |
 | ETC (m=10)                                                  |     47.32 |       56.6956 |                            11.0554 | 0.15s  |
 | lil' UCB (δ=0.010)                                          |     44.08 |       62.1486 |                             6.5312 | 0.29s  |
 | Garbage In, Reward Out (a=1.00)                             |     43.03 |       66.4802 |                             6.9482 | 1.09s  |
@@ -321,6 +322,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=5)                                                   |     27.93 |       78.7963 |                            24.1796 | 0.15s  |
 | ReBoot (r=1.70)                                             |     37.41 |       79.4522 |                             8.9230 | 0.29s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     50.82 |       81.7548 |                            11.1762 | 0.11s  |
+| Perturbed-History Exploration (a=5.1)                       |     36.06 |       83.3539 |                             9.5119 | 1.10s  |
 | ETC (m=20)                                                  |     49.52 |       85.1694 |                            11.9964 | 0.15s  |
 | UCB1                                                        |     34.52 |       86.8474 |                            10.2054 | 0.16s  |
 | Least Failures                                              |     40.55 |       88.7625 |                            28.1293 | 0.07s  |
@@ -431,7 +433,7 @@ This experiment was taken from the GIRO paper.
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     34.96 |       40.5786 |                             7.5540 | 0.97s  |
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     34.87 |       40.6461 |                             7.5447 | 1.02s  |
 | Garbage In, Reward Out (a=0.10)                             |     33.73 |       42.0945 |                             7.6013 | 1.03s  |
-| Perturbed-History Exploration (a=1.1)                       |     33.49 |       42.3004 |                             7.7267 | 0.82s  |
+| Perturbed-History Exploration (a=1.1)                       |     33.49 |       42.3004 |                             7.7267 | 0.80s  |
 | KL-UCB                                                      |     34.54 |       42.7149 |                             6.2245 | 7.96s  |
 | EB-TCI                                                      |     30.56 |       42.8317 |                             9.3319 | 0.48s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     32.52 |       43.1108 |                             8.0902 | 0.93s  |
@@ -449,7 +451,7 @@ This experiment was taken from the GIRO paper.
 | ETC (m=5)                                                   |     21.32 |       50.0278 |                            17.6885 | 0.14s  |
 | ReBoot (r=1.00)                                             |     27.89 |       50.9352 |                             8.6898 | 0.27s  |
 | ETC (m=20)                                                  |     31.24 |       51.1732 |                             8.6350 | 0.14s  |
-| Perturbed-History Exploration (a=2.1)                       |     27.91 |       52.2188 |                             8.4423 | 0.98s  |
+| Perturbed-History Exploration (a=2.1)                       |     27.91 |       52.2188 |                             8.4423 | 1.01s  |
 | Vanilla Residual Bootstrap (init=5)                         |     28.26 |       53.2834 |                             8.4062 | 0.25s  |
 | ETC (m=25)                                                  |     32.18 |       56.3820 |                             8.2546 | 0.15s  |
 | lil' UCB (δ=0.010)                                          |     25.83 |       56.9410 |                             8.2814 | 0.29s  |
@@ -459,6 +461,7 @@ This experiment was taken from the GIRO paper.
 | ReBoot (r=1.50)                                             |     22.85 |       61.0890 |                             9.6647 | 0.28s  |
 | lil' UCB (δ=0.001)                                          |     22.85 |       62.7995 |                             9.1698 | 0.26s  |
 | ReBoot (r=1.70)                                             |     21.38 |       64.4112 |                            10.0761 | 0.27s  |
+| Perturbed-History Exploration (a=5.1)                       |     21.44 |       65.8492 |                            10.0502 | 1.00s  |
 | UCB1                                                        |     20.42 |       68.0927 |                            10.1489 | 0.16s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     24.60 |       68.8686 |                             9.8576 | 0.07s  |
 | ReBoot (r=2.10)                                             |     19.16 |       69.7726 |                            10.8419 | 0.28s  |
@@ -563,7 +566,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Satisficing Thompson Sampling (ϵ=0.005)                     |     11.15 |        4.4426 |                             0.3300 | 0.87s  |
 | Thompson Sampling                                           |     11.14 |        4.4429 |                             0.3300 | 0.62s  |
 | IRS.FH (H=25)                                               |     11.14 |        4.4431 |                             0.2600 | 2.07s  |
-| Perturbed-History Exploration (a=1.1)                       |     11.13 |        4.4433 |                             0.3600 | 0.86s  |
+| Perturbed-History Exploration (a=1.1)                       |     11.13 |        4.4433 |                             0.3600 | 0.84s  |
 | Weighted Bootstrap                                          |     11.13 |        4.4436 |                             0.3400 | 2.98s  |
 | Multiplier Bootstrap-based Exploration                      |     11.12 |        4.4439 |                             0.3100 | 6.18s  |
 | Vanilla Residual Bootstrap (init=1)                         |     11.11 |        4.4443 |                             0.3500 | 0.26s  |
@@ -573,7 +576,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | KL-UCB                                                      |     10.99 |        4.4505 |                             0.2800 | 8.80s  |
 | ReBoot (r=0.90)                                             |     10.94 |        4.4528 |                             0.3800 | 0.28s  |
 | Kullback-Leibler Maillard Sampling                          |     10.91 |        4.4544 |                             0.3500 | 0.74s  |
-| Perturbed-History Exploration (a=2.1)                       |     10.89 |        4.4557 |                             0.3400 | 1.00s  |
+| Perturbed-History Exploration (a=2.1)                       |     10.89 |        4.4557 |                             0.3400 | 0.99s  |
 | Vanilla Residual Bootstrap (init=5)                         |     10.85 |        4.4574 |                             0.2700 | 0.24s  |
 | Hellinger-UCB                                               |     10.85 |        4.4575 |                             0.2800 | 2.54s  |
 | lil' UCB (δ=0.100)                                          |     10.85 |        4.4575 |                             0.2600 | 0.29s  |
@@ -588,6 +591,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | PFLA (n=10)                                                 |     10.52 |        4.4740 |                             0.3800 | 7.93s  |
 | ReBoot (r=1.50)                                             |     10.49 |        4.4756 |                             0.2100 | 0.28s  |
 | PFLA (n=100)                                                |     10.48 |        4.4759 |                             0.2400 | 83.20s |
+| Perturbed-History Exploration (a=5.1)                       |     10.40 |        4.4798 |                             0.1900 | 1.06s  |
 | ReBoot (r=1.70)                                             |     10.40 |        4.4798 |                             0.1800 | 0.28s  |
 | EXP-IX                                                      |     10.36 |        4.4822 |                             0.1600 | 0.48s  |
 | ReBoot (r=2.10)                                             |     10.29 |        4.4854 |                             0.1400 | 0.27s  |
@@ -704,7 +708,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | POKER (H=10)                                                |     36.05 |       41.5399 |                            23.0560 | 0.31s  |
 | POKER (H=5)                                                 |     35.92 |       41.6486 |                            23.3861 | 0.32s  |
 | POKER (H=1)                                                 |     35.72 |       41.8819 |                            23.9184 | 0.29s  |
-| Perturbed-History Exploration (a=1.1)                       |     40.79 |       42.7866 |                             7.3646 | 0.84s  |
+| Perturbed-History Exploration (a=1.1)                       |     40.79 |       42.7866 |                             7.3646 | 0.95s  |
 | ReBoot (r=1.00)                                             |     40.65 |       43.3432 |                             7.6618 | 0.32s  |
 | ϵ-Decreasing (ϵ=0.200)                                      |     41.58 |       44.0842 |                            11.9547 | 0.12s  |
 | Garbage In, Reward Out (a=0.33)                             |     38.75 |       45.1922 |                             7.8091 | 1.09s  |
@@ -715,7 +719,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ETC (m=25)                                                  |     37.82 |       51.7141 |                            13.9357 | 0.15s  |
 | ETC (m=2)                                                   |     29.53 |       53.1694 |                            28.6333 | 0.10s  |
 | ReBoot (r=1.50)                                             |     33.20 |       53.6329 |                            10.8113 | 0.32s  |
-| Perturbed-History Exploration (a=2.1)                       |     32.69 |       53.7141 |                             9.5801 | 1.04s  |
+| Perturbed-History Exploration (a=2.1)                       |     32.69 |       53.7141 |                             9.5801 | 1.16s  |
 | Tsallis-INF                                                 |     32.39 |       54.7917 |                            11.3371 | 1.42s  |
 | Vanilla Residual Bootstrap (init=5)                         |     31.29 |       56.3702 |                            10.3022 | 0.29s  |
 | ReBoot (r=1.70)                                             |     30.99 |       56.8129 |                            12.0371 | 0.30s  |
@@ -727,6 +731,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ReBoot (r=2.10)                                             |     27.57 |       61.9376 |                            14.1671 | 0.31s  |
 | PFLA (n=100)                                                |     22.78 |       64.3650 |                            18.6443 | 92.32s |
 | lil' UCB (δ=0.001)                                          |     25.41 |       64.5631 |                            14.7753 | 0.30s  |
+| Perturbed-History Exploration (a=5.1)                       |     23.50 |       67.6540 |                            15.6673 | 1.18s  |
 | UCB1                                                        |     22.31 |       69.6096 |                            17.0817 | 0.20s  |
 | PFLA (n=10)                                                 |     18.26 |       73.4227 |                            21.0101 | 10.66s |
 | Gradient Bandit                                             |     20.28 |       74.1103 |                            17.5927 | 0.40s  |
@@ -830,7 +835,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Tsallis-INF                                                 |     26.30 |       23.2635 |                             4.3108 | 1.34s  |
 | Vanilla Residual Bootstrap (init=5)                         |     30.48 |       23.8825 |                             3.5154 | 0.25s  |
 | Garbage In, Reward Out (a=0.10)                             |     26.82 |       23.9510 |                             3.8778 | 0.82s  |
-| Perturbed-History Exploration (a=1.1)                       |     24.17 |       24.8624 |                             4.3134 | 0.89s  |
+| Perturbed-History Exploration (a=1.1)                       |     24.17 |       24.8624 |                             4.3134 | 1.09s  |
 | BayesUCB (δ=0.500)                                          |     15.86 |       25.3034 |                            16.2815 | 0.28s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     12.50 |       26.5896 |                             8.8139 | 0.90s  |
 | ETC (m=25)                                                  |     28.64 |       27.0247 |                             5.2417 | 0.15s  |
@@ -844,7 +849,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ReBoot (r=1.00)                                             |     22.53 |       29.7884 |                             5.3791 | 0.27s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     15.12 |       30.0861 |                            17.7177 | 0.41s  |
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     14.69 |       30.0926 |                            19.2525 | 0.22s  |
-| Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 1.02s  |
+| Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 1.16s  |
 | lil' UCB (δ=0.010)                                          |     16.72 |       32.2288 |                             5.5208 | 0.33s  |
 | Garbage In, Reward Out (a=1.00)                             |     17.26 |       32.4632 |                             5.6672 | 1.14s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.08s  |
@@ -853,6 +858,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | lil' UCB (δ=0.001)                                          |     15.51 |       34.2797 |                             5.8524 | 0.26s  |
 | EXP-IX                                                      |     15.62 |       34.8327 |                             6.2311 | 0.48s  |
 | ReBoot (r=1.50)                                             |     18.20 |       35.2644 |                             6.5573 | 0.27s  |
+| Perturbed-History Exploration (a=5.1)                       |     15.29 |       35.4831 |                             6.2519 | 1.11s  |
 | UCB1                                                        |     14.55 |       36.1248 |                             6.3580 | 0.19s  |
 | ReBoot (r=1.70)                                             |     17.25 |       36.7828 |                             6.9301 | 0.27s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     12.48 |       37.2813 |                            23.4074 | 0.45s  |
