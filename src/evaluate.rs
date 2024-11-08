@@ -161,6 +161,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::MARS { delta } => {
+                    let bandit = MARS::new(num_arms, *delta);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::MBE => {
                     let bandit = Mbe::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

@@ -122,6 +122,15 @@ fn main() {
             Algorithms::LilUCB { delta: 0.01 },
             Algorithms::LilUCB { delta: 0.10 },
         ],
+        "mars" => vec![
+            Algorithms::MARS { delta: 1.0 / 1.0 },
+            Algorithms::MARS { delta: 1.0 / 10.0 },
+            Algorithms::MARS { delta: 1.0 / 100.0 },
+            Algorithms::MARS { delta: 1.0 / 500.0 },
+            Algorithms::MARS {
+                delta: 1.0 / 1000.0,
+            },
+        ],
         "mbe" => vec![Algorithms::MBE],
         "mossanytime" => vec![
             Algorithms::MOSSAnytime { alpha: -0.85 },

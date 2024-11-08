@@ -35,6 +35,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/ucb/kl_ucb.rs -- cargo run --release -- {{EXPERIMENT}} klucb >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/baselines/least_failures.rs -- cargo run --release -- {{EXPERIMENT}} lf >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/lilucb.rs -- cargo run --release -- {{EXPERIMENT}} lilucb >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/bootstrap/mars.rs -- cargo run --release -- {{EXPERIMENT}} mars >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/mbe.rs -- cargo run --release -- {{EXPERIMENT}} mbe >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/ucb/moss_anytime.rs -- cargo run --release -- {{EXPERIMENT}} mossanytime >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} npts >> {{EXPERIMENT}}.csv
