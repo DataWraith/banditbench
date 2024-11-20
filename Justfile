@@ -44,6 +44,7 @@ run EXPERIMENT:
 	bkt --modtime=./src/bandits/bootstrap/phe.rs -- cargo run --release -- {{EXPERIMENT}} phe >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/poker.rs -- cargo run --release -- {{EXPERIMENT}} poker >> {{EXPERIMENT}}.csv
 	bkt --modtime=./src/bandits/bootstrap/reboot.rs -- cargo run --release -- {{EXPERIMENT}} reboot >> {{EXPERIMENT}}.csv
+	bkt --modtime=./src/bandits/ucb/reucb.rs -- cargo run --release -- {{EXPERIMENT}} reucb >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} random >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} sts >> {{EXPERIMENT}}.csv
 	bkt -- cargo run --release -- {{EXPERIMENT}} ts >> {{EXPERIMENT}}.csv

@@ -33,7 +33,7 @@ pub use {
     poker::POKER, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS,
     ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB,
     ucb::bayes_ucb::BayesUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB,
-    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::ucb1::UCB1,
+    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::reucb::ReUCB, ucb::ucb1::UCB1,
     ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
 
@@ -72,6 +72,7 @@ pub enum Algorithms {
     POKER { assumed_horizon: usize },
     Random,
     ReBoot { r: f64 },
+    ReUCB { a: f64 },
     STS { epsilon: f64 },
     TS,
     TSUCB { samples: usize },
@@ -160,6 +161,7 @@ impl std::fmt::Display for Algorithms {
             ),
             Algorithms::POKER { assumed_horizon } => write!(f, "POKER (H={})", assumed_horizon),
             Algorithms::ReBoot { r } => write!(f, "ReBoot (r={:.2})", r),
+            Algorithms::ReUCB { a } => write!(f, "ReUCB (a={:.2})", a),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::STS { epsilon } => {
                 write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon)

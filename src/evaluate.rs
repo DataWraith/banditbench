@@ -211,6 +211,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::ReUCB { a } => {
+                    let bandit = ReUCB::new(num_arms, *a);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::STS { epsilon } => {
                     let bandit = STS::new(num_arms, *epsilon);
                     evaluate_bandit(bandit, &arms, horizon, seed)

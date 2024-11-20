@@ -183,6 +183,11 @@ fn main() {
             Algorithms::ReBoot { r: 1.7 },
             Algorithms::ReBoot { r: 2.1 },
         ],
+        "reucb" => vec![
+            Algorithms::ReUCB { a: 1.0 },
+            Algorithms::ReUCB { a: 1.5 },
+            Algorithms::ReUCB { a: 2.0 },
+        ],
         "random" => vec![Algorithms::Random],
         "sts" => vec![
             Algorithms::STS { epsilon: 0.005 },
