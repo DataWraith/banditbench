@@ -3,6 +3,7 @@
 "cargo:mdsh" = "latest"
 just = "latest"
 rust = "latest"
+uv = "latest"
 
 [env]
 BKT_TTL = "1w"

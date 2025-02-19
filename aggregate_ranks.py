@@ -1,3 +1,9 @@
+# /// script
+# dependencies = [
+#   "pandas"
+# ]
+# ///
+
 import csv
 import pandas as pd
 

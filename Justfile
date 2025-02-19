@@ -66,7 +66,7 @@ run EXPERIMENT:
 	cat {{EXPERIMENT}}.csv | sed 's/.*/|&|/' | sed 's/\;/\|/g' >> {{EXPERIMENT}}.md
 
 aggregate:
-	python3 aggregate_ranks.py
+	uv run aggregate_ranks.py
 
 	echo "| Algorithm | Average Rank | Average Time (seconds) |" > aggregated_ranks.md
 	echo "|---|---|---|" >> aggregated_ranks.md
