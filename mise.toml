@@ -1,0 +1,9 @@
+[tools]
+"cargo:bkt" = "latest"
+"cargo:mdsh" = "latest"
+just = "latest"
+rust = "latest"
+
+[env]
+BKT_TTL = "1w"
+BKT_CACHE_DIR = "./cache"

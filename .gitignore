@@ -1,13 +1,6 @@
 target/
 cache/
 
-# Devenv
-.devenv*
-devenv.local.nix
-
-# direnv
-.direnv
-
 # results
 *.csv
 *.md

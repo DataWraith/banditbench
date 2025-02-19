@@ -1,5 +1,3 @@
-set dotenv-load
-
 run_all:
 	@just run uniform
 	@just run half_range
