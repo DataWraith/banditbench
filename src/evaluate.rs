@@ -206,6 +206,16 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::RS { aspiration } => {
+                    let bandit = RS::new(num_arms, *aspiration);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
+                Algorithms::SoftSatisficing { aspiration } => {
+                    let bandit = SoftSatisficing::new(num_arms, *aspiration);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ReBoot { r } => {
                     let bandit = ReBoot::new(num_arms, *r);
                     evaluate_bandit(bandit, &arms, horizon, seed)

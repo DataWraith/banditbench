@@ -49,6 +49,8 @@ do
   bkt --modtime=./src/bandits/poker.rs -- cargo run --release -- $EXPERIMENT poker >> $RESULT_FILE
   bkt --modtime=./src/bandits/bootstrap/reboot.rs -- cargo run --release -- $EXPERIMENT reboot >> $RESULT_FILE
   bkt --modtime=./src/bandits/ucb/reucb.rs -- cargo run --release -- $EXPERIMENT reucb >> $RESULT_FILE
+  bkt --modtime=./src/bandits/rs.rs -- cargo run --release -- $EXPERIMENT rs >> $RESULT_FILE
+  bkt --modtime=./src/bandits/softsatisficing.rs -- cargo run --release -- $EXPERIMENT softsatisficing >> $RESULT_FILE
   bkt -- cargo run --release -- $EXPERIMENT random >> $RESULT_FILE
   bkt -- cargo run --release -- $EXPERIMENT sts >> $RESULT_FILE
   bkt -- cargo run --release -- $EXPERIMENT ts >> $RESULT_FILE
