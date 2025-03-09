@@ -199,6 +199,15 @@ fn main() {
             Algorithms::RS { aspiration: 0.9 },
             Algorithms::RS { aspiration: 0.99 },
         ],
+        "softelim" => vec![
+            Algorithms::SoftElim { theta: 0.01 },
+            Algorithms::SoftElim { theta: 0.1 },
+            Algorithms::SoftElim { theta: 0.25 },
+            Algorithms::SoftElim { theta: 0.5 },
+            Algorithms::SoftElim { theta: 1.0 },
+            Algorithms::SoftElim { theta: 2.0 },
+            Algorithms::SoftElim { theta: 5.0 },
+        ],
         "softsatisficing" => vec![
             Algorithms::SoftSatisficing { aspiration: 0.1 },
             Algorithms::SoftSatisficing { aspiration: 0.25 },

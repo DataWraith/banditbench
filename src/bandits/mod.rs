@@ -18,6 +18,7 @@ pub mod gradient_bandit;
 pub mod klms;
 pub mod poker;
 pub mod rs;
+pub mod soft_elim;
 pub mod softsatisficing;
 pub mod tsallis_inf;
 pub mod tsucb;
@@ -32,9 +33,9 @@ pub use {
     dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB, exp_ix::EXPIX,
     forced_exploration::ForcedExploration, gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
-    poker::POKER, rs::RS, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS, ts::irs_fh::IRSFH,
-    ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS, ts::ts_vha::TSVHA,
-    tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::bayes_ucb::BayesUCB,
+    poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
+    ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
+    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::bayes_ucb::BayesUCB,
     ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
     ucb::moss_anytime::MOSSAnytime, ucb::reucb::ReUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
     ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
@@ -77,6 +78,7 @@ pub enum Algorithms {
     ReBoot { r: f64 },
     ReUCB { a: f64 },
     RS { aspiration: f64 },
+    SoftElim { theta: f64 },
     SoftSatisficing { aspiration: f64 },
     STS { epsilon: f64 },
     TS,
@@ -169,6 +171,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::ReUCB { a } => write!(f, "ReUCB (a={:.2})", a),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::RS { aspiration } => write!(f, "RS (a={:.2})", aspiration),
+            Algorithms::SoftElim { theta } => write!(f, "SoftElim (θ={:.2})", theta),
             Algorithms::SoftSatisficing { aspiration } => {
                 write!(f, "Softsatisficing (a={:.2})", aspiration)
             }
