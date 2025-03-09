@@ -183,7 +183,7 @@ considering the five experiments further down in this file.
 | EB-TCI                                                      | 84.4         | 0.36                   |
 | RS (a=0.65)                                                 | 84.6         | 0.19                   |
 | RS (a=0.50)                                                 | 85.6         | 0.19                   |
-| Soft Satisficing (a=0.65)                                   | 88.8         | 0.25                   |
+| Softsatisficing (a=0.65)                                    | 88.8         | 0.23                   |
 | Tsallis-INF                                                 | 91.4         | 1.19                   |
 | MARS (δ=0.002)                                              | 92.6         | 8.0                    |
 | ReBoot (r=0.90)                                             | 92.8         | 0.27                   |
@@ -198,32 +198,32 @@ considering the five experiments further down in this file.
 | Vanilla Residual Bootstrap (init=5)                         | 97.8         | 0.25                   |
 | ReBoot (r=1.00)                                             | 98.6         | 0.27                   |
 | PFLA (n=100)                                                | 100.2        | 85.49                  |
-| Soft Satisficing (a=0.75)                                   | 101.6        | 0.29                   |
+| Softsatisficing (a=0.75)                                    | 101.6        | 0.28                   |
 | Perturbed-History Exploration (a=2.1)                       | 102.0        | 1.13                   |
-| Soft Satisficing (a=0.90)                                   | 103.8        | 0.33                   |
+| Softsatisficing (a=0.90)                                    | 103.8        | 0.32                   |
 | ϵ-Decreasing (ϵ=0.100)                                      | 104.4        | 0.09                   |
 | ETC (m=20)                                                  | 104.8        | 0.17                   |
 | lil' UCB (δ=0.010)                                          | 107.0        | 0.3                    |
 | ETC (m=5)                                                   | 107.0        | 0.17                   |
 | Garbage In, Reward Out (a=1.00)                             | 108.0        | 1.29                   |
-| Soft Satisficing (a=0.50)                                   | 108.4        | 0.15                   |
+| Softsatisficing (a=0.50)                                    | 108.4        | 0.15                   |
 | Boltzmann-Gumbel Exploration                                | 108.8        | 0.35                   |
 | RS (a=0.25)                                                 | 109.2        | 0.18                   |
 | ETC (m=25)                                                  | 109.4        | 0.16                   |
 | PFLA (n=10)                                                 | 109.6        | 9.04                   |
 | ReBoot (r=1.50)                                             | 109.8        | 0.26                   |
 | RS (a=0.99)                                                 | 111.0        | 0.2                    |
-| Soft Satisficing (a=0.25)                                   | 111.6        | 0.11                   |
+| Softsatisficing (a=0.25)                                    | 111.6        | 0.1                    |
 | lil' UCB (δ=0.001)                                          | 112.0        | 0.27                   |
 | RS (a=0.10)                                                 | 112.2        | 0.17                   |
 | ReBoot (r=1.70)                                             | 112.8        | 0.27                   |
-| Soft Satisficing (a=0.99)                                   | 113.4        | 0.41                   |
+| Softsatisficing (a=0.99)                                    | 113.4        | 0.4                    |
 | Least Failures                                              | 113.6        | 0.08                   |
 | Perturbed-History Exploration (a=5.1)                       | 115.0        | 1.14                   |
 | UCB1                                                        | 118.6        | 0.17                   |
 | ReBoot (r=2.10)                                             | 118.8        | 0.27                   |
 | EXP-IX                                                      | 119.4        | 0.54                   |
-| Soft Satisficing (a=0.10)                                   | 120.4        | 0.05                   |
+| Softsatisficing (a=0.10)                                    | 120.4        | 0.04                   |
 | ETC (m=3)                                                   | 120.6        | 0.17                   |
 | Gradient Bandit                                             | 123.6        | 0.41                   |
 | ETC (m=2)                                                   | 124.0        | 0.13                   |
@@ -308,7 +308,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Satisficing Thompson Sampling (ϵ=0.010)                     |     65.61 |       29.3229 |                             7.0179 | 1.00s  |
 | KL-UCB                                                      |     66.78 |       29.6304 |                             7.3837 | 7.85s  |
 | ReBoot (r=0.25)                                             |     61.18 |       30.3599 |                             5.2731 | 0.38s  |
-| Soft Satisficing (a=0.75)                                   |     49.75 |       30.3853 |                            17.8608 | 0.12s  |
+| Softsatisficing (a=0.75)                                    |     49.75 |       30.3853 |                            17.8608 | 0.11s  |
 | Gittins Index -- Whittle's Approximation (β=0.50)           |     46.19 |       30.4565 |                            14.2565 | 0.19s  |
 | CODE (δ=0.900)                                              |     54.94 |       30.6423 |                             6.5536 | 0.49s  |
 | POKER (H=100)                                               |     51.57 |       30.8991 |                            12.6895 | 0.44s  |
@@ -331,7 +331,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | POKER (H=250)                                               |     46.27 |       38.6838 |                            15.5508 | 0.57s  |
 | Garbage In, Reward Out (a=0.10)                             |     57.65 |       38.7302 |                             5.2772 | 1.07s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     39.50 |       39.7859 |                            22.1131 | 0.49s  |
-| Soft Satisficing (a=0.65)                                   |     40.21 |       39.8959 |                            24.8725 | 0.09s  |
+| Softsatisficing (a=0.65)                                    |     40.21 |       39.8959 |                            24.8725 | 0.09s  |
 | BayesUCB (δ=0.900)                                          |     39.28 |       40.0985 |                            22.3598 | 0.26s  |
 | Vanilla Residual Bootstrap (init=1)                         |     59.43 |       40.6304 |                             4.7837 | 0.22s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     40.59 |       41.9370 |                            21.7066 | 4.82s  |
@@ -342,7 +342,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     44.13 |       44.2992 |                            10.4673 | 1.18s  |
 | lil' UCB (δ=0.100)                                          |     52.19 |       44.8365 |                             5.5606 | 0.29s  |
 | Tsallis-INF                                                 |     54.25 |       46.4787 |                             5.9697 | 1.15s  |
-| Soft Satisficing (a=0.90)                                   |     56.49 |       46.6220 |                            27.5781 | 0.24s  |
+| Softsatisficing (a=0.90)                                    |     56.49 |       46.6220 |                            27.5781 | 0.24s  |
 | Forced Exploration                                          |     62.89 |       46.6666 |                             6.2607 | 0.09s  |
 | ReBoot (r=0.90)                                             |     52.24 |       47.2795 |                             6.7367 | 0.41s  |
 | Garbage In, Reward Out (a=0.33)                             |     51.74 |       49.2706 |                             5.5459 | 1.24s  |
@@ -356,7 +356,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=10)                                                  |     47.32 |       56.6956 |                            11.0554 | 0.23s  |
 | MARS (δ=0.002)                                              |     50.18 |       59.5941 |                             8.8231 | 8.12s  |
 | lil' UCB (δ=0.010)                                          |     44.08 |       62.1486 |                             6.5312 | 0.30s  |
-| Soft Satisficing (a=0.50)                                   |     28.97 |       63.5094 |                            43.9773 | 0.08s  |
+| Softsatisficing (a=0.50)                                    |     28.97 |       63.5094 |                            43.9773 | 0.07s  |
 | MARS (δ=1.000)                                              |     37.18 |       65.5059 |                            21.5650 | 0.08s  |
 | Garbage In, Reward Out (a=1.00)                             |     43.03 |       66.4802 |                             6.9482 | 1.32s  |
 | Boltzmann-Gumbel Exploration                                |     43.87 |       68.9250 |                             6.5817 | 0.34s  |
@@ -370,7 +370,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=20)                                                  |     49.52 |       85.1694 |                            11.9964 | 0.22s  |
 | UCB1                                                        |     34.52 |       86.8474 |                            10.2054 | 0.20s  |
 | Least Failures                                              |     40.55 |       88.7625 |                            28.1293 | 0.07s  |
-| Soft Satisficing (a=0.99)                                   |     39.79 |       89.3024 |                            27.8456 | 0.40s  |
+| Softsatisficing (a=0.99)                                    |     39.79 |       89.3024 |                            27.8456 | 0.41s  |
 | PFLA (n=100)                                                |     29.61 |       91.1676 |                            38.5302 | 89.29s |
 | ReBoot (r=2.10)                                             |     32.31 |       92.8131 |                            10.7156 | 0.38s  |
 | EXP-IX                                                      |     31.87 |       95.7830 |                            13.0250 | 0.68s  |
@@ -380,11 +380,11 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=2)                                                   |     20.21 |      110.5641 |                            26.8868 | 0.18s  |
 | Gradient Bandit                                             |     30.32 |      110.7043 |                            17.1641 | 0.39s  |
 | Gradient Bandit (with baseline)                             |     31.34 |      113.5984 |                            11.7063 | 0.46s  |
-| Soft Satisficing (a=0.25)                                   |     18.13 |      114.1714 |                            81.1272 | 0.06s  |
+| Softsatisficing (a=0.25)                                    |     18.13 |      114.1714 |                            81.1272 | 0.06s  |
 | PFLA (n=10)                                                 |     23.62 |      121.0144 |                            55.8349 | 9.30s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.12s  |
 | RS (a=0.10)                                                 |     16.10 |      132.1474 |                            91.9926 | 0.16s  |
-| Soft Satisficing (a=0.10)                                   |     15.69 |      135.0154 |                            93.5393 | 0.04s  |
+| Softsatisficing (a=0.10)                                    |     15.69 |      135.0154 |                            93.5393 | 0.04s  |
 | RS (a=0.00)                                                 |     15.09 |      144.1846 |                            97.5086 | 0.11s  |
 | CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.51s  |
 | PFLA (n=1)                                                  |     10.56 |      200.9131 |                            29.7225 | 1.10s  |
@@ -443,7 +443,7 @@ This experiment was taken from the GIRO paper.
 | IRS.FH (H=5)                                                |     43.60 |       28.0814 |                             6.8634 | 1.36s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     38.24 |       28.1487 |                             9.6145 | 0.14s  |
 | Greedy                                                      |     37.83 |       28.2076 |                             9.9996 | 0.08s  |
-| Soft Satisficing (a=0.65)                                   |     41.45 |       28.2436 |                            15.4217 | 0.26s  |
+| Softsatisficing (a=0.65)                                    |     41.45 |       28.2436 |                            15.4217 | 0.17s  |
 | ϵ-Decreasing (ϵ=0.900)                                      |     38.32 |       28.3069 |                             9.4761 | 0.14s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     39.35 |       28.3077 |                             8.7988 | 0.14s  |
 | POKER (H=1)                                                 |     37.76 |       28.3667 |                            10.1082 | 0.30s  |
@@ -473,7 +473,7 @@ This experiment was taken from the GIRO paper.
 | UCBT                                                        |     41.92 |       32.0754 |                             5.3843 | 0.10s  |
 | MARS (δ=0.100)                                              |     40.72 |       32.4299 |                             6.8526 | 0.36s  |
 | Forced Exploration                                          |     41.72 |       33.1699 |                             5.7046 | 0.10s  |
-| Soft Satisficing (a=0.50)                                   |     31.09 |       33.7174 |                            20.6161 | 0.09s  |
+| Softsatisficing (a=0.50)                                    |     31.09 |       33.7174 |                            20.6161 | 0.08s  |
 | POKER (H=250)                                               |     37.22 |       33.9079 |                             8.0820 | 0.35s  |
 | WR-SDA                                                      |     37.74 |       34.3702 |                             7.8470 | 1.82s  |
 | IRS.FH (H=25)                                               |     38.87 |       35.4924 |                             6.7519 | 1.94s  |
@@ -514,7 +514,7 @@ This experiment was taken from the GIRO paper.
 | ReBoot (r=1.00)                                             |     27.89 |       50.9352 |                             8.6898 | 0.23s  |
 | ETC (m=20)                                                  |     31.24 |       51.1732 |                             8.6350 | 0.18s  |
 | Perturbed-History Exploration (a=2.1)                       |     27.91 |       52.2188 |                             8.4423 | 1.00s  |
-| Soft Satisficing (a=0.75)                                   |     30.32 |       52.6410 |                            16.5585 | 0.37s  |
+| Softsatisficing (a=0.75)                                    |     30.32 |       52.6410 |                            16.5585 | 0.36s  |
 | Vanilla Residual Bootstrap (init=5)                         |     28.26 |       53.2834 |                             8.4062 | 0.24s  |
 | RS (a=0.75)                                                 |     29.84 |       54.6692 |                            13.4306 | 0.17s  |
 | ETC (m=25)                                                  |     32.18 |       56.3820 |                             8.2546 | 0.16s  |
@@ -533,17 +533,17 @@ This experiment was taken from the GIRO paper.
 | EXP-IX                                                      |     19.28 |       71.2582 |                            11.2795 | 0.49s  |
 | RS (a=0.25)                                                 |     15.97 |       71.7134 |                            48.5357 | 0.19s  |
 | Gradient Bandit                                             |     19.00 |       75.4704 |                            12.4808 | 0.40s  |
-| Soft Satisficing (a=0.90)                                   |     17.73 |       76.2770 |                            12.8748 | 0.44s  |
+| Softsatisficing (a=0.90)                                    |     17.73 |       76.2770 |                            12.8748 | 0.43s  |
 | Gradient Bandit (with baseline)                             |     18.51 |       77.0723 |                            10.7145 | 0.46s  |
 | RS (a=0.90)                                                 |     17.16 |       77.8704 |                            12.5705 | 0.17s  |
-| Soft Satisficing (a=0.25)                                   |     14.53 |       78.0274 |                            53.4058 | 0.07s  |
+| Softsatisficing (a=0.25)                                    |     14.53 |       78.0274 |                            53.4058 | 0.07s  |
 | ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.13s  |
-| Soft Satisficing (a=0.99)                                   |     15.71 |       81.5688 |                            13.1278 | 0.45s  |
+| Softsatisficing (a=0.99)                                    |     15.71 |       81.5688 |                            13.1278 | 0.44s  |
 | RS (a=0.99)                                                 |     15.39 |       82.4437 |                            12.9414 | 0.17s  |
 | Least Failures                                              |     15.39 |       82.4443 |                            12.9451 | 0.10s  |
 | RS (a=0.10)                                                 |     13.03 |       84.6250 |                            56.6531 | 0.17s  |
 | RS (a=0.00)                                                 |     12.85 |       85.6737 |                            57.3841 | 0.12s  |
-| Soft Satisficing (a=0.10)                                   |     12.81 |       86.5606 |                            58.7008 | 0.04s  |
+| Softsatisficing (a=0.10)                                    |     12.81 |       86.5606 |                            58.7008 | 0.04s  |
 | PFLA (n=1)                                                  |     10.42 |      100.4073 |                            14.7685 | 1.19s  |
 | Random                                                      |     10.01 |      102.0080 |                            15.1748 | 0.02s  |
 | CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.37s  |
@@ -647,7 +647,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Perturbed-History Exploration (a=1.1)                       |     11.13 |        4.4433 |                             0.3600 | 0.86s  |
 | Weighted Bootstrap                                          |     11.13 |        4.4436 |                             0.3400 | 3.02s  |
 | Multiplier Bootstrap-based Exploration                      |     11.12 |        4.4439 |                             0.3100 | 6.10s  |
-| Soft Satisficing (a=0.65)                                   |     11.12 |        4.4441 |                             0.3000 | 0.39s  |
+| Softsatisficing (a=0.65)                                    |     11.12 |        4.4441 |                             0.3000 | 0.39s  |
 | Vanilla Residual Bootstrap (init=1)                         |     11.11 |        4.4443 |                             0.3500 | 0.28s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     11.09 |        4.4454 |                             0.4000 | 1.23s  |
 | Garbage In, Reward Out (a=0.33)                             |     11.04 |        4.4480 |                             0.3800 | 1.42s  |
@@ -677,7 +677,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | PFLA (n=100)                                                |     10.48 |        4.4759 |                             0.2400 | 85.73s |
 | Perturbed-History Exploration (a=5.1)                       |     10.40 |        4.4798 |                             0.1900 | 1.01s  |
 | ReBoot (r=1.70)                                             |     10.40 |        4.4798 |                             0.1800 | 0.23s  |
-| Soft Satisficing (a=0.75)                                   |     10.38 |        4.4810 |                             0.1900 | 0.42s  |
+| Softsatisficing (a=0.75)                                    |     10.38 |        4.4810 |                             0.1900 | 0.41s  |
 | RS (a=0.75)                                                 |     10.36 |        4.4819 |                             0.1600 | 0.19s  |
 | EXP-IX                                                      |     10.36 |        4.4822 |                             0.1600 | 0.52s  |
 | ReBoot (r=2.10)                                             |     10.29 |        4.4854 |                             0.1400 | 0.23s  |
@@ -686,23 +686,23 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Gradient Bandit                                             |     10.27 |        4.4866 |                             0.1300 | 0.44s  |
 | RS (a=0.10)                                                 |     10.24 |        4.4881 |                             0.0000 | 0.17s  |
 | UCB1                                                        |     10.23 |        4.4883 |                             0.1600 | 0.14s  |
-| Soft Satisficing (a=0.50)                                   |     10.23 |        4.4884 |                             0.0000 | 0.09s  |
+| Softsatisficing (a=0.50)                                    |     10.23 |        4.4884 |                             0.0000 | 0.09s  |
 | Gradient Bandit (with baseline)                             |     10.23 |        4.4887 |                             0.1100 | 0.51s  |
 | RS (a=0.90)                                                 |     10.22 |        4.4891 |                             0.1100 | 0.19s  |
-| Soft Satisficing (a=0.90)                                   |     10.21 |        4.4897 |                             0.1200 | 0.43s  |
-| Soft Satisficing (a=0.99)                                   |     10.17 |        4.4914 |                             0.1100 | 0.43s  |
+| Softsatisficing (a=0.90)                                    |     10.21 |        4.4897 |                             0.1200 | 0.42s  |
+| Softsatisficing (a=0.99)                                    |     10.17 |        4.4914 |                             0.1100 | 0.43s  |
 | ETC (m=5)                                                   |     10.11 |        4.4943 |                             0.0000 | 0.15s  |
 | ETC (m=20)                                                  |     10.11 |        4.4946 |                             0.0000 | 0.15s  |
 | Least Failures                                              |     10.08 |        4.4961 |                             0.0900 | 0.07s  |
 | RS (a=0.99)                                                 |     10.08 |        4.4961 |                             0.0900 | 0.19s  |
-| Soft Satisficing (a=0.25)                                   |     10.05 |        4.4976 |                             0.0000 | 0.07s  |
+| Softsatisficing (a=0.25)                                    |     10.05 |        4.4976 |                             0.0000 | 0.07s  |
 | ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.12s  |
 | ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.15s  |
 | Random                                                      |     10.02 |        4.4992 |                             0.0500 | 0.02s  |
 | PFLA (n=1)                                                  |     10.01 |        4.4993 |                             0.0100 | 1.03s  |
 | CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.42s  |
 | RS (a=0.25)                                                 |     10.00 |        4.5000 |                             0.0000 | 0.20s  |
-| Soft Satisficing (a=0.10)                                   |     10.00 |        4.5000 |                             0.0000 | 0.05s  |
+| Softsatisficing (a=0.10)                                    |     10.00 |        4.5000 |                             0.0000 | 0.04s  |
 | ETC (m=10)                                                  |      9.94 |        4.5030 |                             0.0000 | 0.17s  |
 <!-- END mdsh -->
 
@@ -759,7 +759,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | MARS (δ=0.010)                                              |     51.25 |       29.2541 |                             7.4360 | 2.10s  |
 | TS-UCB (1 samples)                                          |     52.69 |       29.2908 |                             4.9082 | 1.06s  |
 | ϵ-Exploring TS-UCB (1 samples)                              |     47.60 |       29.4661 |                             9.1640 | 0.19s  |
-| Soft Satisficing (a=0.25)                                   |     49.07 |       29.5243 |                            16.9209 | 0.26s  |
+| Softsatisficing (a=0.25)                                    |     49.07 |       29.5243 |                            16.9209 | 0.24s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     47.35 |       29.8509 |                             9.2614 | 0.88s  |
 | BayesUCB (δ=0.200)                                          |     51.93 |       29.8533 |                             5.8074 | 0.28s  |
 | ϵ-Exploring TS-UCB (100 samples)                            |     47.30 |       29.8928 |                             9.1374 | 7.55s  |
@@ -784,7 +784,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ϵ-Decreasing (ϵ=0.900)                                      |     40.31 |       35.3717 |                            14.8777 | 0.15s  |
 | Optimistic Thompson Sampling                                |     47.14 |       35.7522 |                             6.0706 | 1.12s  |
 | ϵ-Greedy (ϵ=0.020)                                          |     39.94 |       35.9324 |                            16.4079 | 0.14s  |
-| Soft Satisficing (a=0.10)                                   |     39.16 |       36.0339 |                            20.3466 | 0.06s  |
+| Softsatisficing (a=0.10)                                    |     39.16 |       36.0339 |                            20.3466 | 0.06s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     39.46 |       36.2891 |                            16.3213 | 0.15s  |
 | ReUCB (a=2.00)                                              |     39.22 |       36.5714 |                            16.0590 | 1.21s  |
 | ReUCB (a=1.50)                                              |     39.18 |       36.6102 |                            16.1550 | 1.02s  |
@@ -842,21 +842,21 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | MARS (δ=1.000)                                              |     21.56 |       67.5569 |                            47.1317 | 0.09s  |
 | Perturbed-History Exploration (a=5.1)                       |     23.50 |       67.6540 |                            15.6673 | 1.04s  |
 | RS (a=0.50)                                                 |     22.27 |       69.0806 |                            16.5670 | 0.25s  |
-| Soft Satisficing (a=0.50)                                   |     22.04 |       69.2504 |                            16.5095 | 0.43s  |
+| Softsatisficing (a=0.50)                                    |     22.04 |       69.2504 |                            16.5095 | 0.42s  |
 | UCB1                                                        |     22.31 |       69.6096 |                            17.0817 | 0.17s  |
 | PFLA (n=10)                                                 |     18.26 |       73.4227 |                            21.0101 | 9.45s  |
 | Gradient Bandit                                             |     20.28 |       74.1103 |                            17.5927 | 0.39s  |
 | Gradient Bandit (with baseline)                             |     19.93 |       74.7782 |                            17.8747 | 0.44s  |
 | EXP-IX                                                      |     17.71 |       77.5879 |                            20.1208 | 0.50s  |
-| Soft Satisficing (a=0.65)                                   |     16.04 |       80.3949 |                            20.9280 | 0.45s  |
+| Softsatisficing (a=0.65)                                    |     16.04 |       80.3949 |                            20.9280 | 0.44s  |
 | RS (a=0.65)                                                 |     16.07 |       80.4757 |                            21.2548 | 0.26s  |
 | RS (a=0.75)                                                 |     14.49 |       83.6745 |                            22.3955 | 0.28s  |
-| Soft Satisficing (a=0.75)                                   |     14.41 |       83.6750 |                            22.5529 | 0.46s  |
+| Softsatisficing (a=0.75)                                    |     14.41 |       83.6750 |                            22.5529 | 0.44s  |
 | RS (a=0.90)                                                 |     13.27 |       86.1578 |                            23.4025 | 0.28s  |
-| Soft Satisficing (a=0.90)                                   |     13.19 |       86.1783 |                            23.4203 | 0.45s  |
+| Softsatisficing (a=0.90)                                    |     13.19 |       86.1783 |                            23.4203 | 0.44s  |
 | Least Failures                                              |     12.90 |       86.8718 |                            23.7396 | 0.10s  |
 | RS (a=0.99)                                                 |     12.90 |       86.8720 |                            23.7404 | 0.29s  |
-| Soft Satisficing (a=0.99)                                   |     12.75 |       87.0894 |                            23.7866 | 0.52s  |
+| Softsatisficing (a=0.99)                                    |     12.75 |       87.0894 |                            23.7866 | 0.47s  |
 | PFLA (n=1)                                                  |     10.45 |       92.1317 |                            25.7794 | 1.14s  |
 | Random                                                      |      9.99 |       93.1436 |                            26.0904 | 0.03s  |
 | CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.37s  |
@@ -923,7 +923,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ϵ-Decreasing (ϵ=0.500)                                      |     50.84 |       11.5088 |                             2.0720 | 0.15s  |
 | KL-UCB                                                      |     51.49 |       11.6751 |                             3.5785 | 6.52s  |
 | RS (a=0.99)                                                 |     52.43 |       12.1155 |                             6.1302 | 0.17s  |
-| Soft Satisficing (a=0.90)                                   |     28.86 |       12.3245 |                             7.4167 | 0.10s  |
+| Softsatisficing (a=0.90)                                    |     28.86 |       12.3245 |                             7.4167 | 0.09s  |
 | Thompson Sampling                                           |     48.51 |       12.4396 |                             2.7769 | 0.70s  |
 | Weighted Bootstrap                                          |     48.57 |       12.4424 |                             2.7624 | 3.01s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     37.00 |       12.6026 |                             4.1618 | 14.50s |
@@ -934,7 +934,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | BayesUCB (δ=0.300)                                          |     26.75 |       13.8625 |                             8.5920 | 0.23s  |
 | Forced Exploration                                          |     48.30 |       13.9900 |                             2.5181 | 0.09s  |
 | Least Failures                                              |     47.50 |       14.3230 |                             6.3554 | 0.07s  |
-| Soft Satisficing (a=0.99)                                   |     47.05 |       14.4903 |                             8.0153 | 0.26s  |
+| Softsatisficing (a=0.99)                                    |     47.05 |       14.4903 |                             8.0153 | 0.25s  |
 | Bounded Dirichlet Sampling                                  |     45.58 |       14.5418 |                             4.6561 | 2.30s  |
 | PFLA (n=100)                                                |     32.03 |       14.6253 |                             5.1971 | 85.76s |
 | BayesUCB (δ=0.100)                                          |     37.27 |       15.0673 |                             2.3660 | 0.18s  |
@@ -979,7 +979,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | lil' UCB (δ=0.100)                                          |     19.19 |       28.5694 |                             4.7509 | 0.30s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     15.82 |       29.0489 |                            16.7117 | 1.04s  |
 | ReBoot (r=1.00)                                             |     22.53 |       29.7884 |                             5.3791 | 0.24s  |
-| Soft Satisficing (a=0.75)                                   |     14.24 |       30.0109 |                            19.0522 | 0.08s  |
+| Softsatisficing (a=0.75)                                    |     14.24 |       30.0109 |                            19.0522 | 0.08s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     15.12 |       30.0861 |                            17.7177 | 0.35s  |
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     14.69 |       30.0926 |                            19.2525 | 0.22s  |
 | Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 1.09s  |
@@ -996,7 +996,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ReBoot (r=1.70)                                             |     17.25 |       36.7828 |                             6.9301 | 0.23s  |
 | RS (a=0.65)                                                 |     12.54 |       36.9123 |                            23.2223 | 0.19s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    |     12.48 |       37.2813 |                            23.4074 | 0.43s  |
-| Soft Satisficing (a=0.65)                                   |     12.05 |       38.0281 |                            23.7792 | 0.07s  |
+| Softsatisficing (a=0.65)                                    |     12.05 |       38.0281 |                            23.7792 | 0.07s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     |     12.42 |       38.3118 |                            23.9070 | 0.43s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     12.38 |       38.6260 |                            24.0049 | 0.40s  |
 | BayesUCB (δ=0.900)                                          |     12.29 |       38.7864 |                            24.1887 | 0.23s  |
@@ -1006,11 +1006,11 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ETC (m=5)                                                   |     12.36 |       41.7571 |                             9.1900 | 0.15s  |
 | RS (a=0.50)                                                 |     11.80 |       42.0199 |                            25.5228 | 0.17s  |
 | ETC (m=3)                                                   |     12.03 |       43.5920 |                             9.6906 | 0.14s  |
-| Soft Satisficing (a=0.50)                                   |     11.18 |       43.6892 |                            26.5617 | 0.07s  |
+| Softsatisficing (a=0.50)                                    |     11.18 |       43.6892 |                            26.5617 | 0.08s  |
 | ETC (m=2)                                                   |     11.03 |       45.2564 |                             9.3287 | 0.11s  |
 | RS (a=0.25)                                                 |     11.31 |       46.4787 |                            27.3045 | 0.16s  |
-| Soft Satisficing (a=0.25)                                   |     11.03 |       46.8837 |                            27.6280 | 0.07s  |
-| Soft Satisficing (a=0.10)                                   |     10.99 |       47.1460 |                            27.6826 | 0.05s  |
+| Softsatisficing (a=0.25)                                    |     11.03 |       46.8837 |                            27.6280 | 0.07s  |
+| Softsatisficing (a=0.10)                                    |     10.99 |       47.1460 |                            27.6826 | 0.04s  |
 | RS (a=0.10)                                                 |     11.22 |       47.2198 |                            27.6594 | 0.16s  |
 | RS (a=0.00)                                                 |     11.13 |       47.2636 |                            27.6526 | 0.13s  |
 | PFLA (n=1)                                                  |     10.44 |       48.2947 |                             9.7754 | 1.26s  |

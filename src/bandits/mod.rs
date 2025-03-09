@@ -170,7 +170,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::Random => write!(f, "Random"),
             Algorithms::RS { aspiration } => write!(f, "RS (a={:.2})", aspiration),
             Algorithms::SoftSatisficing { aspiration } => {
-                write!(f, "Soft Satisficing (a={:.2})", aspiration)
+                write!(f, "Softsatisficing (a={:.2})", aspiration)
             }
             Algorithms::STS { epsilon } => {
                 write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", epsilon)
