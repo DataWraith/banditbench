@@ -14,6 +14,7 @@ pub mod ebtci;
 pub mod eps_tsucb;
 pub mod exp_ix;
 pub mod forced_exploration;
+pub mod ftpl_gr;
 pub mod gradient_bandit;
 pub mod klms;
 pub mod poker;
@@ -31,7 +32,8 @@ pub use {
     bootstrap::phe::PHE, bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot,
     bootstrap::weighted_bootstrap::WB, code::CODE, dueling::dirichlet_sampling::BDS,
     dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB, exp_ix::EXPIX,
-    forced_exploration::ForcedExploration, gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
+    forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
+    gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
     ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
@@ -55,6 +57,7 @@ pub enum Algorithms {
     EpsTSUCB { samples: usize },
     ETC { m: usize },
     EXPIX,
+    FTPLGR { lr: f64 },
     ForcedExploration,
     GIRO { num_pseudo_rewards: f64 },
     Gradient,
@@ -143,6 +146,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::ETC { m } => write!(f, "ETC (m={})", m),
             Algorithms::EXPIX => write!(f, "EXP-IX"),
             Algorithms::ForcedExploration => write!(f, "Forced Exploration"),
+            Algorithms::FTPLGR { lr } => write!(f, "FTPL-GR (lr={:.3})", lr),
             Algorithms::GIRO { num_pseudo_rewards } => {
                 write!(f, "Garbage In, Reward Out (a={:.2})", num_pseudo_rewards)
             }

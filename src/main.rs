@@ -87,6 +87,12 @@ fn main() {
         ],
         "exp_ix" => vec![Algorithms::EXPIX],
         "forced_exploration" => vec![Algorithms::ForcedExploration],
+        "ftpl_gr" => vec![
+            Algorithms::FTPLGR { lr: 0.001 },
+            Algorithms::FTPLGR { lr: 0.01 },
+            Algorithms::FTPLGR { lr: 0.1 },
+            Algorithms::FTPLGR { lr: 1.0 },
+        ],
         "giro" => vec![
             Algorithms::GIRO {
                 num_pseudo_rewards: 1.0,

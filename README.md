@@ -109,14 +109,14 @@ considering the five experiments further down in this file.
 | ϵ-Exploring TS-UCB (100 samples)                            | 23.0         | 8.01                   |
 | ϵ-Exploring TS-UCB (10 samples)                             | 23.0         | 0.88                   |
 | SoftElim (θ=0.01)                                           | 25.4         | 0.44                   |
-| Gittins Index -- Whittle's Approximation (β=0.99)           | 25.6         | 0.27                   |
+| Gittins Index -- Whittle's Approximation (β=0.99)           | 25.8         | 0.27                   |
 | TS-UCB (10 samples)                                         | 26.0         | 8.07                   |
 | MOSS-Anytime (α=-0.85)                                      | 26.6         | 0.2                    |
-| Gittins Index -- Whittle's Approximation (β=0.90)           | 29.2         | 0.28                   |
+| Gittins Index -- Whittle's Approximation (β=0.90)           | 29.4         | 0.28                   |
 | IRS.FH (H=5)                                                | 30.2         | 1.48                   |
 | BayesUCB (δ=0.300)                                          | 31.0         | 0.24                   |
-| BayesUCB (δ=0.400)                                          | 32.8         | 0.24                   |
 | BayesUCB (δ=0.200)                                          | 32.8         | 0.23                   |
+| BayesUCB (δ=0.400)                                          | 33.0         | 0.24                   |
 | ϵ-Decreasing (ϵ=0.990)                                      | 33.2         | 0.17                   |
 | POKER (H=10)                                                | 34.0         | 0.39                   |
 | POKER (H=5)                                                 | 34.2         | 0.39                   |
@@ -129,116 +129,120 @@ considering the five experiments further down in this file.
 | ReUCB (a=1.00)                                              | 35.8         | 1.19                   |
 | ϵ-Decreasing (ϵ=0.700)                                      | 36.0         | 0.18                   |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) | 36.4         | 15.9                   |
-| MOSS-Anytime (α=-0.50)                                      | 37.2         | 0.24                   |
+| MOSS-Anytime (α=-0.50)                                      | 37.4         | 0.24                   |
 | SoftElim (θ=0.10)                                           | 38.4         | 0.47                   |
 | ϵ-Greedy (ϵ=0.010)                                          | 39.2         | 0.11                   |
 | ϵ-Greedy (ϵ=0.020)                                          | 39.4         | 0.15                   |
-| BayesUCB (δ=0.500)                                          | 40.4         | 0.24                   |
+| BayesUCB (δ=0.500)                                          | 40.6         | 0.24                   |
 | TS-UCB (1 samples)                                          | 41.0         | 1.03                   |
-| Gittins Index -- Whittle's Approximation (β=0.70)           | 41.0         | 0.28                   |
-| Gittins Index -- Whittle's Approximation (β=0.50)           | 41.8         | 0.24                   |
+| Gittins Index -- Whittle's Approximation (β=0.70)           | 41.4         | 0.28                   |
+| Gittins Index -- Whittle's Approximation (β=0.50)           | 42.4         | 0.24                   |
 | ϵ-Greedy (ϵ=0.050)                                          | 42.6         | 0.15                   |
 | IRS.FH (H=10)                                               | 44.4         | 1.58                   |
 | POKER (H=25)                                                | 44.4         | 0.39                   |
-| MOSS-Anytime (α=-0.33)                                      | 45.0         | 0.25                   |
 | ϵ-Decreasing (ϵ=0.500)                                      | 45.0         | 0.17                   |
+| MOSS-Anytime (α=-0.33)                                      | 45.2         | 0.25                   |
 | ϵ-Exploring Thompson Sampling                               | 45.4         | 0.22                   |
 | POKER (H=50)                                                | 47.6         | 0.37                   |
 | POKER (H=100)                                               | 48.8         | 0.37                   |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 51.2         | 0.5                    |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 52.0         | 0.5                    |
 | ϵ-Greedy (ϵ=0.100)                                          | 53.0         | 0.15                   |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 53.2         | 0.46                   |
-| UCBT                                                        | 54.0         | 0.11                   |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 55.4         | 0.53                   |
-| BayesUCB (δ=0.100)                                          | 55.8         | 0.19                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 54.0         | 0.46                   |
+| UCBT                                                        | 54.2         | 0.11                   |
+| BayesUCB (δ=0.100)                                          | 56.0         | 0.19                   |
 | IRS.FH (H=25)                                               | 56.0         | 1.91                   |
-| BayesUCB (δ=0.900)                                          | 58.4         | 0.24                   |
-| Forced Exploration                                          | 58.6         | 0.16                   |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 56.2         | 0.53                   |
+| Forced Exploration                                          | 58.8         | 0.16                   |
 | WR-SDA                                                      | 59.2         | 1.73                   |
-| SoftElim (θ=0.25)                                           | 59.4         | 0.47                   |
-| ReBoot (r=0.25)                                             | 59.4         | 0.27                   |
-| MARS (δ=0.100)                                              | 60.4         | 0.46                   |
+| BayesUCB (δ=0.900)                                          | 59.2         | 0.24                   |
+| SoftElim (θ=0.25)                                           | 59.6         | 0.47                   |
+| ReBoot (r=0.25)                                             | 59.6         | 0.27                   |
+| MARS (δ=0.100)                                              | 60.6         | 0.46                   |
 | POKER (H=250)                                               | 64.4         | 0.38                   |
 | Thompson Sampling                                           | 67.0         | 0.76                   |
-| ReBoot (r=0.50)                                             | 67.0         | 0.31                   |
+| ReBoot (r=0.50)                                             | 67.2         | 0.31                   |
 | Weighted Bootstrap                                          | 67.8         | 3.39                   |
 | Satisficing Thompson Sampling (ϵ=0.005)                     | 68.2         | 1.04                   |
 | Satisficing Thompson Sampling (ϵ=0.010)                     | 69.2         | 1.11                   |
-| Bootstrapped Thompson Sampling (J=10)                       | 69.4         | 0.43                   |
-| Vanilla Residual Bootstrap (init=0)                         | 70.2         | 0.22                   |
-| Hellinger-UCB                                               | 70.6         | 2.57                   |
+| Bootstrapped Thompson Sampling (J=10)                       | 70.0         | 0.43                   |
+| Vanilla Residual Bootstrap (init=0)                         | 70.4         | 0.22                   |
+| Hellinger-UCB                                               | 70.8         | 2.57                   |
 | KL-UCB                                                      | 71.2         | 8.81                   |
-| Bootstrapped Thompson Sampling (J=500)                      | 71.6         | 5.35                   |
-| Multiplier Bootstrap-based Exploration                      | 72.8         | 6.93                   |
-| Bootstrapped Thompson Sampling (J=1000)                     | 72.8         | 10.66                  |
-| Bootstrapped Thompson Sampling (J=100)                      | 73.0         | 1.16                   |
+| Bootstrapped Thompson Sampling (J=500)                      | 72.2         | 5.35                   |
+| Multiplier Bootstrap-based Exploration                      | 73.0         | 6.93                   |
+| Bootstrapped Thompson Sampling (J=1000)                     | 73.4         | 10.66                  |
 | Non-Parametric Thompson Sampling                            | 73.6         | 4.5                    |
-| CODE (δ=0.900)                                              | 76.2         | 0.43                   |
-| UCB1-Tuned                                                  | 76.6         | 0.31                   |
-| Garbage In, Reward Out (a=0.10)                             | 77.4         | 1.19                   |
-| Satisficing Thompson Sampling (ϵ=0.050)                     | 81.0         | 1.14                   |
-| Vanilla Residual Bootstrap (init=1)                         | 81.6         | 0.26                   |
+| Bootstrapped Thompson Sampling (J=100)                      | 73.6         | 1.16                   |
+| CODE (δ=0.900)                                              | 76.6         | 0.43                   |
+| UCB1-Tuned                                                  | 76.8         | 0.31                   |
+| Garbage In, Reward Out (a=0.10)                             | 77.6         | 1.19                   |
+| Satisficing Thompson Sampling (ϵ=0.050)                     | 81.2         | 1.14                   |
 | Bounded Dirichlet Sampling                                  | 81.8         | 2.4                    |
-| MARS (δ=0.010)                                              | 82.4         | 2.5                    |
-| SoftElim (θ=0.50)                                           | 83.4         | 0.47                   |
-| Kullback-Leibler Maillard Sampling                          | 85.0         | 0.58                   |
-| ϵ-Decreasing (ϵ=0.200)                                      | 85.0         | 0.14                   |
-| Perturbed-History Exploration (a=1.1)                       | 86.6         | 1.11                   |
-| EB-TCI                                                      | 87.4         | 0.37                   |
-| RS (a=0.65)                                                 | 87.6         | 0.25                   |
-| RS (a=0.50)                                                 | 89.0         | 0.23                   |
-| Softsatisficing (a=0.65)                                    | 92.2         | 0.27                   |
-| Tsallis-INF                                                 | 94.2         | 1.26                   |
-| ReBoot (r=0.90)                                             | 95.6         | 0.31                   |
-| MARS (δ=0.002)                                              | 95.8         | 9.46                   |
-| MARS (δ=0.001)                                              | 96.0         | 17.1                   |
-| Garbage In, Reward Out (a=0.33)                             | 96.4         | 1.48                   |
-| MARS (δ=1.000)                                              | 97.2         | 0.12                   |
-| ETC (m=10)                                                  | 98.2         | 0.18                   |
-| RS (a=0.90)                                                 | 98.4         | 0.26                   |
-| Satisficing Thompson Sampling (ϵ=0.100)                     | 98.6         | 1.15                   |
-| lil' UCB (δ=0.100)                                          | 98.8         | 0.32                   |
-| RS (a=0.75)                                                 | 100.2        | 0.27                   |
-| Vanilla Residual Bootstrap (init=5)                         | 101.2        | 0.26                   |
-| ReBoot (r=1.00)                                             | 102.2        | 0.3                    |
-| SoftElim (θ=1.00)                                           | 103.4        | 0.46                   |
-| PFLA (n=100)                                                | 103.6        | 87.22                  |
-| Softsatisficing (a=0.75)                                    | 105.6        | 0.33                   |
-| Perturbed-History Exploration (a=2.1)                       | 105.6        | 1.33                   |
-| Softsatisficing (a=0.90)                                    | 107.6        | 0.39                   |
-| ϵ-Decreasing (ϵ=0.100)                                      | 108.6        | 0.09                   |
-| ETC (m=20)                                                  | 108.8        | 0.17                   |
-| lil' UCB (δ=0.010)                                          | 111.0        | 0.31                   |
-| ETC (m=5)                                                   | 111.6        | 0.19                   |
-| Garbage In, Reward Out (a=1.00)                             | 112.0        | 1.53                   |
-| Boltzmann-Gumbel Exploration                                | 112.8        | 0.4                    |
-| Softsatisficing (a=0.50)                                    | 113.0        | 0.17                   |
-| ETC (m=25)                                                  | 113.4        | 0.17                   |
-| PFLA (n=10)                                                 | 113.8        | 8.81                   |
-| ReBoot (r=1.50)                                             | 114.0        | 0.3                    |
-| RS (a=0.25)                                                 | 114.0        | 0.23                   |
-| RS (a=0.99)                                                 | 115.6        | 0.25                   |
-| lil' UCB (δ=0.001)                                          | 116.4        | 0.3                    |
-| Softsatisficing (a=0.25)                                    | 117.0        | 0.12                   |
-| RS (a=0.10)                                                 | 117.4        | 0.23                   |
-| SoftElim (θ=2.00)                                           | 117.6        | 0.47                   |
-| ReBoot (r=1.70)                                             | 117.6        | 0.3                    |
-| Softsatisficing (a=0.99)                                    | 118.0        | 0.49                   |
-| Least Failures                                              | 118.4        | 0.1                    |
-| Perturbed-History Exploration (a=5.1)                       | 119.8        | 1.24                   |
-| UCB1                                                        | 123.6        | 0.19                   |
-| ReBoot (r=2.10)                                             | 123.6        | 0.29                   |
-| EXP-IX                                                      | 124.2        | 0.54                   |
-| ETC (m=3)                                                   | 125.6        | 0.19                   |
-| Softsatisficing (a=0.10)                                    | 125.6        | 0.06                   |
-| Gradient Bandit                                             | 128.8        | 0.47                   |
-| ETC (m=2)                                                   | 129.6        | 0.15                   |
-| Gradient Bandit (with baseline)                             | 130.8        | 0.5                    |
-| SoftElim (θ=5.00)                                           | 131.4        | 0.47                   |
-| RS (a=0.00)                                                 | 132.6        | 0.19                   |
-| PFLA (n=1)                                                  | 141.8        | 1.08                   |
-| Random                                                      | 142.6        | 0.02                   |
-| CODE (δ=0.050)                                              | 142.8        | 0.44                   |
+| Vanilla Residual Bootstrap (init=1)                         | 82.0         | 0.26                   |
+| MARS (δ=0.010)                                              | 82.8         | 2.5                    |
+| SoftElim (θ=0.50)                                           | 83.6         | 0.47                   |
+| Kullback-Leibler Maillard Sampling                          | 85.2         | 0.58                   |
+| ϵ-Decreasing (ϵ=0.200)                                      | 86.0         | 0.14                   |
+| Perturbed-History Exploration (a=1.1)                       | 86.8         | 1.11                   |
+| EB-TCI                                                      | 88.2         | 0.37                   |
+| RS (a=0.65)                                                 | 88.8         | 0.25                   |
+| RS (a=0.50)                                                 | 90.2         | 0.23                   |
+| Softsatisficing (a=0.65)                                    | 93.4         | 0.27                   |
+| Tsallis-INF                                                 | 94.6         | 1.26                   |
+| ReBoot (r=0.90)                                             | 96.2         | 0.31                   |
+| MARS (δ=0.001)                                              | 96.4         | 17.1                   |
+| MARS (δ=0.002)                                              | 96.4         | 9.46                   |
+| Garbage In, Reward Out (a=0.33)                             | 97.0         | 1.48                   |
+| MARS (δ=1.000)                                              | 98.4         | 0.12                   |
+| Satisficing Thompson Sampling (ϵ=0.100)                     | 99.2         | 1.15                   |
+| lil' UCB (δ=0.100)                                          | 99.4         | 0.32                   |
+| ETC (m=10)                                                  | 99.4         | 0.18                   |
+| RS (a=0.90)                                                 | 100.0        | 0.26                   |
+| RS (a=0.75)                                                 | 102.0        | 0.27                   |
+| Vanilla Residual Bootstrap (init=5)                         | 102.2        | 0.26                   |
+| FTPL-GR (lr=1.000)                                          | 102.6        | 4.26                   |
+| ReBoot (r=1.00)                                             | 102.8        | 0.3                    |
+| SoftElim (θ=1.00)                                           | 104.0        | 0.46                   |
+| PFLA (n=100)                                                | 105.4        | 87.22                  |
+| Perturbed-History Exploration (a=2.1)                       | 106.2        | 1.33                   |
+| Softsatisficing (a=0.75)                                    | 107.4        | 0.33                   |
+| Softsatisficing (a=0.90)                                    | 109.4        | 0.39                   |
+| ETC (m=20)                                                  | 110.4        | 0.17                   |
+| FTPL-GR (lr=0.100)                                          | 110.6        | 4.11                   |
+| ϵ-Decreasing (ϵ=0.100)                                      | 110.6        | 0.09                   |
+| lil' UCB (δ=0.010)                                          | 113.0        | 0.31                   |
+| Gradient Bandit                                             | 113.4        | 0.39                   |
+| ETC (m=5)                                                   | 113.4        | 0.19                   |
+| Garbage In, Reward Out (a=1.00)                             | 114.0        | 1.53                   |
+| Boltzmann-Gumbel Exploration                                | 114.8        | 0.4                    |
+| Gradient Bandit (with baseline)                             | 114.8        | 0.44                   |
+| Softsatisficing (a=0.50)                                    | 115.2        | 0.17                   |
+| ETC (m=25)                                                  | 116.0        | 0.17                   |
+| PFLA (n=10)                                                 | 116.4        | 8.81                   |
+| ReBoot (r=1.50)                                             | 117.0        | 0.3                    |
+| RS (a=0.25)                                                 | 117.0        | 0.23                   |
+| RS (a=0.99)                                                 | 118.0        | 0.25                   |
+| Softsatisficing (a=0.25)                                    | 119.0        | 0.12                   |
+| RS (a=0.10)                                                 | 119.4        | 0.23                   |
+| lil' UCB (δ=0.001)                                          | 119.6        | 0.3                    |
+| Softsatisficing (a=0.99)                                    | 120.2        | 0.49                   |
+| Least Failures                                              | 120.8        | 0.1                    |
+| SoftElim (θ=2.00)                                           | 121.2        | 0.47                   |
+| ReBoot (r=1.70)                                             | 121.2        | 0.3                    |
+| Perturbed-History Exploration (a=5.1)                       | 123.6        | 1.24                   |
+| UCB1                                                        | 127.2        | 0.19                   |
+| ReBoot (r=2.10)                                             | 127.2        | 0.29                   |
+| EXP-IX                                                      | 127.8        | 0.54                   |
+| Softsatisficing (a=0.10)                                    | 128.0        | 0.06                   |
+| ETC (m=3)                                                   | 128.4        | 0.19                   |
+| ETC (m=2)                                                   | 132.0        | 0.15                   |
+| SoftElim (θ=5.00)                                           | 134.0        | 0.47                   |
+| RS (a=0.00)                                                 | 135.6        | 0.19                   |
+| FTPL-GR (lr=0.010)                                          | 138.4        | 4.19                   |
+| FTPL-GR (lr=0.001)                                          | 145.0        | 4.2                    |
+| PFLA (n=1)                                                  | 145.4        | 1.08                   |
+| CODE (δ=0.050)                                              | 146.6        | 0.44                   |
+| Random                                                      | 146.6        | 0.02                   |
 <!-- END mdsh -->
 
 ## Data
@@ -343,6 +347,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     39.50 |       39.7859 |                            22.1131 | 0.46s  |
 | Softsatisficing (a=0.65)                                    |     40.21 |       39.8959 |                            24.8725 | 0.09s  |
 | BayesUCB (δ=0.900)                                          |     39.28 |       40.0985 |                            22.3598 | 0.21s  |
+| FTPL-GR (lr=1.000)                                          |     58.80 |       40.3823 |                            10.4546 | 4.84s  |
 | Vanilla Residual Bootstrap (init=1)                         |     59.43 |       40.6304 |                             4.7837 | 0.26s  |
 | Bootstrapped Thompson Sampling (J=500)                      |     40.59 |       41.9370 |                            21.7066 | 4.35s  |
 | Bootstrapped Thompson Sampling (J=1000)                     |     40.88 |       41.9668 |                            21.1936 | 10.32s |
@@ -365,12 +370,15 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | RS (a=0.50)                                                 |     32.37 |       55.6085 |                            36.1138 | 0.20s  |
 | Perturbed-History Exploration (a=2.1)                       |     47.44 |       56.5448 |                             6.0521 | 1.10s  |
 | ETC (m=10)                                                  |     47.32 |       56.6956 |                            11.0554 | 0.15s  |
+| FTPL-GR (lr=0.100)                                          |     50.69 |       57.1522 |                             7.0720 | 4.09s  |
 | MARS (δ=0.002)                                              |     50.18 |       59.5941 |                             8.8231 | 8.54s  |
 | lil' UCB (δ=0.010)                                          |     44.08 |       62.1486 |                             6.5312 | 0.27s  |
 | Softsatisficing (a=0.50)                                    |     28.97 |       63.5094 |                            43.9773 | 0.08s  |
 | MARS (δ=1.000)                                              |     37.18 |       65.5059 |                            21.5650 | 0.09s  |
 | Garbage In, Reward Out (a=1.00)                             |     43.03 |       66.4802 |                             6.9482 | 1.40s  |
 | Boltzmann-Gumbel Exploration                                |     43.87 |       68.9250 |                             6.5817 | 0.37s  |
+| Gradient Bandit                                             |     46.48 |       69.6675 |                             9.5534 | 0.38s  |
+| Gradient Bandit (with baseline)                             |     48.72 |       70.6839 |                             6.1066 | 0.44s  |
 | SoftElim (θ=2.00)                                           |     37.94 |       71.6155 |                             8.1877 | 0.38s  |
 | ReBoot (r=1.50)                                             |     40.44 |       72.1794 |                             8.1305 | 0.26s  |
 | lil' UCB (δ=0.001)                                          |     39.18 |       73.8291 |                             8.0325 | 0.27s  |
@@ -391,15 +399,15 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=25)                                                  |     41.95 |      105.2629 |                            14.8396 | 0.16s  |
 | SoftElim (θ=5.00)                                           |     26.15 |      105.3719 |                            13.8624 | 0.40s  |
 | ETC (m=2)                                                   |     20.21 |      110.5641 |                            26.8868 | 0.12s  |
-| Gradient Bandit                                             |     30.32 |      110.7043 |                            17.1641 | 0.39s  |
-| Gradient Bandit (with baseline)                             |     31.34 |      113.5984 |                            11.7063 | 0.45s  |
 | Softsatisficing (a=0.25)                                    |     18.13 |      114.1714 |                            81.1272 | 0.07s  |
 | PFLA (n=10)                                                 |     23.62 |      121.0144 |                            55.8349 | 8.28s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     35.59 |      127.2145 |                            17.7947 | 0.07s  |
 | RS (a=0.10)                                                 |     16.10 |      132.1474 |                            91.9926 | 0.20s  |
 | Softsatisficing (a=0.10)                                    |     15.69 |      135.0154 |                            93.5393 | 0.05s  |
+| FTPL-GR (lr=0.010)                                          |     20.49 |      142.8645 |                            20.4026 | 4.25s  |
 | RS (a=0.00)                                                 |     15.09 |      144.1846 |                            97.5086 | 0.15s  |
 | CODE (δ=0.050)                                              |     10.94 |      187.9726 |                            24.8420 | 0.38s  |
+| FTPL-GR (lr=0.001)                                          |     10.91 |      196.2329 |                            29.3352 | 4.21s  |
 | PFLA (n=1)                                                  |     10.56 |      200.9131 |                            29.7225 | 0.97s  |
 | Random                                                      |     10.01 |      204.0160 |                            30.3495 | 0.01s  |
 <!-- END mdsh -->
@@ -532,9 +540,13 @@ This experiment was taken from the GIRO paper.
 | ETC (m=20)                                                  |     31.24 |       51.1732 |                             8.6350 | 0.16s  |
 | Perturbed-History Exploration (a=2.1)                       |     27.91 |       52.2188 |                             8.4423 | 1.37s  |
 | Softsatisficing (a=0.75)                                    |     30.32 |       52.6410 |                            16.5585 | 0.44s  |
+| FTPL-GR (lr=0.100)                                          |     28.27 |       52.7166 |                            10.1011 | 4.15s  |
 | Vanilla Residual Bootstrap (init=5)                         |     28.26 |       53.2834 |                             8.4062 | 0.23s  |
 | RS (a=0.75)                                                 |     29.84 |       54.6692 |                            13.4306 | 0.32s  |
+| Gradient Bandit                                             |     29.48 |       54.9276 |                             8.8193 | 0.39s  |
+| Gradient Bandit (with baseline)                             |     29.07 |       55.8207 |                             8.2645 | 0.44s  |
 | ETC (m=25)                                                  |     32.18 |       56.3820 |                             8.2546 | 0.16s  |
+| FTPL-GR (lr=1.000)                                          |     26.06 |       56.8336 |                            12.0625 | 4.13s  |
 | lil' UCB (δ=0.010)                                          |     25.83 |       56.9410 |                             8.2814 | 0.31s  |
 | Garbage In, Reward Out (a=1.00)                             |     25.12 |       57.7304 |                             9.1152 | 1.68s  |
 | Boltzmann-Gumbel Exploration                                |     25.61 |       58.0539 |                             8.8928 | 0.38s  |
@@ -550,10 +562,8 @@ This experiment was taken from the GIRO paper.
 | ETC (m=3)                                                   |     15.41 |       69.9994 |                            18.3348 | 0.19s  |
 | EXP-IX                                                      |     19.28 |       71.2582 |                            11.2795 | 0.53s  |
 | RS (a=0.25)                                                 |     15.97 |       71.7134 |                            48.5357 | 0.26s  |
-| Gradient Bandit                                             |     19.00 |       75.4704 |                            12.4808 | 0.52s  |
 | Softsatisficing (a=0.90)                                    |     17.73 |       76.2770 |                            12.8748 | 0.55s  |
 | SoftElim (θ=5.00)                                           |     16.52 |       76.3033 |                            11.6823 | 0.56s  |
-| Gradient Bandit (with baseline)                             |     18.51 |       77.0723 |                            10.7145 | 0.54s  |
 | RS (a=0.90)                                                 |     17.16 |       77.8704 |                            12.5705 | 0.29s  |
 | Softsatisficing (a=0.25)                                    |     14.53 |       78.0274 |                            53.4058 | 0.09s  |
 | ETC (m=2)                                                   |     15.27 |       80.4676 |                            18.0151 | 0.15s  |
@@ -561,8 +571,10 @@ This experiment was taken from the GIRO paper.
 | RS (a=0.99)                                                 |     15.39 |       82.4437 |                            12.9414 | 0.26s  |
 | Least Failures                                              |     15.39 |       82.4443 |                            12.9451 | 0.11s  |
 | RS (a=0.10)                                                 |     13.03 |       84.6250 |                            56.6531 | 0.26s  |
+| FTPL-GR (lr=0.010)                                          |     14.69 |       85.0457 |                            12.8256 | 4.16s  |
 | RS (a=0.00)                                                 |     12.85 |       85.6737 |                            57.3841 | 0.21s  |
 | Softsatisficing (a=0.10)                                    |     12.81 |       86.5606 |                            58.7008 | 0.06s  |
+| FTPL-GR (lr=0.001)                                          |     10.46 |      100.0294 |                            14.8858 | 4.25s  |
 | PFLA (n=1)                                                  |     10.42 |      100.4073 |                            14.7685 | 0.91s  |
 | Random                                                      |     10.01 |      102.0080 |                            15.1748 | 0.02s  |
 | CODE (δ=0.050)                                              |     10.00 |      102.0185 |                            14.8649 | 0.52s  |
@@ -694,10 +706,14 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | lil' UCB (δ=0.010)                                          |     10.70 |        4.4651 |                             0.2200 | 0.38s  |
 | Boltzmann-Gumbel Exploration                                |     10.67 |        4.4663 |                             0.2700 | 0.39s  |
 | Garbage In, Reward Out (a=1.00)                             |     10.66 |        4.4669 |                             0.2600 | 1.64s  |
+| Gradient Bandit                                             |     10.66 |        4.4672 |                             0.2000 | 0.40s  |
+| Gradient Bandit (with baseline)                             |     10.60 |        4.4699 |                             0.2000 | 0.45s  |
+| FTPL-GR (lr=0.100)                                          |     10.58 |        4.4711 |                             0.2500 | 4.13s  |
 | lil' UCB (δ=0.001)                                          |     10.54 |        4.4730 |                             0.2000 | 0.36s  |
 | PFLA (n=10)                                                 |     10.52 |        4.4740 |                             0.3800 | 9.70s  |
 | ReBoot (r=1.50)                                             |     10.49 |        4.4756 |                             0.2100 | 0.35s  |
 | PFLA (n=100)                                                |     10.48 |        4.4759 |                             0.2400 | 93.86s |
+| FTPL-GR (lr=1.000)                                          |     10.46 |        4.4769 |                             0.2900 | 4.01s  |
 | SoftElim (θ=2.00)                                           |     10.41 |        4.4797 |                             0.1700 | 0.56s  |
 | Perturbed-History Exploration (a=5.1)                       |     10.40 |        4.4798 |                             0.1900 | 1.13s  |
 | ReBoot (r=1.70)                                             |     10.40 |        4.4798 |                             0.1800 | 0.39s  |
@@ -707,15 +723,14 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ReBoot (r=2.10)                                             |     10.29 |        4.4854 |                             0.1400 | 0.32s  |
 | RS (a=0.00)                                                 |     10.28 |        4.4861 |                             0.0000 | 0.20s  |
 | ETC (m=25)                                                  |     10.27 |        4.4863 |                             0.0000 | 0.18s  |
-| Gradient Bandit                                             |     10.27 |        4.4866 |                             0.1300 | 0.54s  |
 | RS (a=0.10)                                                 |     10.24 |        4.4881 |                             0.0000 | 0.26s  |
 | UCB1                                                        |     10.23 |        4.4883 |                             0.1600 | 0.19s  |
 | Softsatisficing (a=0.50)                                    |     10.23 |        4.4884 |                             0.0000 | 0.12s  |
-| Gradient Bandit (with baseline)                             |     10.23 |        4.4887 |                             0.1100 | 0.56s  |
 | RS (a=0.90)                                                 |     10.22 |        4.4891 |                             0.1100 | 0.29s  |
 | Softsatisficing (a=0.90)                                    |     10.21 |        4.4897 |                             0.1200 | 0.57s  |
 | Softsatisficing (a=0.99)                                    |     10.17 |        4.4914 |                             0.1100 | 0.58s  |
 | SoftElim (θ=5.00)                                           |     10.17 |        4.4916 |                             0.1000 | 0.54s  |
+| FTPL-GR (lr=0.010)                                          |     10.14 |        4.4930 |                             0.0900 | 4.21s  |
 | ETC (m=5)                                                   |     10.11 |        4.4943 |                             0.0000 | 0.18s  |
 | ETC (m=20)                                                  |     10.11 |        4.4946 |                             0.0000 | 0.17s  |
 | Least Failures                                              |     10.08 |        4.4961 |                             0.0900 | 0.09s  |
@@ -723,6 +738,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Softsatisficing (a=0.25)                                    |     10.05 |        4.4976 |                             0.0000 | 0.10s  |
 | ETC (m=2)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.15s  |
 | ETC (m=3)                                                   |     10.04 |        4.4982 |                             0.4300 | 0.20s  |
+| FTPL-GR (lr=0.001)                                          |     10.02 |        4.4988 |                             0.0400 | 4.21s  |
 | Random                                                      |     10.02 |        4.4992 |                             0.0500 | 0.02s  |
 | PFLA (n=1)                                                  |     10.01 |        4.4993 |                             0.0100 | 1.22s  |
 | CODE (δ=0.050)                                              |     10.00 |        4.5000 |                             0.0000 | 0.42s  |
@@ -857,6 +873,8 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | ReBoot (r=1.50)                                             |     33.20 |       53.6329 |                            10.8113 | 0.32s  |
 | Perturbed-History Exploration (a=2.1)                       |     32.69 |       53.7141 |                             9.5801 | 1.55s  |
 | Tsallis-INF                                                 |     32.39 |       54.7917 |                            11.3371 | 1.29s  |
+| Gradient Bandit                                             |     33.08 |       54.8612 |                            11.0784 | 0.39s  |
+| Gradient Bandit (with baseline)                             |     32.39 |       55.7285 |                            11.4145 | 0.44s  |
 | Vanilla Residual Bootstrap (init=5)                         |     31.29 |       56.3702 |                            10.3022 | 0.28s  |
 | ReBoot (r=1.70)                                             |     30.99 |       56.8129 |                            12.0371 | 0.32s  |
 | Garbage In, Reward Out (a=1.00)                             |     29.48 |       58.3347 |                            11.5697 | 1.69s  |
@@ -869,18 +887,19 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | RS (a=0.00)                                                 |     21.30 |       64.4828 |                            45.7779 | 0.18s  |
 | lil' UCB (δ=0.001)                                          |     25.41 |       64.5631 |                            14.7753 | 0.29s  |
 | SoftElim (θ=2.00)                                           |     24.23 |       65.1032 |                            13.5526 | 0.43s  |
+| FTPL-GR (lr=0.100)                                          |     24.27 |       65.5709 |                            16.0043 | 4.03s  |
 | MARS (δ=1.000)                                              |     21.56 |       67.5569 |                            47.1317 | 0.13s  |
 | Perturbed-History Exploration (a=5.1)                       |     23.50 |       67.6540 |                            15.6673 | 1.51s  |
 | RS (a=0.50)                                                 |     22.27 |       69.0806 |                            16.5670 | 0.25s  |
 | Softsatisficing (a=0.50)                                    |     22.04 |       69.2504 |                            16.5095 | 0.45s  |
 | UCB1                                                        |     22.31 |       69.6096 |                            17.0817 | 0.21s  |
 | PFLA (n=10)                                                 |     18.26 |       73.4227 |                            21.0101 | 9.60s  |
-| Gradient Bandit                                             |     20.28 |       74.1103 |                            17.5927 | 0.43s  |
-| Gradient Bandit (with baseline)                             |     19.93 |       74.7782 |                            17.8747 | 0.48s  |
+| FTPL-GR (lr=1.000)                                          |     18.50 |       75.4350 |                            20.0029 | 4.27s  |
 | EXP-IX                                                      |     17.71 |       77.5879 |                            20.1208 | 0.60s  |
 | SoftElim (θ=5.00)                                           |     16.37 |       78.8722 |                            20.0951 | 0.42s  |
 | Softsatisficing (a=0.65)                                    |     16.04 |       80.3949 |                            20.9280 | 0.45s  |
 | RS (a=0.65)                                                 |     16.07 |       80.4757 |                            21.2548 | 0.26s  |
+| FTPL-GR (lr=0.010)                                          |     14.62 |       83.6299 |                            22.2985 | 4.14s  |
 | RS (a=0.75)                                                 |     14.49 |       83.6745 |                            22.3955 | 0.29s  |
 | Softsatisficing (a=0.75)                                    |     14.41 |       83.6750 |                            22.5529 | 0.46s  |
 | RS (a=0.90)                                                 |     13.27 |       86.1578 |                            23.4025 | 0.26s  |
@@ -889,6 +908,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 | RS (a=0.99)                                                 |     12.90 |       86.8720 |                            23.7404 | 0.25s  |
 | Softsatisficing (a=0.99)                                    |     12.75 |       87.0894 |                            23.7866 | 0.50s  |
 | PFLA (n=1)                                                  |     10.45 |       92.1317 |                            25.7794 | 1.22s  |
+| FTPL-GR (lr=0.001)                                          |     10.39 |       92.2580 |                            25.9058 | 4.14s  |
 | Random                                                      |      9.99 |       93.1436 |                            26.0904 | 0.04s  |
 | CODE (δ=0.050)                                              |     10.00 |       93.1468 |                            25.9588 | 0.45s  |
 <!-- END mdsh -->
@@ -969,6 +989,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Softsatisficing (a=0.99)                                    |     47.05 |       14.4903 |                             8.0153 | 0.27s  |
 | Bounded Dirichlet Sampling                                  |     45.58 |       14.5418 |                             4.6561 | 2.07s  |
 | PFLA (n=100)                                                |     32.03 |       14.6253 |                             5.1971 | 85.35s |
+| FTPL-GR (lr=1.000)                                          |     44.10 |       14.7489 |                             2.7172 | 4.06s  |
 | BayesUCB (δ=0.100)                                          |     37.27 |       15.0673 |                             2.3660 | 0.19s  |
 | Kullback-Leibler Maillard Sampling                          |     43.53 |       15.1294 |                             5.1731 | 0.52s  |
 | MOSS-Anytime (α=-0.50)                                      |     44.06 |       15.3933 |                             2.1697 | 0.23s  |
@@ -1003,6 +1024,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | MARS (δ=0.002)                                              |     23.66 |       25.1527 |                             9.2101 | 7.07s  |
 | RS (a=0.75)                                                 |     16.69 |       25.2082 |                            15.9762 | 0.22s  |
 | BayesUCB (δ=0.500)                                          |     15.86 |       25.3034 |                            16.2815 | 0.20s  |
+| FTPL-GR (lr=0.100)                                          |     26.18 |       25.4951 |                             4.2832 | 4.15s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     12.50 |       26.5896 |                             8.8139 | 1.15s  |
 | ETC (m=25)                                                  |     28.64 |       27.0247 |                             5.2417 | 0.16s  |
 | CODE (δ=0.900)                                              |     16.26 |       27.7259 |                             4.4425 | 0.44s  |
@@ -1022,8 +1044,10 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Garbage In, Reward Out (a=1.00)                             |     17.26 |       32.4632 |                             5.6672 | 1.25s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.10s  |
 | Boltzmann-Gumbel Exploration                                |     17.44 |       32.7460 |                             5.6438 | 0.40s  |
+| Gradient Bandit                                             |     18.28 |       33.0070 |                             6.4322 | 0.41s  |
 | Gittins Index -- Whittle's Approximation (β=0.50)           |     13.79 |       34.0919 |                            21.5379 | 0.23s  |
 | lil' UCB (δ=0.001)                                          |     15.51 |       34.2797 |                             5.8524 | 0.29s  |
+| Gradient Bandit (with baseline)                             |     17.93 |       34.4364 |                             5.7630 | 0.44s  |
 | EXP-IX                                                      |     15.62 |       34.8327 |                             6.2311 | 0.51s  |
 | ReBoot (r=1.50)                                             |     18.20 |       35.2644 |                             6.5573 | 0.25s  |
 | Perturbed-History Exploration (a=5.1)                       |     15.29 |       35.4831 |                             6.2519 | 1.09s  |
@@ -1037,11 +1061,10 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     12.38 |       38.6260 |                            24.0049 | 0.42s  |
 | BayesUCB (δ=0.900)                                          |     12.29 |       38.7864 |                            24.1887 | 0.21s  |
 | ReBoot (r=2.10)                                             |     15.90 |       39.2124 |                             7.5247 | 0.29s  |
-| Gradient Bandit                                             |     13.72 |       39.5229 |                             8.1141 | 0.45s  |
-| Gradient Bandit (with baseline)                             |     13.15 |       40.8926 |                             7.4944 | 0.47s  |
 | SoftElim (θ=5.00)                                           |     11.88 |       41.0176 |                             7.3971 | 0.41s  |
 | ETC (m=5)                                                   |     12.36 |       41.7571 |                             9.1900 | 0.19s  |
 | RS (a=0.50)                                                 |     11.80 |       42.0199 |                            25.5228 | 0.21s  |
+| FTPL-GR (lr=0.010)                                          |     12.28 |       42.4732 |                             8.0136 | 4.21s  |
 | ETC (m=3)                                                   |     12.03 |       43.5920 |                             9.6906 | 0.19s  |
 | Softsatisficing (a=0.50)                                    |     11.18 |       43.6892 |                            26.5617 | 0.08s  |
 | ETC (m=2)                                                   |     11.03 |       45.2564 |                             9.3287 | 0.16s  |
@@ -1051,6 +1074,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | RS (a=0.10)                                                 |     11.22 |       47.2198 |                            27.6594 | 0.21s  |
 | RS (a=0.00)                                                 |     11.13 |       47.2636 |                            27.6526 | 0.19s  |
 | PFLA (n=1)                                                  |     10.44 |       48.2947 |                             9.7754 | 1.09s  |
+| FTPL-GR (lr=0.001)                                          |     10.23 |       48.4041 |                             9.6683 | 4.19s  |
 | CODE (δ=0.050)                                              |     10.00 |       49.2639 |                             9.8811 | 0.43s  |
 | Random                                                      |      9.99 |       49.2870 |                            10.0029 | 0.03s  |
 <!-- END mdsh -->

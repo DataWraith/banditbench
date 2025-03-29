@@ -106,6 +106,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::FTPLGR { lr } => {
+                    let bandit = FTPLGR::new(num_arms, *lr);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ForcedExploration => {
                     let bandit = ForcedExploration::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)
