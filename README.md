@@ -90,7 +90,7 @@ Algorithms are only included in the benchmark if
 The following table shows the average rank and runtime of each algorithm when
 considering the five experiments further down in this file.
 
-<!-- `> cat aggregated_ranks.md` -->
+<!-- `> cat experiments/aggregated_ranks.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | Average Rank | Average Time (seconds) |
@@ -254,7 +254,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 <details>
 <summary>Results</summary>
 
-<!-- `> cat uniform.md` -->
+<!-- `> cat experiments/uniform.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
@@ -419,7 +419,7 @@ This experiment was taken from the GIRO paper.
 <details>
 <summary>Results</summary>
 
-<!-- `> cat half_range.md` -->
+<!-- `> cat experiments/half_range.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
@@ -583,7 +583,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 <details>
 <summary>Results</summary>
 
-<!-- `> cat hard.md` -->
+<!-- `> cat experiments/hard.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
@@ -746,7 +746,7 @@ This experiment was taken from the paper *Multiplier Bootstrap-based Exploration
 <details>
 <summary>Results</summary>
 
-<!-- `> cat beta.md` -->
+<!-- `> cat experiments/beta.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |
@@ -909,7 +909,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 <details>
 <summary>Results</summary>
 
-<!-- `> cat reverse_beta.md` -->
+<!-- `> cat experiments/reverse_beta.md` -->
 
 <!-- BEGIN mdsh -->
 | Algorithm                                                   | %-Optimal | Regret (Mean) | Regret (Median Absolute Deviation) |  Time  |

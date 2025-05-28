@@ -29,7 +29,7 @@ fn main() {
     let cli = Cli::parse();
 
     let algorithms = match cli.algorithm.to_ascii_lowercase().as_str() {
-        "bayesucb" => vec![
+        "bayes_ucb" => vec![
             Algorithms::BayesUCB { delta: 0.1 },
             Algorithms::BayesUCB { delta: 0.2 },
             Algorithms::BayesUCB { delta: 0.3 },
@@ -37,9 +37,9 @@ fn main() {
             Algorithms::BayesUCB { delta: 0.5 },
             Algorithms::BayesUCB { delta: 0.9 },
         ],
-        "bds" => vec![Algorithms::BDS],
+        "dirichlet_sampling" => vec![Algorithms::BDS],
         "bge" => vec![Algorithms::BGE],
-        "brezzilai" => vec![
+        "brezzi_and_lai_approximation" => vec![
             Algorithms::BrezziLaiApprox { beta: 0.8 },
             Algorithms::BrezziLaiApprox { beta: 0.9 },
             Algorithms::BrezziLaiApprox { beta: 0.95 },
@@ -57,13 +57,13 @@ fn main() {
             Algorithms::CODE { delta: 0.99 },
         ],
         "ebtci" => vec![Algorithms::EBTCI],
-        "epsgreedy" => vec![
+        "eps_greedy" => vec![
             Algorithms::EpsilonGreedy { epsilon: 0.01 },
             Algorithms::EpsilonGreedy { epsilon: 0.02 },
             Algorithms::EpsilonGreedy { epsilon: 0.05 },
             Algorithms::EpsilonGreedy { epsilon: 0.1 },
         ],
-        "epsdecreasing" => vec![
+        "eps_decreasing" => vec![
             Algorithms::EpsilonDecreasing { epsilon: 0.1 },
             Algorithms::EpsilonDecreasing { epsilon: 0.2 },
             Algorithms::EpsilonDecreasing { epsilon: 0.5 },
@@ -71,8 +71,8 @@ fn main() {
             Algorithms::EpsilonDecreasing { epsilon: 0.9 },
             Algorithms::EpsilonDecreasing { epsilon: 0.99 },
         ],
-        "epsts" => vec![Algorithms::EpsTS],
-        "epstsucb" => vec![
+        "eps_ts" => vec![Algorithms::EpsTS],
+        "eps_tsucb" => vec![
             Algorithms::EpsTSUCB { samples: 1 },
             Algorithms::EpsTSUCB { samples: 10 },
             Algorithms::EpsTSUCB { samples: 100 },
@@ -86,7 +86,7 @@ fn main() {
             Algorithms::ETC { m: 25 },
         ],
         "exp_ix" => vec![Algorithms::EXPIX],
-        "fe" => vec![Algorithms::ForcedExploration],
+        "forced_exploration" => vec![Algorithms::ForcedExploration],
         "giro" => vec![
             Algorithms::GIRO {
                 num_pseudo_rewards: 1.0,
@@ -98,10 +98,10 @@ fn main() {
                 num_pseudo_rewards: 1.0 / 10.0,
             },
         ],
-        "gradient" => vec![Algorithms::Gradient, Algorithms::GradientBaseline],
+        "gradient_bandit" => vec![Algorithms::Gradient, Algorithms::GradientBaseline],
         "greedy" => vec![Algorithms::Greedy],
-        "hellinger" => vec![Algorithms::HellingerUCB],
-        "irsfh" => vec![
+        "hellinger_ucb" => vec![Algorithms::HellingerUCB],
+        "irs_fh" => vec![
             Algorithms::IRSFH { assumed_horizon: 1 },
             Algorithms::IRSFH { assumed_horizon: 2 },
             Algorithms::IRSFH { assumed_horizon: 3 },
@@ -115,8 +115,8 @@ fn main() {
             },
         ],
         "klms" => vec![Algorithms::KLMS],
-        "klucb" => vec![Algorithms::KLUCB],
-        "lf" => vec![Algorithms::LeastFailures],
+        "kl_ucb" => vec![Algorithms::KLUCB],
+        "least_failures" => vec![Algorithms::LeastFailures],
         "lilucb" => vec![
             Algorithms::LilUCB { delta: 0.001 },
             Algorithms::LilUCB { delta: 0.01 },
@@ -132,7 +132,7 @@ fn main() {
             },
         ],
         "mbe" => vec![Algorithms::MBE],
-        "mossanytime" => vec![
+        "moss_anytime" => vec![
             Algorithms::MOSSAnytime { alpha: -0.85 },
             Algorithms::MOSSAnytime { alpha: -0.5 },
             Algorithms::MOSSAnytime { alpha: -0.33 },
@@ -199,7 +199,7 @@ fn main() {
             Algorithms::RS { aspiration: 0.9 },
             Algorithms::RS { aspiration: 0.99 },
         ],
-        "softelim" => vec![
+        "soft_elim" => vec![
             Algorithms::SoftElim { theta: 0.01 },
             Algorithms::SoftElim { theta: 0.1 },
             Algorithms::SoftElim { theta: 0.25 },
@@ -229,11 +229,11 @@ fn main() {
             Algorithms::TSUCB { samples: 10 },
             Algorithms::TSUCB { samples: 100 },
         ],
-        "tsvha" => vec![Algorithms::TSVHA],
-        "tsallisinf" => vec![Algorithms::TsallisINF],
+        "ts_vha" => vec![Algorithms::TSVHA],
+        "tsallis_inf" => vec![Algorithms::TsallisINF],
         "ucb1" => vec![Algorithms::UCB1],
-        "ucb1tuned" => vec![Algorithms::UCB1Tuned],
-        "ucbdt" => vec![
+        "ucb1_tuned" => vec![Algorithms::UCB1Tuned],
+        "ucb_dt" => vec![
             Algorithms::UCBDT { gamma: 0.75 },
             Algorithms::UCBDT { gamma: 0.9 },
             Algorithms::UCBDT { gamma: 0.95 },
@@ -245,14 +245,14 @@ fn main() {
             Algorithms::VResBoot { init: 1 },
             Algorithms::VResBoot { init: 5 },
         ],
-        "wa" => vec![
+        "whittle_approximation" => vec![
             Algorithms::WhittleApprox { beta: 0.5 },
             Algorithms::WhittleApprox { beta: 0.7 },
             Algorithms::WhittleApprox { beta: 0.9 },
             Algorithms::WhittleApprox { beta: 0.99 },
         ],
-        "wb" => vec![Algorithms::WB],
-        "wrsda" => vec![Algorithms::WRSDA],
+        "weighted_bootstrap" => vec![Algorithms::WB],
+        "wr_sda" => vec![Algorithms::WRSDA],
         _ => panic!("No such algorithm: {}", cli.algorithm),
     };
 
