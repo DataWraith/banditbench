@@ -226,6 +226,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::RavenUCB { a0, b0, eps } => {
+                    let bandit = RavenUCB::new(num_arms, *a0, *b0, *eps);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::ReBoot { r } => {
                     let bandit = ReBoot::new(num_arms, *r);
                     evaluate_bandit(bandit, &arms, horizon, seed)

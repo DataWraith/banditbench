@@ -180,6 +180,68 @@ fn main() {
                 assumed_horizon: 250,
             },
         ],
+        "raven_ucb" => vec![
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 0.5,
+                eps: 1e-3,
+            },
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 0.5,
+                eps: 0.1,
+            },
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 0.5,
+                eps: 0.5,
+            },
+            Algorithms::RavenUCB {
+                a0: 1.0,
+                b0: 5.0,
+                eps: 1e-3,
+            },
+            Algorithms::RavenUCB {
+                a0: 1.0,
+                b0: 5.0,
+                eps: 0.1,
+            },
+            Algorithms::RavenUCB {
+                a0: 1.0,
+                b0: 5.0,
+                eps: 0.5,
+            },
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 10.0,
+                eps: 1e-3,
+            },
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 10.0,
+                eps: 0.1,
+            },
+            Algorithms::RavenUCB {
+                a0: 0.5,
+                b0: 10.0,
+                eps: 0.5,
+            },
+            Algorithms::RavenUCB {
+                a0: 5.0,
+                b0: 1.0,
+                eps: 1e-3,
+            },
+            Algorithms::RavenUCB {
+                a0: 5.0,
+                b0: 1.0,
+                eps: 0.1,
+            },
+            Algorithms::RavenUCB {
+                a0: 5.0,
+                b0: 1.0,
+                eps: 0.5,
+            },
+        ],
         "reboot" => vec![
             Algorithms::ReBoot { r: 0.25 },
             Algorithms::ReBoot { r: 0.5 },

@@ -39,8 +39,8 @@ pub use {
     ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
     ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::bayes_ucb::BayesUCB,
     ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
-    ucb::moss_anytime::MOSSAnytime, ucb::reucb::ReUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned,
-    ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
+    ucb::moss_anytime::MOSSAnytime, ucb::raven_ucb::RavenUCB, ucb::reucb::ReUCB, ucb::ucb1::UCB1,
+    ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
@@ -78,6 +78,7 @@ pub enum Algorithms {
     PHE { perturbation_scale: f64 },
     POKER { assumed_horizon: usize },
     Random,
+    RavenUCB { a0: f64, b0: f64, eps: f64 },
     ReBoot { r: f64 },
     ReUCB { a: f64 },
     RS { aspiration: f64 },
@@ -171,6 +172,7 @@ impl std::fmt::Display for Algorithms {
                 perturbation_scale
             ),
             Algorithms::POKER { assumed_horizon } => write!(f, "POKER (H={})", assumed_horizon),
+            Algorithms::RavenUCB { a0, b0, eps } => write!(f, "RAVEN-UCB (a0={}, b0={}, eps={})", a0, b0, eps),
             Algorithms::ReBoot { r } => write!(f, "ReBoot (r={:.2})", r),
             Algorithms::ReUCB { a } => write!(f, "ReUCB (a={:.2})", a),
             Algorithms::Random => write!(f, "Random"),

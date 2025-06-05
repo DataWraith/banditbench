@@ -7,6 +7,7 @@ anyhow = "1.0"
 bkt = "0.8"
 walkdir = "2"
 ---
+#![feature(os_str_display)]
 
 use std::fs::File;
 use std::io::prelude::*;
