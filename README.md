@@ -62,7 +62,7 @@ Algorithms are only included in the benchmark if
 - [KL-UCB](https://arxiv.org/abs/1102.2490)
 - [lil' UCB](https://arxiv.org/abs/1312.7308)
 - [MOSS-anytime](http://proceedings.mlr.press/v48/degenne16.html)
-- [RavenUCB](https://arxiv.org/abs/2506.02933)
+- [RAVEN-UCB](https://arxiv.org/abs/2506.02933)
 - [ReUCB](https://arxiv.org/abs/2106.12200)
 - [UCB1](https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf) (PDF)
 - [UCB1-Tuned](https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf) (PDF)
