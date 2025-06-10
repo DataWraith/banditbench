@@ -29,6 +29,13 @@ fn main() {
     let cli = Cli::parse();
 
     let algorithms = match cli.algorithm.to_ascii_lowercase().as_str() {
+        "batch_ensemble" => vec![
+            Algorithms::BatchEnsemble { multiplier: 0.0 },
+            Algorithms::BatchEnsemble { multiplier: 1.0 },
+            Algorithms::BatchEnsemble { multiplier: 2.0 },
+            Algorithms::BatchEnsemble { multiplier: 4.0 },
+            Algorithms::BatchEnsemble { multiplier: 8.0 },
+        ],
         "bayes_ucb" => vec![
             Algorithms::BayesUCB { delta: 0.1 },
             Algorithms::BayesUCB { delta: 0.2 },

@@ -41,6 +41,11 @@ pub fn evaluate_bandits(
             let seed = (i + 1) as u64;
 
             match algorithm {
+                Algorithms::BatchEnsemble { multiplier } => {
+                    let bandit = BatchEnsemble::new(num_arms, *multiplier);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::BayesUCB { delta } => {
                     let bandit = BayesUCB::new(num_arms, *delta);
                     evaluate_bandit(bandit, &arms, horizon, seed)

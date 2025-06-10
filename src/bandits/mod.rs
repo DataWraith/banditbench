@@ -8,6 +8,7 @@ pub mod gittins;
 pub mod ts;
 pub mod ucb;
 
+pub mod batch_ensemble;
 pub mod bge;
 pub mod code;
 pub mod ebtci;
@@ -27,12 +28,12 @@ pub mod tsucb;
 pub use {
     automata::pfla::PFLA, baselines::eps_decreasing::EpsilonDecreasing,
     baselines::eps_greedy::EpsilonGreedy, baselines::etc::ETC, baselines::greedy::Greedy,
-    baselines::least_failures::LeastFailures, baselines::random::Random, bge::BGE,
-    bootstrap::bts::BTS, bootstrap::giro::GIRO, bootstrap::mars::MARS, bootstrap::mbe::Mbe,
-    bootstrap::phe::PHE, bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot,
-    bootstrap::weighted_bootstrap::WB, code::CODE, dueling::dirichlet_sampling::BDS,
-    dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB, exp_ix::EXPIX,
-    forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
+    baselines::least_failures::LeastFailures, baselines::random::Random,
+    batch_ensemble::BatchEnsemble, bge::BGE, bootstrap::bts::BTS, bootstrap::giro::GIRO,
+    bootstrap::mars::MARS, bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
+    bootstrap::vresboot::VResBoot, bootstrap::weighted_bootstrap::WB, code::CODE,
+    dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
+    exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
@@ -44,6 +45,7 @@ pub use {
 };
 
 pub enum Algorithms {
+    BatchEnsemble { multiplier: f64 },
     BayesUCB { delta: f64 },
     BDS,
     BGE,
@@ -123,6 +125,9 @@ impl Arm {
 impl std::fmt::Display for Algorithms {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
+            Algorithms::BatchEnsemble { multiplier } => {
+                write!(f, "Batch Ensemble for MAB (m={multiplier})")
+            }
             Algorithms::BayesUCB { delta } => write!(f, "BayesUCB (δ={:.3})", delta),
             Algorithms::BDS => write!(f, "Bounded Dirichlet Sampling"),
             Algorithms::BGE => write!(f, "Boltzmann-Gumbel Exploration"),
@@ -172,7 +177,9 @@ impl std::fmt::Display for Algorithms {
                 perturbation_scale
             ),
             Algorithms::POKER { assumed_horizon } => write!(f, "POKER (H={})", assumed_horizon),
-            Algorithms::RavenUCB { a0, b0, eps } => write!(f, "RAVEN-UCB (a0={}, b0={}, eps={})", a0, b0, eps),
+            Algorithms::RavenUCB { a0, b0, eps } => {
+                write!(f, "RAVEN-UCB (a0={}, b0={}, eps={})", a0, b0, eps)
+            }
             Algorithms::ReBoot { r } => write!(f, "ReBoot (r={:.2})", r),
             Algorithms::ReUCB { a } => write!(f, "ReUCB (a={:.2})", a),
             Algorithms::Random => write!(f, "Random"),
