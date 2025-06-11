@@ -42,15 +42,14 @@ impl BatchEnsemble {
 }
 
 impl Bandit for BatchEnsemble {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, _rng: impl Rng) -> usize {
         (0..self.arms.len())
             .min_by_key(|i| {
-                let batches = &self.arms[*i];
-
-                (
-                    batches.iter().map(|b| OrderedFloat(b.mu())).min().unwrap(),
-                    rng.gen::<u32>(),
-                )
+                self.arms[*i]
+                    .iter()
+                    .map(|b| OrderedFloat(b.mu()))
+                    .min()
+                    .unwrap()
             })
             .unwrap()
     }
@@ -58,13 +57,10 @@ impl Bandit for BatchEnsemble {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         // The paper recommends a number of batches that is 8 * log(t), but that doesn't seem to work well.
         // Using a multiplier of 0 (i.e. always 1 batch) seems to work better, as does a multiplier of 1.
-        let num_batches = (self.batch_size_multiplier * (self.t as f64).log10()) as usize;
-        let num_batches = 1.max(num_batches);
-
+        let wanted_batches = (self.batch_size_multiplier * (self.t as f64).log10()) as usize;
         self.t += 1;
 
-        // Add batches until we have enough
-        while num_batches > self.arms[arm].len() {
+        if wanted_batches > self.arms[arm].len() {
             self.arms[arm].push(Batch::default());
         }
 
