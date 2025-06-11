@@ -1,6 +1,5 @@
 use rand::prelude::*;
 
-pub mod automata;
 pub mod baselines;
 pub mod bootstrap;
 pub mod dueling;
@@ -26,14 +25,13 @@ pub mod tsallis_inf;
 pub mod tsucb;
 
 pub use {
-    automata::pfla::PFLA, baselines::eps_decreasing::EpsilonDecreasing,
-    baselines::eps_greedy::EpsilonGreedy, baselines::etc::ETC, baselines::greedy::Greedy,
-    baselines::least_failures::LeastFailures, baselines::random::Random,
-    batch_ensemble::BatchEnsemble, bge::BGE, bootstrap::bts::BTS, bootstrap::giro::GIRO,
-    bootstrap::mars::MARS, bootstrap::mbe::Mbe, bootstrap::phe::PHE, bootstrap::reboot::ReBoot,
-    bootstrap::vresboot::VResBoot, bootstrap::weighted_bootstrap::WB, code::CODE,
-    dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
-    exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
+    baselines::eps_decreasing::EpsilonDecreasing, baselines::eps_greedy::EpsilonGreedy,
+    baselines::etc::ETC, baselines::greedy::Greedy, baselines::least_failures::LeastFailures,
+    baselines::random::Random, batch_ensemble::BatchEnsemble, bge::BGE, bootstrap::bts::BTS,
+    bootstrap::giro::GIRO, bootstrap::mars::MARS, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
+    bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, bootstrap::weighted_bootstrap::WB,
+    code::CODE, dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI,
+    eps_tsucb::EpsTSUCB, exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
@@ -76,7 +74,6 @@ pub enum Algorithms {
     MOSSAnytime { alpha: f64 },
     NPTS,
     OptimisticTS,
-    PFLA { n: usize },
     PHE { perturbation_scale: f64 },
     POKER { assumed_horizon: usize },
     Random,
@@ -170,7 +167,6 @@ impl std::fmt::Display for Algorithms {
             Algorithms::MOSSAnytime { alpha } => write!(f, "MOSS-Anytime (α={:.2})", alpha),
             Algorithms::NPTS => write!(f, "Non-Parametric Thompson Sampling"),
             Algorithms::OptimisticTS => write!(f, "Optimistic Thompson Sampling"),
-            Algorithms::PFLA { n } => write!(f, "PFLA (n={})", n),
             Algorithms::PHE { perturbation_scale } => write!(
                 f,
                 "Perturbed-History Exploration (a={})",

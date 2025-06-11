@@ -79,7 +79,6 @@ Algorithms are only included in the benchmark if
 - [Forced Exploration](https://arxiv.org/abs/2312.07285)
 - [Gradient Bandit](https://arxiv.org/abs/2402.17235)
 - [Kullback-Leibler Maillard Sampling](https://arxiv.org/abs/2304.14989)
-- [Parameter Free Learning Automaton](https://arxiv.org/abs/1711.10111)
 - [POKER](https://link.springer.com/chapter/10.1007/11564096_42) (with fixed Horizon)
 - [Risk-sensitive Satisficing (RS)](https://doi.org/10.1016/j.biosystems.2019.02.009)
 - [SoftElim](https://arxiv.org/abs/2002.06772)

@@ -152,11 +152,6 @@ fn main() {
         ],
         "npts" => vec![Algorithms::NPTS],
         "ots" => vec![Algorithms::OptimisticTS],
-        "pfla" => vec![
-            Algorithms::PFLA { n: 1 },
-            Algorithms::PFLA { n: 10 },
-            Algorithms::PFLA { n: 100 },
-        ],
         "phe" => vec![
             Algorithms::PHE {
                 perturbation_scale: 1.1,
