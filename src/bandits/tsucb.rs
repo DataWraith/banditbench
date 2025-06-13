@@ -22,35 +22,19 @@ impl TSUCB {
 }
 
 impl Bandit for TSUCB {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
 
-        let mut fts = 0f64;
-
-        let distributions = self
-            .arms
-            .iter()
-            .map(|arm| Beta::new(arm.successes as f64 + 1.0, arm.failures as f64 + 1.0).unwrap())
-            .collect::<Vec<Beta<f64>>>();
-
-        for _ in 0..self.num_samples {
-            let mut best_sample = f64::NEG_INFINITY;
-
-            for i in 0..self.arms.len() {
-                let sample = distributions[i].sample(&mut rng);
-                best_sample = best_sample.max(sample);
-            }
-
-            fts += best_sample;
-        }
-
-        let ft = fts / self.num_samples as f64;
+        let ft = self.estimate_highest_reward(rng);
 
         (0..self.arms.len())
             .min_by_key(|i| {
-                OrderedFloat(f64::sqrt(self.arms[*i].n() as f64) * (ft - self.arms[*i].mean()))
+                let explore = (self.arms[*i].n() as f64).sqrt();
+                let exploit = ft - self.arms[*i].mean();
+
+                OrderedFloat(explore * exploit)
             })
             .unwrap()
     }
@@ -63,5 +47,23 @@ impl Bandit for TSUCB {
         }
 
         self.t += 1;
+    }
+}
+
+impl TSUCB {
+    fn estimate_highest_reward(&self, mut rng: impl Rng) -> f64 {
+        let mut best_samples = vec![f64::NEG_INFINITY; self.num_samples];
+
+        for arm in self.arms.iter() {
+            let distribution =
+                Beta::new(1.0 + arm.successes as f64, 1.0 + arm.failures as f64).unwrap();
+
+            best_samples
+                .iter_mut()
+                .zip(distribution.sample_iter(&mut rng))
+                .for_each(|(f, s)| *f = f.max(s));
+        }
+
+        best_samples.iter().sum::<f64>() / self.num_samples as f64
     }
 }
