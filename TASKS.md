@@ -60,4 +60,5 @@ Requires: aggregate-ranks
 
 ```sh
 mdsh
+prettier --write README.md
 ```
