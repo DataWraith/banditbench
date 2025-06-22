@@ -8,13 +8,17 @@ use crate::Bandit;
 pub struct WRSDA {
     arms: Vec<Arm>,
     challengers: Vec<usize>,
+    fe: bool,
+    t: usize,
 }
 
 impl WRSDA {
-    pub fn new(num_arms: usize) -> Self {
+    pub fn new(num_arms: usize, forced_exploration: bool) -> Self {
         WRSDA {
             arms: vec![Arm::default(); num_arms],
             challengers: (0..num_arms).collect(),
+            fe: forced_exploration,
+            t: 1,
         }
     }
 
@@ -54,6 +58,19 @@ impl Bandit for WRSDA {
             return self.challengers.pop().unwrap();
         }
 
+        if self.fe {
+            if let Some(arm) = self
+                .arms
+                .iter()
+                .enumerate()
+                .filter(|(_i, arm)| (arm.n() as f64) < (self.t as f64).log10().sqrt())
+                .map(|(i, _arm)| i)
+                .next()
+            {
+                return arm;
+            }
+        }
+
         let leader = self.leader(&mut rng);
 
         for i in 0..self.arms.len() {
@@ -80,5 +97,7 @@ impl Bandit for WRSDA {
         } else {
             self.arms[arm].failures += 1;
         }
+
+        self.t += 1;
     }
 }

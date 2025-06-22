@@ -95,7 +95,7 @@ pub enum Algorithms {
     VResBoot { init: usize },
     WB,
     WhittleApprox { beta: f64 },
-    WRSDA,
+    WRSDA { forced_exploration: bool },
 }
 
 pub trait Bandit {
@@ -209,7 +209,9 @@ impl std::fmt::Display for Algorithms {
                     beta
                 )
             }
-            Algorithms::WRSDA => write!(f, "WR-SDA"),
+            Algorithms::WRSDA { forced_exploration } => {
+                write!(f, "WR-SDA (forced_exploration={})", forced_exploration)
+            }
         }
     }
 }

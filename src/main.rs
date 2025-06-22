@@ -322,7 +322,14 @@ fn main() {
             Algorithms::WhittleApprox { beta: 0.99 },
         ],
         "weighted_bootstrap" => vec![Algorithms::WB],
-        "wr_sda" => vec![Algorithms::WRSDA],
+        "wr_sda" => vec![
+            Algorithms::WRSDA {
+                forced_exploration: false,
+            },
+            Algorithms::WRSDA {
+                forced_exploration: true,
+            },
+        ],
         _ => panic!("No such algorithm: {}", cli.algorithm),
     };
 
