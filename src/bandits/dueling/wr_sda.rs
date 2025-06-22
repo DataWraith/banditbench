@@ -59,15 +59,18 @@ impl Bandit for WRSDA {
         }
 
         if self.fe {
-            if let Some(arm) = self
+            self.challengers = self
                 .arms
                 .iter()
                 .enumerate()
                 .filter(|(_i, arm)| (arm.n() as f64) < (self.t as f64).log10().sqrt())
                 .map(|(i, _arm)| i)
-                .next()
-            {
-                return arm;
+                .collect();
+
+            self.challengers.shuffle(&mut rng);
+
+            if !self.challengers.is_empty() {
+                return self.challengers.pop().unwrap();
             }
         }
 

@@ -159,7 +159,7 @@ considering the five experiments further down in this file.
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 59.4         | 0.48                   |
 | RAVEN-UCB (a0=1, b0=5, eps=0.1)                             | 61.0         | 0.24                   |
 | ϵ-Greedy (ϵ=0.100)                                          | 61.2         | 0.17                   |
-| WR-SDA (forced_exploration=true)                            | 62.0         | 1.64                   |
+| WR-SDA (forced_exploration=true)                            | 61.8         | 0.8                    |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 62.2         | 0.45                   |
 | UCBT                                                        | 64.0         | 0.15                   |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 64.6         | 0.51                   |
@@ -168,10 +168,10 @@ considering the five experiments further down in this file.
 | Forced Exploration                                          | 67.8         | 0.16                   |
 | RAVEN-UCB (a0=1, b0=5, eps=0.001)                           | 68.0         | 0.24                   |
 | BayesUCB (δ=0.900)                                          | 68.2         | 0.3                    |
-| WR-SDA (forced_exploration=false)                           | 68.8         | 1.51                   |
+| WR-SDA (forced_exploration=false)                           | 68.8         | 0.77                   |
 | SoftElim (θ=0.25)                                           | 70.8         | 0.5                    |
 | ReBoot (r=0.25)                                             | 71.0         | 0.27                   |
-| MARS (δ=0.100)                                              | 72.2         | 0.45                   |
+| MARS (δ=0.100)                                              | 72.4         | 0.45                   |
 | POKER (H=250)                                               | 74.4         | 0.4                    |
 | Batch Ensemble for MAB (m=2)                                | 75.0         | 0.2                    |
 | Thompson Sampling                                           | 77.8         | 0.86                   |
@@ -332,8 +332,8 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | RS (a=0.75)                                                 |     57.47 |       23.4688 |                            11.0929 | 0.25s  |
 | RAVEN-UCB (a0=0.5, b0=10, eps=0.1)                          |     68.14 |       23.4949 |                             3.2027 | 0.25s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     66.55 |       23.6847 |                             3.3687 | 0.19s  |
-| WR-SDA (forced_exploration=false)                           |     66.87 |       23.8280 |                             5.0922 | 1.18s  |
-| WR-SDA (forced_exploration=true)                            |     69.38 |       24.2512 |                             5.3064 | 1.30s  |
+| WR-SDA (forced_exploration=false)                           |     66.87 |       23.8280 |                             5.0922 | 0.68s  |
+| WR-SDA (forced_exploration=true)                            |     69.50 |       24.2467 |                             5.3321 | 0.64s  |
 | IRS.FH (H=25)                                               |     70.09 |       24.4452 |                             6.0015 | 2.29s  |
 | MOSS-Anytime (α=-0.33)                                      |     69.75 |       24.4536 |                             2.6909 | 0.23s  |
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     51.65 |       24.9930 |                            11.3705 | 0.24s  |
@@ -545,9 +545,9 @@ This experiment was taken from the GIRO paper.
 | Forced Exploration                                          |     41.72 |       33.1699 |                             5.7046 | 0.16s  |
 | RAVEN-UCB (a0=1, b0=5, eps=0.001)                           |     39.57 |       33.2162 |                             6.5485 | 0.26s  |
 | Softsatisficing (a=0.50)                                    |     31.09 |       33.7174 |                            20.6161 | 0.11s  |
-| WR-SDA (forced_exploration=true)                            |     40.22 |       33.8359 |                             6.5044 | 2.12s  |
+| WR-SDA (forced_exploration=true)                            |     40.20 |       33.8852 |                             6.5397 | 1.03s  |
 | POKER (H=250)                                               |     37.22 |       33.9079 |                             8.0820 | 0.44s  |
-| WR-SDA (forced_exploration=false)                           |     37.74 |       34.3702 |                             7.8470 | 2.00s  |
+| WR-SDA (forced_exploration=false)                           |     37.74 |       34.3702 |                             7.8470 | 0.96s  |
 | IRS.FH (H=25)                                               |     38.87 |       35.4924 |                             6.7519 | 2.17s  |
 | CODE (δ=0.900)                                              |     35.87 |       35.7202 |                            11.4984 | 0.46s  |
 | UCB1-Tuned                                                  |     38.36 |       36.0304 |                             5.8517 | 0.31s  |
@@ -721,14 +721,14 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Bootstrapped Thompson Sampling (J=100)                      |     11.76 |        4.4118 |                             0.3100 | 1.41s  |
 | EB-TCI                                                      |     11.56 |        4.4218 |                             0.4400 | 0.38s  |
 | Batch Ensemble for MAB (m=4)                                |     11.56 |        4.4221 |                             0.3100 | 0.30s  |
-| WR-SDA (forced_exploration=false)                           |     11.52 |        4.4238 |                             0.3200 | 1.52s  |
+| WR-SDA (forced_exploration=false)                           |     11.52 |        4.4238 |                             0.3200 | 0.70s  |
 | BayesUCB (δ=0.200)                                          |     11.51 |        4.4245 |                             0.2300 | 0.29s  |
 | IRS.FH (H=10)                                               |     11.46 |        4.4270 |                             0.2400 | 1.62s  |
 | TS-UCB (10 samples)                                         |     11.45 |        4.4275 |                             0.2500 | 8.47s  |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) |     11.45 |        4.4276 |                             0.2600 | 6.91s  |
 | Vanilla Residual Bootstrap (init=0)                         |     11.42 |        4.4292 |                             0.3500 | 0.22s  |
+| WR-SDA (forced_exploration=true)                            |     11.41 |        4.4293 |                             0.3100 | 0.76s  |
 | MARS (δ=0.100)                                              |     11.41 |        4.4296 |                             0.2400 | 0.47s  |
-| WR-SDA (forced_exploration=true)                            |     11.40 |        4.4301 |                             0.3000 | 1.63s  |
 | CODE (δ=0.900)                                              |     11.39 |        4.4305 |                             0.4900 | 0.48s  |
 | ReBoot (r=0.25)                                             |     11.38 |        4.4311 |                             0.3500 | 0.27s  |
 | BayesUCB (δ=0.900)                                          |     11.37 |        4.4314 |                             0.1200 | 0.26s  |
@@ -893,7 +893,7 @@ This experiment was taken from the paper _Multiplier Bootstrap-based Exploration
 | ϵ-Decreasing (ϵ=0.500)                                      |     45.66 |       30.9426 |                            10.3885 | 0.19s  |
 | Bootstrapped Thompson Sampling (J=10)                       |     49.88 |       31.1623 |                             6.5576 | 0.61s  |
 | Forced Exploration                                          |     48.86 |       31.4112 |                             9.0715 | 0.16s  |
-| WR-SDA (forced_exploration=true)                            |     45.48 |       31.4811 |                             8.7878 | 2.29s  |
+| WR-SDA (forced_exploration=true)                            |     45.46 |       31.4975 |                             8.7883 | 1.17s  |
 | IRS.FH (H=25)                                               |     50.57 |       32.0301 |                             5.6474 | 1.95s  |
 | Multiplier Bootstrap-based Exploration                      |     49.17 |       32.4139 |                             6.0942 | 7.30s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     42.88 |       32.7340 |                            12.0469 | 0.22s  |
@@ -932,7 +932,7 @@ This experiment was taken from the paper _Multiplier Bootstrap-based Exploration
 | CODE (δ=0.900)                                              |     40.61 |       40.2050 |                            13.2482 | 0.53s  |
 | ReBoot (r=0.90)                                             |     42.54 |       40.7881 |                             7.1968 | 0.33s  |
 | Satisficing Thompson Sampling (ϵ=0.050)                     |     41.59 |       40.8984 |                             7.1496 | 1.20s  |
-| WR-SDA (forced_exploration=false)                           |     36.73 |       41.0443 |                            19.6162 | 2.11s  |
+| WR-SDA (forced_exploration=false)                           |     36.73 |       41.0443 |                            19.6162 | 1.08s  |
 | POKER (H=100)                                               |     36.39 |       41.3770 |                            22.1022 | 0.32s  |
 | POKER (H=250)                                               |     36.40 |       41.3832 |                            21.9572 | 0.31s  |
 | POKER (H=50)                                                |     36.31 |       41.4064 |                            22.3819 | 0.31s  |
@@ -1052,8 +1052,8 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | CODE (δ=0.990)                                              |     48.81 |        9.4822 |                             1.7486 | 0.48s  |
 | ϵ-Decreasing (ϵ=0.700)                                      |     52.78 |        9.6599 |                             1.7204 | 0.31s  |
 | IRS.FH (H=25)                                               |     54.09 |       10.0328 |                             2.1203 | 1.98s  |
-| WR-SDA (forced_exploration=true)                            |     52.97 |       10.1400 |                             2.5593 | 0.85s  |
-| WR-SDA (forced_exploration=false)                           |     52.23 |       10.2123 |                             2.7845 | 0.73s  |
+| WR-SDA (forced_exploration=true)                            |     53.21 |       10.1587 |                             2.5749 | 0.40s  |
+| WR-SDA (forced_exploration=false)                           |     52.23 |       10.2123 |                             2.7845 | 0.43s  |
 | POKER (H=50)                                                |     41.34 |       10.6033 |                             2.7010 | 0.44s  |
 | POKER (H=25)                                                |     41.02 |       10.6190 |                             2.7176 | 0.47s  |
 | POKER (H=100)                                               |     41.56 |       10.6923 |                             2.7973 | 0.51s  |
