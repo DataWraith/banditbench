@@ -9,7 +9,7 @@ pub struct WRSDA {
     arms: Vec<Arm>,
     challengers: Vec<usize>,
     fe: bool,
-    t: usize,
+    r: usize,
 }
 
 impl WRSDA {
@@ -18,7 +18,7 @@ impl WRSDA {
             arms: vec![Arm::default(); num_arms],
             challengers: (0..num_arms).collect(),
             fe: forced_exploration,
-            t: 1,
+            r: 1,
         }
     }
 
@@ -58,12 +58,14 @@ impl Bandit for WRSDA {
             return self.challengers.pop().unwrap();
         }
 
+        self.r += 1;
+
         if self.fe {
             self.challengers = self
                 .arms
                 .iter()
                 .enumerate()
-                .filter(|(_i, arm)| (arm.n() as f64) < (self.t as f64).log10().sqrt())
+                .filter(|(_i, arm)| (arm.n() as f64) <= (self.r as f64).log10().sqrt())
                 .map(|(i, _arm)| i)
                 .collect();
 
@@ -100,7 +102,5 @@ impl Bandit for WRSDA {
         } else {
             self.arms[arm].failures += 1;
         }
-
-        self.t += 1;
     }
 }
