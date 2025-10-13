@@ -52,7 +52,7 @@ impl Bandit for EXPIX {
         let sampling_logits = self
             .losses
             .iter()
-            .map(|loss| (-learning_rate * loss))
+            .map(|loss| -learning_rate * loss)
             .collect::<Vec<f64>>();
 
         let max_logit = sampling_logits
