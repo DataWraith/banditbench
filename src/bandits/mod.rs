@@ -81,7 +81,7 @@ pub enum Algorithms {
     ReBoot { r: f64 },
     ReUCB { a: f64 },
     RS { aspiration: f64 },
-    SoftElim { theta: f64 },
+    SoftElim { w: f64 },
     SoftSatisficing { aspiration: f64 },
     STS { epsilon: f64 },
     TS,
@@ -180,7 +180,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::ReUCB { a } => write!(f, "ReUCB (a={:.2})", a),
             Algorithms::Random => write!(f, "Random"),
             Algorithms::RS { aspiration } => write!(f, "RS (a={:.2})", aspiration),
-            Algorithms::SoftElim { theta } => write!(f, "SoftElim (θ={:.2})", theta),
+            Algorithms::SoftElim { w } => write!(f, "SoftElim (w={:.2})", w),
             Algorithms::SoftSatisficing { aspiration } => {
                 write!(f, "Softsatisficing (a={:.2})", aspiration)
             }

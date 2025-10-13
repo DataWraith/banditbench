@@ -216,8 +216,8 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
-                Algorithms::SoftElim { theta } => {
-                    let bandit = SoftElim::new(num_arms, *theta);
+                Algorithms::SoftElim { w } => {
+                    let bandit = SoftElim::new(num_arms, *w);
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 

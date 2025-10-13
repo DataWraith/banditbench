@@ -270,13 +270,11 @@ fn main() {
             Algorithms::RS { aspiration: 0.99 },
         ],
         "soft_elim" => vec![
-            Algorithms::SoftElim { theta: 0.01 },
-            Algorithms::SoftElim { theta: 0.1 },
-            Algorithms::SoftElim { theta: 0.25 },
-            Algorithms::SoftElim { theta: 0.5 },
-            Algorithms::SoftElim { theta: 1.0 },
-            Algorithms::SoftElim { theta: 2.0 },
-            Algorithms::SoftElim { theta: 5.0 },
+            Algorithms::SoftElim { w: 0.1 },
+            Algorithms::SoftElim { w: 0.5 },
+            Algorithms::SoftElim { w: 1.0 },
+            Algorithms::SoftElim { w: 2.0 },
+            Algorithms::SoftElim { w: 8f64.sqrt() },
         ],
         "softsatisficing" => vec![
             Algorithms::SoftSatisficing { aspiration: 0.1 },
