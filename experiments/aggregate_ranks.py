@@ -46,7 +46,7 @@ def aggregate_rankings(csv_files, output_file):
     averaged_ranks = []
     for entry, ranks in entry_ranks.items():
         average_rank = sum(ranks) / len(ranks)
-        averaged_ranks.append({'Algorithm': entry, 'Average Rank': average_rank, 'Average Time': round(sum(entry_times[entry]) / len(entry_times[entry]), 2)})
+        averaged_ranks.append({'Algorithm': entry, 'Average Rank': average_rank, 'Average Time': round(sum(entry_times[entry]) / len(entry_times[entry]))})
 
     averaged_ranks.sort(key=lambda x: x['Average Rank'])
 
