@@ -286,6 +286,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::VarTS => {
+                    let bandit = VarTS::new(num_arms);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::VResBoot { init } => {
                     let bandit = VResBoot::new(num_arms, *init);
                     evaluate_bandit(bandit, &arms, horizon, seed)

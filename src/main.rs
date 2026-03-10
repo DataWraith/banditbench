@@ -308,6 +308,7 @@ fn main() {
             Algorithms::UCBDT { gamma: 1.0 },
         ],
         "ucbt" => vec![Algorithms::UCBT],
+        "var_ts" => vec![Algorithms::VarTS],
         "vresboot" => vec![
             Algorithms::VResBoot { init: 0 },
             Algorithms::VResBoot { init: 1 },

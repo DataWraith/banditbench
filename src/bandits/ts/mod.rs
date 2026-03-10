@@ -4,3 +4,4 @@ pub mod npts;
 pub mod sts;
 pub mod ts;
 pub mod ts_vha;
+pub mod var_ts;

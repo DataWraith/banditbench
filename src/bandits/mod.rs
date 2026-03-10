@@ -36,10 +36,11 @@ pub use {
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
     ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
-    ts::ts_vha::TSVHA, tsallis_inf::TsallisINF, tsucb::TSUCB, ucb::bayes_ucb::BayesUCB,
-    ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB, ucb::lilucb::LilUCB,
-    ucb::moss_anytime::MOSSAnytime, ucb::raven_ucb::RavenUCB, ucb::reucb::ReUCB, ucb::ucb1::UCB1,
-    ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT, ucb::ucbt::UCBT,
+    ts::ts_vha::TSVHA, ts::var_ts::VarTS, tsallis_inf::TsallisINF, tsucb::TSUCB,
+    ucb::bayes_ucb::BayesUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB,
+    ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::raven_ucb::RavenUCB,
+    ucb::reucb::ReUCB, ucb::ucb1::UCB1, ucb::ucb1_tuned::UCB1Tuned, ucb::ucb_dt::UCBDT,
+    ucb::ucbt::UCBT,
 };
 
 pub enum Algorithms {
@@ -92,6 +93,7 @@ pub enum Algorithms {
     UCB1Tuned,
     UCBDT { gamma: f64 },
     UCBT,
+    VarTS,
     VResBoot { init: usize },
     WB,
     WhittleApprox { beta: f64 },
@@ -198,6 +200,7 @@ impl std::fmt::Display for Algorithms {
             Algorithms::UCB1Tuned => write!(f, "UCB1-Tuned"),
             Algorithms::UCBDT { gamma } => write!(f, "UCB-DT (γ={:.2})", gamma),
             Algorithms::UCBT => write!(f, "UCBT"),
+            Algorithms::VarTS => write!(f, "VarTS"),
             Algorithms::VResBoot { init } => {
                 write!(f, "Vanilla Residual Bootstrap (init={})", init)
             }
