@@ -66,11 +66,7 @@ impl Bandit for EpsTSUCB {
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
-        if reward {
-            self.arms[arm].successes += 1;
-        } else {
-            self.arms[arm].failures += 1;
-        }
+        self.arms[arm].update(reward);
 
         self.t += 1;
     }

@@ -119,6 +119,14 @@ impl Arm {
     pub fn n(&self) -> usize {
         self.successes + self.failures
     }
+
+    pub fn update(&mut self, reward: bool) {
+        if reward {
+            self.successes += 1;
+        } else {
+            self.failures += 1;
+        }
+    }
 }
 
 impl std::fmt::Display for Algorithms {

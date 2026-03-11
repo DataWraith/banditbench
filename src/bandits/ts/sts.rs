@@ -65,12 +65,7 @@ impl Bandit for STS {
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
-        if reward {
-            self.arms[arm].successes += 1;
-        } else {
-            self.arms[arm].failures += 1;
-        }
-
+        self.arms[arm].update(reward);
         self.first_pull[arm] = self.t.min(self.first_pull[arm]);
         self.t += 1;
     }

@@ -135,10 +135,6 @@ impl Bandit for ReUCB {
         self.reward_sum += if reward { 1.0 } else { 0.0 };
         self.t += 1;
 
-        if reward {
-            self.arms[arm].successes += 1;
-        } else {
-            self.arms[arm].failures += 1;
-        }
+        self.arms[arm].update(reward);
     }
 }

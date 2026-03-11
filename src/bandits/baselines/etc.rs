@@ -35,11 +35,7 @@ impl Bandit for ETC {
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         if self.t < self.arms.len() * self.m {
-            if reward {
-                self.arms[arm].successes += 1;
-            } else {
-                self.arms[arm].failures += 1;
-            }
+            self.arms[arm].update(reward);
         }
 
         self.t += 1;

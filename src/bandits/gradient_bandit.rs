@@ -50,11 +50,7 @@ impl Bandit for GradientBandit {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         let policy = softmax(&self.arms);
 
-        if reward {
-            self.stats.successes += 1;
-        } else {
-            self.stats.failures += 1;
-        }
+        self.stats.update(reward);
 
         let mut r = if reward { 1.0 } else { -1.0 };
 

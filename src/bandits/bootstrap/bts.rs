@@ -41,11 +41,7 @@ impl Bandit for BTS {
                 continue;
             }
 
-            if reward {
-                self.arms[j][arm].successes += 1;
-            } else {
-                self.arms[j][arm].failures += 1;
-            }
+            self.arms[j][arm].update(reward);
         }
     }
 }

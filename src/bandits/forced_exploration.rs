@@ -45,11 +45,7 @@ impl Bandit for ForcedExploration {
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         // Update the estimate of arm mean
-        if reward {
-            self.arms[arm].successes += 1;
-        } else {
-            self.arms[arm].failures += 1;
-        }
+        self.arms[arm].update(reward);
 
         // Reset forced exploration params
         self.p[arm] = 0;
