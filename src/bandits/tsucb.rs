@@ -41,7 +41,6 @@ impl Bandit for TSUCB {
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);
-
         self.t += 1;
     }
 }

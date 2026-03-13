@@ -35,7 +35,7 @@ pub use {
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
-    ts::irs_fh::IRSFH, ts::npts::NPTS, ts::sts::STS, ts::ts::OptimisticTS, ts::ts::TS,
+    ts::irs_fh::IRSFH, ts::npts::NPTS, ts::ots::OptimisticTS, ts::sts::STS, ts::ts::TS,
     ts::ts_vha::TSVHA, ts::var_ts::VarTS, tsallis_inf::TsallisINF, tsucb::TSUCB,
     ucb::bayes_ucb::BayesUCB, ucb::hellinger_ucb::HellingerUCB, ucb::kl_ucb::KLUCB,
     ucb::lilucb::LilUCB, ucb::moss_anytime::MOSSAnytime, ucb::raven_ucb::RavenUCB,
