@@ -76,6 +76,11 @@ pub fn evaluate_bandits(
                     evaluate_bandit(bandit, &arms, horizon, seed)
                 }
 
+                Algorithms::DelightfulGradient { lr } => {
+                    let bandit = DelightfulGradientBandit::new(num_arms, *lr);
+                    evaluate_bandit(bandit, &arms, horizon, seed)
+                }
+
                 Algorithms::EBTCI => {
                     let bandit = EBTCI::new(num_arms);
                     evaluate_bandit(bandit, &arms, horizon, seed)

@@ -10,6 +10,7 @@ pub mod ucb;
 pub mod batch_ensemble;
 pub mod bge;
 pub mod code;
+pub mod delightful_gradient_bandit;
 pub mod ebtci;
 pub mod eps_tsucb;
 pub mod exp_ix;
@@ -30,8 +31,9 @@ pub use {
     baselines::random::Random, batch_ensemble::BatchEnsemble, bge::BGE, bootstrap::bts::BTS,
     bootstrap::giro::GIRO, bootstrap::mars::MARS, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, bootstrap::weighted_bootstrap::WB,
-    code::CODE, dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI,
-    eps_tsucb::EpsTSUCB, exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
+    code::CODE, delightful_gradient_bandit::DelightfulGradientBandit,
+    dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
+    exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
     gittins::whittle_approximation::WhittleApprox, gradient_bandit::GradientBandit, klms::KLMS,
     poker::POKER, rs::RS, soft_elim::SoftElim, softsatisficing::SoftSatisficing, ts::eps_ts::EpsTS,
@@ -51,6 +53,7 @@ pub enum Algorithms {
     BrezziLaiApprox { beta: f64 },
     BTS { replicates: usize },
     CODE { delta: f64 },
+    DelightfulGradient { lr: f64 },
     EBTCI,
     EpsilonDecreasing { epsilon: f64 },
     EpsilonGreedy { epsilon: f64 },
@@ -148,6 +151,9 @@ impl std::fmt::Display for Algorithms {
             }
             Algorithms::CODE { delta } => write!(f, "CODE (δ={:.3})", delta),
             Algorithms::EBTCI => write!(f, "EB-TCI"),
+            Algorithms::DelightfulGradient { lr } => {
+                write!(f, "Delightful GB (lr={:.3})", lr)
+            }
             Algorithms::EpsilonDecreasing { epsilon } => {
                 write!(f, "ϵ-Decreasing (ϵ={:.3})", epsilon)
             }

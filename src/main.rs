@@ -63,6 +63,11 @@ fn main() {
             Algorithms::CODE { delta: 0.9 },
             Algorithms::CODE { delta: 0.99 },
         ],
+        "delightful_gradient_bandit" => vec![
+            Algorithms::DelightfulGradient { lr: 0.5 },
+            Algorithms::DelightfulGradient { lr: 1.0 },
+            Algorithms::DelightfulGradient { lr: 2.0 },
+        ],
         "ebtci" => vec![Algorithms::EBTCI],
         "eps_greedy" => vec![
             Algorithms::EpsilonGreedy { epsilon: 0.01 },

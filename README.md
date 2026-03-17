@@ -79,6 +79,7 @@ Algorithms are only included in the benchmark if
 - [EXP-IX](https://arxiv.org/abs/1506.03271)
 - [Forced Exploration](https://arxiv.org/abs/2312.07285)
 - [Gradient Bandit](https://arxiv.org/abs/2402.17235)
+- [Delightful Gradient Bandit](https://arxiv.org/abs/2603.14608)
 - [Kullback-Leibler Maillard Sampling](https://arxiv.org/abs/2304.14989)
 - [POKER](https://link.springer.com/chapter/10.1007/11564096_42) (with fixed Horizon)
 - [Risk-sensitive Satisficing (RS)](https://doi.org/10.1016/j.biosystems.2019.02.009)
@@ -142,11 +143,11 @@ considering the five experiments further down in this file.
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) | 43.2         | 16                     |
 | ϵ-Greedy (ϵ=0.010)                                          | 44.0         | 0                      |
 | ϵ-Greedy (ϵ=0.020)                                          | 44.6         | 0                      |
-| Gittins Index -- Whittle's Approximation (β=0.70)           | 47.2         | 0                      |
 | BayesUCB (δ=0.500)                                          | 47.4         | 0                      |
+| Gittins Index -- Whittle's Approximation (β=0.70)           | 47.6         | 0                      |
 | TS-UCB (1 samples)                                          | 48.4         | 1                      |
-| Gittins Index -- Whittle's Approximation (β=0.50)           | 48.4         | 0                      |
 | ϵ-Greedy (ϵ=0.050)                                          | 48.8         | 0                      |
+| Gittins Index -- Whittle's Approximation (β=0.50)           | 49.0         | 0                      |
 | POKER (H=25)                                                | 49.4         | 0                      |
 | IRS.FH (H=10)                                               | 52.0         | 1                      |
 | MOSS-Anytime (α=-0.33)                                      | 52.0         | 0                      |
@@ -156,111 +157,114 @@ considering the five experiments further down in this file.
 | POKER (H=100)                                               | 55.6         | 0                      |
 | RAVEN-UCB (a0=0.5, b0=10, eps=0.001)                        | 56.6         | 0                      |
 | RAVEN-UCB (a0=1, b0=5, eps=0.5)                             | 58.4         | 0                      |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 59.2         | 0                      |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.9)     | 59.8         | 0                      |
 | RAVEN-UCB (a0=1, b0=5, eps=0.1)                             | 60.8         | 0                      |
 | ϵ-Greedy (ϵ=0.100)                                          | 61.2         | 0                      |
 | WR-SDA (forced_exploration=true)                            | 61.6         | 2                      |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 62.0         | 0                      |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     | 62.6         | 0                      |
 | UCBT                                                        | 64.0         | 0                      |
-| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 64.4         | 0                      |
+| Gittins Index -- Brezzi and Lai's Approximation (β=0.95)    | 65.0         | 0                      |
 | BayesUCB (δ=0.100)                                          | 65.2         | 0                      |
 | IRS.FH (H=25)                                               | 65.8         | 2                      |
-| Forced Exploration                                          | 67.6         | 0                      |
 | RAVEN-UCB (a0=1, b0=5, eps=0.001)                           | 67.8         | 0                      |
-| BayesUCB (δ=0.900)                                          | 67.8         | 0                      |
+| Forced Exploration                                          | 67.8         | 0                      |
 | Optimistic Thompson Sampling                                | 68.2         | 1                      |
 | WR-SDA (forced_exploration=false)                           | 68.4         | 1                      |
+| BayesUCB (δ=0.900)                                          | 68.4         | 0                      |
 | SoftElim (w=0.50)                                           | 70.8         | 0                      |
 | ReBoot (r=0.25)                                             | 71.0         | 0                      |
 | MARS (δ=0.100)                                              | 72.0         | 0                      |
 | POKER (H=250)                                               | 74.2         | 0                      |
-| Batch Ensemble for MAB (m=2)                                | 75.4         | 0                      |
+| Batch Ensemble for MAB (m=2)                                | 75.8         | 0                      |
 | VarTS                                                       | 77.8         | 1                      |
-| Thompson Sampling                                           | 78.2         | 1                      |
-| Weighted Bootstrap                                          | 79.0         | 3                      |
-| Satisficing Thompson Sampling (ϵ=0.005)                     | 79.6         | 1                      |
+| Thompson Sampling                                           | 78.4         | 1                      |
+| Weighted Bootstrap                                          | 79.2         | 3                      |
+| Satisficing Thompson Sampling (ϵ=0.005)                     | 79.8         | 1                      |
 | ReBoot (r=0.50)                                             | 79.8         | 0                      |
-| Satisficing Thompson Sampling (ϵ=0.010)                     | 80.8         | 1                      |
-| Bootstrapped Thompson Sampling (J=10)                       | 80.8         | 0                      |
-| Hellinger-UCB                                               | 82.4         | 2                      |
-| KL-UCB                                                      | 82.6         | 8                      |
+| Satisficing Thompson Sampling (ϵ=0.010)                     | 81.0         | 1                      |
+| Bootstrapped Thompson Sampling (J=10)                       | 81.2         | 0                      |
+| KL-UCB                                                      | 82.8         | 8                      |
+| Hellinger-UCB                                               | 83.0         | 2                      |
 | Vanilla Residual Bootstrap (init=0)                         | 83.2         | 0                      |
 | Bootstrapped Thompson Sampling (J=500)                      | 83.6         | 5                      |
 | Bootstrapped Thompson Sampling (J=1000)                     | 84.8         | 9                      |
-| Bootstrapped Thompson Sampling (J=100)                      | 85.0         | 1                      |
-| Non-Parametric Thompson Sampling                            | 86.0         | 4                      |
+| Bootstrapped Thompson Sampling (J=100)                      | 85.4         | 1                      |
+| Non-Parametric Thompson Sampling                            | 86.2         | 4                      |
 | Multiplier Bootstrap-based Exploration                      | 86.2         | 6                      |
 | CODE (δ=0.900)                                              | 89.2         | 0                      |
-| UCB1-Tuned                                                  | 89.6         | 0                      |
-| Garbage In, Reward Out (a=0.10)                             | 90.6         | 1                      |
-| Bounded Dirichlet Sampling                                  | 94.0         | 2                      |
-| Satisficing Thompson Sampling (ϵ=0.050)                     | 94.4         | 1                      |
-| Vanilla Residual Bootstrap (init=1)                         | 95.0         | 0                      |
-| MARS (δ=0.010)                                              | 95.6         | 1                      |
-| ϵ-Decreasing (ϵ=0.200)                                      | 96.6         | 0                      |
-| Kullback-Leibler Maillard Sampling                          | 97.0         | 1                      |
-| Perturbed-History Exploration (a=1.1)                       | 100.2        | 1                      |
-| RS (a=0.50)                                                 | 100.6        | 0                      |
-| RS (a=0.65)                                                 | 101.0        | 0                      |
-| EB-TCI                                                      | 101.4        | 0                      |
-| Softsatisficing (a=0.65)                                    | 105.6        | 0                      |
-| Batch Ensemble for MAB (m=4)                                | 106.2        | 0                      |
-| Tsallis-INF                                                 | 108.2        | 1                      |
-| Batch Ensemble for MAB (m=8)                                | 109.0        | 0                      |
-| ReBoot (r=0.90)                                             | 109.2        | 0                      |
-| MARS (δ=0.001)                                              | 109.4        | 11                     |
-| MARS (δ=0.002)                                              | 109.6        | 6                      |
-| Garbage In, Reward Out (a=0.33)                             | 110.4        | 1                      |
-| RS (a=0.90)                                                 | 111.6        | 0                      |
-| MARS (δ=1.000)                                              | 111.6        | 0                      |
-| Satisficing Thompson Sampling (ϵ=0.100)                     | 112.4        | 1                      |
-| ETC (m=10)                                                  | 112.4        | 0                      |
-| lil' UCB (δ=0.100)                                          | 112.6        | 0                      |
-| RS (a=0.75)                                                 | 113.6        | 0                      |
-| FTPL-GR (lr=1.000)                                          | 114.2        | 4                      |
-| Vanilla Residual Bootstrap (init=5)                         | 115.4        | 0                      |
-| ReBoot (r=1.00)                                             | 115.8        | 0                      |
-| SoftElim (w=1.00)                                           | 117.2        | 0                      |
-| Perturbed-History Exploration (a=2.1)                       | 119.6        | 1                      |
-| Softsatisficing (a=0.75)                                    | 120.2        | 0                      |
-| Softsatisficing (a=0.90)                                    | 122.6        | 0                      |
-| ETC (m=20)                                                  | 123.6        | 0                      |
-| FTPL-GR (lr=0.100)                                          | 123.8        | 4                      |
-| ϵ-Decreasing (ϵ=0.100)                                      | 123.8        | 0                      |
-| lil' UCB (δ=0.010)                                          | 126.6        | 0                      |
-| Gradient Bandit                                             | 126.8        | 0                      |
-| ETC (m=5)                                                   | 126.8        | 0                      |
-| Garbage In, Reward Out (a=1.00)                             | 127.6        | 1                      |
-| Gradient Bandit (with baseline)                             | 128.2        | 0                      |
-| Boltzmann-Gumbel Exploration                                | 128.4        | 0                      |
-| Softsatisficing (a=0.50)                                    | 128.6        | 0                      |
-| ETC (m=25)                                                  | 129.6        | 0                      |
-| ReBoot (r=1.50)                                             | 130.0        | 0                      |
-| RS (a=0.25)                                                 | 130.8        | 0                      |
-| RS (a=0.99)                                                 | 131.4        | 0                      |
-| lil' UCB (δ=0.001)                                          | 132.6        | 0                      |
-| ReBoot (r=1.70)                                             | 133.4        | 0                      |
-| Softsatisficing (a=0.25)                                    | 133.6        | 0                      |
-| RS (a=0.10)                                                 | 133.8        | 0                      |
-| Softsatisficing (a=0.99)                                    | 134.2        | 0                      |
-| Least Failures                                              | 134.8        | 0                      |
-| Perturbed-History Exploration (a=5.1)                       | 136.2        | 1                      |
-| UCB1                                                        | 140.0        | 0                      |
-| ReBoot (r=2.10)                                             | 140.0        | 0                      |
-| EXP-IX                                                      | 140.8        | 0                      |
-| ETC (m=3)                                                   | 142.2        | 0                      |
-| Softsatisficing (a=0.10)                                    | 143.0        | 0                      |
-| RAVEN-UCB (a0=5, b0=1, eps=0.5)                             | 144.4        | 0                      |
-| RAVEN-UCB (a0=5, b0=1, eps=0.1)                             | 145.0        | 0                      |
-| RAVEN-UCB (a0=5, b0=1, eps=0.001)                           | 146.4        | 0                      |
-| SoftElim (w=2.00)                                           | 146.6        | 0                      |
-| ETC (m=2)                                                   | 147.2        | 0                      |
-| RS (a=0.00)                                                 | 150.2        | 0                      |
-| SoftElim (w=2.83)                                           | 153.4        | 0                      |
-| FTPL-GR (lr=0.010)                                          | 154.0        | 5                      |
-| FTPL-GR (lr=0.001)                                          | 160.6        | 5                      |
-| CODE (δ=0.050)                                              | 161.8        | 0                      |
-| Random                                                      | 161.8        | 0                      |
+| UCB1-Tuned                                                  | 90.0         | 0                      |
+| Garbage In, Reward Out (a=0.10)                             | 90.8         | 1                      |
+| Satisficing Thompson Sampling (ϵ=0.050)                     | 94.6         | 1                      |
+| Bounded Dirichlet Sampling                                  | 94.8         | 2                      |
+| Vanilla Residual Bootstrap (init=1)                         | 95.2         | 0                      |
+| MARS (δ=0.010)                                              | 96.2         | 1                      |
+| Kullback-Leibler Maillard Sampling                          | 97.4         | 1                      |
+| ϵ-Decreasing (ϵ=0.200)                                      | 97.6         | 0                      |
+| Perturbed-History Exploration (a=1.1)                       | 100.4        | 1                      |
+| RS (a=0.65)                                                 | 102.2        | 0                      |
+| RS (a=0.50)                                                 | 102.2        | 0                      |
+| EB-TCI                                                      | 102.6        | 0                      |
+| Softsatisficing (a=0.65)                                    | 106.8        | 0                      |
+| Batch Ensemble for MAB (m=4)                                | 107.8        | 0                      |
+| Delightful GB (lr=2.000)                                    | 109.0        | 0                      |
+| Tsallis-INF                                                 | 109.2        | 1                      |
+| ReBoot (r=0.90)                                             | 109.8        | 0                      |
+| MARS (δ=0.001)                                              | 110.6        | 11                     |
+| MARS (δ=0.002)                                              | 110.8        | 6                      |
+| Batch Ensemble for MAB (m=8)                                | 110.8        | 0                      |
+| Garbage In, Reward Out (a=0.33)                             | 111.2        | 1                      |
+| MARS (δ=1.000)                                              | 113.2        | 0                      |
+| RS (a=0.90)                                                 | 113.4        | 0                      |
+| Satisficing Thompson Sampling (ϵ=0.100)                     | 113.4        | 1                      |
+| Delightful GB (lr=1.000)                                    | 113.4        | 0                      |
+| ETC (m=10)                                                  | 113.6        | 0                      |
+| lil' UCB (δ=0.100)                                          | 114.0        | 0                      |
+| RS (a=0.75)                                                 | 115.4        | 0                      |
+| FTPL-GR (lr=1.000)                                          | 116.0        | 4                      |
+| Vanilla Residual Bootstrap (init=5)                         | 117.0        | 0                      |
+| ReBoot (r=1.00)                                             | 117.4        | 0                      |
+| SoftElim (w=1.00)                                           | 119.0        | 0                      |
+| Perturbed-History Exploration (a=2.1)                       | 121.4        | 1                      |
+| Softsatisficing (a=0.75)                                    | 122.2        | 0                      |
+| Softsatisficing (a=0.90)                                    | 124.6        | 0                      |
+| ETC (m=20)                                                  | 125.4        | 0                      |
+| FTPL-GR (lr=0.100)                                          | 125.8        | 4                      |
+| ϵ-Decreasing (ϵ=0.100)                                      | 126.2        | 0                      |
+| Delightful GB (lr=0.500)                                    | 127.4        | 0                      |
+| ETC (m=5)                                                   | 129.0        | 0                      |
+| lil' UCB (δ=0.010)                                          | 129.4        | 0                      |
+| Gradient Bandit                                             | 129.6        | 0                      |
+| Garbage In, Reward Out (a=1.00)                             | 130.6        | 1                      |
+| Softsatisficing (a=0.50)                                    | 131.0        | 0                      |
+| Gradient Bandit (with baseline)                             | 131.0        | 0                      |
+| Boltzmann-Gumbel Exploration                                | 131.2        | 0                      |
+| ETC (m=25)                                                  | 131.8        | 0                      |
+| ReBoot (r=1.50)                                             | 132.8        | 0                      |
+| RS (a=0.25)                                                 | 133.2        | 0                      |
+| RS (a=0.99)                                                 | 133.8        | 0                      |
+| lil' UCB (δ=0.001)                                          | 135.6        | 0                      |
+| Softsatisficing (a=0.25)                                    | 136.0        | 0                      |
+| ReBoot (r=1.70)                                             | 136.2        | 0                      |
+| RS (a=0.10)                                                 | 136.2        | 0                      |
+| Softsatisficing (a=0.99)                                    | 136.6        | 0                      |
+| Least Failures                                              | 137.2        | 0                      |
+| Perturbed-History Exploration (a=5.1)                       | 139.2        | 1                      |
+| UCB1                                                        | 143.0        | 0                      |
+| ReBoot (r=2.10)                                             | 143.0        | 0                      |
+| EXP-IX                                                      | 143.8        | 0                      |
+| ETC (m=3)                                                   | 144.6        | 0                      |
+| Softsatisficing (a=0.10)                                    | 145.4        | 0                      |
+| RAVEN-UCB (a0=5, b0=1, eps=0.5)                             | 147.4        | 0                      |
+| RAVEN-UCB (a0=5, b0=1, eps=0.1)                             | 148.0        | 0                      |
+| RAVEN-UCB (a0=5, b0=1, eps=0.001)                           | 149.4        | 0                      |
+| SoftElim (w=2.00)                                           | 149.6        | 0                      |
+| ETC (m=2)                                                   | 150.0        | 0                      |
+| RS (a=0.00)                                                 | 153.2        | 0                      |
+| SoftElim (w=2.83)                                           | 156.4        | 0                      |
+| FTPL-GR (lr=0.010)                                          | 157.0        | 5                      |
+| FTPL-GR (lr=0.001)                                          | 163.6        | 5                      |
+| CODE (δ=0.050)                                              | 164.8        | 0                      |
+| Random                                                      | 164.8        | 0                      |
 
 <!-- END mdsh -->
 
@@ -389,10 +393,12 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | RS (a=0.90)                                                 |     61.99 |       43.3480 |                            18.0732 | 0.18s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     44.13 |       44.2992 |                            10.4673 | 0.86s  |
 | lil' UCB (δ=0.100)                                          |     52.19 |       44.8365 |                             5.5606 | 0.28s  |
+| Delightful GB (lr=2.000)                                    |     42.93 |       46.2175 |                            19.8031 | 0.44s  |
 | Tsallis-INF                                                 |     54.25 |       46.4787 |                             5.9697 | 1.02s  |
 | Softsatisficing (a=0.90)                                    |     56.49 |       46.6220 |                            27.5781 | 0.23s  |
 | Forced Exploration                                          |     62.89 |       46.6666 |                             6.2607 | 0.08s  |
 | ReBoot (r=0.90)                                             |     52.24 |       47.2795 |                             6.7367 | 0.22s  |
+| Delightful GB (lr=1.000)                                    |     46.65 |       47.8063 |                            14.1295 | 0.44s  |
 | Garbage In, Reward Out (a=0.33)                             |     51.74 |       49.2706 |                             5.5459 | 1.26s  |
 | Vanilla Residual Bootstrap (init=5)                         |     55.69 |       50.7442 |                             6.1208 | 0.26s  |
 | SoftElim (w=1.00)                                           |     47.68 |       51.6367 |                             6.0049 | 0.40s  |
@@ -406,6 +412,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | ETC (m=10)                                                  |     47.32 |       56.6956 |                            11.0554 | 0.15s  |
 | FTPL-GR (lr=0.100)                                          |     50.69 |       57.1522 |                             7.0720 | 4.59s  |
 | MARS (δ=0.002)                                              |     50.18 |       59.5941 |                             8.8231 | 5.54s  |
+| Delightful GB (lr=0.500)                                    |     42.57 |       61.8842 |                            12.8072 | 0.37s  |
 | lil' UCB (δ=0.010)                                          |     44.08 |       62.1486 |                             6.5312 | 0.29s  |
 | Softsatisficing (a=0.50)                                    |     28.97 |       63.5094 |                            43.9773 | 0.07s  |
 | MARS (δ=1.000)                                              |     37.18 |       65.5059 |                            21.5650 | 0.08s  |
@@ -557,6 +564,7 @@ This experiment was taken from the GIRO paper.
 | Optimistic Thompson Sampling                                |     36.78 |       38.4207 |                             7.1289 | 0.87s  |
 | Multiplier Bootstrap-based Exploration                      |     36.05 |       38.7066 |                             7.0003 | 6.83s  |
 | ReBoot (r=0.50)                                             |     34.21 |       39.5480 |                             8.2009 | 0.25s  |
+| Delightful GB (lr=2.000)                                    |     33.57 |       39.6689 |                            13.8321 | 0.44s  |
 | ETC (m=10)                                                  |     33.45 |       40.0881 |                            11.7950 | 0.15s  |
 | Hellinger-UCB                                               |     36.12 |       40.4295 |                             6.1041 | 2.63s  |
 | Weighted Bootstrap                                          |     35.00 |       40.5410 |                             7.4857 | 3.11s  |
@@ -572,6 +580,7 @@ This experiment was taken from the GIRO paper.
 | Non-Parametric Thompson Sampling                            |     33.09 |       43.6865 |                             7.5605 | 4.01s  |
 | Vanilla Residual Bootstrap (init=1)                         |     32.88 |       43.7710 |                             7.4509 | 0.26s  |
 | MARS (δ=0.010)                                              |     33.86 |       44.2200 |                             6.6462 | 1.40s  |
+| Delightful GB (lr=1.000)                                    |     31.39 |       44.6731 |                            11.2050 | 0.44s  |
 | Bounded Dirichlet Sampling                                  |     32.79 |       44.7466 |                             7.9659 | 2.30s  |
 | Tsallis-INF                                                 |     32.35 |       45.6862 |                             8.4068 | 1.14s  |
 | lil' UCB (δ=0.100)                                          |     31.70 |       46.4287 |                             6.7023 | 0.29s  |
@@ -591,6 +600,7 @@ This experiment was taken from the GIRO paper.
 | Softsatisficing (a=0.75)                                    |     30.32 |       52.6410 |                            16.5585 | 0.35s  |
 | FTPL-GR (lr=0.100)                                          |     28.27 |       52.7166 |                            10.1011 | 4.23s  |
 | Vanilla Residual Bootstrap (init=5)                         |     28.26 |       53.2834 |                             8.4062 | 0.26s  |
+| Delightful GB (lr=0.500)                                    |     26.85 |       53.6128 |                            10.7001 | 0.41s  |
 | RS (a=0.75)                                                 |     29.84 |       54.6692 |                            13.4306 | 0.20s  |
 | Gradient Bandit                                             |     29.48 |       54.9276 |                             8.8193 | 0.41s  |
 | Gradient Bandit (with baseline)                             |     29.07 |       55.8207 |                             8.2645 | 0.48s  |
@@ -761,8 +771,10 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | ReBoot (r=0.90)                                             |     10.94 |        4.4528 |                             0.3800 | 0.26s  |
 | MARS (δ=0.010)                                              |     10.93 |        4.4537 |                             0.3700 | 1.46s  |
 | Kullback-Leibler Maillard Sampling                          |     10.91 |        4.4544 |                             0.3500 | 0.57s  |
+| Delightful GB (lr=1.000)                                    |     10.91 |        4.4547 |                             0.3100 | 0.45s  |
 | Perturbed-History Exploration (a=2.1)                       |     10.89 |        4.4557 |                             0.3400 | 1.04s  |
 | SoftElim (w=1.00)                                           |     10.88 |        4.4560 |                             0.3300 | 0.41s  |
+| Delightful GB (lr=2.000)                                    |     10.87 |        4.4565 |                             0.2300 | 0.44s  |
 | Vanilla Residual Bootstrap (init=5)                         |     10.85 |        4.4574 |                             0.2700 | 0.26s  |
 | Hellinger-UCB                                               |     10.85 |        4.4575 |                             0.2800 | 2.55s  |
 | lil' UCB (δ=0.100)                                          |     10.85 |        4.4575 |                             0.2600 | 0.31s  |
@@ -774,6 +786,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | MARS (δ=0.001)                                              |     10.71 |        4.4646 |                             0.3200 | 11.40s |
 | lil' UCB (δ=0.010)                                          |     10.70 |        4.4651 |                             0.2200 | 0.33s  |
 | Boltzmann-Gumbel Exploration                                |     10.67 |        4.4663 |                             0.2700 | 0.31s  |
+| Delightful GB (lr=0.500)                                    |     10.66 |        4.4669 |                             0.2800 | 0.39s  |
 | Garbage In, Reward Out (a=1.00)                             |     10.66 |        4.4669 |                             0.2600 | 1.18s  |
 | Gradient Bandit                                             |     10.66 |        4.4672 |                             0.2000 | 0.38s  |
 | Gradient Bandit (with baseline)                             |     10.60 |        4.4699 |                             0.2000 | 0.45s  |
@@ -947,10 +960,12 @@ This experiment was taken from the paper _Multiplier Bootstrap-based Exploration
 | ϵ-Decreasing (ϵ=0.200)                                      |     41.58 |       44.0842 |                            11.9547 | 0.12s  |
 | Garbage In, Reward Out (a=0.33)                             |     38.75 |       45.1922 |                             7.8091 | 1.28s  |
 | ETC (m=3)                                                   |     33.51 |       45.7840 |                            28.1017 | 0.13s  |
+| Delightful GB (lr=2.000)                                    |     36.05 |       46.5685 |                             9.5762 | 0.45s  |
 | ETC (m=20)                                                  |     37.94 |       47.1134 |                            13.4466 | 0.15s  |
 | Satisficing Thompson Sampling (ϵ=0.100)                     |     33.63 |       48.2505 |                             9.6052 | 1.30s  |
 | lil' UCB (δ=0.100)                                          |     36.34 |       48.6046 |                             7.3285 | 0.30s  |
 | Batch Ensemble for MAB (m=2)                                |     35.22 |       48.8043 |                             9.6369 | 0.21s  |
+| Delightful GB (lr=1.000)                                    |     33.35 |       50.3568 |                            10.1421 | 0.45s  |
 | ETC (m=25)                                                  |     37.82 |       51.7141 |                            13.9357 | 0.15s  |
 | SoftElim (w=1.00)                                           |     33.15 |       51.8623 |                             8.8820 | 0.48s  |
 | ETC (m=2)                                                   |     29.53 |       53.1694 |                            28.6333 | 0.11s  |
@@ -961,6 +976,7 @@ This experiment was taken from the paper _Multiplier Bootstrap-based Exploration
 | Gradient Bandit (with baseline)                             |     32.39 |       55.7285 |                            11.4145 | 0.47s  |
 | Vanilla Residual Bootstrap (init=5)                         |     31.29 |       56.3702 |                            10.3022 | 0.25s  |
 | ReBoot (r=1.70)                                             |     30.99 |       56.8129 |                            12.0371 | 0.30s  |
+| Delightful GB (lr=0.500)                                    |     29.44 |       57.0335 |                            11.8970 | 0.40s  |
 | Garbage In, Reward Out (a=1.00)                             |     29.48 |       58.3347 |                            11.5697 | 1.22s  |
 | Boltzmann-Gumbel Exploration                                |     29.89 |       58.4917 |                            11.5794 | 0.32s  |
 | lil' UCB (δ=0.010)                                          |     29.25 |       58.7242 |                            11.2953 | 0.29s  |
@@ -1133,6 +1149,8 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Bootstrapped Thompson Sampling (J=500)                      |     17.05 |       28.0954 |                            16.5475 | 4.79s  |
 | Bootstrapped Thompson Sampling (J=1000)                     |     16.11 |       28.1867 |                            16.6249 | 8.51s  |
 | ReBoot (r=0.90)                                             |     24.08 |       28.2376 |                             5.0547 | 0.24s  |
+| Delightful GB (lr=1.000)                                    |     18.81 |       28.2884 |                             8.7302 | 0.45s  |
+| Delightful GB (lr=2.000)                                    |     17.79 |       28.4145 |                            12.2193 | 0.44s  |
 | lil' UCB (δ=0.100)                                          |     19.19 |       28.5694 |                             4.7509 | 0.29s  |
 | Bootstrapped Thompson Sampling (J=100)                      |     15.82 |       29.0489 |                            16.7117 | 1.12s  |
 | ReBoot (r=1.00)                                             |     22.53 |       29.7884 |                             5.3791 | 0.23s  |
@@ -1141,6 +1159,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     14.69 |       30.0926 |                            19.2525 | 0.26s  |
 | Perturbed-History Exploration (a=2.1)                       |     18.72 |       30.3983 |                             5.2058 | 1.24s  |
 | SoftElim (w=1.00)                                           |     16.81 |       30.6976 |                             5.1339 | 0.43s  |
+| Delightful GB (lr=0.500)                                    |     17.18 |       31.8160 |                             7.6577 | 0.40s  |
 | lil' UCB (δ=0.010)                                          |     16.72 |       32.2288 |                             5.5208 | 0.31s  |
 | Garbage In, Reward Out (a=1.00)                             |     17.26 |       32.4632 |                             5.6672 | 1.20s  |
 | ϵ-Decreasing (ϵ=0.100)                                      |     27.51 |       32.6383 |                             6.3517 | 0.07s  |
