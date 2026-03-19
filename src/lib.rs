@@ -3,6 +3,7 @@ use rand::prelude::*;
 
 pub mod bandits;
 pub mod evaluate;
+pub mod utils;
 
 use bandits::Bandit;
 
