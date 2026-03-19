@@ -15,7 +15,6 @@ pub fn evaluate_bandits(
     seed: u64,
     horizon: usize,
 ) {
-    let mut results = vec![];
 
     let style = ProgressStyle::with_template(
         "[{elapsed_precise}] {bar:80} {pos:>6}/{len:6} [ETA: {eta_precise}] {msg}",
@@ -347,11 +346,5 @@ pub fn evaluate_bandits(
     median_deviation.sort_by_key(|&x| OrderedFloat(x));
     let mad = median_deviation[median_deviation.len() / 2];
 
-    results.push((algorithm, percent_optimal, mean_regret, mad, elapsed));
-
-    results.sort_by_key(|&(_, _, mean_regret, _, _)| OrderedFloat(mean_regret));
-
-    for (name, percent_optimal, mean_regret, mad, elapsed) in results.iter() {
-        println!("{name};{percent_optimal:0.2};{mean_regret:0.4};{mad:0.4};{elapsed:0.2}s");
-    }
+    println!("{algorithm};{percent_optimal:0.2};{mean_regret:0.4};{mad:0.4};{elapsed:0.2}s");
 }
