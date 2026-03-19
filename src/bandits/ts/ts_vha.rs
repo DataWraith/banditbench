@@ -24,12 +24,8 @@ impl Bandit for TSVHA {
         let arm_means = self
             .arms
             .iter()
-            .map(|a| {
-                OrderedFloat(
-                    (a.successes as f32) / (a.successes as f32 + a.failures as f32).max(1.0),
-                )
-            })
-            .collect::<Vec<OrderedFloat<f32>>>();
+            .map(|a| OrderedFloat(a.mean()))
+            .collect::<Vec<OrderedFloat<f64>>>();
 
         let best_mean = arm_means.iter().max().unwrap();
         let worst_mean = arm_means.iter().min().unwrap();
@@ -39,8 +35,8 @@ impl Bandit for TSVHA {
             .max()
             .unwrap_or(best_mean);
 
-        let num_samples = 1f32
-            .max(self.t as f32 * (best_mean.0 - second_best.0))
+        let num_samples = 1f64
+            .max(self.t as f64 * (best_mean.0 - second_best.0))
             .floor() as usize;
 
         (0..self.arms.len())
@@ -59,7 +55,7 @@ impl Bandit for TSVHA {
                 }
 
                 let sample_mean = samples.iter().sum::<f32>() / num_samples as f32;
-                let combined = sample_mean.max(worst_mean.0);
+                let combined = sample_mean.max(worst_mean.0 as f32);
 
                 OrderedFloat(combined)
             })

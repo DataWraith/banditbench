@@ -23,7 +23,7 @@ impl UCBDT {
         let mu_i = self.arms[i].mean();
         let mu_j = self.arms[j].mean();
         let diff = (mu_i - mu_j).abs();
-        let n_i = self.arms[i].successes + self.arms[i].failures;
+        let n_i = self.arms[i].n();
 
         diff.powf(1.0 / (self.gamma * n_i as f64).floor())
     }

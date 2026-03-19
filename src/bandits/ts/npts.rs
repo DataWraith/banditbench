@@ -25,9 +25,7 @@ impl NPTS {
     }
 
     pub fn npts_index(&self, arm: usize, mut rng: impl Rng) -> f64 {
-        let dirichlet =
-            Dirichlet::new_with_size(1.0, self.arms[arm].successes + self.arms[arm].failures)
-                .unwrap();
+        let dirichlet = Dirichlet::new_with_size(1.0, self.arms[arm].n()).unwrap();
 
         let sample = dirichlet.sample(&mut rng);
 

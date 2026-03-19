@@ -78,7 +78,7 @@ impl EBTCI {
             );
 
             let distance = (
-                cost_tci + ((1 + challenger.successes + challenger.failures) as f64).ln(),
+                cost_tci + ((1 + challenger.n()) as f64).ln(),
                 rng.gen::<u32>(),
             );
 

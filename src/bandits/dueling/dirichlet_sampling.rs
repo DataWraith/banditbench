@@ -73,8 +73,8 @@ impl Bandit for BDS {
                 continue;
             }
 
-            let challenger_len = self.arms[i].successes + self.arms[i].failures;
-            let challenger_mean = self.arms[i].successes as f64 / challenger_len as f64;
+            let challenger_len = self.arms[i].n();
+            let challenger_mean = self.arms[i].mean();
 
             if challenger_len >= leader_len {
                 continue;

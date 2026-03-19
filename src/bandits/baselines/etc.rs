@@ -25,7 +25,7 @@ impl Bandit for ETC {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
-                    (self.arms[*i].successes + self.arms[*i].failures < self.m),
+                    self.arms[*i].n() < self.m,
                     OrderedFloat(self.arms[*i].mean()),
                     rng.gen::<u32>(),
                 )

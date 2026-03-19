@@ -28,7 +28,7 @@ impl Bandit for UCB1 {
     fn pull(&mut self, _rng: impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
-                if self.arms[*i].successes + self.arms[*i].failures == 0 {
+                if self.arms[*i].n() == 0 {
                     return OrderedFloat(f64::INFINITY);
                 }
 

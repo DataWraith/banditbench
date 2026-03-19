@@ -29,10 +29,7 @@ impl Bandit for ForcedExploration {
             return (0..self.arms.len())
                 .max_by_key(|i| {
                     (
-                        OrderedFloat(
-                            self.arms[*i].successes as f64
-                                / (self.arms[*i].successes + self.arms[*i].failures).max(1) as f64,
-                        ),
+                        OrderedFloat(self.arms[*i].mean()),
                         rng.gen::<u32>(),
                     )
                 })
