@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use super::Arm;
 use super::Bandit;
@@ -56,8 +55,7 @@ impl TSUCB {
         let mut best_samples = vec![f64::NEG_INFINITY; self.num_samples];
 
         for arm in self.arms.iter() {
-            let distribution =
-                Beta::new(1.0 + arm.successes as f64, 1.0 + arm.failures as f64).unwrap();
+            let distribution = arm.beta();
 
             best_samples
                 .iter_mut()

@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -27,15 +26,7 @@ impl Bandit for TS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
-                let beta = Beta::new(
-                    self.arms[*i].successes as f32 + 1.0,
-                    self.arms[*i].failures as f32 + 1.0,
-                )
-                .unwrap();
-
-                let sample = beta.sample(&mut rng);
-
-                OrderedFloat(sample)
+                OrderedFloat(self.arms[*i].beta().sample(&mut rng) as f32)
             })
             .unwrap()
     }

@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -33,15 +32,7 @@ impl Bandit for STS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         // Sample from the Beta distributions of each arm, as in TS
         let samples = (0..self.arms.len())
-            .map(|i| {
-                let beta = Beta::new(
-                    self.arms[i].successes as f64 + 1.0,
-                    self.arms[i].failures as f64 + 1.0,
-                )
-                .unwrap();
-
-                beta.sample(&mut rng)
-            })
+            .map(|i| self.arms[i].beta().sample(&mut rng))
             .collect::<Vec<f64>>();
 
         // Select the arm with the highest sample as the leader

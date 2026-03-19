@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -28,13 +27,7 @@ impl Bandit for EpsTS {
         if rng.gen_bool(1.0 / self.arms.len() as f64) {
             return (0..self.arms.len())
                 .max_by_key(|i| {
-                    let beta = Beta::new(
-                        self.arms[*i].successes as f64 + 1.0,
-                        self.arms[*i].failures as f64 + 1.0,
-                    )
-                    .unwrap();
-
-                    let sample = beta.sample(&mut rng);
+                    let sample = self.arms[*i].beta().sample(&mut rng);
 
                     OrderedFloat(sample)
                 })

@@ -1,4 +1,5 @@
 use rand::prelude::*;
+use rand_distr::Beta;
 
 pub mod baselines;
 pub mod bootstrap;
@@ -129,6 +130,10 @@ impl Arm {
         } else {
             self.failures += 1;
         }
+    }
+
+    pub fn beta(&self) -> Beta<f64> {
+        Beta::new(self.successes as f64 + 1.0, self.failures as f64 + 1.0).unwrap()
     }
 }
 

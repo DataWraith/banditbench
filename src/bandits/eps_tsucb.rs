@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use super::Arm;
 use super::Bandit;
@@ -45,11 +44,7 @@ impl Bandit for EpsTSUCB {
 
         let mut fts = 0f64;
 
-        let distributions = self
-            .arms
-            .iter()
-            .map(|arm| Beta::new(arm.successes as f64 + 1.0, arm.failures as f64 + 1.0).unwrap())
-            .collect::<Vec<Beta<f64>>>();
+        let distributions: Vec<_> = self.arms.iter().map(|arm| arm.beta()).collect();
 
         for _ in 0..self.num_samples {
             let mut best_sample = f64::NEG_INFINITY;

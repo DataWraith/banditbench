@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -27,13 +26,7 @@ impl Bandit for OptimisticTS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
-                let beta = Beta::new(
-                    self.arms[*i].successes as f64 + 1.0,
-                    self.arms[*i].failures as f64 + 1.0,
-                )
-                .unwrap();
-
-                let sample = beta.sample(&mut rng).max(self.arms[*i].mean());
+                let sample = self.arms[*i].beta().sample(&mut rng).max(self.arms[*i].mean());
 
                 (OrderedFloat(sample), rng.gen::<u32>())
             })

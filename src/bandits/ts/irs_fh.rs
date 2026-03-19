@@ -1,6 +1,6 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::{Beta, Binomial};
+use rand_distr::Binomial;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -29,13 +29,7 @@ impl Bandit for IRSFH {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
-                let beta = Beta::new(
-                    self.arms[*i].successes as f64 + 1.0,
-                    self.arms[*i].failures as f64 + 1.0,
-                )
-                .unwrap();
-
-                let theta = beta.sample(&mut rng);
+                let theta = self.arms[*i].beta().sample(&mut rng);
                 let binomial = Binomial::new(self.assumed_horizon, theta).unwrap();
                 let sampled_reward = binomial.sample(&mut rng);
 

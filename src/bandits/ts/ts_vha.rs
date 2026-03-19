@@ -1,6 +1,5 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
-use rand_distr::Beta;
 
 use crate::bandits::Arm;
 use crate::Bandit;
@@ -47,16 +46,11 @@ impl Bandit for TSVHA {
 
         (0..self.arms.len())
             .max_by_key(|&i| {
-                let beta = Beta::new(
-                    self.arms[i].successes as f32 + 1.0,
-                    self.arms[i].failures as f32 + 1.0,
-                )
-                .unwrap();
-
+                let beta = self.arms[i].beta();
                 let mut samples = Vec::with_capacity(num_samples);
 
                 for _ in 0..num_samples {
-                    let sample = beta.sample(&mut rng);
+                    let sample = beta.sample(&mut rng) as f32;
                     samples.push(sample);
                 }
 
