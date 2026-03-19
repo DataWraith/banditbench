@@ -55,7 +55,7 @@ impl Bandit for GradientBandit {
         let mut r = if reward { 1.0 } else { -1.0 };
 
         if self.use_baseline {
-            r -= self.stats.successes as f64 / (self.stats.successes + self.stats.failures) as f64;
+            r -= self.stats.mean();
         }
 
         for a in 0..self.arms.len() {

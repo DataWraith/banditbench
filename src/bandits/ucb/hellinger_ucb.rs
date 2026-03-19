@@ -59,10 +59,9 @@ impl Bandit for HellingerUCB {
                     return OrderedFloat(f64::INFINITY);
                 }
 
-                let n_j = (self.arms[*i].successes + self.arms[*i].failures) as f64;
-                let mean = self.arms[*i].successes as f64 / n_j;
+                let n_j = self.arms[*i].n() as f64;
                 let d = 1.0 - (-C * (self.t as f64).ln() / n_j).exp();
-                let index = h2_index(mean, d).min(1.0);
+                let index = h2_index(self.arms[*i].mean(), d).min(1.0);
 
                 OrderedFloat(index)
             })

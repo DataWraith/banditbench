@@ -32,9 +32,8 @@ impl Bandit for UCB1 {
                     return OrderedFloat(f64::INFINITY);
                 }
 
-                let n_j = (self.arms[*i].successes + self.arms[*i].failures) as f64;
-                let mean = self.arms[*i].successes as f64 / n_j;
-                let ucb = mean + (2.0 * (self.t as f64).ln() / n_j).sqrt();
+                let n_j = self.arms[*i].n() as f64;
+                let ucb = self.arms[*i].mean() + (2.0 * (self.t as f64).ln() / n_j).sqrt();
 
                 OrderedFloat(ucb)
             })

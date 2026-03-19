@@ -38,10 +38,7 @@ impl Bandit for EpsTS {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
-                    OrderedFloat(
-                        self.arms[*i].successes as f32
-                            / (self.arms[*i].successes + self.arms[*i].failures).max(1) as f32,
-                    ),
+                    OrderedFloat(self.arms[*i].mean()),
                     rng.gen::<u32>(),
                 )
             })

@@ -37,8 +37,7 @@ impl Bandit for LilUCB {
 
         (0..self.arms.len())
             .max_by_key(|i| {
-                let n_j = (self.arms[*i].successes + self.arms[*i].failures) as f64;
-                let mean = self.arms[*i].successes as f64 / n_j;
+                let n_j = self.arms[*i].n() as f64;
                 let sigma2 = 0.25;
 
                 let cb = (1.0 + BETA) * (1.0 + EPSILON.sqrt());
@@ -50,7 +49,7 @@ impl Bandit for LilUCB {
                         / n_j)
                         .sqrt();
 
-                (OrderedFloat(mean + cb), rng.gen::<u32>())
+                (OrderedFloat(self.arms[*i].mean() + cb), rng.gen::<u32>())
             })
             .unwrap()
     }

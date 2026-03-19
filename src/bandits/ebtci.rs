@@ -47,17 +47,10 @@ impl EBTCI {
 impl EBTCI {
     pub fn empirical_best(&self, mut rng: impl Rng) -> usize {
         let mut best_arm = 0;
-        let mut best_score = (
-            self.arms[0].successes as f64
-                / (self.arms[0].successes + self.arms[0].failures).max(1) as f64,
-            rng.gen::<u32>(),
-        );
+        let mut best_score = (self.arms[0].mean(), rng.gen::<u32>());
 
         for (i, arm) in self.arms.iter().enumerate().skip(1) {
-            let score = (
-                arm.successes as f64 / (arm.successes + arm.failures).max(1) as f64,
-                rng.gen::<u32>(),
-            );
+            let score = (arm.mean(), rng.gen::<u32>());
 
             if score > best_score {
                 best_arm = i;

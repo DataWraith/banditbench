@@ -27,11 +27,8 @@ impl Bandit for EpsilonGreedy {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
-                    (self.arms[*i].successes + self.arms[*i].failures == 0),
-                    OrderedFloat(
-                        self.arms[*i].successes as f64
-                            / (self.arms[*i].successes + self.arms[*i].failures) as f64,
-                    ),
+                    self.arms[*i].n() == 0,
+                    OrderedFloat(self.arms[*i].mean()),
                     rng.gen::<u32>(),
                 )
             })
