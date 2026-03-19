@@ -115,6 +115,12 @@ impl ReUCB {
     }
 }
 
+impl std::fmt::Display for ReUCB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ReUCB (a={:.2})", self.a)
+    }
+}
+
 impl Bandit for ReUCB {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

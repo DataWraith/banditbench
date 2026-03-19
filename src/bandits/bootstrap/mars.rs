@@ -49,6 +49,12 @@ impl MARS {
     }
 }
 
+impl std::fmt::Display for MARS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "MARS (δ={:.3})", self.delta)
+    }
+}
+
 impl Bandit for MARS {
     fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
         let r = if reward { 1 } else { 0 };

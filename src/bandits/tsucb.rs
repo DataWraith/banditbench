@@ -21,6 +21,12 @@ impl TSUCB {
     }
 }
 
+impl std::fmt::Display for TSUCB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "TS-UCB ({} samples)", self.num_samples)
+    }
+}
+
 impl Bandit for TSUCB {
     fn pull(&mut self, rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

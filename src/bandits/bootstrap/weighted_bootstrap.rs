@@ -47,6 +47,12 @@ impl WB {
     }
 }
 
+impl std::fmt::Display for WB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Weighted Bootstrap")
+    }
+}
+
 impl Bandit for WB {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

@@ -19,6 +19,12 @@ impl SoftElim {
     }
 }
 
+impl std::fmt::Display for SoftElim {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "SoftElim (w={:.2})", self.gamma.sqrt())
+    }
+}
+
 impl Bandit for SoftElim {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();

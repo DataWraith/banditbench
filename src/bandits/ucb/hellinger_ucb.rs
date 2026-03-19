@@ -45,6 +45,12 @@ fn h2_index(x: f64, d: f64) -> f64 {
     (l + u) / 2.0
 }
 
+impl std::fmt::Display for HellingerUCB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Hellinger-UCB")
+    }
+}
+
 impl Bandit for HellingerUCB {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);

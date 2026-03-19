@@ -20,6 +20,12 @@ impl RS {
     }
 }
 
+impl std::fmt::Display for RS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "RS (a={:.2})", self.aspiration)
+    }
+}
+
 impl Bandit for RS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

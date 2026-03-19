@@ -27,6 +27,16 @@ impl GradientBandit {
     }
 }
 
+impl std::fmt::Display for GradientBandit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        if self.use_baseline {
+            write!(f, "Gradient Bandit (with baseline)")
+        } else {
+            write!(f, "Gradient Bandit")
+        }
+    }
+}
+
 impl Bandit for GradientBandit {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let policy = softmax(&self.arms);

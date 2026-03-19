@@ -20,6 +20,12 @@ impl MOSSAnytime {
     }
 }
 
+impl std::fmt::Display for MOSSAnytime {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "MOSS-Anytime (α={:.2})", self.alpha)
+    }
+}
+
 impl Bandit for MOSSAnytime {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);

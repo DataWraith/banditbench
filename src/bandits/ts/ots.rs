@@ -17,6 +17,12 @@ impl OptimisticTS {
     }
 }
 
+impl std::fmt::Display for OptimisticTS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Optimistic Thompson Sampling")
+    }
+}
+
 impl Bandit for OptimisticTS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

@@ -22,6 +22,12 @@ impl ForcedExploration {
     }
 }
 
+impl std::fmt::Display for ForcedExploration {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Forced Exploration")
+    }
+}
+
 impl Bandit for ForcedExploration {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         // Greedy choice?

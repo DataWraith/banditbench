@@ -26,6 +26,12 @@ impl DelightfulGradientBandit {
     }
 }
 
+impl std::fmt::Display for DelightfulGradientBandit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Delightful GB (lr={:.3})", self.lr)
+    }
+}
+
 impl Bandit for DelightfulGradientBandit {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let policy = softmax(&self.arms);

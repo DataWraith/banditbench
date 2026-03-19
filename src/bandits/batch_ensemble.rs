@@ -41,6 +41,12 @@ impl BatchEnsemble {
     }
 }
 
+impl std::fmt::Display for BatchEnsemble {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Batch Ensemble for MAB (m={})", self.batch_size_multiplier)
+    }
+}
+
 impl Bandit for BatchEnsemble {
     fn pull(&mut self, _rng: impl Rng) -> usize {
         (0..self.arms.len())

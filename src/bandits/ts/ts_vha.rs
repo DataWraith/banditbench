@@ -19,6 +19,12 @@ impl TSVHA {
     }
 }
 
+impl std::fmt::Display for TSVHA {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Thompson Sampling with Virtual Helping Agents (Combiner C3)")
+    }
+}
+
 impl Bandit for TSVHA {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let arm_means = self

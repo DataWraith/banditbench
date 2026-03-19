@@ -12,6 +12,12 @@ impl Random {
     }
 }
 
+impl std::fmt::Display for Random {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Random")
+    }
+}
+
 impl Bandit for Random {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         rng.gen_range(0..self.num_arms)

@@ -52,6 +52,12 @@ impl WRSDA {
     }
 }
 
+impl std::fmt::Display for WRSDA {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "WR-SDA (forced_exploration={})", self.fe)
+    }
+}
+
 impl Bandit for WRSDA {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if !self.challengers.is_empty() {

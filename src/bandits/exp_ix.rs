@@ -26,6 +26,12 @@ impl EXPIX {
     }
 }
 
+impl std::fmt::Display for EXPIX {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "EXP-IX")
+    }
+}
+
 impl Bandit for EXPIX {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();

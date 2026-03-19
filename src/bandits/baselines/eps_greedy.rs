@@ -18,6 +18,12 @@ impl EpsilonGreedy {
     }
 }
 
+impl std::fmt::Display for EpsilonGreedy {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ϵ-Greedy (ϵ={:.3})", self.epsilon)
+    }
+}
+
 impl Bandit for EpsilonGreedy {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if rng.gen_bool(self.epsilon) {

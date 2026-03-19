@@ -23,6 +23,12 @@ impl STS {
     }
 }
 
+impl std::fmt::Display for STS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Satisficing Thompson Sampling (ϵ={:.3})", self.epsilon)
+    }
+}
+
 impl Bandit for STS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         // Sample from the Beta distributions of each arm, as in TS

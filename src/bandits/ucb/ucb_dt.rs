@@ -29,6 +29,12 @@ impl UCBDT {
     }
 }
 
+impl std::fmt::Display for UCBDT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "UCB-DT (γ={:.2})", self.gamma)
+    }
+}
+
 impl Bandit for UCBDT {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);

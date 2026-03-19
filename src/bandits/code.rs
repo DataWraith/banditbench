@@ -24,6 +24,12 @@ impl CODE {
     }
 }
 
+impl std::fmt::Display for CODE {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "CODE (δ={:.3})", self.delta)
+    }
+}
+
 impl Bandit for CODE {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);

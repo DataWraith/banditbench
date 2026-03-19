@@ -25,6 +25,12 @@ impl GIRO {
     }
 }
 
+impl std::fmt::Display for GIRO {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Garbage In, Reward Out (a={:.2})", self.num_pseudo_rewards)
+    }
+}
+
 impl Bandit for GIRO {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms_ceil.len() {

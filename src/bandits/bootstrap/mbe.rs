@@ -28,6 +28,12 @@ impl Mbe {
     }
 }
 
+impl std::fmt::Display for Mbe {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Multiplier Bootstrap-based Exploration")
+    }
+}
+
 impl Bandit for Mbe {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         self.replicates.choose_mut(&mut rng).unwrap().pull(&mut rng)

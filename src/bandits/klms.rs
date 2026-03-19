@@ -64,6 +64,12 @@ impl KLMS {
     }
 }
 
+impl std::fmt::Display for KLMS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Kullback-Leibler Maillard Sampling")
+    }
+}
+
 impl Bandit for KLMS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let gumbel_dist = Gumbel::new(0.0, 1.0).unwrap();

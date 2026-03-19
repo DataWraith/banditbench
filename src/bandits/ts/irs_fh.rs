@@ -19,6 +19,12 @@ impl IRSFH {
     }
 }
 
+impl std::fmt::Display for IRSFH {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "IRS.FH (H={})", self.assumed_horizon)
+    }
+}
+
 impl Bandit for IRSFH {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

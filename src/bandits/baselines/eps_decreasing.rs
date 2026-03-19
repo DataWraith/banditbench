@@ -20,6 +20,12 @@ impl EpsilonDecreasing {
     }
 }
 
+impl std::fmt::Display for EpsilonDecreasing {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ϵ-Decreasing (ϵ={:.3})", self.epsilon)
+    }
+}
+
 impl Bandit for EpsilonDecreasing {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if rng.gen_bool(1.0 / (self.t as f64).powf(self.epsilon)) {

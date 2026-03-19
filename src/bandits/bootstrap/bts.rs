@@ -25,6 +25,12 @@ impl BTS {
     }
 }
 
+impl std::fmt::Display for BTS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Bootstrapped Thompson Sampling (J={})", self.arms.len())
+    }
+}
+
 impl Bandit for BTS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms[0].len())

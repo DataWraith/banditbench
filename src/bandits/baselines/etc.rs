@@ -20,6 +20,12 @@ impl ETC {
     }
 }
 
+impl std::fmt::Display for ETC {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ETC (m={})", self.m)
+    }
+}
+
 impl Bandit for ETC {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

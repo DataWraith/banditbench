@@ -27,6 +27,12 @@ impl ReBoot {
     }
 }
 
+impl std::fmt::Display for ReBoot {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ReBoot (r={:.2})", self.r)
+    }
+}
+
 impl Bandit for ReBoot {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

@@ -39,6 +39,12 @@ impl NPTS {
     }
 }
 
+impl std::fmt::Display for NPTS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Non-Parametric Thompson Sampling")
+    }
+}
+
 impl Bandit for NPTS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

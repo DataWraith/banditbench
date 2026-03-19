@@ -71,6 +71,12 @@ impl TsallisINF {
     }
 }
 
+impl std::fmt::Display for TsallisINF {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Tsallis-INF")
+    }
+}
+
 impl Bandit for TsallisINF {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let w_sum = self.w.iter().sum::<f64>();

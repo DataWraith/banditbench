@@ -23,6 +23,12 @@ impl LilUCB {
     }
 }
 
+impl std::fmt::Display for LilUCB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "lil' UCB (δ={:.3})", self.delta)
+    }
+}
+
 impl Bandit for LilUCB {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         self.arms[arm].update(reward);

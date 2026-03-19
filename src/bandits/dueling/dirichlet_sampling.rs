@@ -58,6 +58,12 @@ impl BDS {
     }
 }
 
+impl std::fmt::Display for BDS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Bounded Dirichlet Sampling")
+    }
+}
+
 impl Bandit for BDS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if !self.challengers.is_empty() {

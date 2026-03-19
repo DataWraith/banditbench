@@ -31,6 +31,12 @@ impl FTPLGR {
     }
 }
 
+impl std::fmt::Display for FTPLGR {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "FTPL-GR (lr={:.3})", self.lr)
+    }
+}
+
 impl Bandit for FTPLGR {
     fn pull(&mut self, rng: impl Rng) -> usize {
         let perturbation = self.sample_perturbation(rng);

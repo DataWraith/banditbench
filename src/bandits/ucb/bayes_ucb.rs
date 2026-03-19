@@ -18,6 +18,12 @@ impl BayesUCB {
     }
 }
 
+impl std::fmt::Display for BayesUCB {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "BayesUCB (δ={:.3})", self.delta)
+    }
+}
+
 impl Bandit for BayesUCB {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

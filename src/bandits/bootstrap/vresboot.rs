@@ -35,6 +35,12 @@ impl VResBoot {
     }
 }
 
+impl std::fmt::Display for VResBoot {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Vanilla Residual Bootstrap (init={})", self.arms[0].s)
+    }
+}
+
 impl Bandit for VResBoot {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

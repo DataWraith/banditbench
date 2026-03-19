@@ -19,6 +19,12 @@ impl SoftSatisficing {
     }
 }
 
+impl std::fmt::Display for SoftSatisficing {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Softsatisficing (a={:.2})", self.aspiration)
+    }
+}
+
 impl Bandit for SoftSatisficing {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();

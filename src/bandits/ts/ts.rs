@@ -17,6 +17,12 @@ impl TS {
     }
 }
 
+impl std::fmt::Display for TS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Thompson Sampling")
+    }
+}
+
 impl Bandit for TS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         (0..self.arms.len())

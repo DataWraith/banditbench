@@ -41,6 +41,12 @@ impl UCBT {
     }
 }
 
+impl std::fmt::Display for UCBT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "UCBT")
+    }
+}
+
 impl Bandit for UCBT {
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
         let r = if reward { 1.0 } else { 0.0 };

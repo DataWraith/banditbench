@@ -27,6 +27,12 @@ impl POKER {
     }
 }
 
+impl std::fmt::Display for POKER {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "POKER (H={})", self.horizon)
+    }
+}
+
 impl Bandit for POKER {
     fn pull(&mut self, _rng: impl Rng) -> usize {
         if self.t < self.arms.len() {

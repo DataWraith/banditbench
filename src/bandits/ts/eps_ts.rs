@@ -17,6 +17,12 @@ impl EpsTS {
     }
 }
 
+impl std::fmt::Display for EpsTS {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "ϵ-Exploring Thompson Sampling")
+    }
+}
+
 impl Bandit for EpsTS {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         if rng.gen_bool(1.0 / self.arms.len() as f64) {
