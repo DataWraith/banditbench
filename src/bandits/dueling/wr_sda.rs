@@ -1,8 +1,8 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Hypergeometric;
 
 use crate::bandits::Arm;
+use crate::utils::tie_break;
 use crate::Bandit;
 
 pub struct WRSDA {
@@ -27,8 +27,7 @@ impl WRSDA {
             .max_by_key(|i| {
                 (
                     self.arms[*i].n(),
-                    OrderedFloat(self.arms[*i].mean()),
-                    rng.gen::<u32>(),
+                    tie_break(self.arms[*i].mean(), rng.gen::<u32>()),
                 )
             })
             .unwrap()

@@ -1,10 +1,10 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Normal;
 
 // Vanilla Residual Bootstrap (from the ReBoot paper), but with optimistic
 // initialization to encourage exploration (similar to BDS and NPTS).
 
+use crate::utils::tie_break;
 use crate::Bandit;
 
 #[derive(Default, Clone)]
@@ -55,7 +55,7 @@ impl Bandit for VResBoot {
 
                 let d = Normal::new(y, (s.powi(-2) * rss).sqrt()).unwrap();
 
-                (OrderedFloat(d.sample(&mut rng)), rng.gen::<u32>())
+                tie_break(d.sample(&mut rng), rng.gen::<u32>())
             })
             .unwrap()
     }

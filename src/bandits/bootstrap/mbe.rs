@@ -1,7 +1,7 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Normal;
 
+use crate::utils::tie_break;
 use crate::Bandit;
 
 const BOOTSTRAP_REPLICATES: usize = 150;
@@ -67,9 +67,9 @@ impl MbeMab {
                 let count = self.counts[c];
 
                 if count > 0.0 {
-                    (OrderedFloat(sum / count), rng.gen::<u32>())
+                    tie_break(sum / count, rng.gen::<u32>())
                 } else {
-                    (OrderedFloat(f64::INFINITY), rng.gen::<u32>())
+                    tie_break(f64::INFINITY, rng.gen::<u32>())
                 }
             })
             .unwrap()

@@ -1,7 +1,7 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
 use crate::bandits::Arm;
+use crate::utils::tie_break;
 use crate::Bandit;
 
 pub struct BTS {
@@ -36,7 +36,7 @@ impl Bandit for BTS {
         (0..self.arms[0].len())
             .max_by_key(|i| {
                 let replicate = self.arms.choose(&mut rng).unwrap();
-                (OrderedFloat(replicate[*i].mean()), rng.gen::<u32>())
+                tie_break(replicate[*i].mean(), rng.gen::<u32>())
             })
             .unwrap()
     }

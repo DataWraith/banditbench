@@ -1,6 +1,7 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Gumbel;
+
+use crate::utils::tie_break;
 
 use super::Arm;
 use super::Bandit;
@@ -33,13 +34,13 @@ impl Bandit for BGE {
                 let l = self.arms[*i].failures;
 
                 if w + l == 0 {
-                    (OrderedFloat(f64::INFINITY), rng.gen::<u32>())
+                    tie_break(f64::INFINITY, rng.gen::<u32>())
                 } else {
                     let mean = w as f64 / (w + l) as f64;
                     let beta = (0.25 / (w + l) as f64).sqrt();
                     let z = gumbel.sample(&mut rng);
 
-                    (OrderedFloat(mean + beta * z), rng.gen::<u32>())
+                    tie_break(mean + beta * z, rng.gen::<u32>())
                 }
             })
             .unwrap()

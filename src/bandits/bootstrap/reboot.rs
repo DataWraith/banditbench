@@ -1,7 +1,7 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Normal;
 
+use crate::utils::tie_break;
 use crate::Bandit;
 
 #[derive(Default, Clone)]
@@ -56,7 +56,7 @@ impl Bandit for ReBoot {
 
                 let d = Normal::new(y, ((1.0 / (s + 2.0).powi(2)) * (rss + prss)).sqrt()).unwrap();
 
-                (OrderedFloat(d.sample(&mut rng)), rng.gen::<u32>())
+                tie_break(d.sample(&mut rng), rng.gen::<u32>())
             })
             .unwrap()
     }

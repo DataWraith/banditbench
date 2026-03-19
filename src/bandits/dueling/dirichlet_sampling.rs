@@ -1,8 +1,8 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Dirichlet;
 
 use crate::bandits::Arm;
+use crate::utils::tie_break;
 use crate::Bandit;
 
 pub struct BDS {
@@ -29,11 +29,10 @@ impl BDS {
             .max_by_key(|i| {
                 (
                     self.arms[*i].successes + self.arms[*i].failures,
-                    OrderedFloat(
-                        self.arms[*i].successes as f32
-                            / (self.arms[*i].successes + self.arms[*i].failures) as f32,
-                    ),
-                    rng.gen::<u32>(),
+                    tie_break(
+                        self.arms[*i].successes as f64
+                            / (self.arms[*i].successes + self.arms[*i].failures) as f64,
+                        rng.gen::<u32>()),
                 )
             })
             .unwrap()

@@ -1,8 +1,8 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Binomial;
 
 use crate::bandits::Arm;
+use crate::utils::tie_break;
 use crate::Bandit;
 
 pub struct GIRO {
@@ -58,7 +58,7 @@ impl Bandit for GIRO {
                 };
 
                 if successes == 0 {
-                    return (OrderedFloat(0.0), rng.gen::<u32>());
+                    return tie_break(0.0, rng.gen::<u32>());
                 }
 
                 let d = Binomial::new(
@@ -69,7 +69,7 @@ impl Bandit for GIRO {
 
                 let mu = d.sample(&mut rng) as f64 / (successes + failures) as f64;
 
-                (OrderedFloat(mu), rng.gen::<u32>())
+                tie_break(mu, rng.gen::<u32>())
             })
             .unwrap()
     }

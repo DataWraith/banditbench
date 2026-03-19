@@ -1,7 +1,7 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
 use crate::bandits::Arm;
+use crate::utils::tie_break;
 use crate::Bandit;
 
 pub struct Greedy {
@@ -28,8 +28,7 @@ impl Bandit for Greedy {
             .max_by_key(|i| {
                 (
                     self.arms[*i].n() == 0,
-                    OrderedFloat(self.arms[*i].mean()),
-                    rng.gen::<u32>(),
+                    tie_break(self.arms[*i].mean(), rng.gen::<u32>()),
                 )
             })
             .unwrap()
