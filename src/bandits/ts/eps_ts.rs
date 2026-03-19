@@ -23,8 +23,8 @@ impl Bandit for EpsTS {
             return (0..self.arms.len())
                 .max_by_key(|i| {
                     let beta = Beta::new(
-                        self.arms[*i].successes as f32 + 1.0,
-                        self.arms[*i].failures as f32 + 1.0,
+                        self.arms[*i].successes as f64 + 1.0,
+                        self.arms[*i].failures as f64 + 1.0,
                     )
                     .unwrap();
 
@@ -33,7 +33,7 @@ impl Bandit for EpsTS {
                     OrderedFloat(sample)
                 })
                 .unwrap();
-        };
+        }
 
         (0..self.arms.len())
             .max_by_key(|i| {
