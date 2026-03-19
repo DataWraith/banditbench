@@ -22,7 +22,7 @@ pub fn evaluate_bandits(
     .unwrap();
 
     let pbar = ProgressBar::new(num_runs as u64)
-        .with_style(style.clone())
+        .with_style(style)
         .with_message(format!("{}", algorithm));
 
     let start = Instant::now();
