@@ -16,11 +16,11 @@ impl FTPLGR {
         }
     }
 
-    fn sample_perturbation(&self, mut rng: impl Rng) -> Vec<f64> {
+    fn sample_perturbation(&self, rng: &mut impl Rng) -> Vec<f64> {
         let frechet = rand_distr::Frechet::new(0.0, 1.0, 2.0).unwrap();
 
         (0..self.losses.len())
-            .map(|_| frechet.sample(&mut rng))
+            .map(|_| frechet.sample(rng))
             .collect()
     }
 
@@ -43,12 +43,12 @@ impl Bandit for FTPLGR {
         self.sample_index(&perturbation)
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: &mut impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
         let mut m = 0;
 
         loop {
             m += 1;
-            let perturbation = self.sample_perturbation(&mut rng);
+            let perturbation = self.sample_perturbation(rng);
             let idx = self.sample_index(&perturbation);
 
             if arm == idx {

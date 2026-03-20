@@ -25,7 +25,7 @@ impl std::fmt::Display for BGE {
 }
 
 impl Bandit for BGE {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
 
         (0..self.arms.len())
@@ -38,7 +38,7 @@ impl Bandit for BGE {
                 } else {
                     let mean = w as f64 / (w + l) as f64;
                     let beta = (0.25 / (w + l) as f64).sqrt();
-                    let z = gumbel.sample(&mut rng);
+                    let z = gumbel.sample(rng);
 
                     tie_break(mean + beta * z, rng.gen::<u32>())
                 }

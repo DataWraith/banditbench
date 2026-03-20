@@ -1,4 +1,3 @@
-use ordered_float::OrderedFloat;
 use rand::prelude::*;
 use rand_distr::Exp1;
 
@@ -12,7 +11,7 @@ pub struct WB {
     arms: Vec<Arm>,
 }
 
-fn theta(arm: &Arm, mut rng: impl Rng) -> f64 {
+fn theta(arm: &Arm, rng: &mut impl Rng) -> f64 {
     let n = arm.n();
 
     let mut numerator = 0.0;
@@ -54,10 +53,17 @@ impl std::fmt::Display for WB {
 }
 
 impl Bandit for WB {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
-        (0..self.arms.len())
-            .max_by_key(|i| OrderedFloat(theta(&self.arms[*i], &mut rng)))
-            .unwrap()
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
+        let mut best_i = 0;
+        let mut best_theta = theta(&self.arms[0], rng);
+        for i in 1..self.arms.len() {
+            let t = theta(&self.arms[i], rng);
+            if t > best_theta {
+                best_theta = t;
+                best_i = i;
+            }
+        }
+        best_i
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {

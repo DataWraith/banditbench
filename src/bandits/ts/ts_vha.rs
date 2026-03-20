@@ -25,7 +25,7 @@ impl std::fmt::Display for TSVHA {
 }
 
 impl Bandit for TSVHA {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let arm_means = self
             .arms
             .iter()
@@ -50,7 +50,7 @@ impl Bandit for TSVHA {
                 let mut samples = Vec::with_capacity(num_samples);
 
                 for _ in 0..num_samples {
-                    let sample = beta.sample(&mut rng) as f32;
+                    let sample = beta.sample(rng) as f32;
                     samples.push(sample);
                 }
 

@@ -28,7 +28,7 @@ impl std::fmt::Display for PHE {
 }
 
 impl Bandit for PHE {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -39,7 +39,7 @@ impl Bandit for PHE {
                 let a = self.perturbation_scale;
                 let v = self.arms[*i].successes as f64;
                 let d = Binomial::new((a * s).ceil() as u64, 1.0 / 2.0).unwrap();
-                let u = d.sample(&mut rng) as f64;
+                let u = d.sample(rng) as f64;
                 let mu = (v + u) / (s + (a * s).ceil());
 
                 OrderedFloat(mu)

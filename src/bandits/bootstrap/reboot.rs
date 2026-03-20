@@ -34,7 +34,7 @@ impl std::fmt::Display for ReBoot {
 }
 
 impl Bandit for ReBoot {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -56,7 +56,7 @@ impl Bandit for ReBoot {
 
                 let d = Normal::new(y, ((1.0 / (s + 2.0).powi(2)) * (rss + prss)).sqrt()).unwrap();
 
-                tie_break(d.sample(&mut rng), rng.gen::<u32>())
+                tie_break(d.sample(rng), rng.gen::<u32>())
             })
             .unwrap()
     }

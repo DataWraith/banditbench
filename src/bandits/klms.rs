@@ -71,13 +71,13 @@ impl std::fmt::Display for KLMS {
 }
 
 impl Bandit for KLMS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let gumbel_dist = Gumbel::new(0.0, 1.0).unwrap();
 
         self.logits()
             .iter()
             .enumerate()
-            .max_by_key(|(_, l)| OrderedFloat(*l + gumbel_dist.sample(&mut rng)))
+            .max_by_key(|(_, l)| OrderedFloat(*l + gumbel_dist.sample(rng)))
             .unwrap()
             .0
     }

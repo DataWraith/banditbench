@@ -28,7 +28,7 @@ impl MARS {
         }
     }
 
-    fn ucb(&self, arm: usize, mut rng: impl Rng) -> f64 {
+    fn ucb(&self, arm: usize, rng: &mut impl Rng) -> f64 {
         if self.num_pulls[arm] == 0 {
             return f64::INFINITY;
         }
@@ -79,9 +79,9 @@ impl Bandit for MARS {
         self.t += 1;
     }
 
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.num_pulls.len())
-            .map(|arm| (self.ucb(arm, &mut rng), arm))
+            .map(|arm| (self.ucb(arm, rng), arm))
             .max_by_key(|x| OrderedFloat(x.0))
             .unwrap()
             .1

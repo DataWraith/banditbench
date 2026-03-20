@@ -53,17 +53,17 @@ impl std::fmt::Display for VarTS {
 }
 
 impl Bandit for VarTS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 let gamma = Gamma::new(self.arms[*i].alpha, self.arms[*i].beta);
-                let lambda = gamma.unwrap().sample(&mut rng).max(1e-4);
+                let lambda = gamma.unwrap().sample(rng).max(1e-4);
                 let normal = Normal::new(
                     self.arms[*i].mu(),
                     (1.0 / (self.arms[*i].nu as f64 * lambda)).sqrt(),
                 )
                 .unwrap();
-                let sample = normal.sample(&mut rng);
+                let sample = normal.sample(rng);
 
                 OrderedFloat(sample)
             })

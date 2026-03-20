@@ -24,10 +24,10 @@ impl NPTS {
         }
     }
 
-    pub fn npts_index(&self, arm: usize, mut rng: impl Rng) -> f64 {
+    pub fn npts_index(&self, arm: usize, rng: &mut impl Rng) -> f64 {
         let dirichlet = Dirichlet::new_with_size(1.0, self.arms[arm].n()).unwrap();
 
-        let sample = dirichlet.sample(&mut rng);
+        let sample = dirichlet.sample(rng);
 
         let mut sum = 0.0;
 
@@ -46,13 +46,13 @@ impl std::fmt::Display for NPTS {
 }
 
 impl Bandit for NPTS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
 
         (0..self.arms.len())
-            .max_by_key(|i| OrderedFloat(self.npts_index(*i, &mut rng)))
+            .max_by_key(|i| OrderedFloat(self.npts_index(*i, rng)))
             .unwrap()
     }
 

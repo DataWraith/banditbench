@@ -42,7 +42,7 @@ impl std::fmt::Display for VResBoot {
 }
 
 impl Bandit for VResBoot {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -55,7 +55,7 @@ impl Bandit for VResBoot {
 
                 let d = Normal::new(y, (s.powi(-2) * rss).sqrt()).unwrap();
 
-                tie_break(d.sample(&mut rng), rng.gen::<u32>())
+                tie_break(d.sample(rng), rng.gen::<u32>())
             })
             .unwrap()
     }

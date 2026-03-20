@@ -51,7 +51,7 @@ impl Bandit for TSUCB {
 }
 
 impl TSUCB {
-    fn estimate_highest_reward(&self, mut rng: impl Rng) -> f64 {
+    fn estimate_highest_reward(&self, rng: &mut impl Rng) -> f64 {
         let mut best_samples = vec![f64::NEG_INFINITY; self.num_samples];
 
         for arm in self.arms.iter() {
@@ -59,7 +59,7 @@ impl TSUCB {
 
             best_samples
                 .iter_mut()
-                .zip(distribution.sample_iter(&mut rng))
+                .zip(distribution.sample_iter(&mut *rng))
                 .for_each(|(f, s)| *f = f.max(s));
         }
 

@@ -45,7 +45,7 @@ impl EBTCI {
 }
 
 impl EBTCI {
-    pub fn empirical_best(&self, mut rng: impl Rng) -> usize {
+    pub fn empirical_best(&self, rng: &mut impl Rng) -> usize {
         let mut best_arm = 0;
         let mut best_score = (self.arms[0].mean(), rng.gen::<u32>());
 
@@ -61,7 +61,7 @@ impl EBTCI {
         best_arm
     }
 
-    fn challenger(&self, leader: usize, mut rng: impl Rng) -> usize {
+    fn challenger(&self, leader: usize, rng: &mut impl Rng) -> usize {
         let mut best_arm = 0;
         let mut best_distance = (f64::INFINITY, rng.gen::<u32>());
 
@@ -99,18 +99,18 @@ impl std::fmt::Display for EBTCI {
 }
 
 impl Bandit for EBTCI {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
 
-        let leader = self.empirical_best(&mut rng);
+        let leader = self.empirical_best(rng);
 
         if rng.gen_bool(BETA) {
             return leader;
         }
 
-        self.challenger(leader, &mut rng)
+        self.challenger(leader, rng)
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {

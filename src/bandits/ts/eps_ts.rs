@@ -23,11 +23,11 @@ impl std::fmt::Display for EpsTS {
 }
 
 impl Bandit for EpsTS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if rng.gen_bool(1.0 / self.arms.len() as f64) {
             return (0..self.arms.len())
                 .max_by_key(|i| {
-                    let sample = self.arms[*i].beta().sample(&mut rng);
+                    let sample = self.arms[*i].beta().sample(rng);
 
                     OrderedFloat(sample)
                 })

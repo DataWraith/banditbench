@@ -24,7 +24,7 @@ impl BDS {
         }
     }
 
-    pub fn leader(&self, mut rng: impl Rng) -> usize {
+    pub fn leader(&self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
@@ -38,14 +38,14 @@ impl BDS {
             .unwrap()
     }
 
-    pub fn bds_index(&self, challenger: usize, mut rng: impl Rng) -> f64 {
+    pub fn bds_index(&self, challenger: usize, rng: &mut impl Rng) -> f64 {
         let dirichlet = Dirichlet::new_with_size(
             1.0,
             self.arms[challenger].successes + self.arms[challenger].failures,
         )
         .unwrap();
 
-        let sample = dirichlet.sample(&mut rng);
+        let sample = dirichlet.sample(rng);
 
         let mut sum = 0.0;
 
@@ -64,12 +64,12 @@ impl std::fmt::Display for BDS {
 }
 
 impl Bandit for BDS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if !self.challengers.is_empty() {
             return self.challengers.pop().unwrap();
         }
 
-        let leader = self.leader(&mut rng);
+        let leader = self.leader(rng);
         let leader_len = self.arms[leader].successes + self.arms[leader].failures;
         let leader_mean = self.arms[leader].successes as f64 / leader_len as f64;
 
@@ -90,7 +90,7 @@ impl Bandit for BDS {
                 continue;
             }
 
-            let challenger_index = self.bds_index(i, &mut rng);
+            let challenger_index = self.bds_index(i, rng);
 
             if leader_mean <= challenger_index {
                 self.challengers.push(i);
@@ -100,7 +100,7 @@ impl Bandit for BDS {
         if self.challengers.is_empty() {
             leader
         } else {
-            self.challengers.shuffle(&mut rng);
+            self.challengers.shuffle(rng);
             self.challengers.pop().unwrap()
         }
     }

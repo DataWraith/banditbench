@@ -27,7 +27,7 @@ impl std::fmt::Display for EpsTSUCB {
 }
 
 impl Bandit for EpsTSUCB {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -50,7 +50,7 @@ impl Bandit for EpsTSUCB {
             let mut best_sample = f64::NEG_INFINITY;
 
             for i in 0..self.arms.len() {
-                let sample = distributions[i].sample(&mut rng);
+                let sample = distributions[i].sample(rng);
                 best_sample = best_sample.max(sample);
             }
 

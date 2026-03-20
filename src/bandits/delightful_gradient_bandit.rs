@@ -30,10 +30,10 @@ impl std::fmt::Display for DelightfulGradientBandit {
 }
 
 impl Bandit for DelightfulGradientBandit {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let policy = softmax(&self.arms);
         let dist = WeightedIndex::new(&policy).unwrap();
-        dist.sample(&mut rng)
+        dist.sample(rng)
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {

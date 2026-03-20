@@ -32,10 +32,10 @@ impl std::fmt::Display for BTS {
 }
 
 impl Bandit for BTS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms[0].len())
             .max_by_key(|i| {
-                let replicate = self.arms.choose(&mut rng).unwrap();
+                let replicate = self.arms.choose(rng).unwrap();
                 tie_break(replicate[*i].mean(), rng.gen::<u32>())
             })
             .unwrap()

@@ -22,7 +22,7 @@ impl WRSDA {
         }
     }
 
-    pub fn leader(&self, mut rng: impl Rng) -> usize {
+    pub fn leader(&self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
@@ -33,7 +33,7 @@ impl WRSDA {
             .unwrap()
     }
 
-    pub fn duel(&self, leader: usize, challenger: usize, mut rng: impl Rng) -> bool {
+    pub fn duel(&self, leader: usize, challenger: usize, rng: &mut impl Rng) -> bool {
         // Determine Challenger score
         let challenger_score = self.arms[challenger].mean();
         let challenger_n = self.arms[challenger].n();
@@ -44,7 +44,7 @@ impl WRSDA {
         let x = challenger_n as u64;
 
         let dist = Hypergeometric::new(n, k, x).unwrap();
-        let leader_score = dist.sample(&mut rng) as f64 / challenger_n as f64;
+        let leader_score = dist.sample(rng) as f64 / challenger_n as f64;
 
         // Return the result of the duel
         challenger_score > leader_score
@@ -58,7 +58,7 @@ impl std::fmt::Display for WRSDA {
 }
 
 impl Bandit for WRSDA {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if !self.challengers.is_empty() {
             return self.challengers.pop().unwrap();
         }
@@ -74,21 +74,21 @@ impl Bandit for WRSDA {
                 .map(|(i, _arm)| i)
                 .collect();
 
-            self.challengers.shuffle(&mut rng);
+            self.challengers.shuffle(rng);
 
             if !self.challengers.is_empty() {
                 return self.challengers.pop().unwrap();
             }
         }
 
-        let leader = self.leader(&mut rng);
+        let leader = self.leader(rng);
 
         for i in 0..self.arms.len() {
             if i == leader {
                 continue;
             }
 
-            if self.duel(leader, i, &mut rng) {
+            if self.duel(leader, i, rng) {
                 self.challengers.push(i);
             }
         }
@@ -97,7 +97,7 @@ impl Bandit for WRSDA {
             return leader;
         }
 
-        self.challengers.shuffle(&mut rng);
+        self.challengers.shuffle(rng);
         self.challengers.pop().unwrap()
     }
 

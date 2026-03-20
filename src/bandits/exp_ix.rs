@@ -33,7 +33,7 @@ impl std::fmt::Display for EXPIX {
 }
 
 impl Bandit for EXPIX {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
         let lr = self.learning_rate();
 
@@ -41,7 +41,7 @@ impl Bandit for EXPIX {
             .iter()
             .enumerate()
             .map(|(i, &loss)| {
-                let noise = gumbel.sample(&mut rng);
+                let noise = gumbel.sample(rng);
                 (-lr * loss + noise, i)
             })
             .max_by_key(|(index, _)| OrderedFloat(*index))

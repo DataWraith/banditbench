@@ -26,7 +26,7 @@ impl std::fmt::Display for SoftElim {
 }
 
 impl Bandit for SoftElim {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
 
         let best_mean = self
@@ -40,7 +40,7 @@ impl Bandit for SoftElim {
         (0..self.arms.len())
             .max_by_key(|i| {
                 let s = 2.0 * (best_mean - self.arms[*i].mean()).powi(2) * self.arms[*i].n() as f64;
-                let g = gumbel.sample(&mut rng);
+                let g = gumbel.sample(rng);
 
                 OrderedFloat(-s * self.gamma + g)
             })

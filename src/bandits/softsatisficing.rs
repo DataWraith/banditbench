@@ -26,17 +26,17 @@ impl std::fmt::Display for SoftSatisficing {
 }
 
 impl Bandit for SoftSatisficing {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
 
         (0..self.arms.len())
             .filter(|&i| self.arms[i].mean() >= self.aspiration)
-            .choose(&mut rng)
+            .choose(rng)
             .unwrap_or_else(|| {
                 (0..self.arms.len())
                     .max_by_key(|&i| {
                         let e_rs = -(self.aspiration - self.arms[i].mean()).ln();
-                        let gumbel_sample = gumbel.sample(&mut rng);
+                        let gumbel_sample = gumbel.sample(rng);
 
                         OrderedFloat(e_rs + gumbel_sample)
                     })

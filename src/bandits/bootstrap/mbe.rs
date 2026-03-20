@@ -8,10 +8,10 @@ const BOOTSTRAP_REPLICATES: usize = 150;
 const EXPLORATION_LAMBDA: f64 = 0.5;
 const BOOTSTRAP_SIGMA: f64 = 0.5;
 
-fn bootstrap_weights(mut rng: impl Rng) -> [f64; 3] {
+fn bootstrap_weights(rng: &mut impl Rng) -> [f64; 3] {
     let d = Normal::new(1.0, BOOTSTRAP_SIGMA.sqrt()).unwrap();
 
-    [d.sample(&mut rng), d.sample(&mut rng), d.sample(&mut rng)]
+    [d.sample(rng), d.sample(rng), d.sample(rng)]
 }
 
 pub struct Mbe {
@@ -35,8 +35,8 @@ impl std::fmt::Display for Mbe {
 }
 
 impl Bandit for Mbe {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
-        self.replicates.choose_mut(&mut rng).unwrap().pull(&mut rng)
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
+        self.replicates.choose_mut(rng).unwrap().pull(rng)
     }
 
     fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
@@ -75,8 +75,8 @@ impl MbeMab {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: &mut impl Rng) {
-        let [w1, w2, w3] = bootstrap_weights(&mut rng);
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
+        let [w1, w2, w3] = bootstrap_weights(rng);
         let r = if reward { 1.0 } else { 0.0 };
 
         // Update rewards

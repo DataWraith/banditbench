@@ -29,10 +29,10 @@ impl std::fmt::Display for STS {
 }
 
 impl Bandit for STS {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         // Sample from the Beta distributions of each arm, as in TS
         let samples = (0..self.arms.len())
-            .map(|i| self.arms[i].beta().sample(&mut rng))
+            .map(|i| self.arms[i].beta().sample(rng))
             .collect::<Vec<f64>>();
 
         // Select the arm with the highest sample as the leader

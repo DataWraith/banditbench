@@ -32,7 +32,7 @@ impl std::fmt::Display for GIRO {
 }
 
 impl Bandit for GIRO {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t < self.arms_ceil.len() {
             return self.t;
         }
@@ -67,7 +67,7 @@ impl Bandit for GIRO {
                 )
                 .unwrap();
 
-                let mu = d.sample(&mut rng) as f64 / (successes + failures) as f64;
+                let mu = d.sample(rng) as f64 / (successes + failures) as f64;
 
                 tie_break(mu, rng.gen::<u32>())
             })

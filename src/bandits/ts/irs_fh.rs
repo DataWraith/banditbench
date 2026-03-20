@@ -26,12 +26,12 @@ impl std::fmt::Display for IRSFH {
 }
 
 impl Bandit for IRSFH {
-    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
-                let theta = self.arms[*i].beta().sample(&mut rng);
+                let theta = self.arms[*i].beta().sample(rng);
                 let binomial = Binomial::new(self.assumed_horizon, theta).unwrap();
-                let sampled_reward = binomial.sample(&mut rng);
+                let sampled_reward = binomial.sample(rng);
 
                 let index = (self.arms[*i].successes as f32 + sampled_reward as f32)
                     / (self.arms[*i].successes
