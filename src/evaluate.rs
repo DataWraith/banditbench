@@ -8,14 +8,16 @@ use crate::BanditEvaluation;
 use super::bandits::*;
 use super::evaluate_bandit;
 
-macro_rules! evaluate_match {
+macro_rules! with_bandit {
     ($algorithm:expr, $num_arms:expr, $arms:expr, $horizon:expr, $seed:expr, {
         $($pattern:pat => $constructor:expr),* $(,)?
     }) => {
         match $algorithm {
             $($pattern => {
                 let bandit = $constructor;
-                evaluate_bandit(bandit, $arms, $horizon, $seed)
+                let name = bandit.to_string();
+                let eval = evaluate_bandit(bandit, $arms, $horizon, $seed);
+                (name, eval)
             }),*
         }
     };
@@ -30,20 +32,18 @@ pub fn evaluate_bandits(
 ) {
 
     let style = ProgressStyle::with_template(
-        "[{elapsed_precise}] {bar:80} {pos:>6}/{len:6} [ETA: {eta_precise}] {msg}",
+        "[{elapsed_precise}] {bar:80} {pos:>6}/{len:6} [ETA: {eta_precise}]",
     )
     .unwrap();
 
-    let pbar = ProgressBar::new(num_runs as u64)
-        .with_style(style)
-        .with_message(format!("{}", algorithm));
+    let pbar = ProgressBar::new(num_runs as u64).with_style(style);
 
     let start = Instant::now();
     let instances = (seed..(seed + num_runs as u64))
         .map(|seed| arms_fn(seed))
         .collect::<Vec<Vec<f64>>>();
 
-    let mut evaluations = instances
+    let results: Vec<(String, BanditEvaluation)> = instances
         .into_par_iter()
         .enumerate()
         .map(|(i, arms)| {
@@ -52,7 +52,7 @@ pub fn evaluate_bandits(
             let num_arms = arms.len();
             let seed = (i + 1) as u64;
 
-            evaluate_match!(algorithm, num_arms, &arms, horizon, seed, {
+            with_bandit!(algorithm, num_arms, &arms, horizon, seed, {
                 Algorithms::BatchEnsemble { multiplier } => BatchEnsemble::new(num_arms, *multiplier),
                 Algorithms::BayesUCB { delta } => BayesUCB::new(num_arms, *delta),
                 Algorithms::BDS => BDS::new(num_arms),
@@ -110,7 +110,11 @@ pub fn evaluate_bandits(
                 Algorithms::WRSDA { forced_exploration } => WRSDA::new(num_arms, *forced_exploration),
             })
         })
-        .collect::<Vec<BanditEvaluation>>();
+        .collect();
+
+    // Extract name from first result (all use same algorithm) and collect evaluations
+    let algo_name = results.first().map(|(name, _)| name.clone()).unwrap_or_default();
+    let mut evaluations: Vec<BanditEvaluation> = results.into_iter().map(|(_, eval)| eval).collect();
 
     let elapsed = start.elapsed().as_secs_f64();
 
@@ -140,5 +144,5 @@ pub fn evaluate_bandits(
     median_deviation.sort_by_key(|&x| OrderedFloat(x));
     let mad = median_deviation[median_deviation.len() / 2];
 
-    println!("{algorithm};{percent_optimal:0.2};{mean_regret:0.4};{mad:0.4};{elapsed:0.2}s");
+    println!("{algo_name};{percent_optimal:0.2};{mean_regret:0.4};{mad:0.4};{elapsed:0.2}s");
 }
