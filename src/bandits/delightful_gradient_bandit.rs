@@ -1,3 +1,4 @@
+use rand::distributions::WeightedIndex;
 use rand::prelude::*;
 
 use crate::utils::softmax;
@@ -31,21 +32,8 @@ impl std::fmt::Display for DelightfulGradientBandit {
 impl Bandit for DelightfulGradientBandit {
     fn pull(&mut self, mut rng: impl Rng) -> usize {
         let policy = softmax(&self.arms);
-
-        // Sample a random entry from the policy
-        let mut r = rng.gen::<f64>();
-        let mut arm = 0;
-
-        while arm < self.arms.len() {
-            r -= policy[arm];
-            if r <= 0.0 {
-                break;
-            }
-            arm += 1;
-        }
-
-        arm = arm.min(self.arms.len() - 1);
-        arm
+        let dist = WeightedIndex::new(&policy).unwrap();
+        dist.sample(&mut rng)
     }
 
     fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
