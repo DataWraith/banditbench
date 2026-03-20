@@ -23,7 +23,7 @@ impl std::fmt::Display for Greedy {
 }
 
 impl Bandit for Greedy {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
@@ -34,7 +34,7 @@ impl Bandit for Greedy {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

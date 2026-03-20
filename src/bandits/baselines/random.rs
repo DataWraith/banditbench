@@ -19,9 +19,9 @@ impl std::fmt::Display for Random {
 }
 
 impl Bandit for Random {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         rng.gen_range(0..self.num_arms)
     }
 
-    fn update(&mut self, _arm: usize, _reward: bool, _rng: impl Rng) {}
+    fn update(&mut self, _arm: usize, _reward: bool, _rng: &mut impl Rng) {}
 }

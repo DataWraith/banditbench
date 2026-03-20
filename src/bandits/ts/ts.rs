@@ -23,7 +23,7 @@ impl std::fmt::Display for TS {
 }
 
 impl Bandit for TS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 OrderedFloat(self.arms[*i].beta().sample(&mut rng) as f32)
@@ -31,7 +31,7 @@ impl Bandit for TS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

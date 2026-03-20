@@ -27,7 +27,7 @@ impl std::fmt::Display for ETC {
 }
 
 impl Bandit for ETC {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 (
@@ -38,7 +38,7 @@ impl Bandit for ETC {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         if self.t < self.arms.len() * self.m {
             self.arms[arm].update(reward);
         }

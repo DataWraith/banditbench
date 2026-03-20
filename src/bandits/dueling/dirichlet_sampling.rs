@@ -64,7 +64,7 @@ impl std::fmt::Display for BDS {
 }
 
 impl Bandit for BDS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         if !self.challengers.is_empty() {
             return self.challengers.pop().unwrap();
         }
@@ -105,7 +105,7 @@ impl Bandit for BDS {
         }
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

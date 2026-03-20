@@ -29,7 +29,7 @@ impl std::fmt::Display for ForcedExploration {
 }
 
 impl Bandit for ForcedExploration {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         // Greedy choice?
         if (0..self.arms.len()).all(|i| self.p[i] < self.r * self.r) {
             return (0..self.arms.len())
@@ -46,7 +46,7 @@ impl Bandit for ForcedExploration {
         (0..self.arms.len()).max_by_key(|i| self.p[*i]).unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         // Update the estimate of arm mean
         self.arms[arm].update(reward);
 

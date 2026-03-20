@@ -56,7 +56,7 @@ impl std::fmt::Display for MARS {
 }
 
 impl Bandit for MARS {
-    fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
         let r = if reward { 1 } else { 0 };
 
         self.num_pulls[arm] += 1;
@@ -79,7 +79,7 @@ impl Bandit for MARS {
         self.t += 1;
     }
 
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.num_pulls.len())
             .map(|arm| (self.ucb(arm, &mut rng), arm))
             .max_by_key(|x| OrderedFloat(x.0))

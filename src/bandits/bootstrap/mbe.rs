@@ -35,13 +35,13 @@ impl std::fmt::Display for Mbe {
 }
 
 impl Bandit for Mbe {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         self.replicates.choose_mut(&mut rng).unwrap().pull(&mut rng)
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
         for mab in &mut self.replicates {
-            mab.update(arm, reward, &mut rng);
+            mab.update(arm, reward, rng);
         }
     }
 }
@@ -60,7 +60,7 @@ impl MbeMab {
         }
     }
 
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.sums.len())
             .max_by_key(|&c| {
                 let sum = self.sums[c];
@@ -75,7 +75,7 @@ impl MbeMab {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, mut rng: &mut impl Rng) {
         let [w1, w2, w3] = bootstrap_weights(&mut rng);
         let r = if reward { 1.0 } else { 0.0 };
 

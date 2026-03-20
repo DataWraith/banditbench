@@ -42,7 +42,7 @@ impl std::fmt::Display for VResBoot {
 }
 
 impl Bandit for VResBoot {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -60,7 +60,7 @@ impl Bandit for VResBoot {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let r = if reward { 1.0 } else { 0.0 };
 
         self.arms[arm].mean =

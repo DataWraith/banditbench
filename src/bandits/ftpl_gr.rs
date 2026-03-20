@@ -38,12 +38,12 @@ impl std::fmt::Display for FTPLGR {
 }
 
 impl Bandit for FTPLGR {
-    fn pull(&mut self, rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let perturbation = self.sample_perturbation(rng);
         self.sample_index(&perturbation)
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, mut rng: &mut impl Rng) {
         let mut m = 0;
 
         loop {

@@ -105,8 +105,8 @@ pub enum Algorithms {
 }
 
 pub trait Bandit: std::fmt::Display {
-    fn pull(&mut self, rng: impl Rng) -> usize;
-    fn update(&mut self, arm: usize, reward: bool, rng: impl Rng);
+    fn pull(&mut self, rng: &mut impl Rng) -> usize;
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng);
 }
 
 #[derive(Clone, Default)]

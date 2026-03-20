@@ -22,7 +22,7 @@ impl std::fmt::Display for LeastFailures {
 }
 
 impl Bandit for LeastFailures {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .min_by_key(|i| {
                 (
@@ -34,7 +34,7 @@ impl Bandit for LeastFailures {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

@@ -23,7 +23,7 @@ impl std::fmt::Display for EpsTS {
 }
 
 impl Bandit for EpsTS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         if rng.gen_bool(1.0 / self.arms.len() as f64) {
             return (0..self.arms.len())
                 .max_by_key(|i| {
@@ -44,7 +44,7 @@ impl Bandit for EpsTS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

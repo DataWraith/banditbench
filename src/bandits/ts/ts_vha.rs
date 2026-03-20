@@ -25,7 +25,7 @@ impl std::fmt::Display for TSVHA {
 }
 
 impl Bandit for TSVHA {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         let arm_means = self
             .arms
             .iter()
@@ -62,7 +62,7 @@ impl Bandit for TSVHA {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
 
         self.t += 1;

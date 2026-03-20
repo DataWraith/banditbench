@@ -29,7 +29,7 @@ impl std::fmt::Display for STS {
 }
 
 impl Bandit for STS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         // Sample from the Beta distributions of each arm, as in TS
         let samples = (0..self.arms.len())
             .map(|i| self.arms[i].beta().sample(&mut rng))
@@ -61,7 +61,7 @@ impl Bandit for STS {
             .unwrap_or(leader)
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
         self.first_pull[arm] = self.t.min(self.first_pull[arm]);
         self.t += 1;

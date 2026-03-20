@@ -25,7 +25,7 @@ impl std::fmt::Display for WhittleApprox {
 }
 
 impl Bandit for WhittleApprox {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 let arm = &self.arms[*i];
@@ -46,7 +46,7 @@ impl Bandit for WhittleApprox {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

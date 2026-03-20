@@ -23,7 +23,7 @@ impl std::fmt::Display for OptimisticTS {
 }
 
 impl Bandit for OptimisticTS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 let sample = self.arms[*i].beta().sample(&mut rng).max(self.arms[*i].mean());
@@ -33,7 +33,7 @@ impl Bandit for OptimisticTS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

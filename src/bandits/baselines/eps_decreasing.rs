@@ -27,7 +27,7 @@ impl std::fmt::Display for EpsilonDecreasing {
 }
 
 impl Bandit for EpsilonDecreasing {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if rng.gen_bool(1.0 / (self.t as f64).powf(self.epsilon)) {
             return rng.gen_range(0..self.arms.len());
         }
@@ -42,7 +42,7 @@ impl Bandit for EpsilonDecreasing {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
         self.t += 1;
     }

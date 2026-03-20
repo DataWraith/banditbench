@@ -33,7 +33,7 @@ impl std::fmt::Display for EXPIX {
 }
 
 impl Bandit for EXPIX {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
         let lr = self.learning_rate();
 
@@ -49,7 +49,7 @@ impl Bandit for EXPIX {
             .1
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let reward = if reward { 1.0 } else { 0.0 };
 
         let learning_rate = self.learning_rate();

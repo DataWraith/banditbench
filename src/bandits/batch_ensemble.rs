@@ -48,7 +48,7 @@ impl std::fmt::Display for BatchEnsemble {
 }
 
 impl Bandit for BatchEnsemble {
-    fn pull(&mut self, _rng: impl Rng) -> usize {
+    fn pull(&mut self, _rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .min_by_key(|i| {
                 self.arms[*i]
@@ -60,7 +60,7 @@ impl Bandit for BatchEnsemble {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         // The paper recommends a number of batches that is 8 * log(t), but that doesn't seem to work well.
         // Using a multiplier of 0 (i.e. always 1 batch) seems to work better, as does a multiplier of 1.
         let wanted_batches = (self.batch_size_multiplier * (self.t as f64).log10()) as usize;

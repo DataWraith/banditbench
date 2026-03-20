@@ -25,13 +25,13 @@ impl std::fmt::Display for UCB1 {
 }
 
 impl Bandit for UCB1 {
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
 
         self.t += 1;
     }
 
-    fn pull(&mut self, _rng: impl Rng) -> usize {
+    fn pull(&mut self, _rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 if self.arms[*i].n() == 0 {

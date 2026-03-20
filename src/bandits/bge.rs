@@ -25,7 +25,7 @@ impl std::fmt::Display for BGE {
 }
 
 impl Bandit for BGE {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
 
         (0..self.arms.len())
@@ -46,7 +46,7 @@ impl Bandit for BGE {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

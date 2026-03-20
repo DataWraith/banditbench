@@ -53,7 +53,7 @@ impl std::fmt::Display for VarTS {
 }
 
 impl Bandit for VarTS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 let gamma = Gamma::new(self.arms[*i].alpha, self.arms[*i].beta);
@@ -70,7 +70,7 @@ impl Bandit for VarTS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let r = if reward { 1.0 } else { 0.0 };
         let d = Arm::default();
         let a = &mut self.arms[arm];

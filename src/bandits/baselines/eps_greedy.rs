@@ -25,7 +25,7 @@ impl std::fmt::Display for EpsilonGreedy {
 }
 
 impl Bandit for EpsilonGreedy {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if rng.gen_bool(self.epsilon) {
             return rng.gen_range(0..self.arms.len());
         }
@@ -40,7 +40,7 @@ impl Bandit for EpsilonGreedy {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

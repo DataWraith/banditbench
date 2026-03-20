@@ -78,7 +78,7 @@ impl std::fmt::Display for TsallisINF {
 }
 
 impl Bandit for TsallisINF {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let w_sum = self.w.iter().sum::<f64>();
         let mut choice = rng.gen_range(0.0..w_sum);
 
@@ -93,7 +93,7 @@ impl Bandit for TsallisINF {
         return self.w.len() - 1;
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let loss_vec = self.estimate_loss(arm, reward);
 
         self.loss = self

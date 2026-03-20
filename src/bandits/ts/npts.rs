@@ -46,7 +46,7 @@ impl std::fmt::Display for NPTS {
 }
 
 impl Bandit for NPTS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         if self.t < self.arms.len() {
             return self.t;
         }
@@ -56,7 +56,7 @@ impl Bandit for NPTS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
         self.t += 1;
     }

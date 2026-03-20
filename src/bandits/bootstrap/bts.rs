@@ -32,7 +32,7 @@ impl std::fmt::Display for BTS {
 }
 
 impl Bandit for BTS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.arms[0].len())
             .max_by_key(|i| {
                 let replicate = self.arms.choose(&mut rng).unwrap();
@@ -41,7 +41,7 @@ impl Bandit for BTS {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, mut rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, rng: &mut impl Rng) {
         for j in 0..self.arms.len() {
             if rng.gen_bool(0.5) {
                 continue;

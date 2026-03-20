@@ -71,7 +71,7 @@ impl std::fmt::Display for KLMS {
 }
 
 impl Bandit for KLMS {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         let gumbel_dist = Gumbel::new(0.0, 1.0).unwrap();
 
         self.logits()
@@ -82,7 +82,7 @@ impl Bandit for KLMS {
             .0
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

@@ -26,7 +26,7 @@ impl std::fmt::Display for SoftElim {
 }
 
 impl Bandit for SoftElim {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         let gumbel = Gumbel::new(0.0, 1.0).unwrap();
 
         let best_mean = self
@@ -47,7 +47,7 @@ impl Bandit for SoftElim {
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

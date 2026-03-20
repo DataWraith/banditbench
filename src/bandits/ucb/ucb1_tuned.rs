@@ -51,7 +51,7 @@ impl std::fmt::Display for UCB1Tuned {
 }
 
 impl Bandit for UCB1Tuned {
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let r = if reward { 1.0 } else { 0.0 };
         let prev_s = self.arms[arm].s as f64;
 
@@ -62,7 +62,7 @@ impl Bandit for UCB1Tuned {
         self.arms[arm].sum_of_squares += if reward { 1.0 } else { 0.0 };
     }
 
-    fn pull(&mut self, _rng: impl Rng) -> usize {
+    fn pull(&mut self, _rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| {
                 if self.arms[*i].s == 0 {

@@ -54,13 +54,13 @@ impl std::fmt::Display for WB {
 }
 
 impl Bandit for WB {
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, mut rng: &mut impl Rng) -> usize {
         (0..self.arms.len())
             .max_by_key(|i| OrderedFloat(theta(&self.arms[*i], &mut rng)))
             .unwrap()
     }
 
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         self.arms[arm].update(reward);
     }
 }

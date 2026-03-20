@@ -37,7 +37,7 @@ impl std::fmt::Display for RavenUCB {
 }
 
 impl Bandit for RavenUCB {
-    fn update(&mut self, arm: usize, reward: bool, _rng: impl Rng) {
+    fn update(&mut self, arm: usize, reward: bool, _rng: &mut impl Rng) {
         let r = if reward { 1.0 } else { 0.0 };
 
         let arm = self.arms.get_mut(arm).unwrap();
@@ -56,7 +56,7 @@ impl Bandit for RavenUCB {
         self.t += 1;
     }
 
-    fn pull(&mut self, mut rng: impl Rng) -> usize {
+    fn pull(&mut self, rng: &mut impl Rng) -> usize {
         if self.t <= self.arms.len() {
             return self.t - 1;
         }
