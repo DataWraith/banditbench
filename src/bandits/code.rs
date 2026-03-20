@@ -1,8 +1,7 @@
 use ordered_float::OrderedFloat;
 use rand::prelude::*;
 
-use crate::bandits::Arm;
-use crate::Bandit;
+use super::{Arm, Bandit};
 
 pub struct CODE {
     arms: Vec<Arm>,
