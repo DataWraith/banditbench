@@ -136,5 +136,3 @@ impl Arm {
         Beta::new(self.successes as f64 + 1.0, self.failures as f64 + 1.0).unwrap()
     }
 }
-
-

@@ -17,9 +17,8 @@ pub fn median_mad(values: &[f64]) -> (f64, f64) {
     let mid = data.len() / 2;
 
     // Find median using O(n) selection
-    let (_, median, _) = data.select_nth_unstable_by(mid, |a, b| {
-        OrderedFloat(*a).cmp(&OrderedFloat(*b))
-    });
+    let (_, median, _) =
+        data.select_nth_unstable_by(mid, |a, b| OrderedFloat(*a).cmp(&OrderedFloat(*b)));
     let median = *median;
 
     // Transform data in-place to absolute deviations
@@ -28,9 +27,8 @@ pub fn median_mad(values: &[f64]) -> (f64, f64) {
     }
 
     // Find median of deviations
-    let (_, mad, _) = data.select_nth_unstable_by(mid, |a, b| {
-        OrderedFloat(*a).cmp(&OrderedFloat(*b))
-    });
+    let (_, mad, _) =
+        data.select_nth_unstable_by(mid, |a, b| OrderedFloat(*a).cmp(&OrderedFloat(*b)));
     let mad = *mad;
 
     (median, mad)

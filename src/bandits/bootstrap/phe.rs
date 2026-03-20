@@ -23,7 +23,11 @@ impl PHE {
 
 impl std::fmt::Display for PHE {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Perturbed-History Exploration (a={})", self.perturbation_scale)
+        write!(
+            f,
+            "Perturbed-History Exploration (a={})",
+            self.perturbation_scale
+        )
     }
 }
 

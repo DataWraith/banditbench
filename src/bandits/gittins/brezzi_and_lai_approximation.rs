@@ -40,7 +40,11 @@ impl BrezziLaiApprox {
 
 impl std::fmt::Display for BrezziLaiApprox {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Gittins Index -- Brezzi and Lai's Approximation (β={})", self.beta)
+        write!(
+            f,
+            "Gittins Index -- Brezzi and Lai's Approximation (β={})",
+            self.beta
+        )
     }
 }
 

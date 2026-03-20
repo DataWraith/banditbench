@@ -32,7 +32,8 @@ impl BDS {
                     tie_break(
                         self.arms[*i].successes as f64
                             / (self.arms[*i].successes + self.arms[*i].failures) as f64,
-                        rng.gen::<u32>()),
+                        rng.gen::<u32>(),
+                    ),
                 )
             })
             .unwrap()

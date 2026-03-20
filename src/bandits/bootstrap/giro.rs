@@ -27,7 +27,11 @@ impl GIRO {
 
 impl std::fmt::Display for GIRO {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Garbage In, Reward Out (a={:.2})", self.num_pseudo_rewards)
+        write!(
+            f,
+            "Garbage In, Reward Out (a={:.2})",
+            self.num_pseudo_rewards
+        )
     }
 }
 

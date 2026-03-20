@@ -33,12 +33,7 @@ impl Bandit for ForcedExploration {
         // Greedy choice?
         if (0..self.arms.len()).all(|i| self.p[i] < self.r * self.r) {
             return (0..self.arms.len())
-                .max_by_key(|i| {
-                    (
-                        OrderedFloat(self.arms[*i].mean()),
-                        rng.gen::<u32>(),
-                    )
-                })
+                .max_by_key(|i| (OrderedFloat(self.arms[*i].mean()), rng.gen::<u32>()))
                 .unwrap();
         }
 

@@ -30,7 +30,6 @@ pub fn evaluate_bandits(
     seed: u64,
     horizon: usize,
 ) {
-
     let style = ProgressStyle::with_template(
         "[{elapsed_precise}] {bar:80} {pos:>6}/{len:6} [ETA: {eta_precise}]",
     )
@@ -113,7 +112,10 @@ pub fn evaluate_bandits(
         .collect();
 
     // Extract name from first result (all use same algorithm) and collect evaluations
-    let algo_name = results.first().map(|(name, _)| name.clone()).unwrap_or_default();
+    let algo_name = results
+        .first()
+        .map(|(name, _)| name.clone())
+        .unwrap_or_default();
     let evaluations: Vec<BanditEvaluation> = results.into_iter().map(|(_, eval)| eval).collect();
 
     let elapsed = start.elapsed().as_secs_f64();

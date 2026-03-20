@@ -20,7 +20,11 @@ impl WhittleApprox {
 
 impl std::fmt::Display for WhittleApprox {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Gittins Index -- Whittle's Approximation (β={:.2})", self.beta)
+        write!(
+            f,
+            "Gittins Index -- Whittle's Approximation (β={:.2})",
+            self.beta
+        )
     }
 }
 

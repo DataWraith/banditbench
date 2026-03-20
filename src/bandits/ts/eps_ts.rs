@@ -35,12 +35,7 @@ impl Bandit for EpsTS {
         }
 
         (0..self.arms.len())
-            .max_by_key(|i| {
-                (
-                    OrderedFloat(self.arms[*i].mean()),
-                    rng.gen::<u32>(),
-                )
-            })
+            .max_by_key(|i| (OrderedFloat(self.arms[*i].mean()), rng.gen::<u32>()))
             .unwrap()
     }
 

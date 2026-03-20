@@ -20,7 +20,10 @@ impl TSVHA {
 
 impl std::fmt::Display for TSVHA {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Thompson Sampling with Virtual Helping Agents (Combiner C3)")
+        write!(
+            f,
+            "Thompson Sampling with Virtual Helping Agents (Combiner C3)"
+        )
     }
 }
 

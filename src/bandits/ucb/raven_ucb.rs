@@ -32,7 +32,11 @@ impl RavenUCB {
 
 impl std::fmt::Display for RavenUCB {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "RAVEN-UCB (a0={}, b0={}, eps={})", self.alpha0, self.beta0, self.epsilon)
+        write!(
+            f,
+            "RAVEN-UCB (a0={}, b0={}, eps={})",
+            self.alpha0, self.beta0, self.epsilon
+        )
     }
 }
 
