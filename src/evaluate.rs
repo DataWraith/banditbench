@@ -1,8 +1,8 @@
 use indicatif::{ProgressBar, ProgressStyle};
-use ordered_float::OrderedFloat;
 use rayon::prelude::*;
 use std::time::Instant;
 
+use crate::utils::median_mad;
 use crate::BanditEvaluation;
 
 use super::bandits::*;
@@ -114,7 +114,7 @@ pub fn evaluate_bandits(
 
     // Extract name from first result (all use same algorithm) and collect evaluations
     let algo_name = results.first().map(|(name, _)| name.clone()).unwrap_or_default();
-    let mut evaluations: Vec<BanditEvaluation> = results.into_iter().map(|(_, eval)| eval).collect();
+    let evaluations: Vec<BanditEvaluation> = results.into_iter().map(|(_, eval)| eval).collect();
 
     let elapsed = start.elapsed().as_secs_f64();
 
@@ -133,16 +133,8 @@ pub fn evaluate_bandits(
             .sum::<usize>() as f64
         / (evaluations.len() * horizon) as f64;
 
-    // Quick and dirty Median Absolute Deviation computation
-    // TODO: Make this into a function
-    evaluations.sort_by_key(|x| OrderedFloat(x.total_regret));
-    let median = evaluations[evaluations.len() / 2].total_regret;
-    let mut median_deviation: Vec<f64> = evaluations
-        .iter()
-        .map(|x| (x.total_regret - median).abs())
-        .collect();
-    median_deviation.sort_by_key(|&x| OrderedFloat(x));
-    let mad = median_deviation[median_deviation.len() / 2];
+    let regrets: Vec<f64> = evaluations.iter().map(|e| e.total_regret).collect();
+    let (_median, mad) = median_mad(&regrets);
 
     println!("{algo_name};{percent_optimal:0.2};{mean_regret:0.4};{mad:0.4};{elapsed:0.2}s");
 }
