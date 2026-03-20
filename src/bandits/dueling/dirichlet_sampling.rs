@@ -70,8 +70,8 @@ impl Bandit for BDS {
         }
 
         let leader = self.leader(rng);
-        let leader_len = self.arms[leader].successes + self.arms[leader].failures;
-        let leader_mean = self.arms[leader].successes as f64 / leader_len as f64;
+        let leader_len = self.arms[leader].n();
+        let leader_mean = self.arms[leader].mean();
 
         for i in 0..self.arms.len() {
             if i == leader {
