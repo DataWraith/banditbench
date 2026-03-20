@@ -279,7 +279,8 @@ fn main() {
             Algorithms::SoftElim { w: 0.5 },
             Algorithms::SoftElim { w: 1.0 },
             Algorithms::SoftElim { w: 2.0 },
-            Algorithms::SoftElim { w: 8f64.sqrt() },
+            Algorithms::SoftElim { w: 4.0 },
+            Algorithms::SoftElim { w: 8.0 },
         ],
         "softsatisficing" => vec![
             Algorithms::SoftSatisficing { aspiration: 0.1 },
