@@ -1,26 +1,38 @@
 use ordered_float::OrderedFloat;
 
 /// Computes the median and Median Absolute Deviation (MAD) of a dataset.
-/// 
+///
 /// MAD is a robust measure of statistical dispersion, calculated as the median
 /// of the absolute deviations from the dataset's median.
-/// 
+///
+/// Uses `select_nth_unstable` for O(n) average-case performance instead of sorting.
+///
 /// Returns (median, mad) tuple.
 pub fn median_mad(values: &[f64]) -> (f64, f64) {
     if values.is_empty() {
         return (0.0, 0.0);
     }
-    
-    let mut sorted: Vec<f64> = values.to_vec();
-    sorted.sort_by_key(|&x| OrderedFloat(x));
-    
-    let median = sorted[sorted.len() / 2];
-    
-    let deviations: Vec<f64> = sorted.iter().map(|&x| (x - median).abs()).collect();
-    let mut sorted_devs = deviations.clone();
-    sorted_devs.sort_by_key(|&x| OrderedFloat(x));
-    let mad = sorted_devs[sorted_devs.len() / 2];
-    
+
+    let mut data = values.to_vec();
+    let mid = data.len() / 2;
+
+    // Find median using O(n) selection
+    let (_, median, _) = data.select_nth_unstable_by(mid, |a, b| {
+        OrderedFloat(*a).cmp(&OrderedFloat(*b))
+    });
+    let median = *median;
+
+    // Transform data in-place to absolute deviations
+    for x in &mut data {
+        *x = (*x - median).abs();
+    }
+
+    // Find median of deviations
+    let (_, mad, _) = data.select_nth_unstable_by(mid, |a, b| {
+        OrderedFloat(*a).cmp(&OrderedFloat(*b))
+    });
+    let mad = *mad;
+
     (median, mad)
 }
 
