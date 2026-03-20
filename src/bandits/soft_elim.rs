@@ -7,21 +7,21 @@ use super::Bandit;
 
 pub struct SoftElim {
     arms: Vec<Arm>,
-    gamma: f64,
+    theta: f64,
 }
 
 impl SoftElim {
-    pub fn new(num_arms: usize, w: f64) -> Self {
+    pub fn new(num_arms: usize, theta: f64) -> Self {
         SoftElim {
             arms: vec![Arm::default(); num_arms],
-            gamma: w.powi(-2),
+            theta,
         }
     }
 }
 
 impl std::fmt::Display for SoftElim {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "SoftElim (w={:.2})", self.gamma.sqrt())
+        write!(f, "SoftElim (theta={:.2})", self.theta)
     }
 }
 
@@ -42,7 +42,7 @@ impl Bandit for SoftElim {
                 let s = 2.0 * (best_mean - self.arms[*i].mean()).powi(2) * self.arms[*i].n() as f64;
                 let g = gumbel.sample(rng);
 
-                OrderedFloat(-s * self.gamma + g)
+                OrderedFloat(-s * self.theta + g)
             })
             .unwrap()
     }
