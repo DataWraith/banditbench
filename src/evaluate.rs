@@ -8,6 +8,19 @@ use crate::BanditEvaluation;
 use super::bandits::*;
 use super::evaluate_bandit;
 
+macro_rules! evaluate_match {
+    ($algorithm:expr, $num_arms:expr, $arms:expr, $horizon:expr, $seed:expr, {
+        $($pattern:pat => $constructor:expr),* $(,)?
+    }) => {
+        match $algorithm {
+            $($pattern => {
+                let bandit = $constructor;
+                evaluate_bandit(bandit, $arms, $horizon, $seed)
+            }),*
+        }
+    };
+}
+
 pub fn evaluate_bandits(
     algorithm: &Algorithms,
     num_runs: usize,
@@ -39,282 +52,63 @@ pub fn evaluate_bandits(
             let num_arms = arms.len();
             let seed = (i + 1) as u64;
 
-            match algorithm {
-                Algorithms::BatchEnsemble { multiplier } => {
-                    let bandit = BatchEnsemble::new(num_arms, *multiplier);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::BayesUCB { delta } => {
-                    let bandit = BayesUCB::new(num_arms, *delta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::BDS => {
-                    let bandit = BDS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::BGE => {
-                    let bandit = BGE::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::BrezziLaiApprox { beta } => {
-                    let bandit = BrezziLaiApprox::new(num_arms, *beta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::BTS { replicates } => {
-                    let bandit = BTS::new(num_arms, *replicates);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::CODE { delta } => {
-                    let bandit = CODE::new(num_arms, *delta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::DelightfulGradient { lr } => {
-                    let bandit = DelightfulGradientBandit::new(num_arms, *lr);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EBTCI => {
-                    let bandit = EBTCI::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EpsilonDecreasing { epsilon } => {
-                    let bandit = EpsilonDecreasing::new(num_arms, *epsilon);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EpsilonGreedy { epsilon } => {
-                    let bandit = EpsilonGreedy::new(num_arms, *epsilon);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EpsTS => {
-                    let bandit = EpsTS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EpsTSUCB { samples } => {
-                    let bandit = EpsTSUCB::new(num_arms, *samples);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::ETC { m } => {
-                    let bandit = ETC::new(num_arms, *m);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::EXPIX => {
-                    let bandit = EXPIX::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::FTPLGR { lr } => {
-                    let bandit = FTPLGR::new(num_arms, *lr);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::ForcedExploration => {
-                    let bandit = ForcedExploration::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::GIRO { num_pseudo_rewards } => {
-                    let bandit = GIRO::new(num_arms, *num_pseudo_rewards);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::Gradient => {
-                    let bandit = GradientBandit::new(num_arms, 0.1, false);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::GradientBaseline => {
-                    let bandit = GradientBandit::new(num_arms, 0.1, true);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::Greedy => {
-                    let bandit = Greedy::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::HellingerUCB => {
-                    let bandit = HellingerUCB::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::IRSFH { assumed_horizon } => {
-                    let bandit = IRSFH::new(num_arms, *assumed_horizon);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::KLMS => {
-                    let bandit = KLMS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::KLUCB => {
-                    let bandit = KLUCB::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::LeastFailures => {
-                    let bandit = LeastFailures::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::LilUCB { delta } => {
-                    let bandit = LilUCB::new(num_arms, *delta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::MARS { delta } => {
-                    let bandit = MARS::new(num_arms, *delta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::MBE => {
-                    let bandit = Mbe::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::MOSSAnytime { alpha } => {
-                    let bandit = MOSSAnytime::new(num_arms, *alpha);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::NPTS => {
-                    let bandit = NPTS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::OptimisticTS => {
-                    let bandit = OptimisticTS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::POKER { assumed_horizon } => {
-                    let bandit = POKER::new(num_arms, *assumed_horizon);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::PHE { perturbation_scale } => {
-                    let bandit = PHE::new(num_arms, *perturbation_scale);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::Random => {
-                    let bandit = Random::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::RS { aspiration } => {
-                    let bandit = RS::new(num_arms, *aspiration);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::SoftElim { w } => {
-                    let bandit = SoftElim::new(num_arms, *w);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::SoftSatisficing { aspiration } => {
-                    let bandit = SoftSatisficing::new(num_arms, *aspiration);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::RavenUCB { a0, b0, eps } => {
-                    let bandit = RavenUCB::new(num_arms, *a0, *b0, *eps);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::ReBoot { r } => {
-                    let bandit = ReBoot::new(num_arms, *r);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::ReUCB { a } => {
-                    let bandit = ReUCB::new(num_arms, *a);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::STS { epsilon } => {
-                    let bandit = STS::new(num_arms, *epsilon);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::TS => {
-                    let bandit = TS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::TSVHA => {
-                    let bandit = TSVHA::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::TSUCB { samples } => {
-                    let bandit = TSUCB::new(num_arms, *samples);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::TsallisINF => {
-                    let bandit = TsallisINF::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::UCB1 => {
-                    let bandit = UCB1::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::UCB1Tuned => {
-                    let bandit = UCB1Tuned::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::UCBDT { gamma } => {
-                    let bandit = UCBDT::new(num_arms, *gamma);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::UCBT => {
-                    let bandit = UCBT::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::VarTS => {
-                    let bandit = VarTS::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::VResBoot { init } => {
-                    let bandit = VResBoot::new(num_arms, *init);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::WB => {
-                    let bandit = WB::new(num_arms);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::WhittleApprox { beta } => {
-                    let bandit = WhittleApprox::new(num_arms, *beta);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-
-                Algorithms::WRSDA { forced_exploration } => {
-                    let bandit = WRSDA::new(num_arms, *forced_exploration);
-                    evaluate_bandit(bandit, &arms, horizon, seed)
-                }
-            }
+            evaluate_match!(algorithm, num_arms, &arms, horizon, seed, {
+                Algorithms::BatchEnsemble { multiplier } => BatchEnsemble::new(num_arms, *multiplier),
+                Algorithms::BayesUCB { delta } => BayesUCB::new(num_arms, *delta),
+                Algorithms::BDS => BDS::new(num_arms),
+                Algorithms::BGE => BGE::new(num_arms),
+                Algorithms::BrezziLaiApprox { beta } => BrezziLaiApprox::new(num_arms, *beta),
+                Algorithms::BTS { replicates } => BTS::new(num_arms, *replicates),
+                Algorithms::CODE { delta } => CODE::new(num_arms, *delta),
+                Algorithms::DelightfulGradient { lr } => DelightfulGradientBandit::new(num_arms, *lr),
+                Algorithms::EBTCI => EBTCI::new(num_arms),
+                Algorithms::EpsilonDecreasing { epsilon } => EpsilonDecreasing::new(num_arms, *epsilon),
+                Algorithms::EpsilonGreedy { epsilon } => EpsilonGreedy::new(num_arms, *epsilon),
+                Algorithms::EpsTS => EpsTS::new(num_arms),
+                Algorithms::EpsTSUCB { samples } => EpsTSUCB::new(num_arms, *samples),
+                Algorithms::ETC { m } => ETC::new(num_arms, *m),
+                Algorithms::EXPIX => EXPIX::new(num_arms),
+                Algorithms::FTPLGR { lr } => FTPLGR::new(num_arms, *lr),
+                Algorithms::ForcedExploration => ForcedExploration::new(num_arms),
+                Algorithms::GIRO { num_pseudo_rewards } => GIRO::new(num_arms, *num_pseudo_rewards),
+                Algorithms::Gradient => GradientBandit::new(num_arms, 0.1, false),
+                Algorithms::GradientBaseline => GradientBandit::new(num_arms, 0.1, true),
+                Algorithms::Greedy => Greedy::new(num_arms),
+                Algorithms::HellingerUCB => HellingerUCB::new(num_arms),
+                Algorithms::IRSFH { assumed_horizon } => IRSFH::new(num_arms, *assumed_horizon),
+                Algorithms::KLMS => KLMS::new(num_arms),
+                Algorithms::KLUCB => KLUCB::new(num_arms),
+                Algorithms::LeastFailures => LeastFailures::new(num_arms),
+                Algorithms::LilUCB { delta } => LilUCB::new(num_arms, *delta),
+                Algorithms::MARS { delta } => MARS::new(num_arms, *delta),
+                Algorithms::MBE => Mbe::new(num_arms),
+                Algorithms::MOSSAnytime { alpha } => MOSSAnytime::new(num_arms, *alpha),
+                Algorithms::NPTS => NPTS::new(num_arms),
+                Algorithms::OptimisticTS => OptimisticTS::new(num_arms),
+                Algorithms::POKER { assumed_horizon } => POKER::new(num_arms, *assumed_horizon),
+                Algorithms::PHE { perturbation_scale } => PHE::new(num_arms, *perturbation_scale),
+                Algorithms::Random => Random::new(num_arms),
+                Algorithms::RS { aspiration } => RS::new(num_arms, *aspiration),
+                Algorithms::SoftElim { w } => SoftElim::new(num_arms, *w),
+                Algorithms::SoftSatisficing { aspiration } => SoftSatisficing::new(num_arms, *aspiration),
+                Algorithms::RavenUCB { a0, b0, eps } => RavenUCB::new(num_arms, *a0, *b0, *eps),
+                Algorithms::ReBoot { r } => ReBoot::new(num_arms, *r),
+                Algorithms::ReUCB { a } => ReUCB::new(num_arms, *a),
+                Algorithms::STS { epsilon } => STS::new(num_arms, *epsilon),
+                Algorithms::TS => TS::new(num_arms),
+                Algorithms::TSVHA => TSVHA::new(num_arms),
+                Algorithms::TSUCB { samples } => TSUCB::new(num_arms, *samples),
+                Algorithms::TsallisINF => TsallisINF::new(num_arms),
+                Algorithms::UCB1 => UCB1::new(num_arms),
+                Algorithms::UCB1Tuned => UCB1Tuned::new(num_arms),
+                Algorithms::UCBDT { gamma } => UCBDT::new(num_arms, *gamma),
+                Algorithms::UCBT => UCBT::new(num_arms),
+                Algorithms::VarTS => VarTS::new(num_arms),
+                Algorithms::VResBoot { init } => VResBoot::new(num_arms, *init),
+                Algorithms::WB => WB::new(num_arms),
+                Algorithms::WhittleApprox { beta } => WhittleApprox::new(num_arms, *beta),
+                Algorithms::WRSDA { forced_exploration } => WRSDA::new(num_arms, *forced_exploration),
+            })
         })
         .collect::<Vec<BanditEvaluation>>();
 
