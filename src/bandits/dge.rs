@@ -70,9 +70,9 @@ impl Bandit for DGE {
     }
 
     fn pull(&mut self, rng: &mut impl Rng) -> usize {
-        let means: Vec<f64> = self.arms.iter().map(|a| a.mean()).collect();
+        let means = self.arms.iter().map(|a| a.mean());
+
         let (greedy, v) = means
-            .iter()
             .enumerate()
             .max_by(|(_, a), (_, b)| a.total_cmp(b))
             .unwrap();
@@ -88,7 +88,7 @@ impl Bandit for DGE {
                 if i == greedy {
                     0.0
                 } else {
-                    let delight = self.surprisal_cap * expected_improvement(&self.arms[i], *v);
+                    let delight = self.surprisal_cap * expected_improvement(&self.arms[i], v);
 
                     if delight >= self.gate_price {
                         delight
