@@ -12,6 +12,7 @@ pub mod batch_ensemble;
 pub mod bge;
 pub mod code;
 pub mod delightful_gradient_bandit;
+pub mod dge;
 pub mod ebtci;
 pub mod eps_tsucb;
 pub mod exp_ix;
@@ -32,7 +33,7 @@ pub use {
     baselines::random::Random, batch_ensemble::BatchEnsemble, bge::BGE, bootstrap::bts::BTS,
     bootstrap::giro::GIRO, bootstrap::mars::MARS, bootstrap::mbe::Mbe, bootstrap::phe::PHE,
     bootstrap::reboot::ReBoot, bootstrap::vresboot::VResBoot, bootstrap::weighted_bootstrap::WB,
-    code::CODE, delightful_gradient_bandit::DelightfulGradientBandit,
+    code::CODE, delightful_gradient_bandit::DelightfulGradientBandit, dge::DGE,
     dueling::dirichlet_sampling::BDS, dueling::wr_sda::WRSDA, ebtci::EBTCI, eps_tsucb::EpsTSUCB,
     exp_ix::EXPIX, forced_exploration::ForcedExploration, ftpl_gr::FTPLGR,
     gittins::brezzi_and_lai_approximation::BrezziLaiApprox,
@@ -55,6 +56,7 @@ pub enum Algorithms {
     BTS { replicates: usize },
     CODE { delta: f64 },
     DelightfulGradient { lr: f64 },
+    DelightGatedExploration,
     EBTCI,
     EpsilonDecreasing { epsilon: f64 },
     EpsilonGreedy { epsilon: f64 },

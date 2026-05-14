@@ -60,6 +60,7 @@ pub fn evaluate_bandits(
                 Algorithms::BTS { replicates } => BTS::new(num_arms, *replicates),
                 Algorithms::CODE { delta } => CODE::new(num_arms, *delta),
                 Algorithms::DelightfulGradient { lr } => DelightfulGradientBandit::new(num_arms, *lr),
+                Algorithms::DelightGatedExploration => DGE::new(num_arms),
                 Algorithms::EBTCI => EBTCI::new(num_arms),
                 Algorithms::EpsilonDecreasing { epsilon } => EpsilonDecreasing::new(num_arms, *epsilon),
                 Algorithms::EpsilonGreedy { epsilon } => EpsilonGreedy::new(num_arms, *epsilon),

@@ -68,6 +68,7 @@ fn main() {
             Algorithms::DelightfulGradient { lr: 1.0 },
             Algorithms::DelightfulGradient { lr: 2.0 },
         ],
+        "dge" => vec![Algorithms::DelightGatedExploration],
         "ebtci" => vec![Algorithms::EBTCI],
         "eps_greedy" => vec![
             Algorithms::EpsilonGreedy { epsilon: 0.01 },
