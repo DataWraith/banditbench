@@ -102,51 +102,51 @@ considering the five experiments further down in this file.
 | ----------------------------------------------------------- | ------------ | ---------------------- |
 | Batch Ensemble for MAB (m=0)                                | 15.4         | 0                      |
 | IRS.FH (H=2)                                                | 16.4         | 1                      |
-| UCB-DT (γ=0.90)                                             | 18.8         | 3                      |
 | IRS.FH (H=3)                                                | 19.2         | 1                      |
-| UCB-DT (γ=0.95)                                             | 19.4         | 3                      |
-| IRS.FH (H=1)                                                | 20.0         | 1                      |
-| UCB-DT (γ=0.75)                                             | 21.2         | 3                      |
+| UCB-DT (γ=0.90)                                             | 19.2         | 3                      |
+| UCB-DT (γ=0.95)                                             | 19.8         | 3                      |
+| Delight-gated Exploration                                   | 20.2         | 1                      |
+| IRS.FH (H=1)                                                | 20.4         | 1                      |
+| UCB-DT (γ=0.75)                                             | 21.6         | 3                      |
 | TS-UCB (100 samples)                                        | 24.2         | 71                     |
-| UCB-DT (γ=1.00)                                             | 24.2         | 3                      |
-| ϵ-Exploring TS-UCB (1 samples)                              | 26.0         | 0                      |
-| Delight-gated Exploration                                   | 26.4         | 2                      |
-| ϵ-Exploring TS-UCB (10 samples)                             | 27.2         | 1                      |
+| UCB-DT (γ=1.00)                                             | 24.4         | 3                      |
+| ϵ-Exploring TS-UCB (1 samples)                              | 26.4         | 0                      |
 | Batch Ensemble for MAB (m=1)                                | 27.4         | 0                      |
-| IRS.FH (H=4)                                                | 27.6         | 1                      |
-| ϵ-Exploring TS-UCB (100 samples)                            | 27.6         | 7                      |
+| ϵ-Exploring TS-UCB (10 samples)                             | 27.4         | 1                      |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.99)    | 27.8         | 0                      |
+| IRS.FH (H=4)                                                | 27.8         | 1                      |
+| ϵ-Exploring TS-UCB (100 samples)                            | 27.8         | 7                      |
 | Gittins Index -- Whittle's Approximation (β=0.99)           | 30.4         | 0                      |
-| RAVEN-UCB (a0=0.5, b0=0.5, eps=0.1)                         | 30.8         | 0                      |
-| MOSS-Anytime (α=-0.85)                                      | 31.0         | 0                      |
-| RAVEN-UCB (a0=0.5, b0=0.5, eps=0.5)                         | 31.2         | 0                      |
+| RAVEN-UCB (a0=0.5, b0=0.5, eps=0.1)                         | 31.0         | 0                      |
+| MOSS-Anytime (α=-0.85)                                      | 31.2         | 0                      |
+| RAVEN-UCB (a0=0.5, b0=0.5, eps=0.5)                         | 31.4         | 0                      |
 | TS-UCB (10 samples)                                         | 33.0         | 8                      |
 | RAVEN-UCB (a0=0.5, b0=0.5, eps=0.001)                       | 33.2         | 0                      |
-| IRS.FH (H=5)                                                | 35.8         | 1                      |
+| IRS.FH (H=5)                                                | 36.2         | 1                      |
 | Gittins Index -- Whittle's Approximation (β=0.90)           | 36.4         | 0                      |
 | RAVEN-UCB (a0=0.5, b0=10, eps=0.5)                          | 37.0         | 0                      |
 | BayesUCB (δ=0.300)                                          | 37.8         | 0                      |
-| POKER (H=5)                                                 | 38.2         | 0                      |
 | ϵ-Decreasing (ϵ=0.990)                                      | 38.2         | 0                      |
-| POKER (H=10)                                                | 38.6         | 0                      |
-| ReUCB (a=2.00)                                              | 39.0         | 1                      |
-| POKER (H=1)                                                 | 39.2         | 0                      |
-| Greedy                                                      | 39.4         | 0                      |
-| ReUCB (a=1.50)                                              | 39.6         | 1                      |
+| POKER (H=5)                                                 | 38.4         | 0                      |
+| POKER (H=10)                                                | 38.8         | 0                      |
+| ReUCB (a=2.00)                                              | 39.4         | 1                      |
+| POKER (H=1)                                                 | 39.4         | 0                      |
+| Greedy                                                      | 39.6         | 0                      |
 | ϵ-Decreasing (ϵ=0.900)                                      | 39.6         | 0                      |
 | BayesUCB (δ=0.200)                                          | 40.0         | 0                      |
+| ReUCB (a=1.50)                                              | 40.0         | 1                      |
 | BayesUCB (δ=0.400)                                          | 40.4         | 0                      |
-| ReUCB (a=1.00)                                              | 40.6         | 1                      |
+| ReUCB (a=1.00)                                              | 40.8         | 1                      |
 | ϵ-Decreasing (ϵ=0.700)                                      | 41.4         | 0                      |
-| CODE (δ=0.990)                                              | 41.6         | 0                      |
+| CODE (δ=0.990)                                              | 41.8         | 0                      |
 | RAVEN-UCB (a0=0.5, b0=10, eps=0.1)                          | 42.6         | 0                      |
 | Thompson Sampling with Virtual Helping Agents (Combiner C3) | 44.0         | 18                     |
 | MOSS-Anytime (α=-0.50)                                      | 44.0         | 0                      |
 | ϵ-Greedy (ϵ=0.010)                                          | 44.2         | 0                      |
 | ϵ-Greedy (ϵ=0.020)                                          | 45.2         | 0                      |
-| BayesUCB (δ=0.500)                                          | 48.2         | 0                      |
+| BayesUCB (δ=0.500)                                          | 48.4         | 0                      |
 | Gittins Index -- Whittle's Approximation (β=0.70)           | 48.6         | 0                      |
-| TS-UCB (1 samples)                                          | 48.8         | 1                      |
+| TS-UCB (1 samples)                                          | 49.0         | 1                      |
 | ϵ-Greedy (ϵ=0.050)                                          | 49.4         | 0                      |
 | Gittins Index -- Whittle's Approximation (β=0.50)           | 49.6         | 0                      |
 | POKER (H=25)                                                | 49.8         | 0                      |
@@ -302,6 +302,7 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | Gittins Index -- Whittle's Approximation (β=0.90)           |     61.89 |       17.4329 |                             6.6927 | 0.23s  |
 | BayesUCB (δ=0.200)                                          |     71.21 |       17.5846 |                             4.0029 | 0.22s  |
 | IRS.FH (H=4)                                                |     72.57 |       17.6097 |                             3.5134 | 1.38s  |
+| Delight-gated Exploration                                   |     71.03 |       17.6805 |                             3.6212 | 1.05s  |
 | ϵ-Exploring TS-UCB (100 samples)                            |     69.94 |       17.8335 |                             2.8808 | 7.26s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     70.16 |       17.9184 |                             2.9572 | 0.88s  |
 | ϵ-Exploring TS-UCB (1 samples)                              |     70.36 |       18.0420 |                             3.0933 | 0.17s  |
@@ -321,7 +322,6 @@ where the best algorithms reach over 2/3 pull rate of the optimal arm.
 | TS-UCB (1 samples)                                          |     71.83 |       19.5545 |                             5.3564 | 0.99s  |
 | ReUCB (a=1.50)                                              |     67.94 |       19.5633 |                             2.7023 | 1.04s  |
 | POKER (H=1)                                                 |     66.55 |       19.5748 |                             2.5553 | 0.31s  |
-| Delight-gated Exploration                                   |     71.83 |       19.6155 |                             3.3668 | 1.79s  |
 | ReUCB (a=1.00)                                              |     67.60 |       19.7102 |                             2.7106 | 1.01s  |
 | Greedy                                                      |     66.26 |       19.7129 |                             2.5470 | 0.10s  |
 | BayesUCB (δ=0.500)                                          |     58.32 |       20.1518 |                             9.3444 | 0.20s  |
@@ -493,8 +493,8 @@ This experiment was taken from the GIRO paper.
 | Gittins Index -- Whittle's Approximation (β=0.50)           |     40.01 |       25.7986 |                            11.1271 | 0.21s  |
 | BayesUCB (δ=0.900)                                          |     39.16 |       25.8336 |                            13.1050 | 0.19s  |
 | Gittins Index -- Brezzi and Lai's Approximation (β=0.8)     |     38.83 |       26.1183 |                            12.9800 | 0.38s  |
+| Delight-gated Exploration                                   |     44.52 |       26.1491 |                             7.2018 | 1.23s  |
 | BayesUCB (δ=0.500)                                          |     42.67 |       26.1689 |                             8.4137 | 0.20s  |
-| Delight-gated Exploration                                   |     44.58 |       26.2567 |                             7.0727 | 2.02s  |
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     40.02 |       26.4219 |                            10.1272 | 0.22s  |
 | BayesUCB (δ=0.400)                                          |     43.04 |       26.4233 |                             8.1311 | 0.20s  |
 | BayesUCB (δ=0.300)                                          |     44.61 |       26.4883 |                             7.0859 | 0.20s  |
@@ -698,7 +698,7 @@ This experiment was taken from the paper describing Boltzmann-Gumbel Exploration
 | Forced Exploration                                          |     13.53 |        4.3235 |                             0.1000 | 0.10s  |
 | RS (a=0.50)                                                 |     13.42 |        4.3290 |                             0.0100 | 0.18s  |
 | IRS.FH (H=1)                                                |     13.36 |        4.3318 |                             0.1200 | 1.23s  |
-| Delight-gated Exploration                                   |     13.28 |        4.3362 |                             0.2200 | 2.05s  |
+| Delight-gated Exploration                                   |     13.32 |        4.3338 |                             0.2100 | 1.35s  |
 | UCB-DT (γ=0.90)                                             |     13.27 |        4.3365 |                             0.1000 | 2.65s  |
 | UCB-DT (γ=0.95)                                             |     13.27 |        4.3365 |                             0.1000 | 2.59s  |
 | Gittins Index -- Whittle's Approximation (β=0.70)           |     13.25 |        4.3374 |                             0.1200 | 0.22s  |
@@ -882,7 +882,7 @@ This experiment was taken from the paper _Multiplier Bootstrap-based Exploration
 | SoftElim (theta=8.00)                                       |     56.09 |       23.5078 |                             5.9049 | 0.41s  |
 | CODE (δ=0.990)                                              |     51.11 |       23.5974 |                             9.3932 | 0.17s  |
 | Gittins Index -- Whittle's Approximation (β=0.99)           |     56.84 |       23.7789 |                             5.0319 | 0.22s  |
-| Delight-gated Exploration                                   |     56.50 |       23.8963 |                             5.3490 | 1.83s  |
+| Delight-gated Exploration                                   |     56.52 |       23.8954 |                             5.3187 | 1.07s  |
 | MOSS-Anytime (α=-0.50)                                      |     56.24 |       24.1465 |                             4.0881 | 0.23s  |
 | BayesUCB (δ=0.500)                                          |     56.42 |       24.2684 |                             5.5883 | 0.20s  |
 | IRS.FH (H=3)                                                |     55.61 |       24.5294 |                             4.7675 | 1.33s  |
@@ -1057,6 +1057,7 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ϵ-Exploring TS-UCB (100 samples)                            |     54.56 |        8.4801 |                             1.5113 | 7.15s  |
 | IRS.FH (H=3)                                                |     55.12 |        8.4888 |                             1.5141 | 1.25s  |
 | ϵ-Exploring TS-UCB (10 samples)                             |     54.54 |        8.5219 |                             1.5144 | 0.79s  |
+| Delight-gated Exploration                                   |     48.02 |        8.5237 |                             2.4944 | 1.09s  |
 | IRS.FH (H=1)                                                |     54.33 |        8.5340 |                             1.5095 | 1.16s  |
 | IRS.FH (H=4)                                                |     55.12 |        8.5479 |                             1.5428 | 1.30s  |
 | UCB-DT (γ=0.90)                                             |     55.84 |        8.5612 |                             1.5143 | 2.67s  |
@@ -1068,7 +1069,6 @@ I added this to see which algorithms are affected by rewards close to 1 instead 
 | ReUCB (a=1.00)                                              |     54.34 |        8.6079 |                             1.5056 | 0.98s  |
 | Greedy                                                      |     53.82 |        8.6471 |                             1.5273 | 0.11s  |
 | UCB-DT (γ=0.75)                                             |     55.91 |        8.6739 |                             1.5558 | 2.66s  |
-| Delight-gated Exploration                                   |     50.44 |        8.8778 |                             2.2056 | 1.89s  |
 | ϵ-Decreasing (ϵ=0.990)                                      |     53.57 |        8.8897 |                             1.5610 | 0.16s  |
 | Batch Ensemble for MAB (m=1)                                |     51.73 |        8.9409 |                             4.0595 | 0.10s  |
 | IRS.FH (H=10)                                               |     55.40 |        8.9571 |                             1.7240 | 1.37s  |

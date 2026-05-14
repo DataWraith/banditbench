@@ -2,8 +2,6 @@ use rand::prelude::*;
 use rand_distr::WeightedIndex;
 use statrs::function::beta::beta_reg;
 
-use crate::utils::softmax;
-
 use super::Arm;
 use super::Bandit;
 
@@ -16,14 +14,13 @@ fn expected_improvement(arm: &Arm, v: f64) -> f64 {
     let tail_prob = 1.0 - beta_reg(alpha, beta, v);
     let tail_mean = alpha / (alpha + beta) * (1.0 - beta_reg(alpha + 1.0, beta, v));
 
-    tail_mean - v * tail_prob
+    (tail_mean - v * tail_prob).max(0.0)
 }
 
 pub struct DGE {
     m: f64,
-    lambda: f64,
-    saturation: f64,
-    temp: f64,
+    gate_price: f64,
+    surprisal_cap: f64,
     t: usize,
     arms: Vec<Arm>,
 }
@@ -32,9 +29,8 @@ impl Default for DGE {
     fn default() -> Self {
         Self {
             m: 100.0,
-            lambda: 0.1,
-            saturation: 10.0,
-            temp: 1.0 / 5000.0,
+            gate_price: 0.1,
+            surprisal_cap: 10.0,
             t: 0,
             arms: vec![],
         }
@@ -75,39 +71,43 @@ impl Bandit for DGE {
 
     fn pull(&mut self, rng: &mut impl Rng) -> usize {
         let means: Vec<f64> = self.arms.iter().map(|a| a.mean()).collect();
-        let temp_means: Vec<f64> = means.iter().map(|m| m / self.temp).collect();
-        let pi_host = softmax(&temp_means);
+        let (greedy, v) = means
+            .iter()
+            .enumerate()
+            .max_by(|(_, a), (_, b)| a.total_cmp(b))
+            .unwrap();
 
         let exploit = rng.gen_bool(1.0 - self.epsilon());
 
         if exploit {
-            let dist = WeightedIndex::new(&pi_host).unwrap();
-            return dist.sample(rng);
+            return greedy;
         }
 
-        let v = means.iter().max_by(|a, b| a.total_cmp(&b)).unwrap();
+        let mut gated: Vec<f64> = (0..self.arms.len())
+            .map(|i| {
+                if i == greedy {
+                    0.0
+                } else {
+                    let delight = self.surprisal_cap * expected_improvement(&self.arms[i], *v);
 
-        let neg_log_probs: Vec<f64> = pi_host.iter().map(|prob| -prob.ln()).collect();
-        let l_min = neg_log_probs.iter().min_by(|a, b| a.total_cmp(&b)).unwrap();
-
-        let expected_improvement = self.arms.iter().map(|a| expected_improvement(a, *v));
-
-        let ls = neg_log_probs
-            .iter()
-            .map(|log_prob| (log_prob - l_min).clamp(0.0, self.saturation));
-
-        let delights = expected_improvement.zip(ls).map(|(ei, l)| ei * l);
-
-        let mut gated: Vec<f64> = delights
-            .map(|d| if d >= self.lambda { d } else { 0.0 })
+                    if delight >= self.gate_price {
+                        delight
+                    } else {
+                        0.0
+                    }
+                }
+            })
             .collect();
 
         let sum: f64 = gated.iter().sum();
+
+        if sum == 0.0 {
+            return greedy;
+        }
+
         gated.iter_mut().for_each(|g| *g /= sum);
 
-        let policy = if sum == 0.0 { pi_host } else { gated };
-
-        let dist = WeightedIndex::new(&policy).unwrap();
+        let dist = WeightedIndex::new(&gated).unwrap();
         return dist.sample(rng);
     }
 }
